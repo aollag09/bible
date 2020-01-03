@@ -4,7 +4,18 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
-allprojects{
+
+buildscript {
+    repositories{
+        jcenter()
+        mavenCentral()
+    }
+    dependencies{
+            classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.11'
+    }
+}
+
+allprojects{    
     repositories{
         jcenter()
     }

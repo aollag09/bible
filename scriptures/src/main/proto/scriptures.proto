@@ -1,0 +1,14 @@
+syntax = "proto3"
+
+package scriptures;
+
+option java_package = "com.bible.scriptures"
+
+message Scripture{
+    // St Jean, St Marc, Genesis, ...
+    required string book = 1;
+    required int32 chapter = 2;
+    required int32 fromVerse = 3;
+    optional int32 toVerse = 4;
+}
+
