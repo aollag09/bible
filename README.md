@@ -1,2 +1,2 @@
-# bible
+# Bible
 Bible Exploration
