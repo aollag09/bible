@@ -8,4 +8,5 @@
  */
 rootProject.name = 'bible'
 
-includeBuild("scriptures")
+include 'conf'
+include 'scriptures'
