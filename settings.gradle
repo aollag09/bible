@@ -8,5 +8,3 @@
  */
 rootProject.name = 'bible'
 
-include 'conf'
-include 'scriptures'
