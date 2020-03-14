@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/sql/bible_create_database.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/bible_version_key.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/key_abbreviations_english.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/key_english.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/key_genre_english.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/t_asv.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/t_bbe.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/t_dby.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/t_kjv.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/t_wbt.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/t_web.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/t_ylt.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sha256SumOutput" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/bible_create_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/bible_init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sha256SumOutput" beforeDir="false" afterPath="$PROJECT_DIR$/bible.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +23,52 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bible" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bible" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bible" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bible" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="docker" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bible" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="help" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bible" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="node" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="bible" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -57,7 +92,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/docker-compose.yml" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Docker.Docker Deployment">
+    <configuration name="bible [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="init" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="Docker Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -68,9 +122,14 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Docker.Docker Deployment" />
+      <item itemvalue="Gradle.bible [init]" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Docker.Docker Deployment" />
+        <item itemvalue="Gradle.bible [init]" />
       </list>
     </recent_temporary>
   </component>
@@ -93,17 +152,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
                 <item name="Compose: docker-compose.yml" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="database" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="crecerjuntos" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Docker" type="9fbbdea:ServiceModel$ServiceNode" />
-                <item name="crecerjuntos" type="9fbbdea:ServiceModel$ServiceNode" />
                 <item name="database" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
@@ -131,47 +179,68 @@
       <option name="project" value="LOCAL" />
       <updated>1584199310218</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Docker Compose up with MySQL Data">
+      <created>1584207635551</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1584207635551</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Bing Bang" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bing Bang" />
+    <MESSAGE value="Docker Compose up with MySQL Data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Docker Compose up with MySQL Data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="443" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584200543938">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="443" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584200543938" />
-    <state x="650" y="358" width="661" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584205703102">
+    <state x="650" y="358" width="661" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584208037584">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="650" y="358" width="661" height="388" key="#com.intellij.fileTypes.FileTypeChooser/51.27.1869.1053@51.27.1869.1053" timestamp="1584205703102" />
+    <state x="650" y="358" width="661" height="388" key="#com.intellij.fileTypes.FileTypeChooser/51.27.1869.1053@51.27.1869.1053" timestamp="1584208037584" />
     <state x="756" y="248" width="601" height="551" key="#docker-compose.yml:_Compose_Deployment" timestamp="1584200449406">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="756" y="248" width="601" height="551" key="#docker-compose.yml:_Compose_Deployment/51.27.1869.1053@51.27.1869.1053" timestamp="1584200449406" />
-    <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2" timestamp="1584199310103">
+    <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2" timestamp="1584207635448">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2/51.27.1869.1053@51.27.1869.1053" timestamp="1584199310103" />
-    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1584207516195">
+    <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2/51.27.1869.1053@51.27.1869.1053" timestamp="1584207635448" />
+    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1584207786231">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207516195" />
-    <state x="122" y="268" width="924" height="684" key="DBNavigator.ProjectSettingsDialog" timestamp="1584207044014">
+    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207786231" />
+    <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog" timestamp="1584207837174">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="122" y="268" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207044014" />
+    <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207837174" />
     <state x="788" y="397" width="384" height="310" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1584207521579">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="788" y="397" width="384" height="310" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207521579" />
-    <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog" timestamp="1584207524489">
+    <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog" timestamp="1584207806256">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207524489" />
+    <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207806256" />
     <state x="826" y="444" width="307" height="216" key="DockerComposeFileDialog" timestamp="1584200507451">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -180,14 +249,30 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="768" y="269" width="424" height="567" key="FileChooserDialogImpl/51.27.1869.1053@51.27.1869.1053" timestamp="1584200505896" />
+    <state width="1825" height="279" key="GridCell.Tab.0.bottom" timestamp="1584208175662">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="1825" height="279" key="GridCell.Tab.0.bottom/51.27.1869.1053@51.27.1869.1053" timestamp="1584208175662" />
+    <state width="1825" height="279" key="GridCell.Tab.0.center" timestamp="1584208175661">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="1825" height="279" key="GridCell.Tab.0.center/51.27.1869.1053@51.27.1869.1053" timestamp="1584208175661" />
+    <state width="1825" height="279" key="GridCell.Tab.0.left" timestamp="1584208175661">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="1825" height="279" key="GridCell.Tab.0.left/51.27.1869.1053@51.27.1869.1053" timestamp="1584208175661" />
+    <state width="1825" height="279" key="GridCell.Tab.0.right" timestamp="1584208175661">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="1825" height="279" key="GridCell.Tab.0.right/51.27.1869.1053@51.27.1869.1053" timestamp="1584208175661" />
     <state x="571" y="251" width="819" height="602" key="NewModule_or_Project.wizard" timestamp="1579116923318">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="571" y="251" width="819" height="602" key="NewModule_or_Project.wizard/51.27.1869.1053@51.27.1869.1053" timestamp="1579116923318" />
-    <state x="580" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1584199315452">
+    <state x="580" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1584207637642">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="580" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/51.27.1869.1053@51.27.1869.1053" timestamp="1584199315452" />
+    <state x="580" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/51.27.1869.1053@51.27.1869.1053" timestamp="1584207637642" />
     <state x="641" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1578593121807">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
