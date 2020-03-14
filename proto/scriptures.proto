@@ -1,44 +1,8 @@
 syntax = "proto3";
 
-package scriptures;
+import "version.proto";
 
-message Version {
-    int32 id = 1;
-    string table = 2; // Corresponding Bible version table name.
-    string abbreviation = 3; // Bible version abbreviation.
-    string language = 4; // Language translation.
-    string version = 5; // Version name.
-    string info_text = 6; // Extra info.
-    string info_url = 7; // Wiki info or similar URL
-    string publisher = 8; // Who published.
-    string copyright = 9; // Copyright
-    string copyright_info = 10; // More info on copyright.
-}
-
-message Book {
-    int32 id = 1;
-    string name = 2;
-    Group group = 3;
-    Genre genre = 4;
-    repeated string abbreviations = 5;
-}
-
-message Group {
-    int32 id = 1;
-    bool isNewTestament = 2;
-}
-
-enum Genre {
-    Unknown = 0;
-    Law = 1;
-    History = 2;
-    Wisdom = 3;
-    Prophets = 4;
-    Gospels = 5;
-    Acts = 6;
-    Epistles = 7;
-    Apocalyptic = 8;
-}
+package bible;
 
 message Scripture {
     /*Each verse is accessed by a unique key, the combination of the BOOK+CHAPTER+VERSE id.
@@ -47,6 +11,23 @@ message Scripture {
     int32 book = 2;
     int32 chapter = 3;
     int32 verse = 4;
-    string text = 5;
+    string scripture = 5;
 }
+
+message Scriptures {
+    map<int32, string> scriptures = 1;
+    int32 book = 2;
+    int32 chapter = 3;
+    int32 verse = 4;
+}
+
+message ScriptureList {
+    repeated Scripture scriptureList = 1;
+}
+
+message ScripturesList {
+    repeated Scriptures scripturesList = 1;
+}
+
+
 

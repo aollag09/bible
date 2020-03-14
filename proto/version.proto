@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package bible;
+
+message Version {
+    int32 id = 1;
+    string table = 2; // Corresponding Bible version table name.
+    string abbreviation = 3; // Bible version abbreviation.
+    string language = 4; // Language translation.
+    string version = 5; // Version name.
+    string info_text = 6; // Extra info.
+    string info_url = 7; // Wiki info or similar URL
+    string publisher = 8; // Who published.
+    string copyright = 9; // Copyright
+    string copyright_info = 10; // More info on copyright.
+}
