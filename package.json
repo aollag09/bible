@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/aollag09/bible#readme",
   "dependencies": {
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "typescript": "^3.8.3"
   }
 }
