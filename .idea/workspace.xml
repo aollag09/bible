@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/back/database.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proto/book.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proto/version.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bible.js" beforeDir="false" afterPath="$PROJECT_DIR$/bible.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/scriptures.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/scriptures.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +210,21 @@
       <option name="project" value="LOCAL" />
       <updated>1584210167490</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Split proto files">
+      <created>1584215662299</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1584215662299</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Type Script on">
+      <created>1584215694073</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1584215694073</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -242,7 +247,9 @@
     <MESSAGE value="Node JS connected to MySQL Database" />
     <MESSAGE value="Clean &amp; Format" />
     <MESSAGE value="Update proto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update proto" />
+    <MESSAGE value="Split proto files" />
+    <MESSAGE value="Type Script on" />
+    <option name="LAST_COMMIT_MESSAGE" value="Type Script on" />
   </component>
   <component name="WindowStateProjectService">
     <state x="443" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584200543938">
@@ -257,10 +264,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="756" y="248" width="601" height="551" key="#docker-compose.yml:_Compose_Deployment/51.27.1869.1053@51.27.1869.1053" timestamp="1584200449406" />
-    <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2" timestamp="1584215662200">
+    <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2" timestamp="1584215693902">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2/51.27.1869.1053@51.27.1869.1053" timestamp="1584215662200" />
+    <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2/51.27.1869.1053@51.27.1869.1053" timestamp="1584215693902" />
     <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1584209937193">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -317,10 +324,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="482" y="187" key="SettingsEditor/51.27.1869.1053@51.27.1869.1053" timestamp="1584214999054" />
-    <state x="580" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1584215665224">
+    <state x="580" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1584215696283">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="580" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/51.27.1869.1053@51.27.1869.1053" timestamp="1584215665224" />
+    <state x="580" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/51.27.1869.1053@51.27.1869.1053" timestamp="1584215696283" />
     <state x="641" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1578593121807">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
