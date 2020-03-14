@@ -1,0 +1,49 @@
+# docker-compose.yml
+version: '3'
+services:
+  database:
+    # Use latest official mysql version
+    image: "mysql:latest"
+    restart: always
+    container_name: "bible"
+
+    environment:
+      # Configure MySQL environment
+      MYSQL_DATABASE: 'bible'
+        # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'bible_user'
+        # You can use whatever password you like
+      MYSQL_PASSWORD: 'docker'
+        # Password for root access
+      MYSQL_ROOT_PASSWORD: 'docker'
+
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+
+    volumes:
+      # Persist data even if container shuts down
+      - database-data:/var/lib/postgresql/data/bible4
+
+      # Initialization db schema scripts
+      #- ./deployment/sql/bible_create_database.sql:/docker-entrypoint-initdb.d/bible_create_database.sql
+      - ./deployment/sql/bible_version_key.sql:/docker-entrypoint-initdb.d/bible_version_key.sql
+      - ./deployment/sql/key_abbreviations_english.sql:/docker-entrypoint-initdb.d/key_abbreviations_english.sql
+      - ./deployment/sql/key_english.sql:/docker-entrypoint-initdb.d/key_english.sql
+      - ./deployment/sql/key_genre_english.sql:/docker-entrypoint-initdb.d/key_genre_english.sql
+
+      # db Data
+      - ./deployment/sql/t_web.sql:/docker-entrypoint-initdb.d/t_web.sql
+      - ./deployment/sql/t_asv.sql:/docker-entrypoint-initdb.d/t_asv.sql
+      - ./deployment/sql/t_dby.sql:/docker-entrypoint-initdb.d/t_dby.sql
+      - ./deployment/sql/t_bbe.sql:/docker-entrypoint-initdb.d/t_bbe.sql
+      - ./deployment/sql/t_ylt.sql:/docker-entrypoint-initdb.d/t_ylt.sql
+      - ./deployment/sql/t_wbt.sql:/docker-entrypoint-initdb.d/t_wbt.sql
+      - ./deployment/sql/t_kjv.sql:/docker-entrypoint-initdb.d/t_kjv.sql
+
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
+  
