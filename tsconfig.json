@@ -1,9 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "module": "CommonJS",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
     "strict": true,
-    "module": "es2015",
-    "moduleResolution": "node",
-    "outDir": "out"
-  }
+    "moduleResolution": "Node",
+    "outDir": "build/js"
+  },
+  "include": [
+    "back/**/*",
+    "front/**/*",
+    "test/**/*"
+  ]
 }
