@@ -1,5 +1,3 @@
-import { connect } from "http2";
-
 var mysql = require('mysql');
 
 export class Database {
@@ -13,10 +11,12 @@ export class Database {
   /** Password of the database to connect with */
   static password: String = "docker";
 
+  /** Time out for sql query : 40 seconds*/
+  static timeout: number = 40000;
+
   /** Database object connection */
   private db: any;
 
-  /** Connected status flag */
   /** Connected status flag */
   private connected: boolean = false;
 
@@ -31,59 +31,55 @@ export class Database {
     this.db.connect(function isConnected(error: any) {
       if (error)
         throw error;
-      else
-        console.log("Connection is successfull with the bible database");
     });
     this.connected = true;
   }
 
   /**
- * @returns true if it is connected to the database
- */
+   * @returns true if it is connected to the database
+   */
   public isConnected(): boolean {
     return this.connected;
   }
 
   /**
-   * Query the input syntax to the database
+   * Query the input syntax to the database with input parameters if required.
+   * All parameters can be placed with the following caracter : "?" 
+   * ex: queryParameters( "select ? from ?", ["pasta", "plates"] )
    * @param syntax query syntax
    * @returns the result of the query
    */
   public query(syntax: String): String {
-    return this.db.query(syntax);
+    var output: String = "";
+
+    // Extract parameters from input arguments
+    var parameters = new Array(arguments.length - 1);
+    for (var i = 1; i < arguments.length; i++)
+      parameters[i - 1] = arguments[i];
+
+    // Run the query
+    this.db.query(
+      {
+        sql: syntax,
+        timeout: Database.timeout
+      },
+      parameters,
+      function (error: any, results: String, fields: String) {
+        if (error)
+          throw error;
+        else
+          output = results;
+      });
+    return output;
   }
 
-  /**
-   * Query the input syntax to the database with the associated input parameters
-   * All parameters can be placed with the following caracter : "{}" 
-   * ex: queryParameters( "select {} from {}", "pasta", "plates")
-   * @param syntax query syntax
-   * @param parameters parameters values to remplace in the query syntax
-   * @returns the result of the query
-   */
-  public queryParameters(syntax: String): String {
-    var parameteredSyntax: String = syntax;
-    for (var i = 1; i < arguments.length; i++) {
-      parameteredSyntax.replace("{}", arguments[i]);
-    }
-    return this.query(parameteredSyntax);
-  }
-
-  /**
-   * End the database connection
-   */
+  /** End the database connection */
   public end(): void {
     this.db.end(function (error: any) {
       if (error)
         throw error;
-      else
-        console.log("Connection is successfull terminated");
     });
+    this.connected = false;
   }
 
 }
-
-
-
-
-
