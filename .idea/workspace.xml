@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/schema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/database.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/databaseTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/databaseTest.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,6 +231,16 @@
     <option name="localTasksCounter" value="8" />
     <servers />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -280,18 +294,18 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207837174" />
-    <state x="788" y="397" width="384" height="310" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1584207521579">
+    <state x="788" y="397" width="384" height="310" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1584315109086">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="788" y="397" width="384" height="310" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207521579" />
-    <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog" timestamp="1584207806256">
+    <state x="788" y="397" width="384" height="310" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584315109086" />
+    <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog" timestamp="1584315399297">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207806256" />
-    <state x="151" y="125" width="1669" height="855" key="DiffContextDialog" timestamp="1584214939125">
+    <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584315399297" />
+    <state x="151" y="125" width="1669" height="855" key="DiffContextDialog" timestamp="1584318578655">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="151" y="125" width="1669" height="855" key="DiffContextDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584214939125" />
+    <state x="151" y="125" width="1669" height="855" key="DiffContextDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584318578655" />
     <state x="826" y="444" width="307" height="216" key="DockerComposeFileDialog" timestamp="1584200507451">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -316,6 +330,38 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state width="1825" height="279" key="GridCell.Tab.0.right/51.27.1869.1053@51.27.1869.1053" timestamp="1584208175661" />
+    <state width="158" height="60" key="LargeValuePreview.abbreviation" timestamp="1584315102630">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="158" height="60" key="LargeValuePreview.abbreviation/51.27.1869.1053@51.27.1869.1053" timestamp="1584315102630" />
+    <state width="139" height="60" key="LargeValuePreview.copyright" timestamp="1584315115647">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="139" height="60" key="LargeValuePreview.copyright/51.27.1869.1053@51.27.1869.1053" timestamp="1584315115647" />
+    <state width="171" height="60" key="LargeValuePreview.copyright_info" timestamp="1584315119362">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="171" height="60" key="LargeValuePreview.copyright_info/51.27.1869.1053@51.27.1869.1053" timestamp="1584315119362" />
+    <state width="464" height="108" key="LargeValuePreview.info_url" timestamp="1584315113592">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="464" height="108" key="LargeValuePreview.info_url/51.27.1869.1053@51.27.1869.1053" timestamp="1584315113592" />
+    <state width="136" height="60" key="LargeValuePreview.language" timestamp="1584315104405">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="136" height="60" key="LargeValuePreview.language/51.27.1869.1053@51.27.1869.1053" timestamp="1584315104405" />
+    <state width="137" height="60" key="LargeValuePreview.publisher" timestamp="1584315114606">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="137" height="60" key="LargeValuePreview.publisher/51.27.1869.1053@51.27.1869.1053" timestamp="1584315114606" />
+    <state width="111" height="60" key="LargeValuePreview.table" timestamp="1584315134833">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="111" height="60" key="LargeValuePreview.table/51.27.1869.1053@51.27.1869.1053" timestamp="1584315134833" />
+    <state width="232" height="60" key="LargeValuePreview.version" timestamp="1584315109136">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state width="232" height="60" key="LargeValuePreview.version/51.27.1869.1053@51.27.1869.1053" timestamp="1584315109136" />
     <state x="571" y="251" width="819" height="602" key="NewModule_or_Project.wizard" timestamp="1579116923318">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
