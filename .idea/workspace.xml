@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/back/version/versionDAL.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/versionTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/scriptures/scriptures.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/scriptures/scriptures.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/version/version.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/version/version.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/scriptures/scriptures.proto" beforeDir="false" afterPath="$PROJECT_DIR$/back/scriptures/scriptures.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

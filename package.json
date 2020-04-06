@@ -31,6 +31,10 @@
     "mocha": "^7.1.0",
     "mysql": "^2.18.1",
     "require": "^2.4.20",
+    "ts-protoc-gen": "^0.12.0",
     "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/google-protobuf": "^3.7.2"
   }
 }
