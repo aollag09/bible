@@ -14,11 +14,12 @@ export class VersionDAL {
     /** Database query object */
     private database: Database;
 
-    constructor(){
+    constructor() {
         this.database = new Database()
     }
 
-    public list():any {
+    public list(): any {
+
         //this.database.query("select ? from ?", ["*", VersionDAL.TABLE_VERSION],)
     }
 
