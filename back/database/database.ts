@@ -18,7 +18,7 @@ export class Database {
   static timeout: number = 40000;
 
   /** Database object connection */
-  private db: any;
+  private connection: any;
 
   /** Connected status flag */
   private connected: boolean = false;
@@ -29,20 +29,24 @@ export class Database {
 
   /** Connect to the database */
   public connect(): void {
-    if (!this.connected) {
-      // Create MySQL Database connection 
-      this.db = mysql.createConnection({
-        host: Database.hostname,
-        user: Database.user,
-        password: Database.password,
-        database: Database.database
-      });
-      // Connect to the MySQL Database 
-      this.db.connect(function isConnected(error: any) {
-        if (error)
-          throw error;
-      });
-      this.connected = true;
+    try {
+      if (!this.connected) {
+        // Create MySQL Database connection 
+        this.connection = mysql.createConnection({
+          host: Database.hostname,
+          user: Database.user,
+          password: Database.password,
+          database: Database.database
+        });
+        // Connect to the MySQL Database 
+        this.connection.connect(function isConnected(error: any) {
+          if (error)
+            throw error;
+        });
+        this.connected = true;
+      }
+    } catch (error) {
+      throw new Error(error);
     }
   }
 
@@ -59,7 +63,7 @@ export class Database {
    */
   public run(sql: String): void {
     // Run the query
-    this.db.query(
+    this.connection.query(
       {
         sql: sql,
         timeout: Database.timeout
@@ -78,7 +82,7 @@ export class Database {
    */
   public query(sql: String, output: Function): void {
     // Run the query
-    this.db.query(
+    this.connection.query(
       {
         sql: sql,
         timeout: Database.timeout
@@ -99,7 +103,7 @@ export class Database {
   public parametrizedQuery(sql: String, parameters: Array<String>, output: Function): void {
 
     // Run the query
-    this.db.query(
+    this.connection.query(
       {
         sql: sql,
         timeout: Database.timeout
@@ -111,11 +115,12 @@ export class Database {
 
   /** End the database connection */
   public end(): void {
-    this.db.end(function (error: any) {
+    this.connection.end(function (error: any) {
       if (error)
         throw error;
     });
     this.connected = false;
   }
+
 
 }
