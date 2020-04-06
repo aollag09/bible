@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+var mysql = require('mysql2');
 
 export class Database {
 
@@ -92,10 +92,11 @@ export class Database {
     );
   }
 
+  /** Excecute sql query with imediate return */
   public async execute(sql: String) {
     const [rows, fields] = await this.connection.execute(sql)
-    console.log(rows)
-    return fields;
+    console.log(JSON.stringify(rows, null, 4)); 
+    console.log(JSON.stringify(fields, null, 4)); 
   }
 
   /**

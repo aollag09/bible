@@ -72,13 +72,14 @@ export class VersionDAL {
                     version.setTable(row.table)
                     version.setVersion(row.version)
                     versions.push(version)
+                    console.log(JSON.stringify(version))
                 });
             });
         return versions;
     }
 
     public try(id: number) {
-        this.database.execute( this.selectVersions())
+        this.database.execute(this.selectVersions())
     }
 
 }

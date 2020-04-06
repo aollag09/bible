@@ -29,7 +29,7 @@
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.9.1",
     "mocha": "^7.1.0",
-    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
     "require": "^2.4.20",
     "ts-protoc-gen": "^0.12.0",
     "typescript": "^3.8.3"
