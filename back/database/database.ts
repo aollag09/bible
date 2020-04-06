@@ -92,6 +92,12 @@ export class Database {
     );
   }
 
+  public async execute(sql: String) {
+    const [rows, fields] = await this.connection.execute(sql)
+    console.log(rows)
+    return fields;
+  }
+
   /**
    * Query the input syntax to the database with input parameters if required.
    * All parameters can be placed with the following caracter : "?" 

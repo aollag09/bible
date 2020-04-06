@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/back/version/version.ts" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/tmp.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/version/versionDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/version/versionDAL.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/versionTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/test/versionTest.ts" afterDir="false" />
     </list>
