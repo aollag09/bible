@@ -80,7 +80,7 @@ export class Database {
    * @param sql the sql query
    * @param output the ouput function with fields (error, result, fields)
    */
-  public query(sql: String, output: Function): void {
+  public queryNP(sql: String, output: Function): void {
     // Run the query
     this.connection.query(
       {
@@ -100,7 +100,7 @@ export class Database {
    * @param parameters the parameters of the sql query
    * @param output output function with the fields (error, result, fields)
    */
-  public parametrizedQuery(sql: String, parameters: Array<String>, output: Function): void {
+  public query(sql: String, parameters: Array<String>, output: Function): void {
 
     // Run the query
     this.connection.query(
@@ -121,6 +121,5 @@ export class Database {
     });
     this.connected = false;
   }
-
 
 }

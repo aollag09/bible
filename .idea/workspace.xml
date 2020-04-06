@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/back/scriptures.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/back/version.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/scripturesTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/database.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/version/versionDAL.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/versionTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/scriptures/scriptures.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/scriptures/scriptures.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/version/version.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/version/version.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

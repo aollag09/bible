@@ -1,7 +1,7 @@
 /**
  * Scriptures object to enable query over scriptures data
  */
-export class Scriptures {
+export class ScriptureDAL {
 
     private version: String;
 
@@ -13,7 +13,6 @@ export class Scriptures {
     /** Return the associated verse in the specific traduction */
     public get(id: String) {
         
-
     }
 
 }
