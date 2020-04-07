@@ -5,11 +5,14 @@ PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
 
 # Directory to write generated code to (.js and .d.ts files)
 TS_OUT="./back"
-JS_OUT="./build/js/back"
+JS_OUT="./build/js"
+mkdir -p $TS_OUT
+mkdir -p $JS_OUT
 
 # Look for proto files in back
 PROTO_FILES=$(find ./back -name "*.proto")
 echo "Generating all proto files ... "
+echo $PROTO_FILES
 
 protoc \
     --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" \

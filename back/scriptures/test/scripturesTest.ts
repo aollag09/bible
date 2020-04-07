@@ -1,7 +1,7 @@
+import { ScriptureDAL } from "../scriptureDAL";
+
 var assert = require('assert');
 
-import { Database } from "../back/database/database";
-import { ScriptureDAL } from "../back/scriptures/scriptureDAL";
 
 describe('Get Verses', function () {
   describe('#getById', function () {

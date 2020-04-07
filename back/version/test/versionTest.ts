@@ -1,8 +1,8 @@
 var assert = require('assert');
 
-import { Version } from "../back/version/version_pb";
-import { VersionDAL } from "../back/version/versionDAL";
-import { Database } from "../back/database/database";
+import { Version } from "../version_pb";
+import { VersionDAL } from "../versionDAL";
+import { Database } from "../../database/database";
 
 describe('Version Protobuf object', function () {
     describe('#buildVersion', function () {

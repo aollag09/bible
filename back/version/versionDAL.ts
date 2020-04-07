@@ -7,9 +7,6 @@ import { SQLUtils } from "../utils/SQLUtils";
  */
 export class VersionDAL {
 
-    /** Version table */
-    private static TABLE_VERSION = "bible_version_key";
-
     /** Version selectables */
     private static SELECTABLE_ABBREVIATION = "abbreviation";
     private static SELECTABLE_COPYRIGHT = "copyright";

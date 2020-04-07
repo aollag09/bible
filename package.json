@@ -4,8 +4,8 @@
   "description": "Bible Web Exploration Project",
   "main": "bible.js",
   "scripts": {
-    "test": "mocha 'build/js/test/**/*.js' --exit",
-    "build": "tsc"
+    "test": "mocha 'build/js/**/test/**/*.js' --exit",
+    "build": "./proto.sh && tsc"
   },
   "repository": {
     "type": "git",

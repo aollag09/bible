@@ -1,7 +1,7 @@
-var assert = require('assert');
+import { Database } from "../database";
+import { Schema } from "../schema";
 
-import { Database } from "../back/database/database";
-import { Schema } from "../back/database/schema";
+var assert = require('assert');
 
 describe('Database', function () {
 
