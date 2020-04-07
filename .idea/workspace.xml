@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/back/book/bookDAL.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/version/versionDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/version/versionDAL.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/book/book.proto" beforeDir="false" afterPath="$PROJECT_DIR$/back/book/book.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/book/bookDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/book/bookDAL.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/book/book_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/book/book_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/book/test/bookTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/book/test/bookTest.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,18 +286,18 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584209937193" />
-    <state x="710" y="284" width="540" height="541" key="DBNavigator.ExportDataDialog" timestamp="1586019203546">
+    <state x="710" y="284" width="540" height="541" key="DBNavigator.ExportDataDialog" timestamp="1586265992391">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="710" y="284" width="540" height="541" key="DBNavigator.ExportDataDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586019203546" />
+    <state x="710" y="284" width="540" height="541" key="DBNavigator.ExportDataDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586265992391" />
     <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog" timestamp="1584207837174">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584207837174" />
-    <state x="788" y="397" width="495" height="317" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1586264549175">
+    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1586266572525">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="788" y="397" width="495" height="317" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586264549175" />
+    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586266572525" />
     <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog" timestamp="1586263513405">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -352,10 +354,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state width="136" height="60" key="LargeValuePreview.language/51.27.1869.1053@51.27.1869.1053" timestamp="1584315104405" />
-    <state width="108" height="60" key="LargeValuePreview.n" timestamp="1586264569494">
+    <state width="108" height="60" key="LargeValuePreview.n" timestamp="1586266573704">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state width="108" height="60" key="LargeValuePreview.n/51.27.1869.1053@51.27.1869.1053" timestamp="1586264569494" />
+    <state width="108" height="60" key="LargeValuePreview.n/51.27.1869.1053@51.27.1869.1053" timestamp="1586266573704" />
     <state width="137" height="60" key="LargeValuePreview.publisher" timestamp="1584315114606">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>

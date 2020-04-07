@@ -1,22 +1,111 @@
+import { Book, GenreMap, Genre } from "./book_pb";
+import { Database } from "../database/database";
 
 export class BookDAL {
 
+    private database: Database;
 
-    private sqlSelectBook(): String {
+    constructor(db: Database) {
+        this.database = db;
+    }
+
+    private sqlSelectBook(): string {
         return `
         select
             ke.b,
             ke.n,
             ke.t,
-            kae.a,
-            kae.p,
-            kge.n
+            ke.g,
+            kae.a
         from
             key_english ke
         left join 
-            key_abbreviations_english kae on ke.b = kae.b
-        left join 
-            key_genre_english kge on ke.g = kge.g
-        `
+            key_abbreviations_english kae on ke.b = kae.b`
     }
+
+    /**
+     * List all book in database
+     */
+    public async list(): Promise<Book[]> {
+        let books: Array<Book> = Array()
+        let rows = await this.database.select(this.sqlSelectBook())
+        books = this.extractBooks(rows)
+        return books;
+    }
+
+    public async withId(id: number): Promise<Book | undefined> {
+        const row = await this.database.select([
+            this.sqlSelectBook(),
+            "where",
+            "ke.b",
+            "=",
+            id
+        ].join(" "))
+        return this.extractBooks(row)[0]
+    }
+
+    private extractBooks(rows: Map<string, string>[]): Book[] {
+        let books: Map<Number, Book> = new Map()
+        rows.forEach(row => {
+            let bookId = parseInt(row.get("b")!)
+            if (!books.has(bookId)) {
+                // Create the current book
+                let book = new Book()
+                book.setId(bookId)
+                this.extractGenreFromNumber(book, parseInt(row.get("g")!))
+                book.setName(row.get("n")!)
+                book.setIsnt(row.get("t")! == "NT")
+                book.getAbbreviationsList().push(row.get("a")!)
+                books.set(bookId, book)
+            } else {
+                // Book already created, just add the new abbreviation
+                let book = books.get(bookId)
+                book!.getAbbreviationsList().push(row.get("a")!)
+            }
+        });
+        return Array.from(books.values())
+    }
+
+    private extractGenreFromString(book: Book, genre: string) {
+        if (genre == "Law")
+            book.setGenre(Genre.LAW)
+        else if (genre == "History")
+            book.setGenre(Genre.HISTORY)
+        else if (genre == "Wisdom")
+            book.setGenre(Genre.WISDOM)
+        else if (genre == "Prophets")
+            book.setGenre(Genre.PROPHETS)
+        else if (genre == "Gospels")
+            book.setGenre(Genre.GOSPELS)
+        else if (genre == "Acts")
+            book.setGenre(Genre.ACTS)
+        else if (genre == "Epistles")
+            book.setGenre(Genre.EPISTLES)
+        else if (genre == "Apocalyptic")
+            book.setGenre(Genre.APOCALYPTIC)
+        else
+            book.setGenre(Genre.UNKNOWN)
+    }
+
+    private extractGenreFromNumber(book: Book, genre: number) {
+        if (genre == 1)
+            book.setGenre(Genre.LAW)
+        else if (genre == 2)
+            book.setGenre(Genre.HISTORY)
+        else if (genre == 3)
+            book.setGenre(Genre.WISDOM)
+        else if (genre == 4)
+            book.setGenre(Genre.PROPHETS)
+        else if (genre == 5)
+            book.setGenre(Genre.GOSPELS)
+        else if (genre == 6)
+            book.setGenre(Genre.ACTS)
+        else if (genre == 7)
+            book.setGenre(Genre.EPISTLES)
+        else if (genre == 8)
+            book.setGenre(Genre.APOCALYPTIC)
+        else
+            book.setGenre(Genre.UNKNOWN)
+    }
+
 }

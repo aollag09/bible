@@ -5,14 +5,9 @@ package bible;
 message Book {
     int32 id = 1;
     string name = 2;
-    Group group = 3;
+    bool isNT = 3;
     Genre genre = 4;
     repeated string abbreviations = 5;
-}
-
-message Group {
-    int32 id = 1;
-    bool isNewTestament = 2;
 }
 
 enum Genre {

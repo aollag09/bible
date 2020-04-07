@@ -10,10 +10,8 @@ export class Book extends jspb.Message {
   getName(): string;
   setName(value: string): void;
 
-  hasGroup(): boolean;
-  clearGroup(): void;
-  getGroup(): Group | undefined;
-  setGroup(value?: Group): void;
+  getIsnt(): boolean;
+  setIsnt(value: boolean): void;
 
   getGenre(): GenreMap[keyof GenreMap];
   setGenre(value: GenreMap[keyof GenreMap]): void;
@@ -37,33 +35,9 @@ export namespace Book {
   export type AsObject = {
     id: number,
     name: string,
-    group?: Group.AsObject,
+    isnt: boolean,
     genre: GenreMap[keyof GenreMap],
     abbreviationsList: Array<string>,
-  }
-}
-
-export class Group extends jspb.Message {
-  getId(): number;
-  setId(value: number): void;
-
-  getIsnewtestament(): boolean;
-  setIsnewtestament(value: boolean): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Group.AsObject;
-  static toObject(includeInstance: boolean, msg: Group): Group.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Group, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Group;
-  static deserializeBinaryFromReader(message: Group, reader: jspb.BinaryReader): Group;
-}
-
-export namespace Group {
-  export type AsObject = {
-    id: number,
-    isnewtestament: boolean,
   }
 }
 
