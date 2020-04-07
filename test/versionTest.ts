@@ -38,24 +38,41 @@ describe('Versions Data Access Layer Tests', function () {
         });
     });
 
-    describe('#getById', function () {
+    describe('#withId', function () {
 
         it('get 1', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
-            let version = await versionDAL.get(1);
+            let version = await versionDAL.withId(1);
             assert.equal("ASV",version?.getAbbreviation())
         });
 
         it('get 2', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
-            let version = await versionDAL.get(2);
+            let version = await versionDAL.withId(2);
             assert.equal("BBE",version?.getAbbreviation())
         });
 
         it('get 0 non existing', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
-            let version = await versionDAL.get(0);
+            let version = await versionDAL.withId(0);
             assert.equal(undefined,version)
+        });
+
+    });
+
+
+    describe('#withLanguage', function () {
+
+        it('get English', async function () {
+            let versionDAL: VersionDAL = new VersionDAL(new Database());
+            let versions = await versionDAL.withLanguage("english");
+            assert.equal(7, versions.length)
+        });
+        
+        it('get French', async function () {
+            let versionDAL: VersionDAL = new VersionDAL(new Database());
+            let versions = await versionDAL.withLanguage("french");
+            assert.equal(0, versions.length)
         });
 
     });

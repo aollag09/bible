@@ -1,5 +1,6 @@
 import { Database } from "../database/database";
 import { Version } from "./version_pb";
+import { SQLUtils } from "../utils/SQLUtils";
 
 /**
  * Data Access Layer for availables Bible Versions
@@ -58,10 +59,27 @@ export class VersionDAL {
         return versions;
     }
 
-    public async get(id: number): Promise<Version | undefined> {
+    public async withLanguage(language: string): Promise<Array<Version>> {
+        let versions = new Array<Version>()
+        const rows = await this.database.select([
+            this.sqlSelectVersion(),
+            "where",
+            VersionDAL.SELECTABLE_LANGUAGE,
+            "=",
+            SQLUtils.quote(language)
+        ].join(" "))
+        rows.forEach(row => {
+            versions.push(this.extractVersion(row))
+        })
+        return versions;
+    }
+
+    public async withId(id: number): Promise<Version | undefined> {
         const row = await this.database.select([
             this.sqlSelectVersion(),
-            "where id =",
+            "where",
+            VersionDAL.SELECTABLE_ID,
+            "=",
             id
         ].join(" "))
         if (row.length != 1)
