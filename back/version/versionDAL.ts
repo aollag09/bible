@@ -49,7 +49,18 @@ export class VersionDAL {
             bible_version_key bvk`
     }
 
+    /**
+     * Return the default bible version
+     * The default version is ASV
+     */
+    public async getDefault(): Promise<Version> {
+        let version = await this.withAbbreviation(VersionDAL.DEFAULT_ENGLISH);
+        return version!;
+    }
 
+    /**
+     * Retrieve the entire list of existing bible versions in the database
+     */
     public async list(): Promise<Array<Version>> {
         let versions = new Array<Version>()
         let rows = await this.database.select(this.sqlSelectVersion())
@@ -59,6 +70,10 @@ export class VersionDAL {
         return versions;
     }
 
+    /**
+     * Get the list of existing bible versions from the language
+     * @param language 
+     */
     public async withLanguage(language: string): Promise<Array<Version>> {
         let versions = new Array<Version>()
         const rows = await this.database.select([
@@ -74,6 +89,28 @@ export class VersionDAL {
         return versions;
     }
 
+    /**
+     * Get the Bible version from the abbreviation
+     * @param abbreviation 
+     */
+    public async withAbbreviation(abbreviation: string): Promise<Version | undefined> {
+        const row = await this.database.select([
+            this.sqlSelectVersion(),
+            "where",
+            VersionDAL.SELECTABLE_ABBREVIATION,
+            "=",
+            SQLUtils.quote(abbreviation)
+        ].join(" "))
+        if (row.length != 1)
+            return undefined
+        else
+            return this.extractVersion(row[0])
+    }
+
+    /**
+     * Get the Bible version from its unique identifier
+     * @param id 
+     */
     public async withId(id: number): Promise<Version | undefined> {
         const row = await this.database.select([
             this.sqlSelectVersion(),

@@ -43,19 +43,19 @@ describe('Versions Data Access Layer Tests', function () {
         it('get 1', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let version = await versionDAL.withId(1);
-            assert.equal("ASV",version?.getAbbreviation())
+            assert.equal("ASV", version?.getAbbreviation())
         });
 
         it('get 2', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let version = await versionDAL.withId(2);
-            assert.equal("BBE",version?.getAbbreviation())
+            assert.equal("BBE", version?.getAbbreviation())
         });
 
         it('get 0 non existing', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let version = await versionDAL.withId(0);
-            assert.equal(undefined,version)
+            assert.equal(undefined, version)
         });
 
     });
@@ -68,11 +68,39 @@ describe('Versions Data Access Layer Tests', function () {
             let versions = await versionDAL.withLanguage("english");
             assert.equal(7, versions.length)
         });
-        
+
         it('get French', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let versions = await versionDAL.withLanguage("french");
             assert.equal(0, versions.length)
+        });
+
+    });
+
+
+    describe('#withAbbreviation', function () {
+
+        it('get ASV', async function () {
+            let versionDAL: VersionDAL = new VersionDAL(new Database());
+            let version = await versionDAL.withAbbreviation("ASV");
+            assert.equal("ASV", version!.getAbbreviation())
+        });
+
+        it('get TOTO', async function () {
+            let versionDAL: VersionDAL = new VersionDAL(new Database());
+            let version = await versionDAL.withAbbreviation("TOTO");
+            assert.equal(undefined, version)
+        });
+
+    });
+
+
+    describe('#getDefault', function () {
+
+        it('get Default Version : ASV', async function () {
+            let versionDAL: VersionDAL = new VersionDAL(new Database());
+            let version = await versionDAL.getDefault();
+            assert.equal("ASV", version!.getAbbreviation())
         });
 
     });
