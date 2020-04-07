@@ -80,8 +80,8 @@ export class VersionDAL {
         version.setInfoUrl(row.get(VersionDAL.SELECTABLE_INFO_URL)!)
         version.setLanguage(row.get(VersionDAL.SELECTABLE_LANGUAGE)!)
         version.setPublisher(row.get(VersionDAL.SELECTABLE_PUBLISHER)!)
-        version.setTable(row.get(VersionDAL.SELECTABLE_PUBLISHER)!)
-        version.setVersion(row.get(VersionDAL.TABLE_VERSION)!)
+        version.setTable(row.get(VersionDAL.SELECTABLE_TABLE)!)
+        version.setVersion(row.get(VersionDAL.SELECTABLE_VERSION)!)
         return version
     }
 
