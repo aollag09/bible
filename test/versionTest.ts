@@ -34,9 +34,5 @@ describe('Versions Data Access Layer Tests', function () {
             let versionDAL: VersionDAL = new VersionDAL();
             let list = versionDAL.list();
         });
-        it('Try', function () {
-            let versionDAL: VersionDAL = new VersionDAL();
-            versionDAL.try(0);
-        });
     });
 });

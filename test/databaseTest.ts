@@ -10,29 +10,13 @@ describe('Database', function () {
       var database: Database = new Database();
       assert.equal(database.isConnected(), true);
     });
-
-    it('Check database deconnection', function () {
-      var database: Database = new Database();
-      assert.equal(database.isConnected(), true);
-      database.end();
-      assert.equal(database.isConnected(), false);
-    });
-
-    it('Check database reconnection', function () {
-      var database: Database = new Database();
-      assert.equal(database.isConnected(), true);
-      database.end();
-      assert.equal(database.isConnected(), false);
-      database.connect();
-      assert.equal(database.isConnected(), true);
-    });
   });
 
   // Simple Query
   describe('#query()', function () {
     it('Run simple query', function () {
       var database: Database = new Database();
-      database.run("SELECT * FROM " + Schema.TABLE_VERSION);
+      database.query("SELECT * FROM " + Schema.TABLE_VERSION);
     });
   });
 

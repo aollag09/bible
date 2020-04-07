@@ -7,7 +7,7 @@ import { Version } from "./version_pb";
 export class VersionDAL {
 
     /** Version table */
-    private static TABLE_VERSION: String = "bible_version_key";
+    private static TABLE_VERSION = "bible_version_key";
 
     /** Version selectables */
     private static SELECTABLE_ABBREVIATION = "abbreviation";
@@ -22,7 +22,7 @@ export class VersionDAL {
     private static SELECTABLE_VERSION = "version";
 
     /** Default english translation */
-    public static DEFAULT_ENGLISH: String = "ASV"
+    public static DEFAULT_ENGLISH = "ASV"
 
     /** Database query object */
     private database: Database;
@@ -31,7 +31,7 @@ export class VersionDAL {
         this.database = new Database()
     }
 
-    private selectVersions(): String {
+    private sqlSelectAllVersions(): string {
         return `
         select
             bvk.abbreviation,
@@ -50,36 +50,24 @@ export class VersionDAL {
             10000;`
     }
 
-    public list(): Array<Version> {
+    public async list(): Promise<Array<Version>> {
         let versions = new Array<Version>()
-        this.database.queryNP(this.selectVersions(),
-            function (error: any, results: any[], fields: any) {
-                if (error)
-                    throw error;
-
-                // Loop on results
-                Object.keys(results).forEach(function (key: any) {
-                    var row = results[key];
-                    let version = new Version()
-                    version.setAbbreviation(row.abbreviation)
-                    version.setCopyright(row.copyright)
-                    version.setCopyrightInfo(row.copyright_info)
-                    version.setId(row.id)
-                    version.setInfoText(row.info_text)
-                    version.setInfoUrl(row.info_url)
-                    version.setLanguage(row.language)
-                    version.setPublisher(row.publisher)
-                    version.setTable(row.table)
-                    version.setVersion(row.version)
-                    versions.push(version)
-                    console.log(JSON.stringify(version))
-                });
-            });
+        let rows = await this.database.select(this.sqlSelectAllVersions())
+        rows.forEach(row => {
+            let version = new Version()
+            version.setAbbreviation(row.get(VersionDAL.SELECTABLE_ABBREVIATION)!)
+            version.setCopyright(row.get(VersionDAL.SELECTABLE_COPYRIGHT)!)
+            version.setCopyrightInfo(row.get(VersionDAL.SELECTABLE_COPYRIGHT_INFO)!)
+            version.setId(parseInt(row.get(VersionDAL.SELECTABLE_ID)!))
+            version.setInfoText(row.get(VersionDAL.SELECTABLE_INFO_TEXT)!)
+            version.setInfoUrl(row.get(VersionDAL.SELECTABLE_INFO_URL)!)
+            version.setLanguage(row.get(VersionDAL.SELECTABLE_LANGUAGE)!)
+            version.setPublisher(row.get(VersionDAL.SELECTABLE_PUBLISHER)!)
+            version.setTable(row.get(VersionDAL.SELECTABLE_PUBLISHER)!)
+            version.setVersion(row.get(VersionDAL.TABLE_VERSION)!)
+            versions.push(version)
+        })
         return versions;
-    }
-
-    public try(id: number) {
-        this.database.execute(this.selectVersions())
     }
 
 }
