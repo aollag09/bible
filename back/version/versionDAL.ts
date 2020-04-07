@@ -27,11 +27,11 @@ export class VersionDAL {
     /** Database query object */
     private database: Database;
 
-    constructor() {
-        this.database = new Database()
+    constructor(db: Database) {
+        this.database = db;
     }
 
-    private sqlSelectAllVersions(): string {
+    private sqlSelectVersion(): string {
         return `
         select
             bvk.abbreviation,
@@ -45,29 +45,44 @@ export class VersionDAL {
             bvk.\`table\`,
             bvk.\`version\`
         from
-            bible_version_key bvk
-        limit
-            10000;`
+            bible_version_key bvk`
     }
+
 
     public async list(): Promise<Array<Version>> {
         let versions = new Array<Version>()
-        let rows = await this.database.select(this.sqlSelectAllVersions())
+        let rows = await this.database.select(this.sqlSelectVersion())
         rows.forEach(row => {
-            let version = new Version()
-            version.setAbbreviation(row.get(VersionDAL.SELECTABLE_ABBREVIATION)!)
-            version.setCopyright(row.get(VersionDAL.SELECTABLE_COPYRIGHT)!)
-            version.setCopyrightInfo(row.get(VersionDAL.SELECTABLE_COPYRIGHT_INFO)!)
-            version.setId(parseInt(row.get(VersionDAL.SELECTABLE_ID)!))
-            version.setInfoText(row.get(VersionDAL.SELECTABLE_INFO_TEXT)!)
-            version.setInfoUrl(row.get(VersionDAL.SELECTABLE_INFO_URL)!)
-            version.setLanguage(row.get(VersionDAL.SELECTABLE_LANGUAGE)!)
-            version.setPublisher(row.get(VersionDAL.SELECTABLE_PUBLISHER)!)
-            version.setTable(row.get(VersionDAL.SELECTABLE_PUBLISHER)!)
-            version.setVersion(row.get(VersionDAL.TABLE_VERSION)!)
-            versions.push(version)
+            versions.push(this.extractVersion(row))
         })
         return versions;
+    }
+
+    public async get(id: number): Promise<Version | undefined> {
+        const row = await this.database.select([
+            this.sqlSelectVersion(),
+            "where id =",
+            id
+        ].join(" "))
+        if (row.length != 1)
+            return undefined
+        else
+            return this.extractVersion(row[0])
+    }
+
+    private extractVersion(row: Map<string, string>): Version {
+        let version = new Version()
+        version.setAbbreviation(row.get(VersionDAL.SELECTABLE_ABBREVIATION)!)
+        version.setCopyright(row.get(VersionDAL.SELECTABLE_COPYRIGHT)!)
+        version.setCopyrightInfo(row.get(VersionDAL.SELECTABLE_COPYRIGHT_INFO)!)
+        version.setId(parseInt(row.get(VersionDAL.SELECTABLE_ID)!))
+        version.setInfoText(row.get(VersionDAL.SELECTABLE_INFO_TEXT)!)
+        version.setInfoUrl(row.get(VersionDAL.SELECTABLE_INFO_URL)!)
+        version.setLanguage(row.get(VersionDAL.SELECTABLE_LANGUAGE)!)
+        version.setPublisher(row.get(VersionDAL.SELECTABLE_PUBLISHER)!)
+        version.setTable(row.get(VersionDAL.SELECTABLE_PUBLISHER)!)
+        version.setVersion(row.get(VersionDAL.TABLE_VERSION)!)
+        return version
     }
 
 }
