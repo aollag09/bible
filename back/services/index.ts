@@ -1,3 +1,3 @@
-import bookRoutes from "./book/routes";
+import bookRoutes from "./book/bookRoutes";
 
 export default [...bookRoutes];
