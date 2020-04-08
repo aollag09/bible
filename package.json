@@ -4,7 +4,7 @@
   "description": "Bible Web Exploration Project",
   "main": "bible.js",
   "scripts": {
-    "test": "mocha 'build/js/**/test/**/*.js' --exit",
+    "test": "nyc mocha 'build/js/**/test/**/*.js' --exit",
     "build": "./proto.sh && tsc"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "@types/node": "^13.9.1",
     "mocha": "^7.1.0",
     "mysql2": "^2.1.0",
+    "nyc": "^15.0.1",
     "require": "^2.4.20",
     "ts-protoc-gen": "^0.12.0",
     "typescript": "^3.8.3"

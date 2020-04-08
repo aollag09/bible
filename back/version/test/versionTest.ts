@@ -3,6 +3,7 @@ var assert = require('assert');
 import { Version } from "../version_pb";
 import { VersionDAL } from "../versionDAL";
 import { Database } from "../../database/database";
+import { VersionSchema } from "../versionSchema";
 
 describe('Version Protobuf object', function () {
     describe('#buildVersion', function () {
@@ -103,5 +104,16 @@ describe('Versions Data Access Layer Tests', function () {
             assert.equal("ASV", version!.getAbbreviation())
         });
 
+    });
+});
+
+
+describe('Version Schema', function () {
+    describe('#getTableName', function () {
+        it('Build Version', async function () {
+            let versionDAL: VersionDAL = new VersionDAL(new Database());
+            let version = await versionDAL.getDefault();
+            assert.equal("t_asv", VersionSchema.getTableName(version))
+        });
     });
 });
