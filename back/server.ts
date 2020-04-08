@@ -31,7 +31,7 @@ applyMiddleware(errorHandlers, router)
 
 
 // Create the http server
-const { PORT = 3000 } = process.env;
+const { PORT = 3300 } = process.env;
 const server = http.createServer(router);
 
 server.listen(PORT, () =>
