@@ -10,6 +10,10 @@ message Book {
     repeated string abbreviations = 5;
 }
 
+message Books{
+    repeated Book books = 1;
+}
+
 enum Genre {
     Unknown = 0;
     Law = 1;

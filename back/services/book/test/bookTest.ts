@@ -2,6 +2,7 @@ import { BookDAL } from "../bookDAL";
 import { Database } from "../../database/database";
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import { Book } from "../book_pb";
 chai.use(chaiHttp);
 var assert = require('assert');
 
@@ -11,7 +12,7 @@ describe('Books Data Access Layer Tests', function () {
         it('List all existing books in the database', async function () {
             let bookDAL: BookDAL = new BookDAL(new Database());
             let list = await bookDAL.list();
-            assert.equal(66, list.length)
+            assert.equal(66, list.getBooksList().length)
         });
     });
 
@@ -98,15 +99,18 @@ describe('Books REST Services', function () {
     let application = require('../../../server');
     let path = "/bible/v1/book"
 
-
     describe('#GET', function () {
+
         it('Get book by id 1', async function () {
             let id = 1
 
             chai.request(application)
                 .get(path + "/" + id)
                 .then(res => {
-                    res.should.have.status(200);
+                    assert.equal(200, res.status)
+                    res.text
+                    //Book.deserializeBinary(new Uint8Array(res.))
+                    console.log(JSON.stringify(res))
                 });
         });
     });

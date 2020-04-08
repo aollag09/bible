@@ -23,4 +23,3 @@ export const serverError = (err: Error, res: Response, next: NextFunction) => {
   }
 }
 
-  

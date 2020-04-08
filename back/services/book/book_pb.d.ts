@@ -41,6 +41,28 @@ export namespace Book {
   }
 }
 
+export class Books extends jspb.Message {
+  clearBooksList(): void;
+  getBooksList(): Array<Book>;
+  setBooksList(value: Array<Book>): void;
+  addBooks(value?: Book, index?: number): Book;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Books.AsObject;
+  static toObject(includeInstance: boolean, msg: Books): Books.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Books, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Books;
+  static deserializeBinaryFromReader(message: Books, reader: jspb.BinaryReader): Books;
+}
+
+export namespace Books {
+  export type AsObject = {
+    booksList: Array<Book.AsObject>,
+  }
+}
+
 export interface GenreMap {
   UNKNOWN: 0;
   LAW: 1;

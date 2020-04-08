@@ -1,4 +1,4 @@
-import { Book, GenreMap, Genre } from "./book_pb";
+import { Book, GenreMap, Genre, Books } from "./book_pb";
 import { Database } from "../database/database";
 import { SQLUtils } from "../../utils/SQLUtils";
 
@@ -27,10 +27,14 @@ export class BookDAL {
     /**
      * List all book in database
      */
-    public async list(): Promise<Book[]> {
-        let books: Array<Book> = Array()
+    public async list(): Promise<Books> {
+        let bookArray: Array<Book> = Array()
         let rows = await this.database.select(this.sqlSelectBook())
-        books = this.extractBooks(rows)
+        bookArray = this.extractBooks(rows)
+        let books = new Books()
+        bookArray.forEach(element => {
+            books.getBooksList().push(element)
+        });
         return books;
     }
 
