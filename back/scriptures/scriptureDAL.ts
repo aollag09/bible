@@ -84,6 +84,19 @@ export class ScriptureDAL {
         return this.extractScriptureList(rows)
     }
 
+
+    /**
+     * Retrieve all the verses within a book and a chapter number
+     * @param book 
+     * @param chapter
+     */
+    public async withBookAndChapter(book: number, chapter: number): Promise<ScriptureList> {
+        let sql = this.sqlSelectVerse() +
+            ` where bible.b = ` + book + ` and bible.c = ` + chapter
+        let rows = await this.database.select(sql)
+        return this.extractScriptureList(rows)
+    }
+
     /** Scripture selectable */
     private sqlSelectVerse(): string {
         return `
