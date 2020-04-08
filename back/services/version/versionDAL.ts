@@ -1,6 +1,6 @@
 import { Database } from "../database/database";
 import { Version } from "./version_pb";
-import { SQLUtils } from "../utils/SQLUtils";
+import { SQLUtils } from "../../utils/SQLUtils";
 
 /**
  * Data Access Layer for availables Bible Versions

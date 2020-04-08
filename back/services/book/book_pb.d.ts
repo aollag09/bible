@@ -1,5 +1,5 @@
 // package: bible
-// file: book/book.proto
+// file: services/book/book.proto
 
 import * as jspb from "google-protobuf";
 
