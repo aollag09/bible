@@ -2,7 +2,8 @@ import { BookDAL } from "../bookDAL";
 import { Database } from "../../database/database";
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import { Book } from "../book_pb";
+import { Book, Books } from "../book_pb";
+import { Message } from "google-protobuf";
 chai.use(chaiHttp);
 var assert = require('assert');
 
@@ -99,7 +100,7 @@ describe('Books REST Services', function () {
     let application = require('../../../server');
     let path = "/bible/v1/book"
 
-    describe('#GET', function () {
+    describe('#/bible/v1/book/:id', function () {
 
         it('Get book by id 1', async function () {
             let id = 1
@@ -108,10 +109,27 @@ describe('Books REST Services', function () {
                 .get(path + "/" + id)
                 .then(res => {
                     assert.equal(200, res.status)
-                    res.text
-                    //Book.deserializeBinary(new Uint8Array(res.))
-                    console.log(JSON.stringify(res))
+                    let book = Book.deserializeBinary(Message.bytesAsU8(res.text))
+                    assert.equal(id, book.getId())
+                    assert.equal("Genesis", book.getName())
                 });
+
+        });
+    });
+
+    describe('#/bible/v1/book/', function () {
+
+        it('Get book by id 1', async function () {
+            let id = 1
+
+            chai.request(application)
+                .get(path)
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let books = Books.deserializeBinary(Message.bytesAsU8(res.text))
+                    assert.equal(66, books.getBooksList().length)
+                });
+
         });
     });
 });

@@ -4,6 +4,7 @@ import { Database } from "../database/database";
 import { Book } from "./book_pb";
 import { notFoundError, serverError } from "../../utils/ErrorHandler";
 import { checkIdParams } from "../../middleware/check";
+import { Message } from "google-protobuf";
 
 export default [
     {
@@ -11,7 +12,7 @@ export default [
         path: "/bible/v1/book/:id",
         method: "get",
         responseType: 'arraybuffer',
-        headers: {'Content-Type': 'application/protobuf'},
+        headers: { 'Content-Type': 'application/protobuf' },
         handler: [
             checkIdParams,
             async (req: Request, res: Response, next: NextFunction) => {
@@ -25,7 +26,7 @@ export default [
                     notFoundError()
                 } else {
                     res.status(200)
-                        .send(book.serializeBinary())
+                        .send(Message.bytesAsB64(book.serializeBinary()))
                 }
             }
         ]
@@ -36,13 +37,13 @@ export default [
         path: "/bible/v1/book/",
         method: "get",
         responseType: 'arraybuffer',
-        headers: {'Content-Type': 'application/protobuf'},
+        headers: { 'Content-Type': 'application/protobuf' },
         handler: [
             async (req: Request, res: Response, next: NextFunction) => {
                 let bookDAL = new BookDAL(new Database())
                 let books = await bookDAL.list()
                 res.status(200)
-                    .send(books.serializeBinary())
+                    .send(Message.bytesAsB64(books.serializeBinary()))
             }
         ]
     },
