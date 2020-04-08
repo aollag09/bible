@@ -12,20 +12,7 @@ message Scripture {
     string scripture = 5;
 }
 
-message Scriptures {
-    map<int32, string> scriptures = 1;
-    int32 book = 2;
-    int32 chapter = 3;
-    int32 verse = 4;
-}
-
 message ScriptureList {
     repeated Scripture scriptureList = 1;
 }
-
-message ScripturesList {
-    repeated Scriptures scripturesList = 1;
-}
-
-
 

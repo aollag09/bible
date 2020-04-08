@@ -103,4 +103,24 @@ describe('Scriptures Data Access Layer Tests', async function () {
         });
 
     });
+
+    describe('#withBook', async function () {
+        it('get book 1', async function () {
+            let scriptures = await scriptureDAL.withBook(1)
+            assert.equal(1533, scriptures?.getScripturelistList().length)
+            let scripture = scriptures.getScripturelistList()[0]
+            assert.equal(1, scripture?.getBook())
+            assert.equal(1, scripture?.getChapter())
+            assert.equal(1, scripture?.getVerse())
+        });
+
+        it('get book 23', async function () {
+            let scriptures = await scriptureDAL.withBook(23)
+            assert.equal(1292, scriptures?.getScripturelistList().length)
+            let scripture = scriptures.getScripturelistList()[0]
+            assert.equal(23, scripture?.getBook())
+            assert.equal(1, scripture?.getChapter())
+            assert.equal(1, scripture?.getVerse())
+        });
+    });
 });

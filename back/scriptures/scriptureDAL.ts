@@ -58,36 +58,39 @@ export class ScriptureDAL {
         let sql = this.sqlSelectVerse() +
             ` where bible.id between ` + from + ' and ' + to
         let rows = await this.database.select(sql)
-        let scriptures = new ScriptureList()
-        rows.forEach(row => {
-            let scripture = this.extractSrcipture(row)
-            scriptures.getScripturelistList().push(scripture)
-        });
-        return scriptures
+        return this.extractScriptureList(rows)
     }
 
     /**
- * Retrieve all the verses within the two identifiers as String
- * @param from 
- * @param to 
- */
+     * Retrieve all the verses within the two identifiers as String
+     * @param from 
+     * @param to 
+     */
     public async withinIdS(from: string, to: string): Promise<ScriptureList> {
         let sql = this.sqlSelectVerse() +
             ` where bible.id between ` + SQLUtils.quote(from) + ' and ' + SQLUtils.quote(to)
         let rows = await this.database.select(sql)
-        let scriptures = new ScriptureList()
-        rows.forEach(row => {
-            let scripture = this.extractSrcipture(row)
-            scriptures.getScripturelistList().push(scripture)
-        });
-        return scriptures
+        return this.extractScriptureList(rows)
     }
 
+    /**
+     * Retrieve all the verses within a book
+     * @param book 
+     */
+    public async withBook(book: number): Promise<ScriptureList> {
+        let sql = this.sqlSelectVerse() +
+            ` where bible.b = ` + book
+        let rows = await this.database.select(sql)
+        return this.extractScriptureList(rows)
+    }
+
+    /** Scripture selectable */
     private sqlSelectVerse(): string {
         return `
         select bible.* from ` + VersionSchema.getTableName(this.version) + ` bible`
     }
 
+    /** Extract scripture object */
     private extractSrcipture(row: Map<string, string>): Scripture {
         let scripture = new Scripture()
         scripture.setId(parseInt(row.get("id")!))
@@ -98,4 +101,12 @@ export class ScriptureDAL {
         return scripture
     }
 
+    private extractScriptureList(rows: Array<Map<string, string>>): ScriptureList {
+        let scriptures = new ScriptureList()
+        rows.forEach(row => {
+            let scripture = this.extractSrcipture(row)
+            scriptures.getScripturelistList().push(scripture)
+        });
+        return scriptures
+    }
 }
