@@ -17,23 +17,26 @@ process.on("unhandledRejection", e => {
     process.exit(1);
 });
 
-// Build router from the Express Framework
-const router = express();
+// Build application from the Express Framework
+const application = express();
 
 // Apply all the middle ware on the router
-applyMiddleware(middleware, router);
+applyMiddleware(middleware, application);
 
 // Apply all the routes on the router
-applyRoutes(routes, router)
+applyRoutes(routes, application)
 
 // Apply error middle ware on the router
-applyMiddleware(errorHandlers, router)
+applyMiddleware(errorHandlers, application)
 
 
 // Create the http server
 const { PORT = 3300 } = process.env;
-const server = http.createServer(router);
+const server = http.createServer(application);
 
 server.listen(PORT, () =>
     console.log(`Server is running http://localhost:${PORT}...`)
 );
+
+// For testing
+module.exports = application; 

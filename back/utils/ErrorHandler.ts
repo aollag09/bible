@@ -2,7 +2,7 @@ import { Response, NextFunction } from "express";
 import { HTTPClientError, HTTP404Error } from "../utils/httpErrors";
 
 export const notFoundError = () => {
-  throw new HTTP404Error("Resource not found.");
+  throw new HTTP404Error("Resource not found.\n");
 };
 
 export const clientError = (err: Error, res: Response, next: NextFunction) => {

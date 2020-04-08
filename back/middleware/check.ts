@@ -7,14 +7,38 @@ export const checkIdParams = (
     res: Response,
     next: NextFunction
 ) => {
-    if (!req.query.id) {
+    if (!req.params.id) {
         throw new HTTP400Error("Missing id parameter");
     } else {
         next();
     }
 };
 
-export const checkIdOrNameParams = (
+export const checkQueryQueryParams = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    if (!req.query.q) {
+        throw new HTTP400Error("Missing id parameter");
+    } else {
+        next();
+    }
+};
+
+export const checkNameQueryParams = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    if (!req.query.name) {
+        throw new HTTP400Error("Missing id parameter");
+    } else {
+        next();
+    }
+};
+
+export const checkIdOrNameQueryParams = (
     req: Request,
     res: Response,
     next: NextFunction
