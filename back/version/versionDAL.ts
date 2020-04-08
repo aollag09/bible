@@ -32,16 +32,7 @@ export class VersionDAL {
     private sqlSelectVersion(): string {
         return `
         select
-            bvk.abbreviation,
-            bvk.copyright,
-            bvk.copyright_info,
-            bvk.id,
-            bvk.info_text,
-            bvk.info_url,
-            bvk.\`language\`,
-            bvk.publisher,
-            bvk.\`table\`,
-            bvk.\`version\`
+            bvk.*
         from
             bible_version_key bvk`
     }

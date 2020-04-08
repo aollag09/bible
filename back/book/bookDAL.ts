@@ -1,5 +1,6 @@
 import { Book, GenreMap, Genre } from "./book_pb";
 import { Database } from "../database/database";
+import { SQLUtils } from "../utils/SQLUtils";
 
 export class BookDAL {
 
@@ -33,6 +34,10 @@ export class BookDAL {
         return books;
     }
 
+    /**
+     * Retrieve the book with the specified id
+     * @param id 
+     */
     public async withId(id: number): Promise<Book | undefined> {
         const row = await this.database.select([
             this.sqlSelectBook(),
@@ -41,7 +46,30 @@ export class BookDAL {
             "=",
             id
         ].join(" "))
-        return this.extractBooks(row)[0]
+        if (row.length > 0)
+            return this.extractBooks(row)[0]
+        else
+            return undefined
+    }
+
+    public async withName(name: string): Promise<Book | undefined> {
+        // Query book id with this name
+        let query = `
+        select
+            ke.b
+        from
+            key_english ke
+        left join 
+            key_abbreviations_english kae on ke.b = kae.b
+        where 
+            lower(kae.a) = lower(` + SQLUtils.quote(name) + `)`
+
+        const row = await this.database.select(query)
+        if (row.length == 1) {
+            let id: number = parseInt(row[0].get("b")!)
+            return this.withId(id)
+        } else
+            return undefined
     }
 
     private extractBooks(rows: Map<string, string>[]): Book[] {
