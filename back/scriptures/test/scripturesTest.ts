@@ -4,7 +4,6 @@ import { VersionDAL } from "../../version/versionDAL";
 
 var assert = require('assert');
 
-
 describe('Scriptures Data Access Layer Tests', async function () {
 
     let database = new Database()
@@ -51,6 +50,56 @@ describe('Scriptures Data Access Layer Tests', async function () {
             assert.equal(11, scripture?.getBook())
             assert.equal(22, scripture?.getChapter())
             assert.equal(21, scripture?.getVerse())
+        });
+
+    });
+
+
+
+    describe('#withinId', async function () {
+
+        it('get within 1001001 and 1001020', async function () {
+            let from = 1001001
+            let to = 1001020
+            let scriptures = await scriptureDAL.withinId(from, to)
+            assert.equal(20, scriptures?.getScripturelistList().length)
+            let scripture = scriptures.getScripturelistList()[0]
+            assert.equal(from, scripture?.getId())
+            assert.equal(1, scripture?.getBook())
+            assert.equal(1, scripture?.getChapter())
+            assert.equal(1, scripture?.getVerse())
+        });
+
+        it('get within 1001020 and 1001001 (reverse order)', async function () {
+            let to = 1001001
+            let from = 1001020
+            let scriptures = await scriptureDAL.withinId(from, to)
+            assert.equal(0, scriptures?.getScripturelistList().length)
+        });
+
+
+        it('get within 1001001 and 1001001 (one item)', async function () {
+            let to = 1001001
+            let from = 1001001
+            let scriptures = await scriptureDAL.withinId(from, to)
+            assert.equal(1, scriptures?.getScripturelistList().length)
+            let scripture = scriptures.getScripturelistList()[0]
+            assert.equal(from, scripture?.getId())
+            assert.equal(1, scripture?.getBook())
+            assert.equal(1, scripture?.getChapter())
+            assert.equal(1, scripture?.getVerse())
+        });
+
+        it('get within 1001001 and 02001005 (larget query)', async function () {
+            let from = "1001001"
+            let to = "02001005"
+            let scriptures = await scriptureDAL.withinIdS(from, to)
+            assert.equal(1538, scriptures?.getScripturelistList().length)
+            let scripture = scriptures.getScripturelistList()[0]
+            assert.equal(from, scripture?.getId())
+            assert.equal(1, scripture?.getBook())
+            assert.equal(1, scripture?.getChapter())
+            assert.equal(1, scripture?.getVerse())
         });
 
     });

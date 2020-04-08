@@ -1,6 +1,6 @@
 import { Database } from "../database/database";
 import { Version } from "../version/version_pb";
-import { Scripture } from "./scriptures_pb";
+import { Scripture, ScriptureList } from "./scriptures_pb";
 import { VersionSchema } from "../version/versionSchema";
 import { SQLUtils } from "../utils/SQLUtils";
 
@@ -47,6 +47,40 @@ export class ScriptureDAL {
             return this.extractSrcipture(row[0])
         else
             return undefined
+    }
+
+    /**
+     * Retrieve all the verses within the two identifiers
+     * @param from 
+     * @param to 
+     */
+    public async withinId(from: number, to: number): Promise<ScriptureList> {
+        let sql = this.sqlSelectVerse() +
+            ` where bible.id between ` + from + ' and ' + to
+        let rows = await this.database.select(sql)
+        let scriptures = new ScriptureList()
+        rows.forEach(row => {
+            let scripture = this.extractSrcipture(row)
+            scriptures.getScripturelistList().push(scripture)
+        });
+        return scriptures
+    }
+
+    /**
+ * Retrieve all the verses within the two identifiers as String
+ * @param from 
+ * @param to 
+ */
+    public async withinIdS(from: string, to: string): Promise<ScriptureList> {
+        let sql = this.sqlSelectVerse() +
+            ` where bible.id between ` + SQLUtils.quote(from) + ' and ' + SQLUtils.quote(to)
+        let rows = await this.database.select(sql)
+        let scriptures = new ScriptureList()
+        rows.forEach(row => {
+            let scripture = this.extractSrcipture(row)
+            scriptures.getScripturelistList().push(scripture)
+        });
+        return scriptures
     }
 
     private sqlSelectVerse(): string {

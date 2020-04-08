@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/back/version/versionSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/scriptures/scriptureDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/scriptures/scriptureDAL.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/scriptures/test/scripturesTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/scriptures/test/scripturesTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/version/test/versionTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/version/test/versionTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,10 +293,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586335111063" />
-    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1586335071034">
+    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1586335460911">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586335071034" />
+    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586335460911" />
     <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog" timestamp="1586263513405">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -362,10 +361,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state width="137" height="60" key="LargeValuePreview.publisher/51.27.1869.1053@51.27.1869.1053" timestamp="1584315114606" />
-    <state width="472" height="110" key="LargeValuePreview.t" timestamp="1586334443943">
+    <state width="472" height="110" key="LargeValuePreview.t" timestamp="1586335142553">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state width="472" height="110" key="LargeValuePreview.t/51.27.1869.1053@51.27.1869.1053" timestamp="1586334443943" />
+    <state width="472" height="110" key="LargeValuePreview.t/51.27.1869.1053@51.27.1869.1053" timestamp="1586335142553" />
     <state width="111" height="60" key="LargeValuePreview.table" timestamp="1584315134833">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
