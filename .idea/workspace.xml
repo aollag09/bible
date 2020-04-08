@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/back/scriptures/scriptureDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/scriptures/scriptureDAL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/scriptures/scriptures.proto" beforeDir="false" afterPath="$PROJECT_DIR$/back/scriptures/scriptures.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/scriptures/scriptures_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/scriptures/scriptures_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
