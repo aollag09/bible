@@ -1,5 +1,5 @@
 import { Database } from "../database/database";
-import { Version } from "./version_pb";
+import { Version, Versions } from "./version_pb";
 import { SQLUtils } from "../../utils/SQLUtils";
 
 /**
@@ -49,11 +49,11 @@ export class VersionDAL {
     /**
      * Retrieve the entire list of existing bible versions in the database
      */
-    public async list(): Promise<Array<Version>> {
-        let versions = new Array<Version>()
+    public async list(): Promise<Versions> {
+        let versions = new Versions()
         let rows = await this.database.select(this.sqlSelectVersion())
         rows.forEach(row => {
-            versions.push(this.extractVersion(row))
+            versions.getVersionsList().push(this.extractVersion(row))
         })
         return versions;
     }
@@ -62,8 +62,8 @@ export class VersionDAL {
      * Get the list of existing bible versions from the language
      * @param language 
      */
-    public async withLanguage(language: string): Promise<Array<Version>> {
-        let versions = new Array<Version>()
+    public async withLanguage(language: string): Promise<Versions> {
+        let versions = new Versions()
         const rows = await this.database.select([
             this.sqlSelectVersion(),
             "where",
@@ -72,7 +72,7 @@ export class VersionDAL {
             SQLUtils.quote(language)
         ].join(" "))
         rows.forEach(row => {
-            versions.push(this.extractVersion(row))
+            versions.getVersionsList().push(this.extractVersion(row))
         })
         return versions;
     }

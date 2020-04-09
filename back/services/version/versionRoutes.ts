@@ -33,5 +33,22 @@ export default [
                 }
             }
         ]
-    }
+    },
+
+
+    {
+        // List all existing versions
+        path: RouteUtils.BASE_PATH + "version/",
+        method: "get",
+        responseType: 'arraybuffer',
+        headers: { 'Content-Type': 'application/protobuf' },
+        handler: [
+            async (req: Request, res: Response, next: NextFunction) => {
+                let versionsDAL = new VersionDAL(new Database())
+                let versions = await versionsDAL.list()
+                res.status(200)
+                    .send(Message.bytesAsB64(versions.serializeBinary()))
+            }
+        ]
+    },
 ]

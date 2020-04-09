@@ -39,7 +39,7 @@ describe('Versions Data Access Layer Tests', function () {
         it('List all existing versions in the database', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let list = await versionDAL.list();
-            assert.equal(7, list.length)
+            assert.equal(7, list.getVersionsList().length)
         });
     });
 
@@ -71,13 +71,13 @@ describe('Versions Data Access Layer Tests', function () {
         it('get English', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let versions = await versionDAL.withLanguage("english");
-            assert.equal(7, versions.length)
+            assert.equal(7, versions.getVersionsList().length)
         });
 
         it('get French', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let versions = await versionDAL.withLanguage("french");
-            assert.equal(0, versions.length)
+            assert.equal(0, versions.getVersionsList().length)
         });
 
     });

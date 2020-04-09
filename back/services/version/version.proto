@@ -15,6 +15,6 @@ message Version {
     string copyright_info = 10; // More info on copyright.
 }
 
-message Versions{
+message Versions {
     repeated Version versions = 1;
 }
