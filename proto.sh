@@ -11,7 +11,7 @@ mkdir -p $JS_OUT
 
 # Look for proto files in back
 PROTO_FILES=$(find ./back -name "*.proto")
-echo "Generating all proto files ... "
+echo "Generating proto files : "
 echo $PROTO_FILES
 
 protoc \
@@ -20,5 +20,3 @@ protoc \
     --ts_out="${TS_OUT}" \
     --proto_path="./back" \
     $PROTO_FILES
-
-echo "Done !"
