@@ -6,6 +6,7 @@ import { notFoundError, serverError, notFoundErrorMessage } from "../../utils/Er
 import { checkIdParams } from "../../middleware/check";
 import { Message } from "google-protobuf";
 import { RouteUtils } from "../../utils/RouteUtils";
+import { ProtoUtils } from "../../utils/ProtoUtils";
 
 export default [
     {
@@ -28,7 +29,7 @@ export default [
                     notFoundErrorMessage("Book has not been found with input id : " + bookid)
                 } else {
                     res.status(200)
-                        .send(Message.bytesAsB64(book.serializeBinary()))
+                        .send(ProtoUtils.serialize(book))
                 }
             }
         ]
@@ -45,7 +46,7 @@ export default [
                 let bookDAL = new BookDAL(new Database())
                 let books = await bookDAL.list()
                 res.status(200)
-                    .send(Message.bytesAsB64(books.serializeBinary()))
+                    .send(ProtoUtils.serialize(books))
             }
         ]
     },

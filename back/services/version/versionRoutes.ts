@@ -6,6 +6,7 @@ import { VersionDAL } from "./versionDAL";
 import { Database } from "../database/database";
 import { Version } from "./version_pb";
 import { Message } from "google-protobuf";
+import { ProtoUtils } from "../../utils/ProtoUtils";
 
 export default [
 
@@ -29,7 +30,7 @@ export default [
                     notFoundErrorMessage("Versions has not been found with input id : " + versionId)
                 } else {
                     res.status(200)
-                        .send(Message.bytesAsB64(version.serializeBinary()))
+                        .send(ProtoUtils.serialize(version))
                 }
             }
         ]
@@ -47,7 +48,7 @@ export default [
                 let versionsDAL = new VersionDAL(new Database())
                 let versions = await versionsDAL.list()
                 res.status(200)
-                    .send(Message.bytesAsB64(versions.serializeBinary()))
+                    .send(ProtoUtils.serialize(versions))
             }
         ]
     },
