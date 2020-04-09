@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { BookDAL } from "./bookDAL";
 import { Database } from "../database/database";
 import { Book } from "./book_pb";
-import { notFoundError, serverError } from "../../utils/ErrorHandler";
+import { notFoundError, serverError, notFoundErrorMessage } from "../../utils/ErrorHandler";
 import { checkIdParams } from "../../middleware/check";
 import { Message } from "google-protobuf";
 import { RouteUtils } from "../../utils/RouteUtils";
@@ -23,8 +23,9 @@ export default [
 
                 let bookDAL = new BookDAL(new Database())
                 let book: Book | undefined = await bookDAL.withId(bookid)
+
                 if (book == undefined) {
-                    notFoundError()
+                    notFoundErrorMessage("Book has not been found with input id : " + bookid)
                 } else {
                     res.status(200)
                         .send(Message.bytesAsB64(book.serializeBinary()))

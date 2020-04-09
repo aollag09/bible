@@ -5,6 +5,10 @@ export const notFoundError = () => {
   throw new HTTP404Error("Resource not found.\n");
 };
 
+export const notFoundErrorMessage = (message: string) => {
+  throw new HTTP404Error(message + "\n");
+};
+
 export const clientError = (err: Error, res: Response, next: NextFunction) => {
   if (err instanceof HTTPClientError) {
     console.warn(err);

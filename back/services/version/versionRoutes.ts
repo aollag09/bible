@@ -1,7 +1,7 @@
 import { RouteUtils } from "../../utils/RouteUtils";
 import { checkIdParams } from "../../middleware/check";
 import { Request, Response, NextFunction } from "express";
-import { serverError, notFoundError } from "../../utils/ErrorHandler";
+import { serverError, notFoundErrorMessage } from "../../utils/ErrorHandler";
 import { VersionDAL } from "./versionDAL";
 import { Database } from "../database/database";
 import { Version } from "./version_pb";
@@ -11,7 +11,7 @@ export default [
 
     {
         // Get a specific version with its id
-        path: RouteUtils.BASE_PATH + "vesion/:id",
+        path: RouteUtils.BASE_PATH + "version/:id",
         method: "get",
         responseType: 'arraybuffer',
         headers: { 'Content-Type': 'application/protobuf' },
@@ -26,7 +26,7 @@ export default [
                 let version: Version | undefined = await versionDAL.withId(versionId)
 
                 if (version == undefined) {
-                    notFoundError()
+                    notFoundErrorMessage("Versions has not been found with input id : " + versionId)
                 } else {
                     res.status(200)
                         .send(Message.bytesAsB64(version.serializeBinary()))

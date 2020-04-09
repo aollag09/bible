@@ -125,7 +125,7 @@ describe('Books REST Services', function () {
             chai.request(application)
                 .get(path)
                 .then(res => {
-                    assert.equal(200, res.status)
+                    assert.equal(res.status, 200)
                     let books = Books.deserializeBinary(Message.bytesAsU8(res.text))
                     assert.equal(66, books.getBooksList().length)
                     let book = books.getBooksList()[0]
