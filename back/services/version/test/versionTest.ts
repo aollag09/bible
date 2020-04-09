@@ -1,4 +1,4 @@
-import { Version } from "../version_pb";
+import { Version, Versions } from "../version_pb";
 import { VersionDAL } from "../versionDAL";
 import { Database } from "../../database/database";
 import { VersionSchema } from "../versionSchema";
@@ -143,23 +143,21 @@ describe('Versions REST Services', function () {
 
         });
     });
-    /*
-        describe('#/bible/v1/version/', function () {
-    
-            it('Get all versions', async function () {
-                let id = 1
-    
-                chai.request(application)
-                    .get(path)
-                    .then(res => {
-                        assert.equal(200, res.status)
-                        let versions = Vers.deserializeBinary(Message.bytesAsU8(res.text))
-                        assert.equal(66, versions.getBooksList().length)
-                        let book = versions.getBooksList()[0]
-                        assert.equal(1, book.getId())
-                    });
-    
-            });
+    describe('#/bible/v1/version/', function () {
+
+        it('Get all versions', async function () {
+            let id = 1
+
+            chai.request(application)
+                .get(path)
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let versions = Versions.deserializeBinary(Message.bytesAsU8(res.text))
+                    assert.equal(7, versions.getVersionsList().length)
+                    let version = versions.getVersionsList()[0]
+                    assert.equal(1, version.getId())
+                });
+
         });
-        */
+    });
 });
