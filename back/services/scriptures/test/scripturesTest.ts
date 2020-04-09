@@ -189,4 +189,21 @@ describe('Scriptures REST Services', function () {
     });
 
 
+    describe('#' + path + ":versionId/book/:bookId/chapter/:chapterId", function () {
+
+        it('Get verse by book id 1', async function () {
+            let versionId = 1
+            let bookId = 1
+            let chapterId = 1
+            chai.request(application)
+                .get(path + versionId + "/book/" + bookId + "/chapter/" + chapterId)
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let verses = Scriptures.deserializeBinary(Message.bytesAsU8(res.text))
+                    assert.equal(31, verses.getScripturesList().length)
+                });
+        });
+    });
+
+
 });
