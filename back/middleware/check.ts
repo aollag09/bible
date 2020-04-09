@@ -39,6 +39,20 @@ export const checkVerseIdParams = (
     }
 };
 
+
+
+export const checkBookIdParams = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    if (!req.params.bookId) {
+        throw new HTTP400Error("Missing book id parameter");
+    } else {
+        next();
+    }
+};
+
 export const checkQueryQueryParams = (
     req: Request,
     res: Response,

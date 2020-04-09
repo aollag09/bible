@@ -2,7 +2,7 @@ import { SQLUtils } from "../../utils/SQLUtils";
 import { Database } from "../database/database";
 import { VersionSchema } from "../version/versionSchema";
 import { Version } from "../version/version_pb";
-import { Scripture, ScriptureList } from "./scriptures_pb";
+import { Scripture, Scriptures } from "./scriptures_pb";
 
 /**
  * Scriptures object to enable query over scriptures data
@@ -54,11 +54,11 @@ export class ScriptureDAL {
      * @param from 
      * @param to 
      */
-    public async withinId(from: number, to: number): Promise<ScriptureList> {
+    public async withinId(from: number, to: number): Promise<Scriptures> {
         let sql = this.sqlSelectVerse() +
             ` where bible.id between ` + from + ' and ' + to
         let rows = await this.database.select(sql)
-        return this.extractScriptureList(rows)
+        return this.extractScriptures(rows)
     }
 
     /**
@@ -66,22 +66,22 @@ export class ScriptureDAL {
      * @param from 
      * @param to 
      */
-    public async withinIdS(from: string, to: string): Promise<ScriptureList> {
+    public async withinIdS(from: string, to: string): Promise<Scriptures> {
         let sql = this.sqlSelectVerse() +
             ` where bible.id between ` + SQLUtils.quote(from) + ' and ' + SQLUtils.quote(to)
         let rows = await this.database.select(sql)
-        return this.extractScriptureList(rows)
+        return this.extractScriptures(rows)
     }
 
     /**
      * Retrieve all the verses within a book
      * @param book 
      */
-    public async withBook(book: number): Promise<ScriptureList> {
+    public async withBook(book: number): Promise<Scriptures> {
         let sql = this.sqlSelectVerse() +
             ` where bible.b = ` + book
         let rows = await this.database.select(sql)
-        return this.extractScriptureList(rows)
+        return this.extractScriptures(rows)
     }
 
 
@@ -90,11 +90,11 @@ export class ScriptureDAL {
      * @param book 
      * @param chapter
      */
-    public async withBookAndChapter(book: number, chapter: number): Promise<ScriptureList> {
+    public async withBookAndChapter(book: number, chapter: number): Promise<Scriptures> {
         let sql = this.sqlSelectVerse() +
             ` where bible.b = ` + book + ` and bible.c = ` + chapter
         let rows = await this.database.select(sql)
-        return this.extractScriptureList(rows)
+        return this.extractScriptures(rows)
     }
 
     /** Scripture selectable */
@@ -114,11 +114,11 @@ export class ScriptureDAL {
         return scripture
     }
 
-    private extractScriptureList(rows: Array<Map<string, string>>): ScriptureList {
-        let scriptures = new ScriptureList()
+    private extractScriptures(rows: Array<Map<string, string>>): Scriptures {
+        let scriptures = new Scriptures()
         rows.forEach(row => {
             let scripture = this.extractSrcipture(row)
-            scriptures.getScripturelistList().push(scripture)
+            scriptures.getScripturesList().push(scripture)
         });
         return scriptures
     }

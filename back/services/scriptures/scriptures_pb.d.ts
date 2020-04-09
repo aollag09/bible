@@ -39,25 +39,25 @@ export namespace Scripture {
   }
 }
 
-export class ScriptureList extends jspb.Message {
-  clearScripturelistList(): void;
-  getScripturelistList(): Array<Scripture>;
-  setScripturelistList(value: Array<Scripture>): void;
-  addScripturelist(value?: Scripture, index?: number): Scripture;
+export class Scriptures extends jspb.Message {
+  clearScripturesList(): void;
+  getScripturesList(): Array<Scripture>;
+  setScripturesList(value: Array<Scripture>): void;
+  addScriptures(value?: Scripture, index?: number): Scripture;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): ScriptureList.AsObject;
-  static toObject(includeInstance: boolean, msg: ScriptureList): ScriptureList.AsObject;
+  toObject(includeInstance?: boolean): Scriptures.AsObject;
+  static toObject(includeInstance: boolean, msg: Scriptures): Scriptures.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: ScriptureList, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): ScriptureList;
-  static deserializeBinaryFromReader(message: ScriptureList, reader: jspb.BinaryReader): ScriptureList;
+  static serializeBinaryToWriter(message: Scriptures, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Scriptures;
+  static deserializeBinaryFromReader(message: Scriptures, reader: jspb.BinaryReader): Scriptures;
 }
 
-export namespace ScriptureList {
+export namespace Scriptures {
   export type AsObject = {
-    scripturelistList: Array<Scripture.AsObject>,
+    scripturesList: Array<Scripture.AsObject>,
   }
 }
 

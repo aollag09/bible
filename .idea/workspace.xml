@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/book/bookRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/book/bookRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/book/test/bookTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/book/test/bookTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/version/test/versionTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/version/test/versionTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/version/versionRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/version/versionRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/utils/ErrorHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/utils/ErrorHandler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/utils/RouteUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/utils/RouteUtils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

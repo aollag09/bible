@@ -12,7 +12,7 @@ message Scripture {
     string scripture = 5;
 }
 
-message ScriptureList {
-    repeated Scripture scriptureList = 1;
+message Scriptures {
+    repeated Scripture scriptures = 1;
 }
 
