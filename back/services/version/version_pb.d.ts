@@ -59,3 +59,25 @@ export namespace Version {
   }
 }
 
+export class Versions extends jspb.Message {
+  clearVersionsList(): void;
+  getVersionsList(): Array<Version>;
+  setVersionsList(value: Array<Version>): void;
+  addVersions(value?: Version, index?: number): Version;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Versions.AsObject;
+  static toObject(includeInstance: boolean, msg: Versions): Versions.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: Versions, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Versions;
+  static deserializeBinaryFromReader(message: Versions, reader: jspb.BinaryReader): Versions;
+}
+
+export namespace Versions {
+  export type AsObject = {
+    versionsList: Array<Version.AsObject>,
+  }
+}
+

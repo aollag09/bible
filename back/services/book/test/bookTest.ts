@@ -119,7 +119,7 @@ describe('Books REST Services', function () {
 
     describe('#/bible/v1/book/', function () {
 
-        it('Get book by id 1', async function () {
+        it('Get all books', async function () {
             let id = 1
 
             chai.request(application)
@@ -128,6 +128,8 @@ describe('Books REST Services', function () {
                     assert.equal(200, res.status)
                     let books = Books.deserializeBinary(Message.bytesAsU8(res.text))
                     assert.equal(66, books.getBooksList().length)
+                    let book = books.getBooksList()[0]
+                    assert.equal(1, book.getId())
                 });
 
         });

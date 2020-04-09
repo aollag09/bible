@@ -14,3 +14,7 @@ message Version {
     string copyright = 9; // Copyright
     string copyright_info = 10; // More info on copyright.
 }
+
+message Versions{
+    repeated Version versions = 1;
+}

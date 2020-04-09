@@ -5,11 +5,12 @@ import { Book } from "./book_pb";
 import { notFoundError, serverError } from "../../utils/ErrorHandler";
 import { checkIdParams } from "../../middleware/check";
 import { Message } from "google-protobuf";
+import { RouteUtils } from "../../utils/RouteUtils";
 
 export default [
     {
         // Get a specific book with its id
-        path: "/bible/v1/book/:id",
+        path: RouteUtils.BASE_PATH + "book/:id",
         method: "get",
         responseType: 'arraybuffer',
         headers: { 'Content-Type': 'application/protobuf' },
@@ -34,7 +35,7 @@ export default [
 
     {
         // List all existing books
-        path: "/bible/v1/book/",
+        path: RouteUtils.BASE_PATH + "book/",
         method: "get",
         responseType: 'arraybuffer',
         headers: { 'Content-Type': 'application/protobuf' },

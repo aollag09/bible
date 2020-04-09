@@ -4,6 +4,7 @@ import { Version } from "../version_pb";
 import { VersionDAL } from "../versionDAL";
 import { Database } from "../../database/database";
 import { VersionSchema } from "../versionSchema";
+import { Message } from "google-protobuf";
 
 describe('Version Protobuf object', function () {
     describe('#buildVersion', function () {
@@ -116,4 +117,46 @@ describe('Version Schema', function () {
             assert.equal("t_asv", VersionSchema.getTableName(version))
         });
     });
+});
+
+
+describe('Versions REST Services', function () {
+
+    let application = require('../../../server');
+    let path = "/bible/v1/version"
+
+    describe('#/bible/v1/version/:id', function () {
+
+        it('Get versions by id 1', async function () {
+            let id = 1
+
+            chai.request(application)
+                .get(path + "/" + id)
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let version = Version.deserializeBinary(Message.bytesAsU8(res.text))
+                    assert.equal(id, version.getId())
+                });
+
+        });
+    });
+/*
+    describe('#/bible/v1/version/', function () {
+
+        it('Get all versions', async function () {
+            let id = 1
+
+            chai.request(application)
+                .get(path)
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let versions = Vers.deserializeBinary(Message.bytesAsU8(res.text))
+                    assert.equal(66, versions.getBooksList().length)
+                    let book = versions.getBooksList()[0]
+                    assert.equal(1, book.getId())
+                });
+
+        });
+    });
+    */
 });
