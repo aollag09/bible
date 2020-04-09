@@ -1,6 +1,6 @@
-import { Book, GenreMap, Genre, Books } from "./book_pb";
-import { Database } from "../database/database";
 import { SQLUtils } from "../../utils/SQLUtils";
+import { Database } from "../database/database";
+import { Book, Books, Genre } from "./book_pb";
 
 export class BookDAL {
 

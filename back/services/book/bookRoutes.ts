@@ -2,9 +2,8 @@ import { Request, Response, NextFunction } from "express";
 import { BookDAL } from "./bookDAL";
 import { Database } from "../database/database";
 import { Book } from "./book_pb";
-import { notFoundError, serverError, notFoundErrorMessage } from "../../utils/ErrorHandler";
+import { notFoundErrorMessage, clientError } from "../../utils/ErrorHandler";
 import { checkIdParams } from "../../middleware/check";
-import { Message } from "google-protobuf";
 import { RouteUtils } from "../../utils/RouteUtils";
 import { ProtoUtils } from "../../utils/ProtoUtils";
 
@@ -20,7 +19,7 @@ export default [
             async (req: Request, res: Response, next: NextFunction) => {
                 let bookid: number = parseInt(req.params.id)
                 if (isNaN(bookid))
-                    serverError(new Error("Input book identifier is not a number : " + bookid), res, next);
+                    clientError(new Error("Input book identifier is not a number : " + bookid), res, next);
 
                 let bookDAL = new BookDAL(new Database())
                 let book: Book | undefined = await bookDAL.withId(bookid)

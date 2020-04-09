@@ -1,5 +1,5 @@
-import { Response, NextFunction } from "express";
-import { HTTPClientError, HTTP404Error } from "../utils/httpErrors";
+import { NextFunction, Response } from "express";
+import { HTTP404Error, HTTPClientError } from "../utils/httpErrors";
 
 export const notFoundError = () => {
   throw new HTTP404Error("Resource not found.\n");

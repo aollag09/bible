@@ -1,10 +1,10 @@
 
-import http from "http";
 import express from "express";
-import { applyMiddleware, applyRoutes } from "./utils";
+import http from "http";
 import middleware from "./middleware";
 import errorHandlers from "./middleware/errorHandlers";
 import routes from "./services";
+import { applyMiddleware, applyRoutes } from "./utils";
 
 
 // Error management

@@ -1,12 +1,11 @@
-import { RouteUtils } from "../../utils/RouteUtils";
+import { NextFunction, Request, Response } from "express";
 import { checkIdParams } from "../../middleware/check";
-import { Request, Response, NextFunction } from "express";
-import { serverError, notFoundErrorMessage } from "../../utils/ErrorHandler";
-import { VersionDAL } from "./versionDAL";
-import { Database } from "../database/database";
-import { Version } from "./version_pb";
-import { Message } from "google-protobuf";
+import { clientError, notFoundErrorMessage } from "../../utils/ErrorHandler";
 import { ProtoUtils } from "../../utils/ProtoUtils";
+import { RouteUtils } from "../../utils/RouteUtils";
+import { Database } from "../database/database";
+import { VersionDAL } from "./versionDAL";
+import { Version } from "./version_pb";
 
 export default [
 
@@ -21,13 +20,13 @@ export default [
             async (req: Request, res: Response, next: NextFunction) => {
                 let versionId: number = parseInt(req.params.id)
                 if (isNaN(versionId))
-                    serverError(new Error("Input version identifier is not a number : " + versionId), res, next);
+                    clientError(new Error("Input version identifier is not a number : " + versionId), res, next);
 
                 let versionDAL = new VersionDAL(new Database())
                 let version: Version | undefined = await versionDAL.withId(versionId)
 
                 if (version == undefined) {
-                    notFoundErrorMessage("Versions has not been found with input id : " + versionId)
+                    notFoundErrorMessage("Version has not been found with input id : " + versionId)
                 } else {
                     res.status(200)
                         .send(ProtoUtils.serialize(version))

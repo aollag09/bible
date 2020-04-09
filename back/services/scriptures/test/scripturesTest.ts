@@ -1,6 +1,6 @@
-import { ScriptureDAL } from "../scriptureDAL";
 import { Database } from "../../database/database";
 import { VersionDAL } from "../../version/versionDAL";
+import { ScriptureDAL } from "../scriptureDAL";
 
 var assert = require('assert');
 

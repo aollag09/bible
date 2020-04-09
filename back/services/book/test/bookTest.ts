@@ -1,9 +1,9 @@
-import { BookDAL } from "../bookDAL";
-import { Database } from "../../database/database";
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import { Book, Books } from "../book_pb";
 import { Message } from "google-protobuf";
+import { Database } from "../../database/database";
+import { BookDAL } from "../bookDAL";
+import { Book, Books } from "../book_pb";
 chai.use(chaiHttp);
 var assert = require('assert');
 

@@ -1,10 +1,10 @@
-import { Version, Versions } from "../version_pb";
-import { VersionDAL } from "../versionDAL";
-import { Database } from "../../database/database";
-import { VersionSchema } from "../versionSchema";
-import { Message } from "google-protobuf";
-import chaiHttp from "chai-http";
 import chai from 'chai';
+import chaiHttp from "chai-http";
+import { Message } from "google-protobuf";
+import { Database } from "../../database/database";
+import { VersionDAL } from "../versionDAL";
+import { VersionSchema } from "../versionSchema";
+import { Version, Versions } from "../version_pb";
 
 chai.use(chaiHttp);
 var assert = require('assert');

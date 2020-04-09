@@ -1,5 +1,5 @@
 
-import { Request, Response, NextFunction } from "express";
+import { NextFunction, Request, Response } from "express";
 import { HTTP400Error } from "../utils/httpErrors";
 
 export const checkIdParams = (
@@ -14,13 +14,38 @@ export const checkIdParams = (
     }
 };
 
+export const checkVersionIdParams = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    if (!req.params.versionId) {
+        throw new HTTP400Error("Missing version id parameter");
+    } else {
+        next();
+    }
+};
+
+
+export const checkVerseIdParams = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    if (!req.params.versionId) {
+        throw new HTTP400Error("Missing verse id parameter");
+    } else {
+        next();
+    }
+};
+
 export const checkQueryQueryParams = (
     req: Request,
     res: Response,
     next: NextFunction
 ) => {
     if (!req.query.q) {
-        throw new HTTP400Error("Missing id parameter");
+        throw new HTTP400Error("Missing query parameter");
     } else {
         next();
     }
@@ -32,7 +57,7 @@ export const checkNameQueryParams = (
     next: NextFunction
 ) => {
     if (!req.query.name) {
-        throw new HTTP400Error("Missing id parameter");
+        throw new HTTP400Error("Missing name parameter");
     } else {
         next();
     }

@@ -1,8 +1,8 @@
+import { SQLUtils } from "../../utils/SQLUtils";
 import { Database } from "../database/database";
+import { VersionSchema } from "../version/versionSchema";
 import { Version } from "../version/version_pb";
 import { Scripture, ScriptureList } from "./scriptures_pb";
-import { VersionSchema } from "../version/versionSchema";
-import { SQLUtils } from "../../utils/SQLUtils";
 
 /**
  * Scriptures object to enable query over scriptures data
@@ -14,7 +14,7 @@ export class ScriptureDAL {
 
     /** Bible version to fetch */
     private version: Version;
-
+ 
     /** Build scripture object from a specific version */
     constructor(db: Database, v: Version) {
         this.database = db
