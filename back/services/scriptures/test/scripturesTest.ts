@@ -1,7 +1,13 @@
+import chai from 'chai';
+import chaiHttp from "chai-http";
+import { Message } from 'google-protobuf';
+import { RouteUtils } from '../../../utils/RouteUtils';
 import { Database } from "../../database/database";
 import { VersionDAL } from "../../version/versionDAL";
 import { ScriptureDAL } from "../scriptureDAL";
+import { Scripture } from '../scriptures_pb';
 
+chai.use(chaiHttp);
 var assert = require('assert');
 
 describe('Scriptures Data Access Layer Tests', async function () {
@@ -144,4 +150,26 @@ describe('Scriptures Data Access Layer Tests', async function () {
             assert.equal(1, scripture?.getVerse())
         });
     });
+});
+
+describe('Scriptures REST Services', function () {
+
+    let application = require('../../../server');
+    let path = RouteUtils.BASE_PATH + "scriptures/"
+
+    describe('#' + path + ":versionId/:verseId", function () {
+
+        it('Get verse by id 1001001', async function () {
+            let versionId = 1
+            let verseId = '1001001'
+            chai.request(application)
+                .get(path + versionId + "/" + verseId)
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let verse = Scripture.deserializeBinary(Message.bytesAsU8(res.text))
+                    assert.equal(verseId, verse.getId())
+                });
+        });
+    });
+
 });

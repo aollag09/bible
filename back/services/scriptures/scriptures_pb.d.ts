@@ -4,8 +4,8 @@
 import * as jspb from "google-protobuf";
 
 export class Scripture extends jspb.Message {
-  getId(): number;
-  setId(value: number): void;
+  getId(): string;
+  setId(value: string): void;
 
   getBook(): number;
   setBook(value: number): void;
@@ -31,7 +31,7 @@ export class Scripture extends jspb.Message {
 
 export namespace Scripture {
   export type AsObject = {
-    id: number,
+    id: string,
     book: number,
     chapter: number,
     verse: number,

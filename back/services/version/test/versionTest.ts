@@ -5,6 +5,7 @@ import { Database } from "../../database/database";
 import { VersionDAL } from "../versionDAL";
 import { VersionSchema } from "../versionSchema";
 import { Version, Versions } from "../version_pb";
+import { RouteUtils } from '../../../utils/RouteUtils';
 
 chai.use(chaiHttp);
 var assert = require('assert');
@@ -126,13 +127,12 @@ describe('Version Schema', function () {
 describe('Versions REST Services', function () {
 
     let application = require('../../../server');
-    let path = "/bible/v1/version"
+    let path = RouteUtils.BASE_PATH + "version"
 
-    describe('#/bible/v1/version/:id', function () {
+    describe("#" + path + ':id', function () {
 
         it('Get versions by id 1', async function () {
             let id = 1
-
             chai.request(application)
                 .get(path + "/" + id)
                 .then(res => {
@@ -140,10 +140,11 @@ describe('Versions REST Services', function () {
                     let version = Version.deserializeBinary(Message.bytesAsU8(res.text))
                     assert.equal(id, version.getId())
                 });
-
         });
+
     });
-    describe('#/bible/v1/version/', function () {
+
+    describe("#" + path, function () {
 
         it('Get all versions', async function () {
             let id = 1

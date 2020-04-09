@@ -6,6 +6,8 @@ import { RouteUtils } from "../../utils/RouteUtils";
 import { Database } from "../database/database";
 import { VersionDAL } from "../version/versionDAL";
 import { ScriptureDAL } from "./scriptureDAL";
+import { Scripture } from "./scriptures_pb";
+import { Message } from "google-protobuf";
 
 export default [
 
@@ -31,10 +33,10 @@ export default [
                 if (version == undefined) {
                     notFoundErrorMessage("Version has not been found with input id : " + versionId)
                 } else {
-
                     let verseId = req.params.verseId
                     let scriptureDAL = new ScriptureDAL(database, version)
                     let verse = await scriptureDAL.withIdS(verseId)
+
                     if (verse == undefined) {
                         notFoundErrorMessage("Scripture Verse has not been found with input id : " + verseId)
                     } else {

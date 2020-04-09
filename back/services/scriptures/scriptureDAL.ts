@@ -14,7 +14,7 @@ export class ScriptureDAL {
 
     /** Bible version to fetch */
     private version: Version;
- 
+
     /** Build scripture object from a specific version */
     constructor(db: Database, v: Version) {
         this.database = db
@@ -106,7 +106,7 @@ export class ScriptureDAL {
     /** Extract scripture object */
     private extractSrcipture(row: Map<string, string>): Scripture {
         let scripture = new Scripture()
-        scripture.setId(parseInt(row.get("id")!))
+        scripture.setId(row.get("id")!.toString())
         scripture.setBook(parseInt(row.get("b")!))
         scripture.setChapter(parseInt(row.get("c")!))
         scripture.setVerse(parseInt(row.get("v")!))
