@@ -20,46 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_asv.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_dby.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_wbt.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_web.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_ylt.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/sql/schema/bible_version_key.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/converter.js" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/converter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/ar_svd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/ar_svd.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/bible_init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/schema/bible_init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/bible_version_key.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/de_schlachter.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/de_schlachter.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/el_greek.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/el_greek.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/en_bbe.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/en_bbe.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/en_kjv.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/en_kjv.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/eo_esperanto.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/eo_esperanto.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/es_rvr.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/es_rvr.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/fi_finnish.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/fi_finnish.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/fi_pr.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/fi_pr.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/fr_apee.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/fr_apee.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/key_abbreviations.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/schema/key_abbreviations.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/key_english.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/schema/key_english.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/key_genre_english.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/schema/key_genre_english.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/ko_ko.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/ko_ko.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/pt_aa.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/pt_aa.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/pt_acf.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/pt_acf.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/pt_nvi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/pt_nvi.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/ro_cornilescu.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/ro_cornilescu.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/ru_synodal.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/ru_synodal.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/t_asv.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/t_bbe.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/t_dby.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/t_kjv.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/t_wbt.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/t_web.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/t_ylt.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/vi_vietnamese.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/vi_vietnamese.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/zh_cuv.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/zh_cuv.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/zh_ncv.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/zh_ncv.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/scriptures/scriptureDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/scriptures/scriptureDAL.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/version/test/versionTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/version/test/versionTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/version/versionSchema.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

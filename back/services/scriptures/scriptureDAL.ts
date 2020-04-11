@@ -1,6 +1,5 @@
 import { SQLUtils } from "../../utils/SQLUtils";
 import { Database } from "../database/database";
-import { VersionSchema } from "../version/versionSchema";
 import { Version } from "../version/version_pb";
 import { Scripture, Scriptures } from "./scriptures_pb";
 
@@ -100,7 +99,7 @@ export class ScriptureDAL {
     /** Scripture selectable */
     private sqlSelectVerse(): string {
         return `
-        select bible.* from ` + VersionSchema.getTableName(this.version) + ` bible`
+        select bible.* from ` + this.version.getTable() + ` bible`
     }
 
     /** Extract scripture object */

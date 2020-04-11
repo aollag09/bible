@@ -3,7 +3,6 @@ import chaiHttp from "chai-http";
 import { Message } from "google-protobuf";
 import { Database } from "../../database/database";
 import { VersionDAL } from "../versionDAL";
-import { VersionSchema } from "../versionSchema";
 import { Version, Versions } from "../version_pb";
 import { RouteUtils } from '../../../utils/RouteUtils';
 
@@ -40,7 +39,7 @@ describe('Versions Data Access Layer Tests', function () {
         it('List all existing versions in the database', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let list = await versionDAL.list();
-            assert.equal(7, list.getVersionsList().length)
+            assert.equal(24, list.getVersionsList().length)
         });
     });
 
@@ -72,7 +71,7 @@ describe('Versions Data Access Layer Tests', function () {
         it('get English', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let versions = await versionDAL.withLanguage("english");
-            assert.equal(7, versions.getVersionsList().length)
+            assert.equal(8, versions.getVersionsList().length)
         });
 
         it('get French', async function () {
@@ -118,7 +117,7 @@ describe('Version Schema', function () {
         it('Build Version', async function () {
             let versionDAL: VersionDAL = new VersionDAL(new Database());
             let version = await versionDAL.getDefault();
-            assert.equal("t_asv", VersionSchema.getTableName(version))
+            assert.equal("en_asv", version.getTable())
         });
     });
 });
@@ -154,7 +153,7 @@ describe('Versions REST Services', function () {
                 .then(res => {
                     assert.equal(200, res.status)
                     let versions = Versions.deserializeBinary(Message.bytesAsU8(res.text))
-                    assert.equal(7, versions.getVersionsList().length)
+                    assert.equal(24, versions.getVersionsList().length)
                     let version = versions.getVersionsList()[0]
                     assert.equal(1, version.getId())
                 });
