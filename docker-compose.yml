@@ -31,7 +31,7 @@ services:
       # Initialization db schema scripts
       - ./deployment/sql/bible_init.sql:/docker-entrypoint-initdb.d/bible_init.sql
       - ./deployment/sql/bible_version_key.sql:/docker-entrypoint-initdb.d/bible_version_key.sql
-      - ./deployment/sql/key_abbreviations_english.sql:/docker-entrypoint-initdb.d/key_abbreviations_english.sql
+      - ./deployment/sql/key_abbreviations.sql:/docker-entrypoint-initdb.d/key_abbreviations.sql
       - ./deployment/sql/key_english.sql:/docker-entrypoint-initdb.d/key_english.sql
       - ./deployment/sql/key_genre_english.sql:/docker-entrypoint-initdb.d/key_genre_english.sql
 

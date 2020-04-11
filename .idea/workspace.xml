@@ -20,7 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/converter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/tmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/book/bookDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/book/bookDAL.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/database/schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/bible_version_key.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/bible_version_key.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/key_abbreviations_english.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/key_abbreviations.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/t_asv.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/t_asv.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pm2.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -378,10 +387,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="641" y="380" key="com.intellij.ide.util.TipDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1578593121807" />
-    <state x="653" y="268" width="665" height="568" key="find.popup" timestamp="1584205958653">
+    <state x="653" y="268" width="760" height="568" key="find.popup" timestamp="1586592534171">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="653" y="268" width="665" height="568" key="find.popup/51.27.1869.1053@51.27.1869.1053" timestamp="1584205958653" />
+    <state x="653" y="268" width="760" height="568" key="find.popup/51.27.1869.1053@51.27.1869.1053" timestamp="1586592534171" />
     <state x="294" y="154" width="1372" height="796" key="new project wizard" timestamp="1579115737318">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -390,5 +399,9 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="649" y="253" width="672" height="677" key="run.anything.popup/51.27.1869.1053@51.27.1869.1053" timestamp="1584206695001" />
+    <state x="648" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1586592515145">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state x="648" y="259" width="672" height="678" key="search.everywhere.popup/51.27.1869.1053@51.27.1869.1053" timestamp="1586592515145" />
   </component>
 </project>

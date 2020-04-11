@@ -21,7 +21,7 @@ export class BookDAL {
         from
             key_english ke
         left join 
-            key_abbreviations_english kae on ke.b = kae.b`
+            key_abbreviations kae on ke.b = kae.b`
     }
 
     /**
@@ -64,7 +64,7 @@ export class BookDAL {
         from
             key_english ke
         left join 
-            key_abbreviations_english kae on ke.b = kae.b
+            key_abbreviations kae on ke.b = kae.b
         where 
             lower(kae.a) = lower(` + SQLUtils.quote(name) + `)`
 

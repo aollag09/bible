@@ -4,7 +4,7 @@ export class Schema{
     static TABLE_VERSION:String = "bible_version_key";
 
     /** Abbreviations table */
-    static TABLE_ABBREVIATIONS_EN:String = "key_abbreviations_english";
+    static TABLE_ABBREVIATIONS_EN:String = "key_abbreviations";
 
     /** Books name table */
     static TABLE_BOOK_EN:String = "key_english";

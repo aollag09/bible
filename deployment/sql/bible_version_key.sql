@@ -44,7 +44,13 @@ create TABLE `bible_version_key` (
 
 LOCK TABLES `bible_version_key` WRITE;
 /*!40000 ALTER TABLE `bible_version_key` DISABLE KEYS */;
-insert into `bible_version_key` VALUES (001,'t_asv','ASV','english','American Standard-ASV1901','','http://en.wikipedia.org/wiki/American_Standard_Version','','Public Domain',''),(002,'t_bbe','BBE','english','Bible in Basic English','','http://en.wikipedia.org/wiki/Bible_in_Basic_English','','Public Domain',''),(003,'t_dby','DARBY','english','Darby English Bible','','http://en.wikipedia.org/wiki/Darby_Bible','','Public Domain',''),(004,'t_kjv','KJV','english','King James Version','','http://en.wikipedia.org/wiki/King_James_Version','','Public Domain',''),(005,'t_wbt','WBT','english','Webster\'s Bible','','http://en.wikipedia.org/wiki/Webster%27s_Revision','','Public Domain',''),(006,'t_web','WEB','english','World English Bible','','http://en.wikipedia.org/wiki/World_English_Bible','','Public Domain',''),(007,'t_ylt','YLT','english','Young\'s Literal Translation','','http://en.wikipedia.org/wiki/Young%27s_Literal_Translation','','Public Domain','');
+insert into `bible_version_key` VALUES (001,'t_asv','ASV','english','American Standard-ASV1901','','http://en.wikipedia.org/wiki/American_Standard_Version','','Public Domain',''),
+(002,'t_bbe','BBE','english','Bible in Basic English','','http://en.wikipedia.org/wiki/Bible_in_Basic_English','','Public Domain',''),
+(003,'t_dby','DARBY','english','Darby English Bible','','http://en.wikipedia.org/wiki/Darby_Bible','','Public Domain',''),
+(004,'t_kjv','KJV','english','King James Version','','http://en.wikipedia.org/wiki/King_James_Version','','Public Domain',''),
+(005,'t_wbt','WBT','english','Webster\'s Bible','','http://en.wikipedia.org/wiki/Webster%27s_Revision','','Public Domain',''),
+(006,'t_web','WEB','english','World English Bible','','http://en.wikipedia.org/wiki/World_English_Bible','','Public Domain',''),
+(007,'t_ylt','YLT','english','Young\'s Literal Translation','','http://en.wikipedia.org/wiki/Young%27s_Literal_Translation','','Public Domain','');
 /*!40000 ALTER TABLE `bible_version_key` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
