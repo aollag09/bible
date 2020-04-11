@@ -20,16 +20,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/converter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_asv.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_dby.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_wbt.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_web.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/sql/data/en_ylt.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/sql/schema/bible_version_key.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/book/bookDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/book/bookDAL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/database/schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/bible_version_key.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/bible_version_key.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/key_abbreviations_english.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/key_abbreviations.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/sql/t_asv.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/t_asv.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/converter.js" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/converter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/ar_svd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/ar_svd.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/bible_init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/schema/bible_init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/bible_version_key.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/de_schlachter.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/de_schlachter.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/el_greek.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/el_greek.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/en_bbe.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/en_bbe.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/en_kjv.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/en_kjv.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/eo_esperanto.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/eo_esperanto.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/es_rvr.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/es_rvr.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/fi_finnish.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/fi_finnish.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/fi_pr.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/fi_pr.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/fr_apee.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/fr_apee.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/key_abbreviations.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/schema/key_abbreviations.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/key_english.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/schema/key_english.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/key_genre_english.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/schema/key_genre_english.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/ko_ko.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/ko_ko.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/pt_aa.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/pt_aa.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/pt_acf.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/pt_acf.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/pt_nvi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/pt_nvi.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/ro_cornilescu.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/ro_cornilescu.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/ru_synodal.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/ru_synodal.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/t_asv.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/t_bbe.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/t_dby.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/t_kjv.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/t_wbt.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/t_web.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/t_ylt.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/vi_vietnamese.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/vi_vietnamese.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/zh_cuv.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/zh_cuv.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/sql/zh_ncv.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/sql/data/zh_ncv.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pm2.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,8 +149,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="ToolWindowProject Explorer.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../codinggames" />
+    <property name="last_opened_file_path" value="/tmp" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/deployment/sql/data" />
+      <recent name="$PROJECT_DIR$/deployment/sql/schema" />
+    </key>
   </component>
   <component name="RunManager" selected="Gradle.bible [init]">
     <configuration name="bible [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -142,6 +178,14 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="de_schlachter.sql" type="OdpsQLRunnerConfigurationType" factoryName="MaxCompute SQL">
+      <odps_target_file>$PROJECT_DIR$/deployment/sql/data/de_schlachter.sql</odps_target_file>
+      <odps_output_dir>/tmp</odps_output_dir>
+      <job_name />
+      <odps_parameter name="odps.sql.hive.compatible" value="true" />
+      <odps_parameter name="odps.compiler.runmode" value="Studio" />
+      <method v="2" />
+    </configuration>
     <configuration name="Docker Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -155,6 +199,7 @@
     <list>
       <item itemvalue="Docker.Docker Deployment" />
       <item itemvalue="Gradle.bible [init]" />
+      <item itemvalue="MaxCompute SQL.de_schlachter.sql" />
     </list>
     <recent_temporary>
       <list>
@@ -263,10 +308,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="443" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584200543938" />
-    <state x="650" y="358" width="661" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584213548332">
+    <state x="650" y="358" width="661" height="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586602862583">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="650" y="358" width="661" height="388" key="#com.intellij.fileTypes.FileTypeChooser/51.27.1869.1053@51.27.1869.1053" timestamp="1584213548332" />
+    <state x="650" y="358" width="661" height="388" key="#com.intellij.fileTypes.FileTypeChooser/51.27.1869.1053@51.27.1869.1053" timestamp="1586602862583" />
     <state x="756" y="248" width="601" height="551" key="#docker-compose.yml:_Compose_Deployment" timestamp="1584200449406">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -303,10 +348,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="826" y="444" width="307" height="216" key="DockerComposeFileDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584200507451" />
-    <state x="768" y="269" width="424" height="567" key="FileChooserDialogImpl" timestamp="1584727591555">
+    <state x="768" y="269" width="424" height="567" key="FileChooserDialogImpl" timestamp="1586600879483">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="768" y="269" width="424" height="567" key="FileChooserDialogImpl/51.27.1869.1053@51.27.1869.1053" timestamp="1584727591555" />
+    <state x="768" y="269" width="424" height="567" key="FileChooserDialogImpl/51.27.1869.1053@51.27.1869.1053" timestamp="1586600879483" />
     <state width="1825" height="279" key="GridCell.Tab.0.bottom" timestamp="1584208175662">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>

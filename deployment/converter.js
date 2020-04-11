@@ -35,7 +35,7 @@ versions.forEach(version => {
         '/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n' +
         '/*!40101 SET NAMES utf8 */;\n' +
         '/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n' +
-        '/*!40103 SET TIME_ZONE=00:00 */;\n' +
+        '/*!40103 SET TIME_ZONE=\'+00:00\'*/;\n' +
         '/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n' +
         '/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n' +
         '/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=NO_AUTO_VALUE_ON_ZERO */;\n' +
@@ -45,10 +45,10 @@ versions.forEach(version => {
         '-- Table structure for table `' + versionName + '`\n' +
         '--\n' +
         '\n' +
-        'ROP TABLE IF EXISTS `' + versionName + '`;\n' +
+        'DROP TABLE IF EXISTS `' + versionName + '`;\n' +
         '/*!40101 SET @saved_cs_client     = @@character_set_client */;\n' +
         '/*!40101 SET character_set_client = utf8 */;\n' +
-        'REATE TABLE `' + versionName + '` (\n' +
+        'CREATE TABLE `' + versionName + '` (\n' +
         '  `id` int(8) unsigned zerofill NOT NULL,\n' +
         '  `b` int(11) NOT NULL,\n' +
         '  `c` int(11) NOT NULL,\n' +
@@ -56,15 +56,16 @@ versions.forEach(version => {
         '  `t` text NOT NULL,\n' +
         '  PRIMARY KEY (`id`),\n' +
         '  UNIQUE KEY `id_3` (`id`),\n' +
-        '  KEY `id` (`id`),\n' +
-        '  KEY `id_2` (`id`),\n' +
-        '  KEY `id_4` (`id`),\n' +
-        '  KEY `id_5` (`id`),\n' +
-        '  KEY `id_6` (`id`),\n' +
-        '  KEY `id_7` (`id`),\n' +
-        '  KEY `id_8` (`id`)\n' +
+        '  KEY `id` (`id`)\n' +
         ') ENGINE=InnoDB DEFAULT CHARSET=latin1;\n' +
-        '/*!40101 SET character_set_client = @saved_cs_client */\n;'
+        '/*!40101 SET character_set_client = @saved_cs_client */\n;' +
+        '\n' +
+        '\n' +
+        '\n' +
+        'LOCK TABLES `' + versionName + '` WRITE;\n' +
+        '/*!40000 ALTER TABLE `' + versionName + '` DISABLE KEYS */;\n' +
+        'INSERT INTO `' + versionName + '` VALUES '
+
     var bookid = 0
     bible.forEach(book => {
         bookid++
@@ -98,16 +99,20 @@ versions.forEach(version => {
                 var stringID = bookStringId + chapterStringId + verseStringId
 
                 // format verse
-                verse = verse.replace( "'", "\\'")
-
-                sql += "(" + stringID + "," + bookid + "," + chapterid + "," + verseid + ",\'" + verse + "\'),"
+                verse = verse.replace(/'/g, "\\'")
+                sql += "(" + stringID + "," + bookid + "," + chapterid + "," + verseid + ",\'" + verse + "\'),\n"
             })
 
         })
     })
 
+    // Remove last coma
+    sql = sql.substring(0, sql.length - 2);
+    sql += ';\n'
     sql +=
-        '\n/*!40000 ALTER TABLE `' + versionName + '` ENABLE KEYS */;\n' +
+        '\n' +
+        '\n' +
+        '/*!40000 ALTER TABLE `' + versionName + '` ENABLE KEYS */;\n' +
         'UNLOCK TABLES;\n' +
         '/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;\n' +
         '\n' +
