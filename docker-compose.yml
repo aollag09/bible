@@ -1,6 +1,8 @@
 # docker-compose.yml
 version: '3'
 services:
+
+  # DATABASE 
   database:
     # Use latest official mysql version
     image: "mysql:latest"
@@ -61,6 +63,52 @@ services:
       - ./deployment/sql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
       - ./deployment/sql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
 
+
+
+  # INDEX 
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    container_name: elasticsearch
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+    networks:
+      - elastic
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:7.6.2
+    environment:
+      SERVER_HOST: 0.0.0.0
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    ports:
+      - 5601:5601
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+  
+
 volumes:
   database-data: # named volumes can be managed easier using docker-compose
-  
+  elasticsearch-data:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge
