@@ -21,6 +21,7 @@ export default [
                 if (isNaN(bookid))
                     clientError(new Error("Input book identifier is not a number : " + bookid), res, next);
 
+                console.log(JSON.stringify(req.query))
                 let bookDAL = new BookDAL(new Database())
                 let book: Book | undefined = await bookDAL.withId(bookid)
 
@@ -28,7 +29,7 @@ export default [
                     notFoundErrorMessage("Book has not been found with input id : " + bookid)
                 } else {
                     res.status(200)
-                        .send(ProtoUtils.serialize(book))
+                        .send(ProtoUtils.serialize(book, req))
                 }
             }
         ]
@@ -45,7 +46,7 @@ export default [
                 let bookDAL = new BookDAL(new Database())
                 let books = await bookDAL.list()
                 res.status(200)
-                    .send(ProtoUtils.serialize(books))
+                    .send(ProtoUtils.serialize(books, req))
             }
         ]
     },

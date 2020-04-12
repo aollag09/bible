@@ -39,7 +39,7 @@ export default [
                         notFoundErrorMessage("Scripture Verse has not been found with input id : " + verseId)
                     } else {
                         res.status(200)
-                            .send(ProtoUtils.serialize(verse))
+                            .send(ProtoUtils.serialize(verse,req))
                     }
                 }
             }
@@ -77,7 +77,7 @@ export default [
                     let verses = await scriptureDAL.withBook(bookId)
 
                     res.status(200)
-                        .send(ProtoUtils.serialize(verses))
+                        .send(ProtoUtils.serialize(verses,req))
                 }
             }
         ]
@@ -119,7 +119,7 @@ export default [
                     let verses = await scriptureDAL.withBookAndChapter(bookId, chapterId)
 
                     res.status(200)
-                        .send(ProtoUtils.serialize(verses))
+                        .send(ProtoUtils.serialize(verses,req))
                 }
             }
         ]

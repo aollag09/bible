@@ -29,7 +29,7 @@ export default [
                     notFoundErrorMessage("Version has not been found with input id : " + versionId)
                 } else {
                     res.status(200)
-                        .send(ProtoUtils.serialize(version))
+                        .send(ProtoUtils.serialize(version, req))
                 }
             }
         ]
@@ -47,7 +47,7 @@ export default [
                 let versionsDAL = new VersionDAL(new Database())
                 let versions = await versionsDAL.list()
                 res.status(200)
-                    .send(ProtoUtils.serialize(versions))
+                    .send(ProtoUtils.serialize(versions,req))
             }
         ]
     },

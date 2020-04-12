@@ -111,7 +111,6 @@ describe('Versions Data Access Layer Tests', function () {
     });
 });
 
-
 describe('Version Schema', function () {
     describe('#getTableName', function () {
         it('Build Version', async function () {
