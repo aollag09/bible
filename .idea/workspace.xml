@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/back/services/scriptures/scriptureDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/scriptures/scriptureDAL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/version/test/versionTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/back/services/version/test/versionTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/services/version/versionSchema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

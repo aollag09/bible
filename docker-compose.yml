@@ -67,12 +67,16 @@ services:
 
   # INDEX 
 
-  elasticsearch:
+  elasticsearch-1:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
-    container_name: elasticsearch
+    container_name: elasticsearch-1
     environment:
+      - node.name=elasticsearch-1
+      - cluster.name=es-bible-cluster
+      - discovery.seed_hosts=elasticsearch-2,elasticsearch-3
+      - cluster.initial_master_nodes=elasticsearch-1,elasticsearch-2,elasticsearch-3
+      - bootstrap.memory_lock=true
       - xpack.security.enabled=false
-      - discovery.type=single-node
     ulimits:
       memlock:
         soft: -1
@@ -80,13 +84,55 @@ services:
       nofile:
         soft: 65536
         hard: 65536
-    cap_add:
-      - IPC_LOCK
     volumes:
-      - elasticsearch-data:/usr/share/elasticsearch/data
+      - elasticsearch-data-1:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
       - 9300:9300
+    networks:
+      - elastic
+  
+  elasticsearch-2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    container_name: elasticsearch-2
+    environment:
+      - node.name=elasticsearch-2
+      - cluster.name=es-bible-cluster
+      - discovery.seed_hosts=elasticsearch-1,elasticsearch-3
+      - cluster.initial_master_nodes=elasticsearch-1,elasticsearch-2,elasticsearch-3
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - elasticsearch-data-2:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+
+  elasticsearch-3:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+    container_name: elasticsearch-3
+    environment:
+      - node.name=elasticsearch-3
+      - cluster.name=es-bible-cluster
+      - discovery.seed_hosts=elasticsearch-1,elasticsearch-2
+      - cluster.initial_master_nodes=elasticsearch-1,elasticsearch-2,elasticsearch-3
+      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - elasticsearch-data-3:/usr/share/elasticsearch/data
     networks:
       - elastic
 
@@ -94,20 +140,27 @@ services:
     container_name: kibana
     image: docker.elastic.co/kibana/kibana:7.6.2
     environment:
-      SERVER_HOST: 0.0.0.0
-      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: http://elasticsearch-1:9200
     ports:
       - 5601:5601
     depends_on:
-      - elasticsearch
+      - elasticsearch-1
     networks:
       - elastic
   
 
 volumes:
-  database-data: # named volumes can be managed easier using docker-compose
-  elasticsearch-data:
+  # database volume
+  database-data: 
+
+  # index volumes
+  elasticsearch-data-1:
     driver: local
+  elasticsearch-data-2:
+    driver: local
+  elasticsearch-data-3:
+    driver: local
+      
 
 networks:
   elastic:
