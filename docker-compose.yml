@@ -15,7 +15,7 @@ services:
       # So you don't have to use root, but you can if you like
       MYSQL_USER: 'bible_user'
       # You can use whatever password you like
-      MYSQL_PASSWORD: 'docker'
+      MYSQLelastic_PASSWORD: 'docker'
       # Password for root access
       MYSQL_ROOT_PASSWORD: 'docker'
 
@@ -25,7 +25,10 @@ services:
     expose:
       # Opens port 3306 on the container
       - '3306'
-
+    networks: 
+      bible-net:
+        aliases:
+          - database
     volumes:
       # Persist data even if container shuts down
       - database-data:/var/lib/postgresql/data/bible
@@ -64,9 +67,7 @@ services:
       - ./deployment/sql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
 
 
-
   # INDEX 
-
   elasticsearch-1:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
     container_name: elasticsearch-1
@@ -90,7 +91,9 @@ services:
       - 9200:9200
       - 9300:9300
     networks:
-      - elastic
+      bible-net:
+        aliases:
+          - index
   
   elasticsearch-2:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
@@ -112,7 +115,7 @@ services:
     volumes:
       - elasticsearch-data-2:/usr/share/elasticsearch/data
     networks:
-      - elastic
+      - bible-net
 
   elasticsearch-3:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
@@ -134,8 +137,27 @@ services:
     volumes:
       - elasticsearch-data-3:/usr/share/elasticsearch/data
     networks:
-      - elastic
+      - bible-net
 
+  # LOGSTASH
+  logstash:
+    build: deployment/logstash/
+    volumes:
+      - './deployment/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml'
+      - './deployment/logstash/pipeline:/usr/share/logstash/pipeline'
+      #- './deployment/logstash/lastrun:/root/.logstash_jdbc_last_run'
+    ports:
+      - '5001:5001'
+    env_file:
+      - .env
+    networks:
+      - bible-net
+    depends_on:
+      - elasticsearch-1
+      - database
+  
+
+  # DATA VIS
   kibana:
     container_name: kibana
     image: docker.elastic.co/kibana/kibana:7.6.2
@@ -146,9 +168,11 @@ services:
     depends_on:
       - elasticsearch-1
     networks:
-      - elastic
-  
+      bible-net:
+        aliases:
+          - kibana
 
+      
 volumes:
   # database volume
   database-data: 
@@ -163,5 +187,5 @@ volumes:
       
 
 networks:
-  elastic:
+  bible-net:
     driver: bridge
