@@ -31,37 +31,37 @@ services:
       - database-data:/var/lib/postgresql/data/bible
 
       # Initialization db schema scripts
-      - ./deployment/sql/schema/bible_init.sql:/docker-entrypoint-initdb.d/bible_init.sql
-      - ./deployment/sql/schema/bible_version_key.sql:/docker-entrypoint-initdb.d/bible_version_key.sql
-      - ./deployment/sql/schema/key_abbreviations.sql:/docker-entrypoint-initdb.d/key_abbreviations.sql
-      - ./deployment/sql/schema/key_english.sql:/docker-entrypoint-initdb.d/key_english.sql
-      - ./deployment/sql/schema/key_genre_english.sql:/docker-entrypoint-initdb.d/key_genre_english.sql
+      - ./deployment/mysql/schema/bible_init.sql:/docker-entrypoint-initdb.d/bible_init.sql
+      - ./deployment/mysql/schema/bible_version_key.sql:/docker-entrypoint-initdb.d/bible_version_key.sql
+      - ./deployment/mysql/schema/key_abbreviations.sql:/docker-entrypoint-initdb.d/key_abbreviations.sql
+      - ./deployment/mysql/schema/key_english.sql:/docker-entrypoint-initdb.d/key_english.sql
+      - ./deployment/mysql/schema/key_genre_english.sql:/docker-entrypoint-initdb.d/key_genre_english.sql
 
       # Db Data (prefix with z to ensure this import is done after the schema
-      - ./deployment/sql/data/ar_svd.sql:/docker-entrypoint-initdb.d/z_ar_svd.sql
-      - ./deployment/sql/data/de_schlachter.sql:/docker-entrypoint-initdb.d/z_de_schlachter.sql
-      - ./deployment/sql/data/el_greek.sql:/docker-entrypoint-initdb.d/z_el_greek.sql
-      - ./deployment/sql/data/en_asv.sql:/docker-entrypoint-initdb.d/z_en_asv.sql
-      - ./deployment/sql/data/en_bbe.sql:/docker-entrypoint-initdb.d/z_en_bbe.sql
-      - ./deployment/sql/data/en_dby.sql:/docker-entrypoint-initdb.d/z_en_dby.sql
-      - ./deployment/sql/data/en_kjv.sql:/docker-entrypoint-initdb.d/z_en_kjv.sql
-      - ./deployment/sql/data/en_wbt.sql:/docker-entrypoint-initdb.d/z_en_wbt.sql
-      - ./deployment/sql/data/en_web.sql:/docker-entrypoint-initdb.d/z_en_web.sql
-      - ./deployment/sql/data/en_ylt.sql:/docker-entrypoint-initdb.d/z_en_ylt.sql
-      - ./deployment/sql/data/eo_esperanto.sql:/docker-entrypoint-initdb.d/z_eo_esperanto.sql
-      - ./deployment/sql/data/es_rvr.sql:/docker-entrypoint-initdb.d/z_es_rvr.sql
-      - ./deployment/sql/data/fi_finnish.sql:/docker-entrypoint-initdb.d/z_fi_finnish.sql
-      - ./deployment/sql/data/fi_pr.sql:/docker-entrypoint-initdb.d/z_fi_pr.sql
-      - ./deployment/sql/data/fr_apee.sql:/docker-entrypoint-initdb.d/z_fr_apee.sql
-      - ./deployment/sql/data/ko_ko.sql:/docker-entrypoint-initdb.d/z_ko_ko.sql
-      - ./deployment/sql/data/pt_aa.sql:/docker-entrypoint-initdb.d/z_pt_aa.sql
-      - ./deployment/sql/data/pt_acf.sql:/docker-entrypoint-initdb.d/z_pt_acf.sql
-      - ./deployment/sql/data/pt_nvi.sql:/docker-entrypoint-initdb.d/z_pt_nvi.sql
-      - ./deployment/sql/data/ro_cornilescu.sql:/docker-entrypoint-initdb.d/z_ro_cornilescu.sql
-      - ./deployment/sql/data/ru_synodal.sql:/docker-entrypoint-initdb.d/z_ru_synodal.sql
-      - ./deployment/sql/data/vi_vietnamese.sql:/docker-entrypoint-initdb.d/z_vi_vietnamese.sql
-      - ./deployment/sql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
-      - ./deployment/sql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
+      - ./deployment/mysql/data/ar_svd.sql:/docker-entrypoint-initdb.d/z_ar_svd.sql
+      - ./deployment/mysql/data/de_schlachter.sql:/docker-entrypoint-initdb.d/z_de_schlachter.sql
+      - ./deployment/mysql/data/el_greek.sql:/docker-entrypoint-initdb.d/z_el_greek.sql
+      - ./deployment/mysql/data/en_asv.sql:/docker-entrypoint-initdb.d/z_en_asv.sql
+      - ./deployment/mysql/data/en_bbe.sql:/docker-entrypoint-initdb.d/z_en_bbe.sql
+      - ./deployment/mysql/data/en_dby.sql:/docker-entrypoint-initdb.d/z_en_dby.sql
+      - ./deployment/mysql/data/en_kjv.sql:/docker-entrypoint-initdb.d/z_en_kjv.sql
+      - ./deployment/mysql/data/en_wbt.sql:/docker-entrypoint-initdb.d/z_en_wbt.sql
+      - ./deployment/mysql/data/en_web.sql:/docker-entrypoint-initdb.d/z_en_web.sql
+      - ./deployment/mysql/data/en_ylt.sql:/docker-entrypoint-initdb.d/z_en_ylt.sql
+      - ./deployment/mysql/data/eo_esperanto.sql:/docker-entrypoint-initdb.d/z_eo_esperanto.sql
+      - ./deployment/mysql/data/es_rvr.sql:/docker-entrypoint-initdb.d/z_es_rvr.sql
+      - ./deployment/mysql/data/fi_finnish.sql:/docker-entrypoint-initdb.d/z_fi_finnish.sql
+      - ./deployment/mysql/data/fi_pr.sql:/docker-entrypoint-initdb.d/z_fi_pr.sql
+      - ./deployment/mysql/data/fr_apee.sql:/docker-entrypoint-initdb.d/z_fr_apee.sql
+      - ./deployment/mysql/data/ko_ko.sql:/docker-entrypoint-initdb.d/z_ko_ko.sql
+      - ./deployment/mysql/data/pt_aa.sql:/docker-entrypoint-initdb.d/z_pt_aa.sql
+      - ./deployment/mysql/data/pt_acf.sql:/docker-entrypoint-initdb.d/z_pt_acf.sql
+      - ./deployment/mysql/data/pt_nvi.sql:/docker-entrypoint-initdb.d/z_pt_nvi.sql
+      - ./deployment/mysql/data/ro_cornilescu.sql:/docker-entrypoint-initdb.d/z_ro_cornilescu.sql
+      - ./deployment/mysql/data/ru_synodal.sql:/docker-entrypoint-initdb.d/z_ru_synodal.sql
+      - ./deployment/mysql/data/vi_vietnamese.sql:/docker-entrypoint-initdb.d/z_vi_vietnamese.sql
+      - ./deployment/mysql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
+      - ./deployment/mysql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
 
 
 
