@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/config/logstash.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/connector/mysql-connector-java-8.0.19.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_asv.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/mysql/connector/mysql-connector-java-8.0.19.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/logstash/config/logstash.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/logstash/config/logstash.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/logstash/pipeline/logstash.conf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

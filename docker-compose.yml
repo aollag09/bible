@@ -108,7 +108,7 @@ services:
     build: deployment/logstash/
     volumes:
       - './deployment/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml'
-      - './deployment/logstash/pipeline:/usr/share/logstash/pipeline'
+      - './deployment/logstash/pipelines:/usr/share/logstash/pipelines'
       #- './deployment/logstash/lastrun:/root/.logstash_jdbc_last_run'
     ports:
       - '5001:5001'
