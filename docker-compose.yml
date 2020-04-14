@@ -4,8 +4,8 @@ services:
 
   # DATABASE 
   database:
-    # Use latest official mysql version
-    image: "mysql:latest"
+    # Use latest oicial mysql version
+    image: "mysql:8.0.19"
     restart: always
     container_name: "bible"
 
@@ -63,10 +63,7 @@ services:
       - ./deployment/mysql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
       - ./deployment/mysql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
 
-
-
   # INDEX 
-
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
     container_name: elasticsearch
@@ -90,8 +87,9 @@ services:
       - 9200:9200
       - 9300:9300
     networks:
-      - elastic
+      - bible-net
   
+  # KIBANA, DATA VISUALIZATION
   kibana:
     container_name: kibana
     image: docker.elastic.co/kibana/kibana:7.6.2
@@ -102,8 +100,10 @@ services:
     depends_on:
       - elasticsearch
     networks:
-      - elastic
+      - bible-net
   
+  # LOGSTASH, DATA INTEGRATION
+
 
 volumes:
   # database volume
@@ -114,5 +114,5 @@ volumes:
     driver: local
 
 networks:
-  elastic:
+  bible-net:
     driver: bridge
