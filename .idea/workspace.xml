@@ -20,11 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_asv.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/ar_svd.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/de_schlachter.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/el_greek.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_bbe.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_dby.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_kjv.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_wbt.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_web.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_ylt.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/eo_esperanto.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/es_rvr.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/fi_finnish.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/fi_pr.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/fr_apee.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/ko_ko.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/pt_aa.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/pt_acf.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/pt_nvi.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/ro_cornilescu.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/ru_synodal.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/vi_vietnamese.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/zh_cuv.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/zh_ncv.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/logstash/config/logstash.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/logstash/config/logstash.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/logstash/pipeline/logstash.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/logstash/pipelines/en_asv.conf" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_asv.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
