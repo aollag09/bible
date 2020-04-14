@@ -20,31 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/ar_svd.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/de_schlachter.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/el_greek.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_bbe.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_dby.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_kjv.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_wbt.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_web.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_ylt.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/eo_esperanto.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/es_rvr.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/fi_finnish.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/fi_pr.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/fr_apee.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/ko_ko.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/pt_aa.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/pt_acf.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/pt_nvi.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/ro_cornilescu.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/ru_synodal.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/vi_vietnamese.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/zh_cuv.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/zh_ncv.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/config/pipelines.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/logstash/pipelines/en_asv.conf" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/en_asv.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/logstash/pipelines/el_greek.conf" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/el_greek.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,10 +288,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="751" y="238" key="DBNavigator.ConnectionInfoDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586854828681" />
-    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1584209937193">
+    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1586868350787">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584209937193" />
+    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586868350787" />
     <state x="710" y="284" width="540" height="541" key="DBNavigator.ExportDataDialog" timestamp="1586265992391">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -321,10 +300,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586863513829" />
-    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1586335460911">
+    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1586868359685">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586335460911" />
+    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586868359685" />
     <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog" timestamp="1586263513405">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -389,10 +368,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state width="137" height="60" key="LargeValuePreview.publisher/51.27.1869.1053@51.27.1869.1053" timestamp="1584315114606" />
-    <state width="472" height="110" key="LargeValuePreview.t" timestamp="1586335142553">
+    <state width="472" height="110" key="LargeValuePreview.t" timestamp="1586868364135">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state width="472" height="110" key="LargeValuePreview.t/51.27.1869.1053@51.27.1869.1053" timestamp="1586335142553" />
+    <state width="472" height="110" key="LargeValuePreview.t/51.27.1869.1053@51.27.1869.1053" timestamp="1586868364135" />
     <state width="111" height="60" key="LargeValuePreview.table" timestamp="1584315134833">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>

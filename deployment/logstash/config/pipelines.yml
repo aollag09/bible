@@ -1,0 +1,102 @@
+ 
+# This file is where you define your pipelines. You can define multiple.
+# For more information on multiple pipelines, see the documentation:
+#   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+
+- pipeline.id: ar_svd
+  path.config: "pipelines/ar_svd.conf"
+  pipeline.workers: 1
+
+- pipeline.id: de_schlachter
+  path.config: "pipelines/de_schlachter.conf"
+  pipeline.workers: 1
+
+- pipeline.id: el_greek
+  path.config: "pipelines/el_greek.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: en_asv
+  path.config: "pipelines/en_asv.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: en_bbe
+  path.config: "pipelines/en_bbe.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: en_dby
+  path.config: "pipelines/en_dby.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: en_kjv
+  path.config: "pipelines/en_kjv.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: en_wbt
+  path.config: "pipelines/en_wbt.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: en_web
+  path.config: "pipelines/en_web.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: en_ylt
+  path.config: "pipelines/en_ylt.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: eo_esperanto
+  path.config: "pipelines/eo_esperanto.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: es_rvr
+  path.config: "pipelines/es_rvr.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: fi_finnish
+  path.config: "pipelines/fi_finnish.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: fi_pr
+  path.config: "pipelines/fi_pr.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: fr_apee
+  path.config: "pipelines/fr_apee.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: ko_ko
+  path.config: "pipelines/ko_ko.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: pt_aa
+  path.config: "pipelines/pt_aa.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: pt_acf
+  path.config: "pipelines/pt_acf.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: pt_nvi
+  path.config: "pipelines/pt_nvi.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: ro_cornilescu
+  path.config: "pipelines/ro_cornilescu.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: ru_synodal
+  path.config: "pipelines/ru_synodal.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: vi_vietnamese
+  path.config: "pipelines/vi_vietnamese.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: zh_cuv
+  path.config: "pipelines/zh_cuv.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: zh_ncv
+  path.config: "pipelines/zh_ncv.conf"
+  pipeline.workers: 1
+  
+  

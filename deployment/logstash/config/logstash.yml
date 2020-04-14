@@ -1,7 +1,7 @@
 ## Default Logstash configuration from logstash-docker.
 ## from https://github.com/elastic/logstash-docker/blob/master/build/logstash/config/logstash.yml
 #
-path.config: /usr/share/logstash/pipelines
+#path.config: /usr/share/logstash/pipelines
 
 ## Disable X-Pack
 ## see https://www.elastic.co/guide/en/x-pack/current/xpack-settings.html
