@@ -7,7 +7,7 @@ services:
     # Use latest oicial mysql version
     image: "mysql:8.0.19"
     restart: always
-    container_name: "bible"
+    container_name: "database"
 
     environment:
       # Configure MySQL environment
@@ -25,7 +25,6 @@ services:
     expose:
       # Opens port 3306 on the container
       - '3306'
-
     volumes:
       # Persist data even if container shuts down
       - database-data:/var/lib/postgresql/data/bible
@@ -62,6 +61,8 @@ services:
       - ./deployment/mysql/data/vi_vietnamese.sql:/docker-entrypoint-initdb.d/z_vi_vietnamese.sql
       - ./deployment/mysql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
       - ./deployment/mysql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
+    networks:
+      - bible-net
 
   # INDEX 
   elasticsearch:
@@ -103,7 +104,23 @@ services:
       - bible-net
   
   # LOGSTASH, DATA INTEGRATION
-
+  logstash:
+    build: deployment/logstash/
+    volumes:
+      - './deployment/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml'
+      - './deployment/logstash/pipeline:/usr/share/logstash/pipeline'
+      #- './deployment/logstash/lastrun:/root/.logstash_jdbc_last_run'
+    ports:
+      - '5001:5001'
+    environment:
+      LS_JAVA_OPTS: '-Xmx1g -Xms1g'
+    env_file:
+      - .env
+    networks:
+      - bible-net
+    depends_on:
+      - elasticsearch
+      - database
 
 volumes:
   # database volume

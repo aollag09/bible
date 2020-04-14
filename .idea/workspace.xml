@@ -20,6 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/config/logstash.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/connector/mysql-connector-java-8.0.19.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/mysql/connector/mysql-connector-java-8.0.19.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -281,6 +286,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2/51.27.1869.1053@51.27.1869.1053" timestamp="1584215693902" />
+    <state x="751" y="238" key="DBNavigator.ConnectionInfoDialog" timestamp="1586854828681">
+      <screen x="51" y="27" width="1869" height="1053" />
+    </state>
+    <state x="751" y="238" key="DBNavigator.ConnectionInfoDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586854828681" />
     <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1584209937193">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -289,10 +298,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="710" y="284" width="540" height="541" key="DBNavigator.ExportDataDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586265992391" />
-    <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog" timestamp="1586335111063">
+    <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog" timestamp="1586863513829">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586335111063" />
+    <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586863513829" />
     <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1586335460911">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -309,10 +318,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="826" y="444" width="307" height="216" key="DockerComposeFileDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1584200507451" />
-    <state x="768" y="269" width="424" height="567" key="FileChooserDialogImpl" timestamp="1586600879483">
+    <state x="768" y="269" width="461" height="567" key="FileChooserDialogImpl" timestamp="1586853985941">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="768" y="269" width="424" height="567" key="FileChooserDialogImpl/51.27.1869.1053@51.27.1869.1053" timestamp="1586600879483" />
+    <state x="768" y="269" width="461" height="567" key="FileChooserDialogImpl/51.27.1869.1053@51.27.1869.1053" timestamp="1586853985941" />
     <state width="1825" height="279" key="GridCell.Tab.0.bottom" timestamp="1584208175662">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
