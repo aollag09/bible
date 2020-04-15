@@ -36,9 +36,6 @@ services:
       # Opens port 3306 on the container
       - '3306'
     volumes:
-      # Persist data even if container shuts down
-      - database-data:/var/lib/postgresql/data/bible
-
       # Initialization db schema scripts
       - ./deployment/mysql/schema/bible_init.sql:/docker-entrypoint-initdb.d/bible_init.sql
       - ./deployment/mysql/schema/bible_version_key.sql:/docker-entrypoint-initdb.d/bible_version_key.sql

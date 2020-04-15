@@ -7,14 +7,16 @@
     "postinstall": "run-p install:api install:web",
     "install:api": "cd api && npm install && cd ..",
     "install:web": "",
-    "build": "cp -r ./generated && npx tsc",
-    "clean": "rm -rf ./build",
+    "build": "run-p build:api build:web",
+    "build:api": "cd api && npm build && cd ..",
+    "build:web": "",
+    "clean": "rm -rf ./api/build && rm -rf ./web/build",
     "test": "run-p test:api",
-    "test:api": " mocha 'build/js/src/**/test/**/*.js' --exit",
+    "test:api": "mocha './api/build/js/src/**/test/**/*.js' --exit",
     "testWithCoverage:api": "nyc mocha 'build/js/src/**/test/**/*.js' --exit",
-    "dev": "tsc-watch --onSuccess \"node ./build/js/src/server.js\"",
-    "start": "pm2 start ./build/js/src/server.js -i max --name bible --time --log ./.run/bible.log",
-    "run": "pm2-runtime ./build/js/src/server.js -i max --output ./.run/bible.log"
+    "dev:api": "tsc-watch --onSuccess \"node ./api/build/js/src/server.js\"",
+    "start:api": "pm2 start ./api/build/js/src/server.js -i max --name bible --time --log ./.run/bible.log",
+    "run:api": "pm2-runtime ./api/build/js/src/server.js -i max --output ./.run/bible.log"
   },
   "repository": {
     "type": "git",
