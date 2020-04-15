@@ -58,7 +58,7 @@ export class Index {
     }
 
     /**
-     * Query verse from the index
+     * Query verse from all the existing bible index
      * @param index 
      * @param query 
      */
@@ -80,14 +80,14 @@ export class Index {
 }
 
 
-// Define the type of the body for the Search request
+/** Define the type of the body for the Search request */
 interface SearchVerseBody {
     query: {
         match: { t: string }
     }
 }
 
-// Complete definition of the Search response
+/** Complete definition of the Search response */
 interface ShardsResponse {
     total: number;
     successful: number;
@@ -95,12 +95,14 @@ interface ShardsResponse {
     skipped: number;
 }
 
+/** Explenation result */
 interface Explanation {
     value: number;
     description: string;
     details: Explanation[];
 }
 
+/** Search Response */
 interface SearchResponse<T> {
     took: number;
     timed_out: boolean;
@@ -127,7 +129,7 @@ interface SearchResponse<T> {
     aggregations?: any;
 }
 
-// Define the interface of the source object
+/* Define the interface of the source object */
 interface VerseSource {
     id: string,
     b: number,
