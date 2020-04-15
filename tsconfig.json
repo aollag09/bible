@@ -66,9 +66,7 @@
     "preserveConstEnums": true
   },
   "include": [
-    "back/**/*",
-    "front/**/*",
-    "test/**/*",
-    "database"
+    "api/**/*",
+    "front/**/*"
   ]
 }

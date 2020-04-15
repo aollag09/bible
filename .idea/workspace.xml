@@ -20,10 +20,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/config/pipelines.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/logstash/pipelines/el_greek.conf" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/el_greek.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/config/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/swagger.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/middleware/apiDocs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/middleware/apiDocs.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/middleware/check.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/middleware/check.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/middleware/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/middleware/common.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/middleware/errorHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/middleware/errorHandlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/middleware/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/middleware/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/book/book.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/book/book.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/book/bookDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/book/bookDAL.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/book/bookRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/book/bookRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/book/book_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/book/book_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/book/test/bookTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/book/test/bookTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/database/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/database/database.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/database/schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/database/test/databaseTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/database/test/databaseTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/scriptures/scriptureDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/scriptures/scriptureDAL.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/scriptures/scriptureRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/scriptures/scriptureRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/scriptures/scriptures.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/scriptures/scriptures.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/scriptures/scriptures_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/scriptures/scriptures_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/scriptures/test/scripturesTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/scriptures/test/scripturesTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/search/searchDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/search/searchDAL.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/version/test/versionTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/version/test/versionTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/version/version.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/version/version.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/version/versionDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/version/versionDAL.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/version/versionRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/version/versionRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/services/version/version_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/services/version/version_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/utils/ErrorHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/ErrorHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/utils/ProtoUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/ProtoUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/utils/RouteUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/RouteUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/utils/SQLUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/SQLUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/utils/httpErrors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/httpErrors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/utils/test/dummyTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/utils/test/dummyTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/node/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/node/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto.sh" beforeDir="false" afterPath="$PROJECT_DIR$/proto.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,6 +314,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="756" y="248" width="601" height="551" key="#docker-compose.yml:_Compose_Deployment/51.27.1869.1053@51.27.1869.1053" timestamp="1584200449406" />
+    <state x="8" y="19" width="694" height="749" key="#node/Dockerfile" timestamp="1586955579594">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="8" y="19" width="694" height="749" key="#node/Dockerfile/0.0.1366.768@0.0.1366.768" timestamp="1586955579594" />
     <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2" timestamp="1584215693902">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -400,9 +438,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="641" y="380" key="com.intellij.ide.util.TipDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1578593121807" />
-    <state x="653" y="268" width="760" height="568" key="find.popup" timestamp="1586592534171">
-      <screen x="51" y="27" width="1869" height="1053" />
+    <state x="440" y="176" width="606" height="508" key="find.popup" timestamp="1586955901176">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="440" y="176" width="606" height="508" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1586955901176" />
     <state x="653" y="268" width="760" height="568" key="find.popup/51.27.1869.1053@51.27.1869.1053" timestamp="1586592534171" />
     <state x="294" y="154" width="1372" height="796" key="new project wizard" timestamp="1579115737318">
       <screen x="51" y="27" width="1869" height="1053" />

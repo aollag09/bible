@@ -16,8 +16,7 @@ COPY ./tsconfig.json ./
 
 # Copy source code
 COPY ./generated ./generated
-COPY ./back ./back
-COPY ./front ./front
+COPY ./api ./api
 
 # Build application
 RUN npm run build
