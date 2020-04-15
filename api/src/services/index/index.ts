@@ -66,6 +66,7 @@ export class Index {
 
         // Define the search parameters
         const searchParams: RequestParams.Search<SearchVerseBody> = {
+            index: "bible*",
             body: {
                 query: {
                     match: { t: query }
