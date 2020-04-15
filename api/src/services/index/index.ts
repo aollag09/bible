@@ -1,5 +1,6 @@
 
 import { Client, RequestParams, ApiResponse } from "@elastic/elasticsearch"
+import { Version } from "../version/version_pb";
 
 export class Index {
 
@@ -20,15 +21,51 @@ export class Index {
         this.client = new Client({ node: url.toString() })
     }
 
+    /**
+     * @returns The ES Client
+     */
     public getClient(): Client {
         return this.client
     }
 
+    /**
+     * Get the index name from the input version
+     * @param version 
+     */
+    public getIndex(version: Version) {
+        return "bible_" + version.getTable()
+    }
+
+    /**
+     * Query verse from the index
+     * @param index 
+     * @param query 
+     */
     public async search(index: string, query: string): Promise<ApiResponse<SearchResponse<VerseSource>>> {
 
         // Define the search parameters
         const searchParams: RequestParams.Search<SearchVerseBody> = {
             index: index,
+            body: {
+                query: {
+                    match: { t: query }
+                }
+            }
+        }
+
+        // Craft the final type definition
+        return await this.client.search(searchParams)
+    }
+
+    /**
+     * Query verse from the index
+     * @param index 
+     * @param query 
+     */
+    public async searchAll(query: string): Promise<ApiResponse<SearchResponse<VerseSource>>> {
+
+        // Define the search parameters
+        const searchParams: RequestParams.Search<SearchVerseBody> = {
             body: {
                 query: {
                     match: { t: query }
