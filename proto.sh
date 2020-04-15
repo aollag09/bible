@@ -5,7 +5,7 @@ PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
 
 # Directory to write generated code to (.js and .d.ts files)
 TS_OUT="./back"
-JS_OUT="./build/js"
+JS_OUT="./generated/js"
 mkdir -p $TS_OUT
 mkdir -p $JS_OUT
 

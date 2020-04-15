@@ -1,6 +1,17 @@
 # docker-compose.yml
-version: '3'
+version: '3.3'
 services:
+
+  # NODE, BIBLE WEB APP
+  node:
+    build:
+      context: ./
+      dockerfile: ./deployment/node/Dockerfile
+    container_name: node
+    ports: 
+      - '3301:3300'
+    networks:
+      - bible-net
 
   # DATABASE 
   database:

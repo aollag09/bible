@@ -6,11 +6,12 @@
   "scripts": {
     "postinstall": "./proto.sh && npx tsc",
     "clean": "rm -rf ./build",
-    "build": "./proto.sh && npx tsc",
+    "build": "cp -r ./generated ./build && npx tsc",
     "dev": "tsc-watch --onSuccess \"node ./build/js/server.js\"",
     "test": " mocha 'build/js/**/test/**/*.js' --exit",
     "testWithCoverage": "nyc mocha 'build/js/**/test/**/*.js' --exit",
-    "start": "pm2 start ./build/js/server.js -i max --name bible --time --log ./run/bible.log"
+    "start": "pm2 start ./build/js/server.js -i max --name bible --time --log ./run/bible.log",
+    "run": "pm2-runtime ./build/js/server.js -i max --output ./run/bible.log"
   },
   "repository": {
     "type": "git",
