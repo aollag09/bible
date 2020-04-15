@@ -21,7 +21,6 @@ export default [
                 if (isNaN(bookid))
                     clientError(new Error("Input book identifier is not a number : " + bookid), res, next);
 
-                console.log(JSON.stringify(req.query))
                 let bookDAL = new BookDAL(new Database())
                 let book: Book | undefined = await bookDAL.withId(bookid)
 
