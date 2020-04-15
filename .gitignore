@@ -2,8 +2,7 @@
 .gradle
 .idea
 .nyc_output
+.run
 run
-
-# Ignore Gradle build output directory
 build
-/node_modules/
+node_modules
