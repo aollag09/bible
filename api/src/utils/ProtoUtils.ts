@@ -7,7 +7,7 @@ export class ProtoUtils {
 
     public static serialize(message: Message, req: Request | undefined = undefined): string {
         if (req != undefined && !!req.query.format)
-            return this.serializeFormat(message, req.query.format)
+            return this.serializeFormat(message, req.query.format.toString())
         else
             return this.serializeFormat(message)
     }

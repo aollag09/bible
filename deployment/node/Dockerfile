@@ -12,11 +12,12 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
+# Type script compilation file
 COPY ./tsconfig.json ./
 
 # Copy source code
 COPY ./generated ./generated
-COPY ./api ./api
+COPY ./src ./src
 
 # Build application
 RUN npm run build
