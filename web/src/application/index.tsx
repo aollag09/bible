@@ -6,7 +6,7 @@ import { Map } from '../map';
 import { People } from '../people';
 import { Read } from '../read';
 import { Search } from '../search';
-import './resources/style/App.css';
+import './resources/style/application.css';
 
 export class App extends React.Component {
 
@@ -18,7 +18,6 @@ export class App extends React.Component {
         <div className="bible-site-container">
 
           <header className="header">
-            <p> Header </p>
           </header>
 
           <div className="content">

@@ -1,0 +1,29 @@
+.bible-site-container {
+  text-align: center;
+}
+
+.header {
+  background-color: transparent;
+}
+
+.content {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(1vmin);
+  color: white;
+}
+
+.footer{
+  background-color: transparent
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  min-height: 100%;
+  min-width: 320px;
+}
