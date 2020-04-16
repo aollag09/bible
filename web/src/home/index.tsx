@@ -1,7 +1,7 @@
 import React from 'react';
 import { Splash } from './component/Splash';
 import splashRead from './resources/image/splash-read.png'
-import splashSearch from './resources/image/splash-explore.png'
+import splashSearch from './resources/image/splash-search.png'
 import splashExplore from './resources/image/splash-explore.png'
 import splashPeople from './resources/image/splash-people.png'
 import splashMap from './resources/image/splash-map.png'
