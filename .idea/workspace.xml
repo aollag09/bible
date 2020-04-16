@@ -20,49 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/application/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/application/resources/image/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/application/resources/style/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/application/test/App.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/explore/Explore.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/location/Location.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/people/People.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/read/Read.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/search/Search.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/config/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/middleware/apiDocs.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/middleware/apiDocs.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/middleware/check.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/middleware/check.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/middleware/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/middleware/common.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/middleware/errorHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/middleware/errorHandlers.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/middleware/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/middleware/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/server.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/book/book.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/book/book.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/book/bookDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/book/bookDAL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/book/bookRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/book/bookRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/book/book_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/book/book_pb.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/book/test/bookTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/book/test/bookTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/database/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/database/database.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/database/schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/database/schema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/database/test/databaseTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/database/test/databaseTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/scriptures/scriptureDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/scriptures/scriptureDAL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/scriptures/scriptureRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/scriptures/scriptureRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/scriptures/scriptures.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/scriptures/scriptures.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/scriptures/scriptures_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/scriptures/scriptures_pb.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/scriptures/test/scripturesTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/scriptures/test/scripturesTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/search/searchDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/search/searchDAL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/version/test/versionTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/version/test/versionTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/version/version.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/version/version.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/version/versionDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/version/versionDAL.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/version/versionRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/version/versionRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/services/version/version_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/version/version_pb.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/ErrorHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/utils/ErrorHandler.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/ProtoUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/utils/ProtoUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/RouteUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/utils/RouteUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/SQLUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/utils/SQLUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/httpErrors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/utils/httpErrors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/utils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/utils/test/dummyTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/utils/test/dummyTest.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated/js/services/book/book_pb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated/js/services/scriptures/scriptures_pb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/generated/js/services/version/version_pb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto.sh" beforeDir="false" afterPath="$PROJECT_DIR$/proto.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/logo.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -280,6 +253,9 @@
     </task>
     <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.tsx" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
