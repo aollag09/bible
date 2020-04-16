@@ -4,7 +4,6 @@
   "private": true,
   "description": "Bible API, REST ",
   "scripts": {
-    "postinstall": "npm install",
     "build": "mkdir -p ./build/js && cp -r ./generated/js ./build/ && npx tsc",
     "clean": "rm -rf ./build",
     "test": " mocha 'build/js/src/**/test/**/*.js' --exit",
