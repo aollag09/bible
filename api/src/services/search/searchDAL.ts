@@ -1,6 +1,6 @@
-import { Scriptures, Scripture } from "../scriptures/scriptures_pb"
-import { RequestParams, ApiResponse } from "@elastic/elasticsearch"
-import { Index } from "../index/index"
+import { ApiResponse, RequestParams } from "@elastic/elasticsearch";
+import { Index } from "../index/index";
+import { Scripture, Scriptures } from "../scriptures/scriptures_pb";
 import { Version } from "../version/version_pb";
 
 

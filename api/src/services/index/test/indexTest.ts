@@ -1,6 +1,6 @@
-import { Index } from "../index";
-import { VersionDAL } from "../../version/versionDAL";
 import { Database } from "../../database/database";
+import { VersionDAL } from "../../version/versionDAL";
+import { Index } from "../index";
 
 var assert = require('assert');
 

@@ -1,5 +1,5 @@
 
-import { Client, RequestParams, ApiResponse } from "@elastic/elasticsearch"
+import { Client } from "@elastic/elasticsearch";
 import { Version } from "../version/version_pb";
 
 export class Index {

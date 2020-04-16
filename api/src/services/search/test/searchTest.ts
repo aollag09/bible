@@ -1,11 +1,11 @@
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
+import { Message } from 'google-protobuf';
 import { Database } from "../../database/database";
 import { Index } from "../../index/index";
+import { Scriptures } from '../../scriptures/scriptures_pb';
 import { VersionDAL } from "../../version/versionDAL";
 import { SearchDAL } from "../searchDAL";
-import { Scriptures } from '../../scriptures/scriptures_pb';
-import { Message } from 'google-protobuf';
 chai.use(chaiHttp);
 var assert = require('assert');
 
