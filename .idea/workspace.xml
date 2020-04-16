@@ -20,22 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/src/components/application/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/application/resources/image/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/application/resources/style/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/application/test/App.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/explore/Explore.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/location/Location.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/people/People.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/read/Read.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/components/search/Search.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/src/components/home/Home.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/application/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/components/application/resources/style/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/application/resources/style/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/components/explore/Explore.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/explore/Explore.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/components/location/Location.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/location/Location.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/components/people/People.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/people/People.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/components/read/Read.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/read/Read.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/components/search/Search.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/search/Search.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586955990547</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Reorder components">
+      <created>1587041320527</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587041320527</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -289,7 +289,8 @@
     <MESSAGE value="Split proto files" />
     <MESSAGE value="Type Script on" />
     <MESSAGE value="Rename back &amp; front by api &amp; web" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rename back &amp; front by api &amp; web" />
+    <MESSAGE value="Reorder components" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reorder components" />
   </component>
   <component name="WindowStateProjectService">
     <state x="443" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584200543938">
@@ -308,10 +309,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="8" y="19" width="694" height="749" key="#node/Dockerfile/0.0.1366.768@0.0.1366.768" timestamp="1586955579594" />
-    <state x="406" y="52" width="936" height="663" key="CommitChangelistDialog2" timestamp="1586955990031">
+    <state x="406" y="52" width="936" height="663" key="CommitChangelistDialog2" timestamp="1587041319667">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="406" y="52" width="936" height="663" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1586955990031" />
+    <state x="406" y="52" width="936" height="663" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1587041319667" />
     <state x="607" y="98" width="747" height="908" key="CommitChangelistDialog2/51.27.1869.1053@51.27.1869.1053" timestamp="1584215693902" />
     <state x="751" y="238" key="DBNavigator.ConnectionInfoDialog" timestamp="1586854828681">
       <screen x="51" y="27" width="1869" height="1053" />
@@ -430,10 +431,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="641" y="380" key="com.intellij.ide.util.TipDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1578593121807" />
-    <state x="440" y="176" width="606" height="508" key="find.popup" timestamp="1586955901176">
+    <state x="440" y="176" width="606" height="508" key="find.popup" timestamp="1587041624710">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="440" y="176" width="606" height="508" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1586955901176" />
+    <state x="440" y="176" width="606" height="508" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1587041624710" />
     <state x="653" y="268" width="760" height="568" key="find.popup/51.27.1869.1053@51.27.1869.1053" timestamp="1586592534171" />
     <state x="294" y="154" width="1372" height="796" key="new project wizard" timestamp="1579115737318">
       <screen x="51" y="27" width="1869" height="1053" />
