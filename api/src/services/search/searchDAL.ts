@@ -1,6 +1,7 @@
 import { Scriptures, Scripture } from "../scriptures/scriptures_pb"
 import { RequestParams, ApiResponse } from "@elastic/elasticsearch"
 import { Index } from "../index/index"
+import { Version } from "../version/version_pb";
 
 
 export class SearchDAL {
@@ -17,11 +18,11 @@ export class SearchDAL {
      * @param index 
      * @param query 
      */
-    public async searchScripture(index: string, query: string): Promise<Scriptures> {
+    public async searchScripture(version: Version, query: string): Promise<Scriptures> {
 
         // Define the search parameters
         const searchParams: RequestParams.Search<SimpleSearchVerseQuery> = {
-            index: index,
+            index: this.index.getIndexName(version),
             body: {
                 query: {
                     match: { t: query }

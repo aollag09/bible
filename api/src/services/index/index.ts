@@ -32,7 +32,7 @@ export class Index {
      * Get the index name from the input version
      * @param version 
      */
-    public getIndex(version: Version) {
+    public getIndexName(version: Version) {
         return "bible_" + version.getTable()
     }
 }

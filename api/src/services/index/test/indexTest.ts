@@ -20,7 +20,7 @@ describe('Index', function () {
         it('Check index name is valid', async function () {
             let index = new Index()
             let version = await new VersionDAL(new Database()).getDefault()
-            assert.equal("bible_en_asv", index.getIndex(version))
+            assert.equal("bible_en_asv", index.getIndexName(version))
         });
     });
 });

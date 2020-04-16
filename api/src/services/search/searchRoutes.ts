@@ -4,14 +4,16 @@ import { clientError, notFoundErrorMessage } from "../../utils/ErrorHandler";
 import { ProtoUtils } from "../../utils/ProtoUtils";
 import { RouteUtils } from "../../utils/RouteUtils";
 import { Database } from "../database/database";
-import { VersionDAL } from "./versionDAL";
-import { Version } from "./version_pb";
+import { Index } from "../index/index";
+import { VersionDAL } from "../version/versionDAL";
+import { Version } from "../version/version_pb";
+import { SearchDAL } from "./searchDAL";
+
 
 export default [
-
     {
-        // Get a specific version with its id
-        path: RouteUtils.BASE_PATH + "version/:id",
+        // Search scriptures for a specific version
+        path: RouteUtils.BASE_PATH + "version/:id/_search",
         method: "get",
         responseType: 'arraybuffer',
         headers: { 'Content-Type': 'application/protobuf' },
@@ -24,30 +26,39 @@ export default [
 
                 let versionDAL = new VersionDAL(new Database())
                 let version: Version | undefined = await versionDAL.withId(versionId)
-
                 if (version == undefined) {
                     notFoundErrorMessage("Version has not been found with input id : " + versionId)
                 } else {
+                    // Perform query on index
+                    let query = req.query.q
+                    if (query == null || query == undefined)
+                        query = "*"
+                    let searchDAL = new SearchDAL(new Index())
+                    let scriptures = await searchDAL.searchScripture(version, query.toString())
                     res.status(200)
-                        .send(ProtoUtils.serialize(version, req))
+                        .send(ProtoUtils.serialize(scriptures, req))
                 }
             }
         ]
     },
 
     {
-        // List all existing versions
-        path: RouteUtils.BASE_PATH + "version/",
+        // Search in all scriptures
+        path: RouteUtils.BASE_PATH + "_search",
         method: "get",
         responseType: 'arraybuffer',
         headers: { 'Content-Type': 'application/protobuf' },
         handler: [
             async (req: Request, res: Response, next: NextFunction) => {
-                let versionsDAL = new VersionDAL(new Database())
-                let versions = await versionsDAL.list()
+                // Perform query on index
+                let query = req.query.q
+                if (query == null || query == undefined)
+                    query = "*"
+                let searchDAL = new SearchDAL(new Index())
+                let scriptures = await searchDAL.searchAllScriputure(query.toString())
                 res.status(200)
-                    .send(ProtoUtils.serialize(versions,req))
+                    .send(ProtoUtils.serialize(scriptures, req))
             }
         ]
-    },
-]
+    }
+];

@@ -21,6 +21,7 @@ export class VersionDAL {
 
     /** Default english translation */
     public static DEFAULT_ENGLISH = "ASV"
+    public static DEFAULT_FRENCH = "APEE"
 
     /** Database query object */
     private database: Database;
@@ -46,6 +47,15 @@ export class VersionDAL {
         return version!;
     }
 
+    /**
+     * Return the french default bible version
+     * The default version is APEE
+     */
+    public async getFrenchDefault(): Promise<Version> {
+        let version = await this.withAbbreviation(VersionDAL.DEFAULT_FRENCH);
+        return version!;
+    }
+    
     /**
      * Retrieve the entire list of existing bible versions in the database
      */

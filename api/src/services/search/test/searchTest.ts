@@ -1,29 +1,34 @@
+import chai, { expect } from 'chai';
+import chaiHttp from 'chai-http';
+import { Database } from "../../database/database";
 import { Index } from "../../index/index";
+import { VersionDAL } from "../../version/versionDAL";
 import { SearchDAL } from "../searchDAL";
-
+import { Scriptures } from '../../scriptures/scriptures_pb';
+import { Message } from 'google-protobuf';
+chai.use(chaiHttp);
 var assert = require('assert');
-
 
 describe('Index Data Access Layer', function () {
 
     let index = new Index()
     let search = new SearchDAL(index)
 
-    describe('#search()', function () {
-
+    describe('#search()', async function () {
+        let version = await new VersionDAL(new Database).getFrenchDefault()
         it('Search Jésus in French bible', async function () {
 
-            let res = await search.searchScripture("bible_fr_apee", "Jésus")
+            let res = await search.searchScripture(version, "Jésus")
             res.getScripturesList().forEach(verse => {
-                assert.equal(true, verse.getScripture().includes("Jésus"))
+                expect(verse.getScripture()).to.have.string('Jésus');
             });
         });
 
         it('Search Pilate in French bible', async function () {
             let index = new Index()
-            let res = await search.searchScripture("bible_fr_apee", "Pilate")
+            let res = await search.searchScripture(version, "Pilate")
             res.getScripturesList().forEach(verse => {
-                assert.equal(true, verse.getScripture().includes("Pilate"))
+                expect(verse.getScripture()).to.have.string('Pilate');
             });
         });
     });
@@ -34,7 +39,7 @@ describe('Index Data Access Layer', function () {
             let index = new Index()
             let res = await search.searchAllScriputure("God")
             res.getScripturesList().forEach(verse => {
-                assert.equal(true, verse.getScripture().includes("God"))
+                expect(verse.getScripture()).to.have.string('God');
             });
         });
 
@@ -42,8 +47,77 @@ describe('Index Data Access Layer', function () {
             let index = new Index()
             let res = await search.searchAllScriputure("gospel")
             res.getScripturesList().forEach(verse => {
-                assert.equal(true, verse.getScripture().includes("Gospel") || verse.getScripture().includes("gospel"))
+                expect(verse.getScripture().toLowerCase()).to.have.string('gospel')
             });
+        });
+    });
+
+});
+
+
+
+describe('Index REST Services', function () {
+
+    let application = require('../../../server');
+
+
+    describe('#/bible/v1/_search', function () {
+
+        let path = "/bible/v1/_search"
+
+        it('Search in all scriptures God', async function () {
+            chai.request(application)
+                .get(path + "?q=God")
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let scriptures = Scriptures.deserializeBinary(Message.bytesAsU8(res.text))
+                    scriptures.getScripturesList().forEach(verse => {
+                        expect(verse.getScripture().toLowerCase()).to.have.string('god')
+                    });
+                });
+        });
+
+        it('Search in all scriptures Jesus', async function () {
+            chai.request(application)
+                .get(path + "?q=Jesus")
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let scriptures = Scriptures.deserializeBinary(Message.bytesAsU8(res.text))
+                    scriptures.getScripturesList().forEach(verse => {
+                        expect(verse.getScripture().toLowerCase()).to.have.string('jesus')
+                    });
+                });
+        });
+    });
+
+
+    describe('#/bible/v1/version/:id/_search', async function () {
+
+        let version = await new VersionDAL(new Database()).getFrenchDefault()
+        let path = "/bible/v1/version/" + version.getId() + "/_search"
+
+        it('Search in french scripture Dieu', async function () {
+            chai.request(application)
+                .get(path + "/?q=Dieu")
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let scriptures = Scriptures.deserializeBinary(Message.bytesAsU8(res.text))
+                    scriptures.getScripturesList().forEach(verse => {
+                        expect(verse.getScripture().toLowerCase()).to.have.string('dieu');
+                    });
+                });
+        });
+
+        it('Search in french scriptures Jésus', async function () {
+            chai.request(application)
+                .get(path + "?q=Jésus")
+                .then(res => {
+                    assert.equal(200, res.status)
+                    let scriptures = Scriptures.deserializeBinary(Message.bytesAsU8(res.text))
+                    scriptures.getScripturesList().forEach(verse => {
+                        expect(verse.getScripture().toLowerCase()).to.have.string("jésus")
+                    });
+                });
         });
     });
 
