@@ -1,6 +1,8 @@
 
 import { Client, RequestParams, ApiResponse } from "@elastic/elasticsearch"
 import { Version } from "../version/version_pb";
+import { Scripture, Scriptures } from "../scriptures/scriptures_pb";
+import scriptureRoutes from "../scriptures/scriptureRoutes";
 
 export class Index {
 
@@ -41,10 +43,10 @@ export class Index {
      * @param index 
      * @param query 
      */
-    public async search(index: string, query: string): Promise<ApiResponse<SearchResponse<VerseSource>>> {
+    public async searchScripture(index: string, query: string): Promise<Scriptures> {
 
         // Define the search parameters
-        const searchParams: RequestParams.Search<SearchVerseBody> = {
+        const searchParams: RequestParams.Search<SimpleSearchVerseQuery> = {
             index: index,
             body: {
                 query: {
@@ -53,8 +55,8 @@ export class Index {
             }
         }
 
-        // Craft the final type definition
-        return await this.client.search(searchParams)
+        let response = await this.onSearchScriptures(searchParams)
+        return this.extractScriptures(response)
     }
 
     /**
@@ -62,10 +64,10 @@ export class Index {
      * @param index 
      * @param query 
      */
-    public async searchAll(query: string): Promise<ApiResponse<SearchResponse<VerseSource>>> {
+    public async searchAllScriputure(query: string): Promise<Scriptures> {
 
         // Define the search parameters
-        const searchParams: RequestParams.Search<SearchVerseBody> = {
+        const searchParams: RequestParams.Search<SimpleSearchVerseQuery> = {
             index: "bible*",
             body: {
                 query: {
@@ -74,14 +76,41 @@ export class Index {
             }
         }
 
-        // Craft the final type definition
-        return await this.client.search(searchParams)
+        let response = await this.onSearchScriptures(searchParams)
+        return this.extractScriptures(response)
+    }
+
+    /**
+     * Perform Scripture search with associated types
+     * @param query 
+     */
+    private async onSearchScriptures(query: RequestParams.Search<SimpleSearchVerseQuery>)
+        : Promise<ApiResponse<SearchResponse<VerseSource>>> {
+        return await this.client.search(query)
+    }
+
+    /**
+     * Extract scriptures from index response
+     * @param response 
+     */
+    private extractScriptures(response: ApiResponse<SearchResponse<VerseSource>>): Scriptures {
+        let scriptures = new Scriptures()
+        response.body.hits.hits.forEach(hit => {
+            let scripture = new Scripture()
+            scripture.setId(hit._source.id)
+            scripture.setBook(hit._source.b)
+            scripture.setChapter(hit._source.c)
+            scripture.setVerse(hit._source.v)
+            scripture.setScripture(hit._source.t)
+            scriptures.getScripturesList().push(scripture)
+        });
+        return scriptures;
     }
 }
 
 
 /** Define the type of the body for the Search request */
-interface SearchVerseBody {
+interface SimpleSearchVerseQuery {
     query: {
         match: { t: string }
     }

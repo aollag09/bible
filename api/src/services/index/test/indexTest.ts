@@ -3,7 +3,7 @@ import { Index } from "../index";
 var assert = require('assert');
 
 
-describe('Index', function () {
+describe('Index Data Access Layer', function () {
 
     describe('#getClient()', function () {
         it('Check index js client connection', function () {
@@ -16,17 +16,17 @@ describe('Index', function () {
     describe('#search()', function () {
         it('Search Jésus in French bible', async function () {
             let index = new Index()
-            let res = await index.search("bible_fr_apee", "Jésus")
-            res.body.hits.hits.forEach(hit => {
-                assert.equal(true, hit._source.t.includes("Jésus"))
+            let res = await index.searchScripture("bible_fr_apee", "Jésus")
+            res.getScripturesList().forEach(verse => {
+                assert.equal(true, verse.getScripture().includes("Jésus"))
             });
         });
 
         it('Search Pilate in French bible', async function () {
             let index = new Index()
-            let res = await index.search("bible_fr_apee", "Pilate")
-            res.body.hits.hits.forEach(hit => {
-                assert.equal(true, hit._source.t.includes("Pilate"))
+            let res = await index.searchScripture("bible_fr_apee", "Pilate")
+            res.getScripturesList().forEach(verse => {
+                assert.equal(true, verse.getScripture().includes("Pilate"))
             });
         });
     });
@@ -35,17 +35,17 @@ describe('Index', function () {
     describe('#searchAll()', function () {
         it('Search God in all bible', async function () {
             let index = new Index()
-            let res = await index.searchAll("God")
-            res.body.hits.hits.forEach(hit => {
-                assert.equal(true, hit._source.t.includes("God"))
+            let res = await index.searchAllScriputure("God")
+            res.getScripturesList().forEach(verse => {
+                assert.equal(true, verse.getScripture().includes("God"))
             });
         });
 
         it('Search gospel in all bible', async function () {
             let index = new Index()
-            let res = await index.searchAll("gospel")
-            res.body.hits.hits.forEach(hit => {
-                assert.equal(true, hit._source.t.includes("Gospel") || hit._source.t.includes("gospel"))
+            let res = await index.searchAllScriputure("gospel")
+            res.getScripturesList().forEach(verse => {
+                assert.equal(true, verse.getScripture().includes("Gospel") || verse.getScripture().includes("gospel"))
             });
         });
     });
