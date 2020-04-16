@@ -4,9 +4,6 @@
   "description": "Bible Web Exploration Project",
   "main": "bible.js",
   "scripts": {
-    "postinstall": "run-p install:api install:web",
-    "install:api": "cd api && npm install && cd ..",
-    "install:web": "",
     "build": "run-p build:api build:web",
     "build:api": "cd api && npm build && cd ..",
     "build:web": "",
