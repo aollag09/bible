@@ -1,5 +1,10 @@
 import React from 'react';
 import { Splash } from './component/Splash';
+import splashRead from './resources/image/splash-read.png'
+import splashSearch from './resources/image/splash-explore.png'
+import splashExplore from './resources/image/splash-explore.png'
+import splashPeople from './resources/image/splash-people.png'
+import splashMap from './resources/image/splash-map.png'
 
 export class Home extends React.Component {
 
@@ -14,7 +19,7 @@ export class Home extends React.Component {
             <li>
               <Splash
                 link="/read"
-                image="resources/image/splash-read.png"
+                image={splashRead}
                 title="Read"
                 subtitle="Read and Tag the Bible" />
             </li>
@@ -22,15 +27,15 @@ export class Home extends React.Component {
             <li>
               <Splash
                 link="/search"
-                image="resources/image/search.png"
+                image={splashSearch}
                 title="Search"
-                subtitle="Search through the Scriptures" />
+                subtitle="Search in Scriptures" />
             </li>
 
             <li>
               <Splash
                 link="/explore"
-                image="resources/image/slpash-explore.png"
+                image={splashExplore}
                 title="Explore"
                 subtitle="Explore Bible Stories" />
             </li>
@@ -38,7 +43,7 @@ export class Home extends React.Component {
             <li>
               <Splash
                 link="/people"
-                image="resources/image/splash-people.png"
+                image={splashPeople}
                 title="People"
                 subtitle="People in the Bible" />
             </li>
@@ -46,7 +51,7 @@ export class Home extends React.Component {
             <li>
               <Splash
                 link="/map"
-                image="resources/image/splash-map.png"
+                image={splashMap}
                 title="Location"
                 subtitle="Locations of Bible Events" />
             </li>

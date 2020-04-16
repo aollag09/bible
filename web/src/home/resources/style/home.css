@@ -8,6 +8,12 @@
     background: #1e1e1e;
 }
 
+.bottom p {
+    text-align: center;
+    font-size: 2em;
+    color: #818289;
+}
+
 .bottom ul {
     width: 750px;
     left: 50%;
@@ -48,8 +54,20 @@
     color: #818289;
 }
 
-.bottom p {
-    text-align: center;
-    font-size: 2em;
-    color: #818289;
+.bottom ul li img {
+    opacity: .4;
+    -ms-filter: "alpha(Opacity=40)";
+    filter: alpha(opacity=40);
+    -webkit-transform: scale(0.75,.75);
+    -moz-transform: scale(0.75,.75);
+    -o-transform: scale(0.75,.75);
+    -ms-transform: scale(0.75,.75);
+    transform: scale(0.75,.75);
+    -webkit-transform: scale(0.75,.75);
+}
+
+.bottom ul li:hover img {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
 }
