@@ -1,9 +1,11 @@
 import { Index } from "../index";
+import { VersionDAL } from "../../version/versionDAL";
+import { Database } from "../../database/database";
 
 var assert = require('assert');
 
 
-describe('Index Data Access Layer', function () {
+describe('Index', function () {
 
     describe('#getClient()', function () {
         it('Check index js client connection', function () {
@@ -13,41 +15,12 @@ describe('Index Data Access Layer', function () {
         });
     });
 
-    describe('#search()', function () {
-        it('Search Jésus in French bible', async function () {
-            let index = new Index()
-            let res = await index.searchScripture("bible_fr_apee", "Jésus")
-            res.getScripturesList().forEach(verse => {
-                assert.equal(true, verse.getScripture().includes("Jésus"))
-            });
-        });
 
-        it('Search Pilate in French bible', async function () {
+    describe('#getIndex()', function () {
+        it('Check index name is valid', async function () {
             let index = new Index()
-            let res = await index.searchScripture("bible_fr_apee", "Pilate")
-            res.getScripturesList().forEach(verse => {
-                assert.equal(true, verse.getScripture().includes("Pilate"))
-            });
+            let version = await new VersionDAL(new Database()).getDefault()
+            assert.equal("bible_en_asv", index.getIndex(version))
         });
     });
-
-
-    describe('#searchAll()', function () {
-        it('Search God in all bible', async function () {
-            let index = new Index()
-            let res = await index.searchAllScriputure("God")
-            res.getScripturesList().forEach(verse => {
-                assert.equal(true, verse.getScripture().includes("God"))
-            });
-        });
-
-        it('Search gospel in all bible', async function () {
-            let index = new Index()
-            let res = await index.searchAllScriputure("gospel")
-            res.getScripturesList().forEach(verse => {
-                assert.equal(true, verse.getScripture().includes("Gospel") || verse.getScripture().includes("gospel"))
-            });
-        });
-    });
-
 });
