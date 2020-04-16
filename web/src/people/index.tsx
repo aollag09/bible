@@ -1,10 +1,12 @@
 import React from 'react';
 
-function People() {
-  return (
-    <div className="People">
-    </div>
-  );
-}
+export class People extends React.Component {
 
-export default People;
+  render() {
+    return (
+      <div className="People">
+      </div>
+    );
+  }
+
+}

@@ -1,10 +1,12 @@
 import React from 'react';
 
-function Explore() {
-  return (
-    <div className="Explore">
-    </div>
-  );
-}
+export class Explore extends React.Component {
 
-export default Explore;
+  render() {
+    return (
+      <div className="Explore">
+      </div>
+    );
+  }
+
+}
