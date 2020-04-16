@@ -13,7 +13,7 @@ export class Home extends React.Component {
       <div className="home">
 
         <div className="bottom">
-          <p> Explore & Analyse the Bible with:</p>
+          <p> Analyse the Bible using</p>
           <ul>
 
             <li>
