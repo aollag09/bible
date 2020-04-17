@@ -1,14 +1,14 @@
-
+import "./../../utils/env"
 import { Client } from "@elastic/elasticsearch";
 import { Version } from "../version/version_pb";
 
 export class Index {
 
     /** Host of the elasticsearch index to connect with */
-    private static hostname: string = "localhost"
+    private static hostname: string = process.env.ES_HOST || "localhost"
 
     /** Port of the elasticsearch index to connect with */
-    private static port: number = 9200
+    private static port: number = parseInt(process.env.ES_PORT || "9200")
 
     /** Protocol for elasticsearch connection */
     private static protocol: string = "http"

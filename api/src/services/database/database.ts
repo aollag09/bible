@@ -1,18 +1,19 @@
+import "./../../utils/env"
 var mysql = require('mysql2')
 
 export class Database {
 
   /** Host of the database to connect to */
-  static hostname: string = "localhost"
+  static hostname: string = process.env.DB_HOST || "localhost"
 
-  /** User of the databse to connect with */
-  static user: string = "bible_user"
+  /** User of the database to connect with */
+  static user: string = process.env.DB_USER || "bible_user"
 
   /** Password of the database to connect with */
-  static password: string = "docker"
+  static password: string = process.env.DB_PASSWORD || "docker"
 
   /** Database name */
-  static database: string = "bible"
+  static database: string = process.env.DB_DATABASE || "bible"
 
   /** Connection limit to the database pool */
   static connectionLimit: number = 20
@@ -33,6 +34,7 @@ export class Database {
   private connected: boolean = false
 
   constructor() {
+
     // Create MySQL Database Pool connection 
     this.pool = mysql.createPool({
       host: Database.hostname,

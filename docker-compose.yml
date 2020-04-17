@@ -123,7 +123,7 @@ services:
     environment:
       LS_JAVA_OPTS: '-Xmx1g -Xms1g'
     env_file:
-      - .env
+      - api/.env
     networks:
       - bible-net
     depends_on:
