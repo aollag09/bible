@@ -1,10 +1,10 @@
 import React from 'react';
 import { Splash } from './component/Splash';
-import splashRead from './resources/image/splash-read.png'
-import splashSearch from './resources/image/splash-search.png'
-import splashExplore from './resources/image/splash-explore.png'
-import splashPeople from './resources/image/splash-people.png'
-import splashMap from './resources/image/splash-map.png'
+import splashExplore from './resources/image/splash-explore.png';
+import splashMap from './resources/image/splash-map.png';
+import splashPeople from './resources/image/splash-people.png';
+import splashRead from './resources/image/splash-read.png';
+import splashSearch from './resources/image/splash-search.png';
 
 export class Home extends React.Component {
 
@@ -13,14 +13,14 @@ export class Home extends React.Component {
       <div className="home">
 
         <div className="bottom">
-          <p> Analyse the Bible using</p>
+         
           <ul>
 
             <li>
               <Splash
                 link="/read"
                 image={splashRead}
-                title="Read"
+                title={"Read"}
                 subtitle="Read and Tag the Bible" />
             </li>
 
@@ -28,7 +28,7 @@ export class Home extends React.Component {
               <Splash
                 link="/search"
                 image={splashSearch}
-                title="Search"
+                title={"Search"}
                 subtitle="Search in Scriptures" />
             </li>
 
