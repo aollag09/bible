@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import '../resources/style/read.css'
 
 type PeriodicBookProps = {
-    id: number,
+    key: number,
     bigramme: string,
     name: string
 }
