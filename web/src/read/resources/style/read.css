@@ -3,13 +3,33 @@
 }
 
 .periodic-book-box{
+    border: solid;
+    border-width: 1px;
+    border-radius: 10%;
+    border-color: #1e1e1e;
+    margin: 1px;
+    width: 40px;
+    height: 65px;
+    background-color: #1e1e1e;
+}
 
+.periodic-book-wrapper{
+    margin: auto;
+}
+
+.periodic-book-box:hover{
+    border-color: #818289;
+}
+
+.periodic-book-box:hover .periodic-book-bigramme, .periodic-book-box:hover .periodic-book-author{
+    color: #818289;
 }
 
 .periodic-book-bigramme{
-    font-size: 3em;
+    color: #505050;
+    font-size: 2.9em;
 }
 
-.periodic-book-name{
-
+.periodic-book-author{
+    color: #505050;
 }

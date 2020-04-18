@@ -4,7 +4,8 @@ import '../resources/style/read.css'
 type PeriodicBookProps = {
     key: number,
     bigramme: string,
-    name: string
+    author: string,
+    author2?: string
 }
 
 export class PeriodicBook extends Component<PeriodicBookProps>{
@@ -13,8 +14,16 @@ export class PeriodicBook extends Component<PeriodicBookProps>{
         return (
             <div className="periodic-book" >
                 <div className="periodic-book-box" >
-                    <span className="periodic-book-bigramme">{this.props.bigramme}</span>
-                    <p className="periodoc-book-name">{this.props.name}</p>
+                    <div className="periodic-book-wrapper">
+                        
+                        <span className="periodic-book-bigramme">{this.props.bigramme}</span>
+                        <p>
+                            <span className="periodic-book-author">{this.props.author}</span>
+                            <br />
+                            <span className="periodic-book-author">{this.props.author2}</span>
+                        </p>
+                        
+                    </div>
                 </div>
 
             </div>
