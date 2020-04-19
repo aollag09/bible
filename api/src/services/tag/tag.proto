@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package bible;
+
+message Tag{
+    int32 id = 1;
+    int32 owner = 2;
+    TagType type = 3;
+    date created = 4;
+    date modified = 5;
+    string from = 6;
+    string to = 7;
+}
+
+message Tags{
+    repeated Tag tag = 1;
+}
+
+enum TagType{
+    What = 0;
+    When = 1;
+    Where = 2;
+    Who = 3;
+    Why = 4;
+    How = 5;
+}
