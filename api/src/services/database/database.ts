@@ -1,4 +1,3 @@
-import "./../../utils/env"
 var mysql = require('mysql2')
 
 export class Database {

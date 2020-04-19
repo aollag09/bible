@@ -8,10 +8,15 @@ services:
       context: ./api/
       dockerfile: ../deployment/node/Dockerfile
     container_name: node
+    environment:
+      # Update evironment variable for docker env
+      PORT: 3301
+      DB_HOST: database
+      ES_HOST: elasticsearch
     ports: 
-      - '3301:3300'
+      - '3301:3301'
     networks:
-      - bible-net
+      - network
 
   # DATABASE 
   database:
@@ -69,7 +74,7 @@ services:
       - ./deployment/mysql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
       - ./deployment/mysql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
     networks:
-      - bible-net
+      - network
 
   # INDEX 
   elasticsearch:
@@ -95,7 +100,7 @@ services:
       - 9200:9200
       - 9300:9300
     networks:
-      - bible-net
+      - network
   
   # KIBANA, DATA VISUALIZATION
   kibana:
@@ -108,7 +113,7 @@ services:
     depends_on:
       - elasticsearch
     networks:
-      - bible-net
+      - network
   
   # LOGSTASH, DATA INTEGRATION
   logstash:
@@ -125,7 +130,7 @@ services:
     env_file:
       - api/.env
     networks:
-      - bible-net
+      - network
     depends_on:
       - elasticsearch
       - database
@@ -139,5 +144,5 @@ volumes:
     driver: local
 
 networks:
-  bible-net:
+  network:
     driver: bridge

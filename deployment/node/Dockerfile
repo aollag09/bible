@@ -15,6 +15,9 @@ RUN npm install
 # Type script compilation file
 COPY ./tsconfig.json ./
 
+# Copy env file
+COPY ./.env ./
+
 # Copy source code
 COPY ./generated ./generated
 COPY ./src ./src
@@ -23,5 +26,5 @@ COPY ./src ./src
 RUN npm run build
 
 # Start application
-EXPOSE 3300
+EXPOSE 3301
 CMD ["npm", "run", "run"]
