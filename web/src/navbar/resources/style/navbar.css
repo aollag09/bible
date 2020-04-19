@@ -1,0 +1,42 @@
+
+
+.navbar{
+    height: 100%; /* 100% Full-height */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #1e1e1e; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+
+.navbar ul{
+    padding: 13px; 
+}
+
+.navbar ul li {
+    display: block;
+    margin-top: 2em;
+    text-align: center;
+    color: #787878;
+}
+
+.nav-bar-item{
+    width: 45px;
+    padding-top: 20px;
+    opacity: .4;
+    -ms-filter: "alpha(Opacity=40)";
+    filter: alpha(opacity=40);
+    -webkit-transform: scale(0.75,.75);
+    -moz-transform: scale(0.75,.75);
+    -o-transform: scale(0.75,.75);
+    -ms-transform: scale(0.75,.75);
+    transform: scale(0.75,.75);
+    -webkit-transform: scale(0.75,.75);
+}
+
+.navbar ul li:hover .nav-bar-item {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+}

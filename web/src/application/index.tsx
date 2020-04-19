@@ -26,8 +26,8 @@ export class App extends React.Component {
               <Route path='/read' component={Read} />
               <Route path='/search' component={Search} />
               <Route path='/explore' component={Explore} />
-              <Route path='/map' component={Map} />
               <Route path='/people' component={People} />
+              <Route path='/map' component={Map} />
             </Switch>
           </div>
 
