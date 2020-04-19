@@ -1,15 +1,13 @@
-.periodic-book{
-
-}
 
 .periodic-book-box{
     border: solid;
     border-width: 1px;
-    border-radius: 10%;
+    border-radius: 7%;
     border-color: #1e1e1e;
     margin: 1px;
-    min-width: 40px;
-    min-height: 65px;
+    width: 5em;
+    height: 8em;
+    padding: 0.3em;
     background-color: #1e1e1e;
 }
 
@@ -22,7 +20,10 @@
     box-shadow: 3px #5f6063;
 }
 
-.periodic-book-box:hover .periodic-book-bigramme, .periodic-book-box:hover .periodic-book-author{
+.periodic-book-box:hover .periodic-book-bigramme,
+ .periodic-book-box:hover .periodic-book-author,
+ .periodic-book-box:hover .periodic-book-chapter
+ {
     color: #818289;
 }
 
@@ -32,5 +33,9 @@
 }
 
 .periodic-book-author{
+    color: #505050;
+}
+
+.periodic-book-chapter{
     color: #505050;
 }

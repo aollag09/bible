@@ -16,8 +16,11 @@ export class PeriodicBook extends Component<PeriodicBookProps>{
             <div className="periodic-book" >
                 <div className="periodic-book-box" >
                     <div className="periodic-book-wrapper">
-                        
+
+                        <span className="periodic-book-chapter">{this.props.nbChapter} chp</span>
+                        <br />
                         <span className="periodic-book-bigramme">{this.props.bigramme}</span>
+                        
                         <p>
                             <span className="periodic-book-author">{this.props.author}</span>
                             <br />
