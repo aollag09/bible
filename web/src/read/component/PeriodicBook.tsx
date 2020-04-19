@@ -5,7 +5,8 @@ type PeriodicBookProps = {
     key: number,
     bigramme: string,
     author: string,
-    author2?: string
+    author2?: string,
+    nbChapter: number
 }
 
 export class PeriodicBook extends Component<PeriodicBookProps>{
@@ -22,7 +23,7 @@ export class PeriodicBook extends Component<PeriodicBookProps>{
                             <br />
                             <span className="periodic-book-author">{this.props.author2}</span>
                         </p>
-                        
+
                     </div>
                 </div>
 

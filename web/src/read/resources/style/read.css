@@ -8,8 +8,8 @@
     border-radius: 10%;
     border-color: #1e1e1e;
     margin: 1px;
-    width: 40px;
-    height: 65px;
+    min-width: 40px;
+    min-height: 65px;
     background-color: #1e1e1e;
 }
 
@@ -18,7 +18,8 @@
 }
 
 .periodic-book-box:hover{
-    border-color: #818289;
+    border-color: #5f6063;
+    box-shadow: 3px #5f6063;
 }
 
 .periodic-book-box:hover .periodic-book-bigramme, .periodic-book-box:hover .periodic-book-author{

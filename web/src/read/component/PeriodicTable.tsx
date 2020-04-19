@@ -64,40 +64,36 @@ export class PeriodicTable extends Component {
         books[1][5] = <PeriodicBook key={10} bigramme="Ki¹" author="Jeremiah" />
         books[1][6] = <PeriodicBook key={11} bigramme="Ki²" author="Jeremiah" />
 
-        books[2][0] = <PeriodicBook key={12} bigramme="Ch¹" author="Genesis" />
-        books[2][1] = <PeriodicBook key={13} bigramme="Ch²" author="Genesis" />
-        books[2][2] = <PeriodicBook key={14} bigramme="Ez" author="Genesis" />
-        books[2][3] = <PeriodicBook key={15} bigramme="Ne" author="Genesis" />
-        books[2][4] = <PeriodicBook key={16} bigramme="Es" author="Genesis" />
+        books[2][0] = <PeriodicBook key={12} bigramme="Ch¹" author="Ezra" />
+        books[2][1] = <PeriodicBook key={13} bigramme="Ch²" author="Ezra" />
+        books[2][2] = <PeriodicBook key={14} bigramme="Ez" author="Ezra" />
+        books[2][3] = <PeriodicBook key={15} bigramme="Ne" author="Ezra" />
+        books[2][4] = <PeriodicBook key={16} bigramme="Es" author="Mordecai" />
 
-        books[3][0] = <PeriodicBook key={17} bigramme="Jb" author="Genesis" />
-        books[3][1] = <PeriodicBook key={18} bigramme="Ps" author="Genesis" />
-        books[3][2] = <PeriodicBook key={19} bigramme="Pr" author="Genesis" />
-        books[3][3] = <PeriodicBook key={20} bigramme="Ec" author="Genesis" />
-        books[3][4] = <PeriodicBook key={21} bigramme="So" author="Genesis" />
+        books[3][0] = <PeriodicBook key={17} bigramme="Jb" author="Job Eli" author2="Moses Salo" />
+        books[3][1] = <PeriodicBook key={18} bigramme="Ps" author="David" author2="Various" />
+        books[3][2] = <PeriodicBook key={19} bigramme="Pr" author="Salomon" />
+        books[3][3] = <PeriodicBook key={20} bigramme="Ec" author="Salomon" />
+        books[3][4] = <PeriodicBook key={21} bigramme="So" author="Salomon" />
 
-        books[4][0] = <PeriodicBook key={22} bigramme="Is" author="Genesis" />
-        books[4][1] = <PeriodicBook key={23} bigramme="Je" author="Genesis" />
-        books[4][2] = <PeriodicBook key={24} bigramme="La" author="Genesis" />
-        books[4][3] = <PeriodicBook key={25} bigramme="Ek" author="Genesis" />
-        books[4][4] = <PeriodicBook key={26} bigramme="Da" author="Genesis" />
+        books[4][0] = <PeriodicBook key={22} bigramme="Is" author="Isaiah" />
+        books[4][1] = <PeriodicBook key={23} bigramme="Je" author="Jeremiah" />
+        books[4][2] = <PeriodicBook key={24} bigramme="La" author="Jeremiah" />
+        books[4][3] = <PeriodicBook key={25} bigramme="Ek" author="Ezekiel" />
+        books[4][4] = <PeriodicBook key={26} bigramme="Da" author="Daniel" />
 
-        books[5][0] = <PeriodicBook key={27} bigramme="Is" author="Genesis" />
-        books[5][1] = <PeriodicBook key={28} bigramme="Je" author="Genesis" />
-        books[5][2] = <PeriodicBook key={29} bigramme="La" author="Genesis" />
-        books[5][3] = <PeriodicBook key={30} bigramme="Ek" author="Genesis" />
-        books[5][4] = <PeriodicBook key={31} bigramme="Da" author="Genesis" />
-        books[5][5] = <PeriodicBook key={32} bigramme="Is" author="Genesis" />
-        books[5][6] = <PeriodicBook key={33} bigramme="Je" author="Genesis" />
-        books[5][7] = <PeriodicBook key={34} bigramme="La" author="Genesis" />
-        books[5][8] = <PeriodicBook key={35} bigramme="Ek" author="Genesis" />
-        books[5][9] = <PeriodicBook key={36} bigramme="Da" author="Genesis" />
-        books[5][10] = <PeriodicBook key={37} bigramme="Is" author="Genesis" />
-        books[5][11] = <PeriodicBook key={38} bigramme="Je" author="Genesis" />
-        books[5][12] = <PeriodicBook key={39} bigramme="La" author="Genesis" />
-        books[5][13] = <PeriodicBook key={40} bigramme="Ek" author="Genesis" />
-        books[5][14] = <PeriodicBook key={41} bigramme="Da" author="Genesis" />
-
+        books[5][0] = <PeriodicBook key={27} bigramme="Ho" author="Hosea" />
+        books[5][1] = <PeriodicBook key={28} bigramme="Jl" author="Joel" />
+        books[5][2] = <PeriodicBook key={29} bigramme="Am" author="Amos" />
+        books[5][3] = <PeriodicBook key={30} bigramme="Ob" author="Obadiah" />
+        books[5][4] = <PeriodicBook key={31} bigramme="Jh" author="Jonah" />
+        books[5][5] = <PeriodicBook key={32} bigramme="Mi" author="Micah" />
+        books[5][6] = <PeriodicBook key={33} bigramme="Na" author="Nahum" />
+        books[5][7] = <PeriodicBook key={34} bigramme="Hk" author="Habakkuk" />
+        books[5][8] = <PeriodicBook key={35} bigramme="Zp" author="Zephaniah" />
+        books[5][9] = <PeriodicBook key={36} bigramme="Ha" author="Haggai" />
+        books[5][10] = <PeriodicBook key={37} bigramme="Zc" author="Zechariah" />
+        books[5][11] = <PeriodicBook key={38} bigramme="Ml" author="Malachi" />
 
         // NEW TESTAMENT
 
