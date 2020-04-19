@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/read/component/PeriodicBook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/read/component/PeriodicBook.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/read/component/PeriodicTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/read/component/PeriodicTable.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/read/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/read/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/read/resources/style/read.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/read/resources/style/read.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
