@@ -1,3 +1,5 @@
+/* eslint-disabled */
+//@ts-nocheck
 // package: bible
 // file: services/scriptures/scriptures.proto
 
