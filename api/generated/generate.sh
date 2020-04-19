@@ -14,6 +14,17 @@ PROTO_FILES=$(find ${TS_OUT} -name "*.proto" | xargs echo )
 echo "Generating proto files : "
 echo "$PROTO_FILES"
 
+#BACK API Generation
+protoc \
+    --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" \
+    --js_out="import_style=commonjs,binary:${JS_OUT}" \
+    --ts_out="${TS_OUT}" \
+    --proto_path="${TS_OUT}" \
+    $PROTO_FILES
+
+# FRONT Web Generation
+TS_OUT="../../web/src/common/generated"
+JS_OUT="../../web/src/common/generated"
 protoc \
     --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}" \
     --js_out="import_style=commonjs,binary:${JS_OUT}" \
