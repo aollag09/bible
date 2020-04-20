@@ -37,22 +37,45 @@ export class VersionTable extends Component {
 
 export class FetchingVersions extends Component {
 
+    getLanguages(versions: Versions): Array<string> {
+        let languages = new Array<string>()
+        versions.getVersionsList().forEach(version => {
+            let language = version.getLanguage()
+            if (!languages.includes(language))
+                languages.push(language)
+        })
+        return languages;
+    }
+
     render() {
         const response = useFetch(API.url + "version/");
         const versions = Versions.deserializeBinary(Message.bytesAsU8(response.toString()))
-        let versionsSplash: JSX.Element[] = []
-        versions.getVersionsList().forEach(version => {
 
-            versionsSplash.push(
-                <li>
-                    <VersionSplash
-                        key={version.getId()}
-                        name={version.getVersion()}
-                        abbreviation={version.getAbbreviation()}
-                        language={version.getLanguage()} />
-                </li>)
-        });
-        return versionsSplash
+        let languages = this.getLanguages(versions);
+        let listLanguages: JSX.Element[] = []
+        languages.forEach(language => {
+            let listLanguage: JSX.Element[] = []
+            listLanguage.push(<li> <span className="version-language"> {language} </span></li>)
+            versions.getVersionsList().forEach(version => {
+                if (version.getLanguage() === language) {
+                    listLanguage.push(<li>
+                        <VersionSplash
+                            key={version.getId()}
+                            name={version.getVersion()}
+                            abbreviation={version.getAbbreviation()} />
+                    </li>)
+                }
+            });
+            listLanguages.push(<ul className="version-list-language">{listLanguage}</ul>)
+        })
+
+        return (
+            <div>
+                <table>
+                    {listLanguages}
+                </table>
+            </div>
+        );
     }
 
 };
