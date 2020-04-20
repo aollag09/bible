@@ -1,6 +1,6 @@
 import { Message } from "google-protobuf";
 import React, { Component, Suspense } from "react";
-import { unstable_createResource } from "react-cache";
+import useFetch from 'fetch-suspense';
 import { Versions, Version } from "../../common/generated/services/version/version_pb";
 import { API } from "../../common/utils/api";
 import '../resources/style/read.css';
@@ -8,7 +8,7 @@ import { VersionSplash } from "./VersionSplash";
 
 export class VersionTable extends Component {
 
-    constructor(props:any){
+    constructor(props: any) {
         super(props)
         this.state = {
             selectedVersion: undefined
@@ -24,24 +24,22 @@ export class VersionTable extends Component {
     render() {
         return (
             <div className="version-table" >
-                <Suspense fallback={<div>Loading ... </div>} >
-                    <ul>
-                        {this.renderVersions()}
-                    </ul> >
+                <Suspense fallback={<div>Loading versions ... </div>} >
+                    <FetchingVersions />
                 </Suspense>
             </div>
         );
     }
 
-    fetcher = unstable_createResource(() =>
-        fetch(API.url + "version/")
-            .then(result => Versions.deserializeBinary(Message.bytesAsU8(result.text.toString())))
-    );
 
-    listVersions = () => this.fetcher.read(null);
+}
 
-    renderVersions = () => {
-        let versions = this.listVersions()
+
+export class FetchingVersions extends Component {
+
+    render() {
+        const response = useFetch(API.url + "version/");
+        const versions = Versions.deserializeBinary(Message.bytesAsU8(response.toString()))
         let versionsSplash: JSX.Element[] = []
         versions.getVersionsList().forEach(version => {
 
@@ -54,9 +52,7 @@ export class VersionTable extends Component {
                         language={version.getLanguage()} />
                 </li>)
         });
-
         return versionsSplash
     }
 
-
-}
+};
