@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BookBox } from "./BookBox";
-import '../../resources/style/read.css'
+import '../../resources/style/selector.css'
 
 type BookPeriodicTableProp = {
     handleBookSelect: (bookid: number) => void,

@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from "react";
-import '../../resources/style/read.css';
+import '../../resources/style/selector.css';
 import { VersionFetcher } from "./VersionFetcher";
 import { Loading } from "../../../common/utils/component/Loading";
 

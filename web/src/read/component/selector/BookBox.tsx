@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import '../../resources/style/read.css'
+import '../../resources/style/selector.css'
 
 type BookBoxProp = {
     key: number,

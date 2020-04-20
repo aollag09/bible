@@ -3,7 +3,7 @@ import { Message } from "google-protobuf";
 import React, { Component } from "react";
 import { Versions } from "../../../common/generated/services/version/version_pb";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
-import '../../resources/style/read.css';
+import '../../resources/style/selector.css';
 import { VersionBox } from "./VersionBox";
 
 
