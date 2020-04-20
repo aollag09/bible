@@ -23,11 +23,11 @@ export class App extends React.Component {
           <div className="content">
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route path='/read' component={Read} />
-              <Route path='/search' component={Search} />
-              <Route path='/explore' component={Explore} />
-              <Route path='/people' component={People} />
-              <Route path='/map' component={Map} />
+              <Route exact path='/read' component={Read} />
+              <Route exact path='/search' component={Search} />
+              <Route exact path='/explore' component={Explore} />
+              <Route exact path='/people' component={People} />
+              <Route exact path='/map' component={Map} />
             </Switch>
           </div>
 
