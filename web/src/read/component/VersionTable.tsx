@@ -1,7 +1,7 @@
 import useFetch from 'fetch-suspense';
 import { Message } from "google-protobuf";
 import React, { Component, Suspense } from "react";
-import { Version, Versions } from "../../common/generated/services/version/version_pb";
+import { Versions } from "../../common/generated/services/version/version_pb";
 import { API } from "../../common/utils/api";
 import '../resources/style/read.css';
 import { VersionSplash } from "./VersionSplash";

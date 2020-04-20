@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import { PeriodicBook } from "./PeriodicBook";
 import '../resources/style/read.css'
 
-export class PeriodicTable extends Component {
+
+type PeriodicTableProp = {
+    handleBookSelect: (bookid: number) => void,
+}
+
+export class PeriodicTable extends Component<PeriodicTableProp> {
 
 
     // Dimensions of the periodic book
@@ -52,7 +57,7 @@ export class PeriodicTable extends Component {
     }
 
     handleClick(id: number) {
-        alert("Selected book : " + id)
+        this.props.handleBookSelect(id)
     }
 
     createPeriodicBooks = () => {

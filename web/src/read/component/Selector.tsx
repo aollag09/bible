@@ -32,10 +32,11 @@ export class Selector extends React.Component<{}, SelectorState> {
         })
     }
 
-    handleChangeBook(newBook: number) {
+    handleBookSelect(newBook: number) {
         this.setState({
             book: newBook
         })
+        alert("Selector update book with id " + newBook )
     }
 
     handleChangeChapter(newChapter: number) {
@@ -66,7 +67,7 @@ export class Selector extends React.Component<{}, SelectorState> {
             return (
                 <button
                     className="btn btn-secondary"
-                    type="button" 
+                    type="button"
                     onClick={this.prev}>
                     Previous
                 </button>
@@ -81,7 +82,7 @@ export class Selector extends React.Component<{}, SelectorState> {
             return (
                 <button
                     className="btn btn-primary float-right"
-                    type="button" 
+                    type="button"
                     onClick={this.next}>
                     Next
                 </button>
@@ -100,12 +101,11 @@ export class Selector extends React.Component<{}, SelectorState> {
                chapter: ${chapter}`)
     }
 
-
     render() {
         return (
             <div className="selector">
                 <VersionSelector step={this.state.step} />
-                <BookSelector step={this.state.step} />
+                <BookSelector step={this.state.step} handleBookSelect={(id) => this.handleBookSelect(id)} />
                 {this.prevButton()}
                 {this.nextButton()}
             </div>
