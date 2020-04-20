@@ -13,7 +13,25 @@ button{
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    font-size: 2em;
+    color: #5f6063;
+
+    background-color: #111111;
+    
+    border-width: 0em;
+    border-radius: 1%;
+    border-color: #111111;
+    
+    margin: 2em;
+    padding: 1em 2em;
+} 
+
+button:hover{
+  color: #818289;
+  background-color: #1e1e1e;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
