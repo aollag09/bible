@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import '../resources/style/read.css'
 
-type PeriodicBookProps = {
+type BookBoxProp = {
     key: number,
     bigramme: string,
     author: string,
@@ -10,7 +10,7 @@ type PeriodicBookProps = {
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
-export class PeriodicBook extends Component<PeriodicBookProps>{
+export class BookBox extends Component<BookBoxProp>{
 
     render() {
         return (

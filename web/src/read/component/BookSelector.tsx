@@ -1,5 +1,5 @@
 import React from "react";
-import { PeriodicTable } from "./PeriodicTable";
+import { BookPeriodicTable } from "./BookPeriodicTable";
 
 type BookSelectorProp = {
     step: number,
@@ -13,7 +13,7 @@ export class BookSelector extends React.Component<BookSelectorProp> {
             return (
                 <div className="books">
                     <h2>Books</h2>
-                    <PeriodicTable handleBookSelect={this.props.handleBookSelect} />
+                    <BookPeriodicTable handleBookSelect={this.props.handleBookSelect} />
                 </div>
             );
         } else {
