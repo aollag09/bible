@@ -22,7 +22,8 @@ export default [
                 if (isNaN(versionId))
                     clientError(new Error("Input version identifier is not a number : " + versionId), res, next);
 
-                let versionDAL = new VersionDAL(new Database())
+                let database = new Database()
+                let versionDAL = new VersionDAL(database)
                 let version: Version | undefined = await versionDAL.withId(versionId)
 
                 if (version == undefined) {
@@ -31,6 +32,7 @@ export default [
                     res.status(200)
                         .send(ProtoUtils.serialize(version, req))
                 }
+                database.close()
             }
         ]
     },
@@ -43,10 +45,12 @@ export default [
         headers: { 'Content-Type': 'application/protobuf' },
         handler: [
             async (req: Request, res: Response, next: NextFunction) => {
-                let versionsDAL = new VersionDAL(new Database())
+                let database = new Database()
+                let versionsDAL = new VersionDAL(database)
                 let versions = await versionsDAL.list()
                 res.status(200)
-                    .send(ProtoUtils.serialize(versions,req))
+                    .send(ProtoUtils.serialize(versions, req))
+                database.close()
             }
         ]
     },

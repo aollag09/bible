@@ -42,6 +42,7 @@ export default [
                             .send(ProtoUtils.serialize(verse,req))
                     }
                 }
+                database.close()
             }
         ]
     },
@@ -79,6 +80,7 @@ export default [
                     res.status(200)
                         .send(ProtoUtils.serialize(verses,req))
                 }
+                database.close()
             }
         ]
 
@@ -121,6 +123,7 @@ export default [
                     res.status(200)
                         .send(ProtoUtils.serialize(verses,req))
                 }
+                database.close()
             }
         ]
 

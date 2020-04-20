@@ -55,6 +55,10 @@ export class Database {
     return this.connected
   }
 
+  public close() {
+    this.pool.end()
+  }
+
 
   /**
    * Query the input syntax to the database with input parameters if required.

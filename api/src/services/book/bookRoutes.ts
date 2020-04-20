@@ -21,7 +21,8 @@ export default [
                 if (isNaN(bookid))
                     clientError(new Error("Input book identifier is not a number : " + bookid), res, next);
 
-                let bookDAL = new BookDAL(new Database())
+                let database = new Database()
+                let bookDAL = new BookDAL(database)
                 let book: Book | undefined = await bookDAL.withId(bookid)
 
                 if (book == undefined) {
@@ -30,6 +31,7 @@ export default [
                     res.status(200)
                         .send(ProtoUtils.serialize(book, req))
                 }
+                database.close()
             }
         ]
     },
@@ -63,12 +65,13 @@ export default [
                 let bookid: number = parseInt(req.params.id)
                 if (isNaN(bookid))
                     clientError(new Error("Input book identifier is not a number : " + bookid), res, next);
-                let bookDAL = new BookDAL(new Database())
+                let database = new Database()
+                let bookDAL = new BookDAL(database)
 
                 let nbChapters = await bookDAL.getNbChapters(bookid)
                 res.status(200)
                     .send(nbChapters)
-
+                database.close()
             }
         ]
     },
