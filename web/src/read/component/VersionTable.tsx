@@ -1,25 +1,12 @@
+import useFetch from 'fetch-suspense';
 import { Message } from "google-protobuf";
 import React, { Component, Suspense } from "react";
-import useFetch from 'fetch-suspense';
-import { Versions, Version } from "../../common/generated/services/version/version_pb";
+import { Version, Versions } from "../../common/generated/services/version/version_pb";
 import { API } from "../../common/utils/api";
 import '../resources/style/read.css';
 import { VersionSplash } from "./VersionSplash";
 
 export class VersionTable extends Component {
-
-    constructor(props: any) {
-        super(props)
-        this.state = {
-            selectedVersion: undefined
-        }
-    }
-
-    onVersionClick(version: Version) {
-        this.setState({
-            selectedVersion: version,
-        })
-    }
 
     render() {
         return (
@@ -30,8 +17,6 @@ export class VersionTable extends Component {
             </div>
         );
     }
-
-
 }
 
 
@@ -47,7 +32,7 @@ export class FetchingVersions extends Component {
         return languages;
     }
 
-    handleClick(id:number){
+    handleClick(id: number) {
         alert("Click on " + id)
     }
 
@@ -60,7 +45,12 @@ export class FetchingVersions extends Component {
         languages.forEach(language => {
             let column: JSX.Element[] = []
 
-            column.push(<td className="version-language-td"> <span className="version-language"> {language} </span></td>)
+            column.push(
+                <td className="version-language-td">
+                    <span className="version-language">
+                        {language}
+                    </span>
+                </td>)
 
             let listVersion: JSX.Element[] = []
             versions.getVersionsList().forEach(version => {
@@ -69,8 +59,8 @@ export class FetchingVersions extends Component {
                         <VersionSplash
                             key={version.getId()}
                             name={version.getVersion()}
-                            abbreviation={version.getAbbreviation()} 
-                            onClick={() => this.handleClick(version.getId())}/>
+                            abbreviation={version.getAbbreviation()}
+                            onClick={() => this.handleClick(version.getId())} />
                     </li>)
                 }
             });

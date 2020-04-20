@@ -6,14 +6,15 @@ type PeriodicBookProps = {
     bigramme: string,
     author: string,
     author2?: string,
-    nbChapter: number
+    nbChapter: number,
+    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export class PeriodicBook extends Component<PeriodicBookProps>{
 
     render() {
         return (
-            <div className="periodic-book" >
+            <button className="periodic-book" onClick={this.props.onClick}>
                 <div className="periodic-book-box" >
                     <div className="periodic-book-wrapper">
 
@@ -29,7 +30,7 @@ export class PeriodicBook extends Component<PeriodicBookProps>{
                     </div>
                 </div>
 
-            </div >
+            </button >
         );
     }
 
