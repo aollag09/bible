@@ -6,11 +6,9 @@ type ReaderProp = {
     version: number,
     book: number,
     chapter: number,
-
 }
 
 export class Reader extends Component<ReaderProp>{
-
 
     render() {
         if (this.props.switch === ReaderSelector.SWITCH_READER) {

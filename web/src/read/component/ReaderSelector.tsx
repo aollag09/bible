@@ -8,7 +8,7 @@ type ReaderSelectorState = {
     /** Switch between the selector and the reader with possible values {"selector", "reader"} */
     switch: string,
 
-
+    /** VBC Scripture Identifier */
     version: number,
     book: number,
     chapter: number,
@@ -47,12 +47,11 @@ export class ReaderSelector extends Component<{}, ReaderSelectorState> {
         })
     }
 
-
-
     render() {
         return (
             <div className="reader-selector">
                 <Selector
+                    read={ (version, book, chapter) => this.read(version, book, chapter)}
                     switch={this.state.switch} />
                 <Reader
                     switch={this.state.switch}

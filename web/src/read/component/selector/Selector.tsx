@@ -6,6 +6,7 @@ import { ReaderSelector } from "../ReaderSelector"
 
 type SelectorProp = {
     switch: string,
+    read: (version: number, book: number, chapter: number) => void
 }
 
 type SelectorState = {
@@ -42,11 +43,7 @@ export class Selector extends Component<SelectorProp, SelectorState> {
     }
 
     handleChapterSelect(newChapter: number) {
-        this.setState({
-            chapter: newChapter
-        })
-        this.next()
-        this.handleSubmit()
+        this.setState({ chapter: newChapter }, this.handleSubmit)
     }
 
     next = () => {
@@ -98,10 +95,7 @@ export class Selector extends Component<SelectorProp, SelectorState> {
 
     handleSubmit = () => {
         const { version, book, chapter } = this.state
-        alert(`Your registration detail: \n 
-               Version: ${version} \n 
-               book: ${book} \n
-               chapter: ${chapter}`)
+        this.props.read(version, book, chapter)
     }
 
     render() {
