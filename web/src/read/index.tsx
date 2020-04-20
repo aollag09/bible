@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar } from '../navbar';
-import { Selector } from './component/Selector';
+import { Selector } from './component/selector/Selector';
 import './resources/style/read.css';
 
 export class Read extends React.Component {

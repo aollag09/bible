@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from "react";
-import '../resources/style/read.css';
+import '../../resources/style/read.css';
 import { FetchingVersions } from "./VersionFetcher";
 
 type VersionTableProp = {

@@ -1,6 +1,5 @@
 import React from "react";
 
-
 type ChapterBoxProp = {
     chapter: number,
     onClick: (event: React.MouseEvent<HTMLButtonElement>) => void

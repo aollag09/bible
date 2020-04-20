@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { BookBox } from "./BookBox";
-import '../resources/style/read.css'
+import '../../resources/style/read.css'
 
 type BookPeriodicTableProp = {
     handleBookSelect: (bookid: number) => void,
 }
 
 export class BookPeriodicTable extends Component<BookPeriodicTableProp> {
-
 
     // Dimensions of the periodic book
     static NB_ROW = 6

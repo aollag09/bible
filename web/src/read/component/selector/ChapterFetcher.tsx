@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import useFetch from 'fetch-suspense'
-import { BibleAPI } from "../../common/utils/bibleAPI";
+import { BibleAPI } from "../../../common/utils/bibleAPI";
 import { ChapterBox } from "./ChapterBox";
 
 type ChapterFetcherProp = {
