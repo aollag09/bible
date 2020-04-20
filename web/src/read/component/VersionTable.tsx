@@ -46,11 +46,11 @@ export class FetchingVersions extends Component {
             let column: JSX.Element[] = []
 
             column.push(
-                <td className="version-language-td">
+                <thead className="version-language-td">
                     <span className="version-language">
                         {language}
                     </span>
-                </td>)
+                </thead>)
 
             let listVersion: JSX.Element[] = []
             versions.getVersionsList().forEach(version => {
