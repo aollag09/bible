@@ -14,7 +14,6 @@ export class Read extends React.Component {
         <PeriodicTable />
         <h2>Versions</h2>
         <VersionTable />
-        
       </div>
     );
   }
