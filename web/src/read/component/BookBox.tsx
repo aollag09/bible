@@ -18,14 +18,22 @@ export class BookBox extends Component<BookBoxProp>{
                 <button className="periodic-book-box" onClick={this.props.onClick}>
                     <div className="periodic-book-wrapper">
 
-                        <span className="periodic-book-chapter">{this.props.nbChapter} chp</span>
+                        <span className="periodic-book-chapter">
+                            {this.props.nbChapter} chp
+                        </span>
                         <br />
-                        <span className="periodic-book-bigramme">{this.props.bigramme}</span>
+                        <span className="periodic-book-bigramme">
+                            {this.props.bigramme}
+                        </span>
 
                         <br />
-                        <span className="periodic-book-author">{this.props.author}</span>
+                        <span className="periodic-book-author">
+                            {this.props.author}
+                        </span>
                         <br />
-                        <span className="periodic-book-author">{this.props.author2}</span>
+                        <span className="periodic-book-author">
+                            {this.props.author2}
+                        </span>
 
                     </div>
                 </button>

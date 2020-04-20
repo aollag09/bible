@@ -19,7 +19,7 @@ export class Selector extends React.Component<{}, SelectorState> {
             step: 1,
             version: 0,
             book: 0,
-            chapter: 1,
+            chapter: 0,
         }
     }
 
@@ -51,6 +51,7 @@ export class Selector extends React.Component<{}, SelectorState> {
         this.setState({
             step: step
         })
+        
     }
 
     prev = () => {
@@ -70,6 +71,21 @@ export class Selector extends React.Component<{}, SelectorState> {
                     type="button"
                     onClick={this.prev}>
                     Previous
+                </button>
+            )
+        }
+        return null;
+    }
+
+    read() {
+        let step = this.state.step;
+        if (step === 3) {
+            return (
+                <button
+                    className="btn btn-secondary"
+                    type="button"
+                    onClick={this.handleSubmit}>
+                    Read
                 </button>
             )
         }
@@ -101,6 +117,7 @@ export class Selector extends React.Component<{}, SelectorState> {
                     handleChapterSelect={(id)=>this.handleChapterSelect(id)} />
 
                 {this.prevButton()}
+                {this.read()}
             </div>
         );
     }
