@@ -6,13 +6,17 @@ import { API } from "../../common/utils/api";
 import '../resources/style/read.css';
 import { VersionSplash } from "./VersionSplash";
 
-export class VersionTable extends Component {
+type VersionTableProp = {
+    handleVersionSelect: (id: number) => void
+}
+
+export class VersionTable extends Component<VersionTableProp> {
 
     render() {
         return (
             <div className="version-table" >
                 <Suspense fallback={<div>Loading versions ... </div>} >
-                    <FetchingVersions />
+                    <FetchingVersions handleVersionSelect={this.props.handleVersionSelect} />
                 </Suspense>
             </div>
         );
@@ -20,7 +24,7 @@ export class VersionTable extends Component {
 }
 
 
-export class FetchingVersions extends Component {
+export class FetchingVersions extends Component<VersionTableProp> {
 
     getLanguages(versions: Versions): Array<string> {
         let languages = new Array<string>()
@@ -32,9 +36,6 @@ export class FetchingVersions extends Component {
         return languages;
     }
 
-    handleClick(id: number) {
-        alert("Click on " + id)
-    }
 
     render() {
         const response = useFetch(API.url + "version/");
@@ -60,7 +61,7 @@ export class FetchingVersions extends Component {
                             key={version.getId()}
                             name={version.getVersion()}
                             abbreviation={version.getAbbreviation()}
-                            onClick={() => this.handleClick(version.getId())} />
+                            onClick={() => this.props.handleVersionSelect(version.getId())} />
                     </li>)
                 }
             });

@@ -3,10 +3,6 @@ import { VersionSelector } from "./VersionSelector";
 import { BookSelector } from "./BookSelector";
 
 
-export type SelectorStepProp = {
-    step: number
-}
-
 type SelectorState = {
     step: number,
     version: number,
@@ -26,23 +22,26 @@ export class Selector extends React.Component<{}, SelectorState> {
         }
     }
 
-    handleChangeVersion(newVersion: number) {
+    handleVersionSelect(newVersion: number) {
         this.setState({
             version: newVersion
         })
+        this.next()
     }
 
     handleBookSelect(newBook: number) {
         this.setState({
             book: newBook
         })
-        alert("Selector update book with id " + newBook )
+        alert("Selector update book with id " + newBook)
+        this.next()
     }
 
-    handleChangeChapter(newChapter: number) {
+    handleChapterSelect(newChapter: number) {
         this.setState({
             chapter: newChapter
         })
+        this.next()
     }
 
     next = () => {
@@ -76,21 +75,6 @@ export class Selector extends React.Component<{}, SelectorState> {
         return null;
     }
 
-    nextButton() {
-        let step = this.state.step;
-        if (step < 3) {
-            return (
-                <button
-                    className="btn btn-primary float-right"
-                    type="button"
-                    onClick={this.next}>
-                    Next
-                </button>
-            )
-        }
-        return null;
-    }
-
 
     handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault()
@@ -104,10 +88,15 @@ export class Selector extends React.Component<{}, SelectorState> {
     render() {
         return (
             <div className="selector">
-                <VersionSelector step={this.state.step} />
-                <BookSelector step={this.state.step} handleBookSelect={(id) => this.handleBookSelect(id)} />
+                <VersionSelector
+                    step={this.state.step}
+                    handleVersionSelect={(id) => this.handleVersionSelect(id)} />
+
+                <BookSelector
+                    step={this.state.step}
+                    handleBookSelect={(id) => this.handleBookSelect(id)} />
+
                 {this.prevButton()}
-                {this.nextButton()}
             </div>
         );
     }

@@ -1,15 +1,19 @@
 import React from "react";
 import { VersionTable } from "./VersionTable";
-import { SelectorStepProp } from "./Selector";
 
-export class VersionSelector extends React.Component<SelectorStepProp> {
+type VersionSelectorProp = {
+    step: number,
+    handleVersionSelect: (id: number) => void,
+}
+
+export class VersionSelector extends React.Component<VersionSelectorProp> {
 
     render() {
         if (this.props.step === 1) {
             return (
                 <div className="version-selector">
                     <h2>Versions</h2>
-                    <VersionTable />
+                    <VersionTable handleVersionSelect={this.props.handleVersionSelect} />
                 </div>
             );
         } else {
