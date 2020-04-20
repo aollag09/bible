@@ -1,8 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import { VersionSelector } from "./VersionSelector";
 import { BookSelector } from "./BookSelector";
 import { ChapterSelector } from "./ChapterSelector";
+import { ReaderSelector } from "../ReaderSelector"
 
+type SelectorProp = {
+    switch: string,
+}
 
 type SelectorState = {
     step: number,
@@ -11,9 +15,9 @@ type SelectorState = {
     chapter: number
 }
 
-export class Selector extends React.Component<{}, SelectorState> {
+export class Selector extends Component<SelectorProp, SelectorState> {
 
-    constructor(props: Readonly<{}>) {
+    constructor(props: SelectorProp) {
         super(props)
         this.state = {
             step: 1,
@@ -51,7 +55,7 @@ export class Selector extends React.Component<{}, SelectorState> {
         this.setState({
             step: step
         })
-        
+
     }
 
     prev = () => {
@@ -101,24 +105,28 @@ export class Selector extends React.Component<{}, SelectorState> {
     }
 
     render() {
-        return (
-            <div className="selector">
-                <VersionSelector
-                    step={this.state.step}
-                    handleVersionSelect={(id) => this.handleVersionSelect(id)} />
+        if (this.props.switch === ReaderSelector.SWITCH_SELECTOR) {
+            return (
+                <div className="selector">
+                    <VersionSelector
+                        step={this.state.step}
+                        handleVersionSelect={(id) => this.handleVersionSelect(id)} />
 
-                <BookSelector
-                    step={this.state.step}
-                    handleBookSelect={(id) => this.handleBookSelect(id)} />
+                    <BookSelector
+                        step={this.state.step}
+                        handleBookSelect={(id) => this.handleBookSelect(id)} />
 
-                <ChapterSelector
-                    step={this.state.step}
-                    book={this.state.book}
-                    handleChapterSelect={(id)=>this.handleChapterSelect(id)} />
+                    <ChapterSelector
+                        step={this.state.step}
+                        book={this.state.book}
+                        handleChapterSelect={(id) => this.handleChapterSelect(id)} />
 
-                {this.prevButton()}
-                {this.read()}
-            </div>
-        );
+                    {this.prevButton()}
+                    {this.read()}
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
 }
