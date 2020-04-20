@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ReaderSelector } from "../ReaderSelector";
+import { ScriptureReader } from "./ScriptureReader";
 
 type ReaderProp = {
     switch: string,
@@ -14,7 +15,10 @@ export class Reader extends Component<ReaderProp>{
         if (this.props.switch === ReaderSelector.SWITCH_READER) {
             return (
                 <div className="reader">
-                    <p> Read version {this.props.version}, book {this.props.book}, chapter {this.props.chapter} </p>
+                    <ScriptureReader
+                        version={this.props.version}
+                        book={this.props.book}
+                        chapter={this.props.chapter} />
                 </div>
             )
         } else {

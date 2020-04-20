@@ -1,6 +1,7 @@
 import React, { Component, Suspense } from "react";
 import '../../resources/style/read.css';
-import { FetchingVersions } from "./VersionFetcher";
+import { VersionFetcher } from "./VersionFetcher";
+import { Loading } from "../../../common/utils/component/Loading";
 
 type VersionTableProp = {
     handleVersionSelect: (id: number) => void
@@ -11,8 +12,8 @@ export class VersionTable extends Component<VersionTableProp> {
     render() {
         return (
             <div className="version-table" >
-                <Suspense fallback={<div>Loading versions ... </div>} >
-                    <FetchingVersions handleVersionSelect={this.props.handleVersionSelect} />
+                <Suspense fallback={<Loading text="Loading versions ..." />} >
+                    <VersionFetcher handleVersionSelect={this.props.handleVersionSelect} />
                 </Suspense>
             </div>
         );

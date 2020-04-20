@@ -7,11 +7,11 @@ import '../../resources/style/read.css';
 import { VersionBox } from "./VersionBox";
 
 
-type FetchingVersionsProp = {
+type VersionFetcherProp = {
     handleVersionSelect: (id: number) => void
 }
 
-export class FetchingVersions extends Component<FetchingVersionsProp> {
+export class VersionFetcher extends Component<VersionFetcherProp> {
 
     getLanguages(versions: Versions): Array<string> {
         let languages = new Array<string>()
