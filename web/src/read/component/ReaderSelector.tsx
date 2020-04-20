@@ -15,8 +15,6 @@ type ReaderSelectorState = {
 
 }
 
-
-
 export class ReaderSelector extends Component<{}, ReaderSelectorState> {
 
     public static SWITCH_SELECTOR = "selector"
@@ -33,6 +31,23 @@ export class ReaderSelector extends Component<{}, ReaderSelectorState> {
             switch: ReaderSelector.SWITCH_SELECTOR
         }
     }
+
+    read(version: number, book: number, chapter: number) {
+        this.setState({
+            switch: ReaderSelector.SWITCH_READER,
+            version: version,
+            book: book,
+            chapter: chapter
+        })
+    }
+
+    select() {
+        this.setState({
+            switch: ReaderSelector.SWITCH_SELECTOR
+        })
+    }
+
+
 
     render() {
         return (
