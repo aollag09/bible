@@ -100,7 +100,6 @@
     text-align: right;
 }
 
-
 .version-splash-box{
     border: solid;
     border-width: 1px;
@@ -118,11 +117,12 @@
 
 .version-splash-abbreviation{
     color: #505050;
-    font-size: 2.9em;
+    font-size: 1.7em;
 }
 
 .version-splash-name{
     color: #505050;
+    font-size: 0.7em;
 }
 
 .version-splash-box:hover .version-splash-abbreviation,

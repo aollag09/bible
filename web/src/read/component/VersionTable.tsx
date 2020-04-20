@@ -47,6 +47,10 @@ export class FetchingVersions extends Component {
         return languages;
     }
 
+    handleClick(id:number){
+        alert("Click on " + id)
+    }
+
     render() {
         const response = useFetch(API.url + "version/");
         const versions = Versions.deserializeBinary(Message.bytesAsU8(response.toString()))
@@ -65,7 +69,8 @@ export class FetchingVersions extends Component {
                         <VersionSplash
                             key={version.getId()}
                             name={version.getVersion()}
-                            abbreviation={version.getAbbreviation()} />
+                            abbreviation={version.getAbbreviation()} 
+                            onClick={() => this.handleClick(version.getId())}/>
                     </li>)
                 }
             });

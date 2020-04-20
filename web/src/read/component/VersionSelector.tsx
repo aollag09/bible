@@ -1,8 +1,8 @@
 import React from "react";
 import { VersionTable } from "./VersionTable";
-import { StepProp } from "./Selector";
+import { SelectorStepProp } from "./Selector";
 
-export class VersionSelector extends React.Component<StepProp> {
+export class VersionSelector extends React.Component<SelectorStepProp> {
 
     render() {
         if (this.props.step === 1) {

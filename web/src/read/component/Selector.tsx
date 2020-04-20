@@ -3,7 +3,7 @@ import { VersionSelector } from "./VersionSelector";
 import { BookSelector } from "./BookSelector";
 
 
-export type StepProp = {
+export type SelectorStepProp = {
     step: number
 }
 
@@ -44,7 +44,6 @@ export class Selector extends React.Component<{}, SelectorState> {
         })
     }
 
-
     next = () => {
         let step = this.state.step
         step = step >= 2 ? 3 : step + 1
@@ -67,7 +66,8 @@ export class Selector extends React.Component<{}, SelectorState> {
             return (
                 <button
                     className="btn btn-secondary"
-                    type="button" onClick={this.prev}>
+                    type="button" 
+                    onClick={this.prev}>
                     Previous
                 </button>
             )
@@ -81,7 +81,8 @@ export class Selector extends React.Component<{}, SelectorState> {
             return (
                 <button
                     className="btn btn-primary float-right"
-                    type="button" onClick={this.next}>
+                    type="button" 
+                    onClick={this.next}>
                     Next
                 </button>
             )

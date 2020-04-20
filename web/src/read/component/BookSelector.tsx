@@ -1,9 +1,9 @@
 import React from "react";
 import { PeriodicTable } from "./PeriodicTable";
-import { StepProp } from "./Selector";
+import { SelectorStepProp } from "./Selector";
 
 
-export class BookSelector extends React.Component<StepProp> {
+export class BookSelector extends React.Component<SelectorStepProp> {
 
     render() {
         if (this.props.step === 2) {
