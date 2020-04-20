@@ -63,7 +63,7 @@ insert into `bible_version_key` VALUES (001,'en_asv','ASV','english','American S
 (018,'pt_aa','PAA','portoguese','Bible in Portuguese PAA','','https://en.wikipedia.org/wiki/Bible_translations_into_Portuguese','','Public Domain',''),
 (019,'pt_acf','ACF','portoguese','Bible in Portuguese AVF','','https://en.wikipedia.org/wiki/Bible_translations_into_Portuguese','','Public Domain',''),
 (020,'pt_nvi','NVI','portoguese','Bible in Portuguese NVI','','https://en.wikipedia.org/wiki/Bible_translations_into_Portuguese','','Public Domain',''),
-(021,'ro_cornilesu','CORNILESU','english','Dumitru_Cornilescu','','https://ro.wikipedia.org/wiki/Dumitru_Cornilescu','','Public Domain',''),
+(021,'ro_cornilesu','CORNILESU','romanian','Dumitru_Cornilescu','','https://ro.wikipedia.org/wiki/Dumitru_Cornilescu','','Public Domain',''),
 (022,'ru_synodal','SYNODAL','russian','Russian Synodal Bible','','https://en.wikipedia.org/wiki/Russian_Synodal_Bible','','Public Domain',''),
 (023,'vi_vietnamese','VIE','vietnamise','Bible in Vietnamise','','http://en.wikipedia.org/wiki/American_Standard_Version','','Public Domain',''),
 (024,'zh_ncv','NCV','chinese','Bible in Chinese NCV','','https://fr.wikipedia.org/wiki/Traduction_de_la_Bible_en_chinois','','Public Domain',''),

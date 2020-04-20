@@ -52,13 +52,16 @@ export class FetchingVersions extends Component {
         const versions = Versions.deserializeBinary(Message.bytesAsU8(response.toString()))
 
         let languages = this.getLanguages(versions);
-        let listLanguages: JSX.Element[] = []
+        let tableLanguages: JSX.Element[] = []
         languages.forEach(language => {
-            let listLanguage: JSX.Element[] = []
-            listLanguage.push(<li> <span className="version-language"> {language} </span></li>)
+            let column: JSX.Element[] = []
+
+            column.push(<td className="version-language-td"> <span className="version-language"> {language} </span></td>)
+
+            let listVersion: JSX.Element[] = []
             versions.getVersionsList().forEach(version => {
                 if (version.getLanguage() === language) {
-                    listLanguage.push(<li>
+                    listVersion.push(<li>
                         <VersionSplash
                             key={version.getId()}
                             name={version.getVersion()}
@@ -66,13 +69,14 @@ export class FetchingVersions extends Component {
                     </li>)
                 }
             });
-            listLanguages.push(<ul className="version-list-language">{listLanguage}</ul>)
+            column.push(<td className="version-list-language"><ul>{listVersion}</ul></td>)
+            tableLanguages.push(<tr>{column}</tr>)
         })
 
         return (
             <div>
-                <table>
-                    {listLanguages}
+                <table className="version-table">
+                    {tableLanguages}
                 </table>
             </div>
         );
