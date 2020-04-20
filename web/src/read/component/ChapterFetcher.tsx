@@ -23,10 +23,10 @@ export class ChapterFecther extends Component<ChapterFetcherProp> {
                         <ChapterBox chapter={i} onClick={() => this.props.handleChapterSelect(i)} />
                     </li>)
             }
-            
+
             return (
-                <div>
-                    <ul className="chapter-list">
+                <div className="chapter-list">
+                    <ul >
                         {chapters}
                     </ul>
                 </div>
