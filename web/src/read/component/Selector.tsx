@@ -1,6 +1,7 @@
 import React from "react";
 import { VersionSelector } from "./VersionSelector";
 import { BookSelector } from "./BookSelector";
+import { ChapterSelector } from "./ChapterSelector";
 
 
 type SelectorState = {
@@ -33,7 +34,6 @@ export class Selector extends React.Component<{}, SelectorState> {
         this.setState({
             book: newBook
         })
-        alert("Selector update book with id " + newBook)
         this.next()
     }
 
@@ -42,6 +42,7 @@ export class Selector extends React.Component<{}, SelectorState> {
             chapter: newChapter
         })
         this.next()
+        this.handleSubmit()
     }
 
     next = () => {
@@ -75,9 +76,7 @@ export class Selector extends React.Component<{}, SelectorState> {
         return null;
     }
 
-
-    handleSubmit = (event: { preventDefault: () => void; }) => {
-        event.preventDefault()
+    handleSubmit = () => {
         const { version, book, chapter } = this.state
         alert(`Your registration detail: \n 
                Version: ${version} \n 
@@ -95,6 +94,11 @@ export class Selector extends React.Component<{}, SelectorState> {
                 <BookSelector
                     step={this.state.step}
                     handleBookSelect={(id) => this.handleBookSelect(id)} />
+
+                <ChapterSelector
+                    step={this.state.step}
+                    book={this.state.book}
+                    handleChapterSelect={(id)=>this.handleChapterSelect(id)} />
 
                 {this.prevButton()}
             </div>

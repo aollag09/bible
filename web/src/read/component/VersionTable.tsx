@@ -2,9 +2,9 @@ import useFetch from 'fetch-suspense';
 import { Message } from "google-protobuf";
 import React, { Component, Suspense } from "react";
 import { Versions } from "../../common/generated/services/version/version_pb";
-import { API } from "../../common/utils/api";
+import { BibleAPI } from "../../common/utils/bibleAPI";
 import '../resources/style/read.css';
-import { VersionSplash } from "./VersionSplash";
+import { VersionBox } from "./VersionBox";
 
 type VersionTableProp = {
     handleVersionSelect: (id: number) => void
@@ -38,7 +38,7 @@ export class FetchingVersions extends Component<VersionTableProp> {
 
 
     render() {
-        const response = useFetch(API.url + "version/");
+        const response = useFetch(BibleAPI.url + "version/");
         const versions = Versions.deserializeBinary(Message.bytesAsU8(response.toString()))
 
         let languages = this.getLanguages(versions);
@@ -57,7 +57,7 @@ export class FetchingVersions extends Component<VersionTableProp> {
             versions.getVersionsList().forEach(version => {
                 if (version.getLanguage() === language) {
                     listVersion.push(<li>
-                        <VersionSplash
+                        <VersionBox
                             key={version.getId()}
                             name={version.getVersion()}
                             abbreviation={version.getAbbreviation()}

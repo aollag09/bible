@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-type VersionSplashProps = {
+type VersionBoxProps = {
     key: number,
     name: string,
     abbreviation: string,
@@ -9,16 +9,16 @@ type VersionSplashProps = {
 }
 
 
-export class VersionSplash extends Component<VersionSplashProps> {
+export class VersionBox extends Component<VersionBoxProps> {
 
     render() {
         return (
             <button
-                className="version-splash-box"
+                className="version-box-box"
                 onClick={this.props.onClick}>
-                <span className="version-splash-abbreviation">{this.props.abbreviation}</span>
+                <span className="version-box-abbreviation">{this.props.abbreviation}</span>
                 <br />
-                <span className="version-splash-name">{this.props.name}</span>
+                <span className="version-box-name">{this.props.name}</span>
             </button>
         );
     }

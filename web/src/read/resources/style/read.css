@@ -101,7 +101,7 @@
     text-align: right;
 }
 
-.version-splash-box{
+.version-box-box{
     border: solid;
     border-width: 1px;
     border-radius: 5%;
@@ -111,23 +111,23 @@
     background-color: #1e1e1e;
 }
 
-.version-splash-box:hover{
+.version-box-box:hover{
     border-color: #5f6063;
     box-shadow: 0 1px 2px 0 #5f6063, 0 1px 2px 0 #5f6063;
 }
 
-.version-splash-abbreviation{
+.version-box-abbreviation{
     color: #505050;
     font-size: 1.7em;
 }
 
-.version-splash-name{
+.version-box-name{
     color: #505050;
     font-size: 0.7em;
 }
 
-.version-splash-box:hover .version-splash-abbreviation,
-.version-splash-box:hover .version-splash-name
+.version-box-box:hover .version-box-abbreviation,
+.version-box-box:hover .version-box-name
  {
     color: #818289;
 }
