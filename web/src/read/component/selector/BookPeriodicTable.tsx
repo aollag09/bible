@@ -141,7 +141,7 @@ export class BookPeriodicTable extends Component<BookPeriodicTableProp> {
         books[3][14] = <BookBox nbChapter={3} onClick={() => this.handleClick(56)} key={55} bigramme="Tt" author="Paul" />
         books[3][15] = <BookBox nbChapter={1} onClick={() => this.handleClick(57)} key={56} bigramme="Pm" author="Paul" />
 
-        books[4][8] = <BookBox nbChapter={13} onClick={() => this.handleClick(58)} key={57} bigramme="Hb" author="Paul Apollos" author2="Luke Barnabas" />
+        books[4][8] = <BookBox nbChapter={13} onClick={() => this.handleClick(58)} key={57} bigramme="Hb" author="Paul Ap." author2="Luke Bbas" />
         books[4][9] = <BookBox nbChapter={5} onClick={() => this.handleClick(59)} key={58} bigramme="Ja" author="James" />
         books[4][10] = <BookBox nbChapter={5} onClick={() => this.handleClick(60)} key={59} bigramme="Pe¹" author="Peter" />
         books[4][11] = <BookBox nbChapter={3} onClick={() => this.handleClick(61)} key={60} bigramme="Pe²" author="Peter" />

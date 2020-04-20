@@ -38,14 +38,14 @@
     border-radius: 7%;
     border-color: #1e1e1e;
     margin: 1px;
-    width: 3.8em;
-    height: 5.8em;
+    width: 5.5em;
+    height: 8em;
     padding: 0.3em;
     background-color: #1e1e1e;
 }
 
 .periodic-book-wrapper{
-    margin: auto;
+    padding-top: 0.5em;
 }
 
 .periodic-book-box:hover{
@@ -62,17 +62,17 @@
 
 .periodic-book-bigramme{
     color: #505050;
-    font-size: 2em;
+    font-size: 3.3em;
 }
 
 .periodic-book-author{
     color: #505050;
-    font-size: 0.6em;
+    font-size: 1em;
 }
 
 .periodic-book-chapter{
     color: #505050;
-    font-size: 0.6em;
+    font-size: 1em;
 }
 
 
@@ -119,12 +119,12 @@
 
 .version-box-abbreviation{
     color: #505050;
-    font-size: 1.7em;
+    font-size: 2em;
 }
 
 .version-box-name{
     color: #505050;
-    font-size: 0.7em;
+    font-size: 0.9em;
 }
 
 .version-box-box:hover .version-box-abbreviation,
@@ -154,14 +154,14 @@
     border-width: 1px;
     border-radius: 5%;
     border-color: #1e1e1e;
-    margin: 5px;
-    padding: 0.5em 1.5em;
+    margin: 0.5em;
+    padding: 2em;
     background-color: #1e1e1e;
 }
 
 .chapter-id{
     color: #505050;
-    font-size: 2em;
+    font-size: 3em;
 }
 
 .chapter-button:hover{

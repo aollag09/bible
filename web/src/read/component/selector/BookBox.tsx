@@ -7,7 +7,7 @@ type BookBoxProp = {
     author: string,
     author2?: string,
     nbChapter: number,
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
+    onClick: () => void
 }
 
 export class BookBox extends Component<BookBoxProp>{
@@ -15,7 +15,7 @@ export class BookBox extends Component<BookBoxProp>{
     render() {
         return (
             <div className="periodic-book" >
-                <button className="periodic-book-box" onClick={this.props.onClick}>
+                <div className="periodic-book-box" onClick={this.props.onClick}>
                     <div className="periodic-book-wrapper">
 
                         <span className="periodic-book-chapter">
@@ -36,7 +36,7 @@ export class BookBox extends Component<BookBoxProp>{
                         </span>
 
                     </div>
-                </button>
+                </div>
 
             </div >
         );
