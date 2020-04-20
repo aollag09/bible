@@ -14,8 +14,8 @@ export class PeriodicBook extends Component<PeriodicBookProps>{
 
     render() {
         return (
-            <button className="periodic-book" onClick={this.props.onClick}>
-                <div className="periodic-book-box" >
+            <div className="periodic-book" >
+                <button className="periodic-book-box" onClick={this.props.onClick}>
                     <div className="periodic-book-wrapper">
 
                         <span className="periodic-book-chapter">{this.props.nbChapter} chp</span>
@@ -28,9 +28,9 @@ export class PeriodicBook extends Component<PeriodicBookProps>{
                         <span className="periodic-book-author">{this.props.author2}</span>
 
                     </div>
-                </div>
+                </button>
 
-            </button >
+            </div >
         );
     }
 
