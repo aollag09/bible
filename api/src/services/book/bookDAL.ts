@@ -76,6 +76,15 @@ export class BookDAL {
             return undefined
     }
 
+    public async getNbChapters(book: number):Promise<number>{
+        let query=`select max(c) from en_asv where b=` + book
+        const row = await this.database.select(query)
+        if (row.length == 1) {
+            return parseInt(row[0].get("max(c)")!)
+        } else
+            return 0
+    }
+
     private extractBooks(rows: Map<string, string>[]): Book[] {
         let books: Map<Number, Book> = new Map()
         rows.forEach(row => {

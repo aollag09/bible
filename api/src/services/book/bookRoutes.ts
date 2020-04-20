@@ -49,4 +49,27 @@ export default [
             }
         ]
     },
+
+
+    {
+        // Get the number of chapters in a specific book
+        path: RouteUtils.BASE_PATH + "book/:id/chapters/count",
+        method: "get",
+        responseType: 'arraybuffer',
+        headers: { 'Content-Type': 'application/protobuf' },
+        handler: [
+            checkIdParams,
+            async (req: Request, res: Response, next: NextFunction) => {
+                let bookid: number = parseInt(req.params.id)
+                if (isNaN(bookid))
+                    clientError(new Error("Input book identifier is not a number : " + bookid), res, next);
+                let bookDAL = new BookDAL(new Database())
+
+                let nbChapters = await bookDAL.getNbChapters(bookid)
+                res.status(200)
+                    .send(nbChapters)
+
+            }
+        ]
+    },
 ];
