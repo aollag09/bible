@@ -29,7 +29,7 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
             scriptureSpans.push(
                 <span className="scripture-verse">
                     <div className="scripture-verse-id-box">
-                        <span className="scripture-verse-id"> {scripture.getVerse().toString().trim()}</span>
+                        <span className="scripture-verse-id"> {scripture.getVerse()}</span>
                     </div>
                     <span className="scripture-verse-text"> {scripture.getScripture()}</span>
                 </span>)

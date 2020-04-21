@@ -10,7 +10,29 @@ type ReaderProp = {
     chapter: number,
 }
 
-export class Reader extends Component<ReaderProp>{
+type ReaderState = {
+    version: number,
+    book: number,
+    chapter: number,
+}
+
+export class Reader extends Component<ReaderProp, ReaderState>{
+
+    constructor(props: ReaderProp){
+        super(props)
+
+    }
+
+    next(){
+        let next = this.state.chapter + 1
+        this.setState({
+
+        })
+    }
+
+    previous(){
+        
+    }
 
     render() {
         if (this.props.switch === ReaderSelector.SWITCH_READER) {
