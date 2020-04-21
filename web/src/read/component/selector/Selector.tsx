@@ -78,21 +78,6 @@ export class Selector extends Component<SelectorProp, SelectorState> {
         return null;
     }
 
-    read() {
-        let step = this.state.step;
-        if (step === 3) {
-            return (
-                <button
-                    className="btn btn-secondary"
-                    type="button"
-                    onClick={this.handleSubmit}>
-                    Read
-                </button>
-            )
-        }
-        return null;
-    }
-
     handleSubmit = () => {
         const { version, book, chapter } = this.state
         this.props.read(version, book, chapter)
@@ -116,7 +101,6 @@ export class Selector extends Component<SelectorProp, SelectorState> {
                         handleChapterSelect={(id) => this.handleChapterSelect(id)} />
 
                     {this.prevButton()}
-                    {this.read()}
                 </div>
             );
         } else {

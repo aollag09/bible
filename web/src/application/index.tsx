@@ -8,6 +8,8 @@ import { Read } from '../read';
 import { Search } from '../search';
 import './resources/style/application.css';
 
+
+
 export class App extends React.Component {
 
   render() {

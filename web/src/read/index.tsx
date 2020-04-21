@@ -7,7 +7,7 @@ export class Read extends React.Component {
 
   render() {
     return (
-      <div className="read">
+      <div className="bible-content read">
         <Navbar />
 
         <ReaderSelector />

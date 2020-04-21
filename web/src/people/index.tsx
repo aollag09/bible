@@ -5,7 +5,7 @@ export class People extends React.Component {
 
   render() {
     return (
-      <div className="people">
+      <div className="bible-content people">
             <Navbar />
       </div>
     );
