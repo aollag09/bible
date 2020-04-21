@@ -28,7 +28,9 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
         scriptures.getScripturesList().forEach(scripture => {
             scriptureSpans.push(
                 <span className="scripture-verse">
-                    <span className="scripture-verse-id"> {scripture.getVerse()}</span>
+                    <div className="scripture-verse-id-box">
+                        <span className="scripture-verse-id"> {scripture.getVerse().toString().trim()}</span>
+                    </div>
                     <span className="scripture-verse-text"> {scripture.getScripture()}</span>
                 </span>)
         })

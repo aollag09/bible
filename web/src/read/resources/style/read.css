@@ -5,21 +5,42 @@
 /* SCRIPTURES */
 
 .scripture-reader{
-
+    margin: 15em;
+    text-align: justify;
+    letter-spacing: 0.05em;
+    line-height: 4.5em;
 }
 
 .scripture-fetcher{
-
 }
 
 .scripture-verse{
 
 }
 
-.scripture-verse-id{
+.scripture-verse-id-box{
+    text-justify: none;
+    display: inline-block;
+}
 
+.scripture-verse-id{
+    border: solid;
+    border-width: 0.05em;
+    border-radius: 25%;
+    border-color:#787878;
+    
+    padding: 0em 0.5em 0.2em 0.5em;
+    margin-left: 2em;
+
+    color:#787878;
+    font-size: 1.8em;
 }
 
 .scripture-verse-text{
-    
+    font-size: 3em;
+    color: #a8a8a8;
+}
+
+.scripture-verse:hover .scripture-verse-text{
+    border-bottom: 0.06em solid #787878;
 }

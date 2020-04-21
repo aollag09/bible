@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ReaderSelector } from "../ReaderSelector";
 import { ScriptureReader } from "./ScriptureReader";
+import "../../resources/style/read.css"
 
 type ReaderProp = {
     switch: string,
