@@ -33,7 +33,7 @@ export default [
                     let query = req.query.q
                     if (query == null || query == undefined)
                         query = "*"
-                    let searchDAL = new SearchDAL(new Index())
+                    let searchDAL = new SearchDAL(Index.get())
                     let scriptures = await searchDAL.searchScripture(version, query.toString())
                     res.status(200)
                         .send(ProtoUtils.serialize(scriptures, req))
@@ -54,7 +54,7 @@ export default [
                 let query = req.query.q
                 if (query == null || query == undefined)
                     query = "*"
-                let searchDAL = new SearchDAL(new Index())
+                let searchDAL = new SearchDAL(Index.get())
                 let scriptures = await searchDAL.searchAllScriputure(query.toString())
                 res.status(200)
                     .send(ProtoUtils.serialize(scriptures, req))

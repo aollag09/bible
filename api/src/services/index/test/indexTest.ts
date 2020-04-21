@@ -9,7 +9,7 @@ describe('Index', function () {
 
     describe('#getClient()', function () {
         it('Check index js client connection', function () {
-            let index = new Index()
+            let index = Index.get()
             let client = index.getClient()
             assert.equal(true, client != null && client != undefined)
         });
@@ -18,7 +18,7 @@ describe('Index', function () {
 
     describe('#getIndex()', function () {
         it('Check index name is valid', async function () {
-            let index = new Index()
+            let index = Index.get()
             let version = await new VersionDAL(Database.get()).getDefault()
             assert.equal("bible_en_asv", index.getIndexName(version))
         });

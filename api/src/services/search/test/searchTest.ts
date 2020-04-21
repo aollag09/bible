@@ -11,7 +11,7 @@ var assert = require('assert');
 
 describe('Index Data Access Layer', function () {
 
-    let index = new Index()
+    let index = Index.get()
     let search = new SearchDAL(index)
 
     describe('#search()', async function () {
@@ -25,7 +25,7 @@ describe('Index Data Access Layer', function () {
         });
 
         it('Search Pilate in French bible', async function () {
-            let index = new Index()
+            let index = Index.get()
             let res = await search.searchScripture(version, "Pilate")
             res.getScripturesList().forEach(verse => {
                 expect(verse.getScripture()).to.have.string('Pilate');
@@ -36,7 +36,7 @@ describe('Index Data Access Layer', function () {
 
     describe('#searchAll()', function () {
         it('Search God in all bible', async function () {
-            let index = new Index()
+            let index = Index.get()
             let res = await search.searchAllScriputure("God")
             res.getScripturesList().forEach(verse => {
                 expect(verse.getScripture()).to.have.string('God');
@@ -44,7 +44,7 @@ describe('Index Data Access Layer', function () {
         });
 
         it('Search gospel in all bible', async function () {
-            let index = new Index()
+            let index = Index.get()
             let res = await search.searchAllScriputure("gospel")
             res.getScripturesList().forEach(verse => {
                 expect(verse.getScripture().toLowerCase()).to.have.string('gospel')

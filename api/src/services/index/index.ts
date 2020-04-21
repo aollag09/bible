@@ -4,6 +4,17 @@ import { Version } from "../version/version_pb";
 
 export class Index {
 
+    /** Singleton Index client */
+    private static index: Index;
+
+    /** Get Index Singleton instance */
+    public static get(): Index {
+        if (!Index.index)
+            Index.index = new Index()
+        return Index.index
+    }
+
+
     /** Host of the elasticsearch index to connect with */
     private static hostname: string = process.env.ES_HOST || "localhost"
 
