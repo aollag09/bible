@@ -3,7 +3,7 @@
 export class BibleAPI {
 
     static protocol = "http"
-    static host = "192.168.1.46"
+    static host = "192.168.43.90"
     static port = "3301"
     static path = "bible/v1/"
 

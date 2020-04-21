@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { ChapterFecther } from "./ChapterFetcher";
+import ErrorBoundary from "react-error-boundary";
 
 
 type ChapterSelectorProp = {
@@ -16,7 +17,9 @@ export class ChapterSelector extends React.Component<ChapterSelectorProp>{
                 <div className="chapter-selector">
                     <h2> Chapters </h2>
                     <Suspense fallback={<div>Loading chapters ... </div>} >
-                        <ChapterFecther book={this.props.book} handleChapterSelect={this.props.handleChapterSelect} />
+                        <ErrorBoundary>
+                            <ChapterFecther book={this.props.book} handleChapterSelect={this.props.handleChapterSelect} />
+                        </ErrorBoundary>
                     </Suspense>
                 </div>
             );

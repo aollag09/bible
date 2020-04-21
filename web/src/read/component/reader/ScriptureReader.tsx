@@ -1,6 +1,7 @@
 import React, { Component, Suspense } from "react";
 import { Loading } from "../../../common/utils/component/Loading";
 import { ScriptureFetcher } from "./ScriptureFetcher";
+import ErrorBoundary from "react-error-boundary";
 
 
 type ScriptureReaderProp = {
@@ -15,10 +16,12 @@ export class ScriptureReader extends Component<ScriptureReaderProp> {
         return (
             <div className="scripture-reader">
                 <Suspense fallback={<Loading text="Loading scriptures ..." />}>
-                    <ScriptureFetcher
-                        version={this.props.version}
-                        book={this.props.book}
-                        chapter={this.props.chapter} />
+                    <ErrorBoundary>
+                        <ScriptureFetcher
+                            version={this.props.version}
+                            book={this.props.book}
+                            chapter={this.props.chapter} />
+                    </ErrorBoundary>
                 </Suspense>
             </div>
         )
