@@ -24,7 +24,7 @@ export default [
                 if (isNaN(versionId))
                     clientError(new Error("Input version identifier is not a number : " + versionId), res, next);
 
-                let versionDAL = new VersionDAL(new Database())
+                let versionDAL = new VersionDAL(Database.get())
                 let version: Version | undefined = await versionDAL.withId(versionId)
                 if (version == undefined) {
                     notFoundErrorMessage("Version has not been found with input id : " + versionId)

@@ -15,7 +15,7 @@ describe('Index Data Access Layer', function () {
     let search = new SearchDAL(index)
 
     describe('#search()', async function () {
-        let version = await new VersionDAL(new Database).getFrenchDefault()
+        let version = await new VersionDAL(Database.get()).getFrenchDefault()
         it('Search Jésus in French bible', async function () {
 
             let res = await search.searchScripture(version, "Jésus")
@@ -93,7 +93,7 @@ describe('Index REST Services', function () {
 
     describe('#/bible/v1/version/:id/_search', async function () {
 
-        let version = await new VersionDAL(new Database()).getFrenchDefault()
+        let version = await new VersionDAL(Database.get()).getFrenchDefault()
         let path = "/bible/v1/version/" + version.getId() + "/_search"
 
         it('Search in french scripture Dieu', async function () {

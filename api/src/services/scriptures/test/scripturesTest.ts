@@ -12,7 +12,7 @@ var assert = require('assert');
 
 describe('Scriptures Data Access Layer Tests', async function () {
 
-    let database = new Database()
+    let database = Database.get()
     let version = await new VersionDAL(database).getDefault()
     let scriptureDAL = new ScriptureDAL(database, version)
 

@@ -2,6 +2,16 @@ var mysql = require('mysql2')
 
 export class Database {
 
+  /** Singleton pattern */
+  private static database: Database
+
+  /** Get singletin instance of the database */
+  public static get(): Database {
+    if (!Database.database)
+      Database.database = new Database()
+    return this.database
+  }
+
   /** Host of the database to connect to */
   static hostname: string = process.env.DB_HOST || "localhost"
 
@@ -12,7 +22,7 @@ export class Database {
   static password: string = process.env.DB_PASSWORD || "docker"
 
   /** Database name */
-  static database: string = process.env.DB_DATABASE || "bible"
+  static dbname: string = process.env.DB_DATABASE || "bible"
 
   /** Connection limit to the database pool */
   static connectionLimit: number = 20
@@ -32,14 +42,14 @@ export class Database {
   /** Connected status flag */
   private connected: boolean = false
 
-  constructor() {
+  private constructor() {
 
     // Create MySQL Database Pool connection 
     this.pool = mysql.createPool({
       host: Database.hostname,
       user: Database.user,
       password: Database.password,
-      database: Database.database,
+      database: Database.dbname,
       waitForConnections: true,
       connectionLimit: Database.connectionLimit,
       queueLimit: Database.queueLimit
@@ -54,11 +64,6 @@ export class Database {
   public isConnected(): boolean {
     return this.connected
   }
-
-  public close() {
-    this.pool.end()
-  }
-
 
   /**
    * Query the input syntax to the database with input parameters if required.

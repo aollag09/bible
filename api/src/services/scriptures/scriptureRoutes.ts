@@ -24,7 +24,7 @@ export default [
                 if (isNaN(versionId))
                     clientError(new Error("Input version identifier is not a number : " + versionId), res, next);
 
-                let database = new Database()
+                let database = Database.get()
                 let versionDAL = new VersionDAL(database)
                 let version = await versionDAL.withId(versionId)
 
@@ -42,7 +42,6 @@ export default [
                             .send(ProtoUtils.serialize(verse,req))
                     }
                 }
-                database.close()
             }
         ]
     },
@@ -63,7 +62,7 @@ export default [
                 if (isNaN(versionId))
                     clientError(new Error("Input version identifier is not a number : " + versionId), res, next)
 
-                let database = new Database()
+                let database = Database.get()
                 let versionDAL = new VersionDAL(database)
                 let version = await versionDAL.withId(versionId)
 
@@ -80,7 +79,6 @@ export default [
                     res.status(200)
                         .send(ProtoUtils.serialize(verses,req))
                 }
-                database.close()
             }
         ]
 
@@ -102,7 +100,7 @@ export default [
                 if (isNaN(versionId))
                     clientError(new Error("Input version identifier is not a number : " + versionId), res, next)
 
-                let database = new Database()
+                let database = Database.get()
                 let versionDAL = new VersionDAL(database)
                 let version = await versionDAL.withId(versionId)
 
@@ -123,7 +121,6 @@ export default [
                     res.status(200)
                         .send(ProtoUtils.serialize(verses,req))
                 }
-                database.close()
             }
         ]
 

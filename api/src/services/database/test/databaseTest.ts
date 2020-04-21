@@ -7,7 +7,7 @@ describe('Database', function () {
 
   describe('#isConnected()', function () {
     it('Check database connection', function () {
-      var database: Database = new Database();
+      var database: Database = Database.get();
       assert.equal(database.isConnected(), true);
     });
   });
@@ -15,7 +15,7 @@ describe('Database', function () {
   // Simple Query
   describe('#query()', function () {
     it('Run simple query', function () {
-      var database: Database = new Database();
+      var database: Database = Database.get();
       database.query("SELECT * FROM " + Schema.TABLE_VERSION);
     });
   });
