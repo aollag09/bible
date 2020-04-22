@@ -44,7 +44,7 @@
 
 .scripture-reader{
     margin: 3em;
-    max-width: 650px;
+    max-width: 850px;
     text-align: justify;
     letter-spacing: 0.05em;
     line-height: 4.5em;
@@ -68,7 +68,7 @@
     border-radius: 25%;
     border-color:#787878;
     
-    padding: 0em 0.5em 0.2em 0.5em;
+    padding: 0.2em 0.5em 0.2em 0.5em;
     margin-left: 2em;
 
     color:#787878;
@@ -76,7 +76,7 @@
 }
 
 .scripture-verse-text{
-    font-size: 3em;
+    font-size: 2.5em;
     color: #a8a8a8;
 }
 
