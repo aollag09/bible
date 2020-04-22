@@ -4,6 +4,7 @@ import { ScriptureReader } from "./ScriptureReader";
 import "../../resources/style/read.css"
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import useFetch from 'fetch-suspense'
+import { ScriptureSelector } from "./SriptureSelector";
 
 type ReaderProp = {
     switch: string,
@@ -27,6 +28,15 @@ export class Reader extends Component<ReaderProp, ReaderState>{
         if (this.props.switch === ReaderSelector.SWITCH_READER) {
             return (
                 <div className="reader">
+                    <div className="reader-top-selector" >
+                        <ScriptureSelector 
+                            version={this.props.version}
+                            book={this.props.book}
+                            chapter={this.props.chapter}
+                            read={this.props.read}
+                        />
+                    </div>
+
                     <div className="reader-button">
                         {this.previousChapterButton()}
                     </div>
@@ -54,7 +64,6 @@ export class Reader extends Component<ReaderProp, ReaderState>{
     componentDidUpdate() {
         this.scrollTop()
     }
-
 
     nextChapter = () => {
         this.props.read(this.props.version, this.props.book, this.props.chapter + 1)
