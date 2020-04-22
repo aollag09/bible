@@ -27,7 +27,6 @@ export class Reader extends Component<ReaderProp, ReaderState>{
         if (this.props.switch === ReaderSelector.SWITCH_READER) {
             return (
                 <div className="reader">
-
                     <div className="reader-button">
                         {this.previousChapterButton()}
                     </div>
@@ -40,12 +39,22 @@ export class Reader extends Component<ReaderProp, ReaderState>{
                     <div className="reader-button">
                         {this.nextChapterButton()}
                     </div>
+                    <button onClick={this.scrollTop}> top </button>
                 </div>
             )
         } else {
             return null;
         }
     }
+
+    scrollTop() {
+        window.scrollTo(0, 0)
+    }
+
+    componentDidUpdate() {
+        this.scrollTop()
+    }
+
 
     nextChapter = () => {
         this.props.read(this.props.version, this.props.book, this.props.chapter + 1)
@@ -65,7 +74,7 @@ export class Reader extends Component<ReaderProp, ReaderState>{
                         className="reader-chapter-button reader-previous-chapter-button"
                         type="button"
                         onClick={this.previousChapter}>
-                         <span className="reader-arrow reader-arrow-previous"> &#60; </span>
+                        <span className="reader-arrow reader-arrow-previous"> &#60; </span>
                     </button>
                 </div>
             )

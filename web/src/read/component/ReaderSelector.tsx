@@ -33,7 +33,6 @@ export class ReaderSelector extends Component<{}, ReaderSelectorState> {
     }
 
     read(version: number, book: number, chapter: number) {
-        console.log("Update reader")
         this.setState({
             switch: ReaderSelector.SWITCH_READER,
             version: version,
