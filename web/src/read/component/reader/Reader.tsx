@@ -5,7 +5,6 @@ import "../../resources/style/read.css"
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import useFetch from 'fetch-suspense'
 
-
 type ReaderProp = {
     switch: string,
     version: number,
@@ -28,13 +27,17 @@ export class Reader extends Component<ReaderProp, ReaderState>{
         if (this.props.switch === ReaderSelector.SWITCH_READER) {
             return (
                 <div className="reader">
+
+                    <div className="reader-button">
+                        {this.previousChapterButton()}
+                    </div>
+
                     <ScriptureReader
                         version={this.props.version}
                         book={this.props.book}
                         chapter={this.props.chapter} />
 
                     <div className="reader-button">
-                        {this.previousChapterButton()}
                         {this.nextChapterButton()}
                     </div>
                 </div>
@@ -57,12 +60,14 @@ export class Reader extends Component<ReaderProp, ReaderState>{
         let chapter = this.props.chapter;
         if (chapter > 1) {
             return (
-                <button
-                    className="reader-previous-chapter-button"
-                    type="button"
-                    onClick={this.previousChapter}>
-                    Previous
-                </button>
+                <div className="reader-chapter-div">
+                    <button
+                        className="reader-chapter-button reader-previous-chapter-button"
+                        type="button"
+                        onClick={this.previousChapter}>
+                         <span className="reader-arrow reader-arrow-previous"> &#60; </span>
+                    </button>
+                </div>
             )
         }
         return null;
@@ -73,12 +78,14 @@ export class Reader extends Component<ReaderProp, ReaderState>{
         let nbChapters = 20;// parseInt(useFetch(BibleAPI.url + "book/" + this.props.book + "/chapters/count").toString());
         if (chapter < nbChapters) {
             return (
-                <button
-                    className="reader-previous-chapter-button"
-                    type="button"
-                    onClick={this.nextChapter}>
-                    Next
-                </button>
+                <div className="reader-chapter-div">
+                    <button
+                        className="reader-chapter-button reader-next-chapter-button"
+                        type="button"
+                        onClick={this.nextChapter}>
+                        <span className="reader-arrow reader-arrow-next"> &#62; </span>
+                    </button>
+                </div>
             )
         }
         return null;
