@@ -20,11 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/tag_what.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deployment/mysql/schema/tags.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/read/component/PeriodicBook.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/read/component/PeriodicBook.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/read/component/PeriodicTable.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/read/component/PeriodicTable.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/read/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/read/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/read/resources/style/read.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/read/resources/style/read.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/services/tag/tag.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/tag/tag.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/book/book_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/book/book_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/book/book_pb.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/book/book_pb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/scriptures/scriptures_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/scriptures/scriptures_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/scriptures/scriptures_pb.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/scriptures/scriptures_pb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/version/version_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/version/version_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/version/version_pb.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/version/version_pb.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +107,13 @@
         <option value="https://github.com/aollag09/bible.git" />
       </set>
     </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectId" id="1WAWw1CDRHDqWMX0qNxHvHyCHUf" />
   <component name="ProjectLevelVcsManager">
