@@ -1,5 +1,3 @@
-/* eslint-disabled */
-//@ts-nocheck
 // package: bible
 // file: services/book/book.proto
 

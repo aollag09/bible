@@ -5,22 +5,50 @@ package bible;
 message Tag{
     int32 id = 1;
     int32 owner = 2;
-    TagType type = 3;
-    date created = 4;
-    date modified = 5;
-    string from = 6;
-    string to = 7;
+
+    int64 created = 4;
+    int64 modified = 5;
+
+    string start = 6;
+    string end = 7;
+
+    string type = 8;
+    string subType = 9;
+
+    oneof tag{
+        WhatTag     whatTag = 10;
+        WhoTag      whoTag = 12;
+        WhereTag    whereTag = 13;
+        WhenTag     whenTag = 14;
+        HowTag      howTag = 15;
+    }
 }
 
 message Tags{
-    repeated Tag tag = 1;
+    repeated Tag tags = 1;
 }
 
-enum TagType{
-    What = 0;
-    When = 1;
-    Where = 2;
-    Who = 3;
-    Why = 4;
-    How = 5;
+message WhatTag{
+    string what = 1;
+    string details = 2;
 }
+
+message WhoTag{
+    int32 who = 1;
+}
+
+message WhereTag{
+    string where = 1;
+    double latitude = 2;
+    double longitude = 3;
+}
+
+message WhenTag{
+    int32 year = 1;
+}
+
+message HowTag{
+    string how = 1;
+    string details = 2;
+}
+

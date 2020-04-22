@@ -3,6 +3,9 @@
 # For more information on multiple pipelines, see the documentation:
 #   https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
 
+
+# Bible 
+
 - pipeline.id: ar_svd
   path.config: "pipelines/ar_svd.conf"
   pipeline.workers: 1
@@ -98,5 +101,28 @@
 - pipeline.id: zh_ncv
   path.config: "pipelines/zh_ncv.conf"
   pipeline.workers: 1
+
+# Tags
+
+- pipeline.id: tag_what
+  path.config: "pipelines/tag_what.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: tag_where
+  path.config: "pipelines/tag_where.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: tag_when
+  path.config: "pipelines/tag_when.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: tag_who
+  path.config: "pipelines/tag_who.conf"
+  pipeline.workers: 1
+  
+- pipeline.id: tag_how
+  path.config: "pipelines/tag_how.conf"
+  pipeline.workers: 1
+  
   
   

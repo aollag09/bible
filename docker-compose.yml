@@ -47,6 +47,7 @@ services:
       - ./deployment/mysql/schema/key_abbreviations.sql:/docker-entrypoint-initdb.d/key_abbreviations.sql
       - ./deployment/mysql/schema/key_english.sql:/docker-entrypoint-initdb.d/key_english.sql
       - ./deployment/mysql/schema/key_genre_english.sql:/docker-entrypoint-initdb.d/key_genre_english.sql
+      - ./deployment/mysql/schema/tags.sql:/docker-entrypoint-initdb.d/tags.sql
 
       # Db Data (prefix with z to ensure this import is done after the schema
       - ./deployment/mysql/data/ar_svd.sql:/docker-entrypoint-initdb.d/z_ar_svd.sql
@@ -73,6 +74,10 @@ services:
       - ./deployment/mysql/data/vi_vietnamese.sql:/docker-entrypoint-initdb.d/z_vi_vietnamese.sql
       - ./deployment/mysql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
       - ./deployment/mysql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
+
+      # Database volume
+      - database-data:/var/lib/mysql
+      
     networks:
       - network
 
