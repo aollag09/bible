@@ -20,11 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api/src/utils/dateTime.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/services/database/database.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/database/database.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/services/tag/TagDal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/tag/TagDal.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/services/tag/test/tagTest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/tag/test/tagTest.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

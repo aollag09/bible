@@ -503,7 +503,7 @@ proto.bible.Tag.prototype.setType = function(value) {
 
 
 /**
- * optional string subType = 11;
+ * optional string subtype = 11;
  * @return {string}
  */
 proto.bible.Tag.prototype.getSubtype = function() {

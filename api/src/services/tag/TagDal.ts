@@ -17,10 +17,12 @@ export class TagDAL {
      * @param id 
      */
     public async withId(id: number, tagCase: Tag.TagCase): Promise<Tag | undefined> {
-        let sql = this.sqlSelectTag(tagCase)
+        let sql = this.sqlSelectTag(tagCase) +
+            ` where tag.id = ` + id;
         let rows = await this.database.select(sql)
-        if (rows.length == 1)
+        if (rows.length == 1) {
             return this.extractTag(rows[0], tagCase)
+        }
         else
             return undefined;
     }
@@ -46,7 +48,19 @@ export class TagDAL {
      */
     public async withBookChapter(book: number, chapter: number, tagCase: Tag.TagCase) {
         let sql = this.sqlSelectTag(tagCase) +
-            ` where tag.book = ` + book + ' and tag.chapter =' + chapter
+            ` where tag.book=` + book + ' and tag.chapter=' + chapter
+        let rows = await this.database.select(sql)
+        return this.extractTags(rows, tagCase)
+    }
+
+    /**
+     * With type
+     * @param type
+     * @param tagCase 
+     */
+    public async withType(type: string, tagCase: Tag.TagCase) {
+        let sql = this.sqlSelectTag(tagCase) +
+            ` where tag.type=` + SQLUtils.quote(type)
         let rows = await this.database.select(sql)
         return this.extractTags(rows, tagCase)
     }
@@ -79,7 +93,7 @@ export class TagDAL {
         this.getTagCases().forEach(async tagCase => {
             let currentTags = await this.withBookChapterStartEnd(book, chapter, start, end, tagCase);
             currentTags.getTagsList().forEach(tag => {
-                tags.addTags(tag)
+                tags.getTagsList().push(tag)
             })
         })
         return tags;
@@ -90,35 +104,51 @@ export class TagDAL {
      * @param id 
      * @param tagCase 
      */
-    public deleteTag(id: number, tagCase: Tag.TagCase) {
+    public async deleteTag(id: number, tagCase: Tag.TagCase) {
         let sql = `delete from ` + this.getTable(tagCase) + ` where id = ` + id
-        this.database.commit(sql)
+        console.log(sql)
+        await this.database.transaction((connection: any) => {
+            connection.query(sql)
+        })
     }
 
     /**
      * Put a new tag in database
      * @param tag 
      */
-    public putTag(tag: Tag) {
+    public async putTag(tag: Tag) {
+        let sql = this.buildSQLCreate(tag)
+        //this.database.query(sql)
+        await this.database.transaction((connection: any) => {
+            connection.query(sql)
+        })
+    }
+
+    private buildSQLCreate(tag: Tag): string {
         let values = this.buildSQLTagValues(tag)
-        let sql = 'insert into ' + this.getTable(tag.getTagCase()) + ' ('
+        let sql: string = 'insert into ' + this.getTable(tag.getTagCase()) + ' ('
         let i = 0
-        for (var key in values) {
-            if (i == values.size - 1)
-                sql += key + ") "
-            else
-                sql += key + ", "
+        values.forEach((value: string, key: string) => {
+            if (value) {
+                if (i == values.size - 1)
+                    sql += key + ") "
+                else
+                    sql += key + ", "
+            }
             i++;
-        }
+        })
         sql += "values ("
         i = 0
-        for (var key in values) {
-            if (i == values.size - 1)
-                sql += values.get(key) + ") "
-            else
-                sql += values.get(key) + ", "
+        values.forEach((value: string, key: string) => {
+            if (value) {
+                if (i == values.size - 1)
+                    sql += SQLUtils.quote(value) + ") "
+                else
+                    sql += SQLUtils.quote(value) + ", "
+            }
             i++;
-        }
+        })
+        return sql;
     }
 
     private buildSQLTagValues(tag: Tag): Map<string, string> {
@@ -136,9 +166,9 @@ export class TagDAL {
         values.set("book", tag.getBook().toString())
 
         values.set("type", tag.getType())
-        values.set("subType", tag.getSubtype())
+        values.set("subtype", tag.getSubtype())
 
-        switch (+tag.getTagCase()) {
+        switch (+ tag.getTagCase()) {
             case Tag.TagCase.WHATTAG:
                 values.set("what", tag.getWhattag()!.getWhat())
                 values.set("details", tag.getWhattag()!.getDetails())
@@ -197,8 +227,10 @@ export class TagDAL {
         tag.setBook(parseInt(row.get("book")!))
         tag.setChapter(parseInt(row.get("chapter")!))
 
-        tag.setType(row.get("type")!.toString())
-        tag.setSubtype(row.get("subType")!.toString())
+        if (row.get("type"))
+            tag.setType(row.get("type")!.toString())
+        if (row.get("subtype"))
+            tag.setSubtype(row.get("subtype")!.toString())
 
         switch (+tagCase) {
             case Tag.TagCase.WHATTAG:
@@ -240,7 +272,7 @@ export class TagDAL {
         let tags = new Tags()
         rows.forEach(row => {
             let tag = this.extractTag(row, tagCase)
-            tags.addTags(tag)
+            tags.getTagsList().push(tag)
         })
         return tags;
     }

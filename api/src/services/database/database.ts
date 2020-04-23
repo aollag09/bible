@@ -65,7 +65,7 @@ export class Database {
     return this.connected
   }
 
-  /**
+ /**
    * Run a simple sql query 
    * @param sql 
    */
@@ -126,22 +126,21 @@ export class Database {
    */
   public async transaction(callback: Function) {
 
-    const connection = await this.pool.getConnection()
-    await connection.beginTransaction()
+    this.pool.getConnection(async (err: any, connection: any) => {
+      await connection.promise().query("START TRANSACTION")
+      try {
 
-    try {
+        await callback(connection)
+        await connection.promise().query("COMMIT")
 
-      await callback(connection)
-      await connection.commit()
+      } catch (err) {
 
-    } catch (err) {
+        await connection.promise().query("ROLLBACK")
+        throw err
 
-      await connection.rollback()
-      throw err
-
-    } finally {
-      connection.release()
-    }
-
+      } finally {
+        connection.release()
+      }
+    });
   }
 }

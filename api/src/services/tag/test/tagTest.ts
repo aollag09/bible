@@ -76,9 +76,10 @@ describe('Tag Data Access Layer Tests', async function () {
 
     describe('#addTag', async function () {
 
-        it('add What Tag', async function () {
+        it('add  & delte What Tag', async function () {
 
             let tag = new Tag()
+            let testType = "test"
 
             tag.setOwner(1)
             tag.setCreated(DateTime.current())
@@ -87,14 +88,29 @@ describe('Tag Data Access Layer Tests', async function () {
             tag.setEnd('15')
             tag.setBook(-4)
             tag.setChapter(2)
-            tag.setType("test")
+            tag.setType(testType)
             let what = new WhatTag()
             what.setWhat("Say what !?")
             what.setDetails("Details")
             tag.setWhattag(what)
 
-            let tags = tagDAL.putTag(tag)
+            // FIXME, no await available on this method
+            //await tagDAL.putTag(tag)
+
+            let tags = await tagDAL.withType(testType, Tag.TagCase.WHATTAG)
+            //expect(tags.getTagsList().length).equals(1)   
+
+            tags.getTagsList().forEach(tag => {
+                console.log("TAG ID " + tag.getId())
+                tagDAL.deleteTag(tag.getId(), Tag.TagCase.WHATTAG)
+            })
+
+            tags = await tagDAL.withType(testType, Tag.TagCase.WHATTAG)
+            //            expect(tags.getTagsList().length).equals(0)
+
         });
+
+
 
     });
 });

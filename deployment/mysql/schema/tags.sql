@@ -12,8 +12,8 @@ create table `tag_what` (
   `id` int not null AUTO_INCREMENT comment 'Identifier of the tag',
   `owner` int not null comment 'Identifier of the tag owner',
   
-  `created` datetime not null comment 'Creation date time of the tag',
-  `modified` datetime not null comment 'Modification date time of the tag',
+  `created` int(8) not null comment 'Creation date time of the tag',
+  `modified` int(8) not null comment 'Modification date time of the tag',
 
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
@@ -22,7 +22,7 @@ create table `tag_what` (
   `chapter` int(11) not null,
 
   `type` varchar(255) comment 'Type of the who tag',
-  `subType` varchar(255) comment 'Sub Type of the who tag',
+  `subtype` varchar(255) comment 'Sub Type of the who tag',
   
   `what` varchar(255) not null comment 'Value of the what tag',
   `details` text comment 'Details on the what value tag',
@@ -36,8 +36,8 @@ create table `tag_who` (
   `id` int not null AUTO_INCREMENT comment 'Identifier of the tag',
   `owner` int not null comment 'Identifier of the tag owner',
   
-  `created` datetime not null comment 'Creation date time of the tag',
-  `modified` datetime not null comment 'Modification date time of the tag',
+  `created` int(8) not null comment 'Creation date time of the tag',
+  `modified` int(8) not null comment 'Modification date time of the tag',
 
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
@@ -46,7 +46,7 @@ create table `tag_who` (
   `chapter` int(11) not null,
 
   `type` varchar(255) comment 'Type of the who tag',
-  `subType` varchar(255) comment 'Sub Type of the who tag',
+  `subtype` varchar(255) comment 'Sub Type of the who tag',
   
   `who` int(8) not null comment 'Id of the who associated with the tag',
 
@@ -61,8 +61,8 @@ create table `tag_where` (
   `id` int not null AUTO_INCREMENT comment 'Identifier of the tag',
   `owner` int not null comment 'Identifier of the tag owner',
   
-  `created` datetime not null comment 'Creation date time of the tag',
-  `modified` datetime not null comment 'Modification date time of the tag',
+  `created` int(8) not null comment 'Creation date time of the tag',
+  `modified` int(8) not null comment 'Modification date time of the tag',
 
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
@@ -71,7 +71,7 @@ create table `tag_where` (
   `chapter` int(11) not null,
 
   `type` varchar(255) comment 'Type of the who tag',
-  `subType` varchar(255) comment 'Sub Type of the who tag',
+  `subtype` varchar(255) comment 'Sub Type of the who tag',
   
   `where` varchar(255) not null comment 'Name of the location of the where tag',
   `latitude` real comment 'Latitude of the location',
@@ -86,8 +86,8 @@ create table `tag_when` (
   `id` int not null AUTO_INCREMENT comment 'Identifier of the tag',
   `owner` int not null comment 'Identifier of the tag owner',
   
-  `created` datetime not null comment 'Creation date time of the tag',
-  `modified` datetime not null comment 'Modification date time of the tag',
+  `created` int(8) not null comment 'Creation date time of the tag',
+  `modified` int(8) not null comment 'Modification date time of the tag',
 
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
@@ -96,7 +96,7 @@ create table `tag_when` (
   `chapter` int(11) not null,
 
   `type` varchar(255) comment 'Type of the who tag',
-  `subType` varchar(255) comment 'Sub Type of the who tag',
+  `subtype` varchar(255) comment 'Sub Type of the who tag',
   
   `year` int(8) not null comment 'Year of the When tag',
 
@@ -108,8 +108,8 @@ create table `tag_how` (
   `id` int not null AUTO_INCREMENT comment 'Identifier of the tag',
   `owner` int not null comment 'Identifier of the tag owner',
   
-  `created` datetime not null comment 'Creation date time of the tag',
-  `modified` datetime not null comment 'Modification date time of the tag',
+  `created` int(8) not null comment 'Creation date time of the tag',
+  `modified` int(8) not null comment 'Modification date time of the tag',
 
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
@@ -118,7 +118,7 @@ create table `tag_how` (
   `chapter` int(11) not null,
 
   `type` varchar(255) comment 'Type of the who tag',
-  `subType` varchar(255) comment 'Sub Type of the who tag',
+  `subtype` varchar(255) comment 'Sub Type of the who tag',
 
   `how` varchar(255) comment 'Value of the what tag',
   `details` text comment 'Details on the what value tag',

@@ -16,7 +16,7 @@ message Tag{
     int32 chapter = 9;
 
     string type = 10;
-    string subType = 11;
+    string subtype = 11;
 
     oneof tag{
         WhatTag     whatTag = 12;
