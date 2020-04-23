@@ -39,10 +39,34 @@ describe('Tag Data Access Layer Tests', async function () {
     });
 
 
-    describe('#withinVerses', async function () {
+    describe('#within', async function () {
 
-        it('with from 0 and to 1 not existing', async function () {
-            let tags = await tagDAL.withinVerses("0", "1", Tag.TagCase.WHATTAG)!
+        it('with start 0 and to 1 not existing', async function () {
+            let tags = await tagDAL.within("0", "1", Tag.TagCase.WHATTAG)!
+            expect(tags.getTagsList().length).to.be.eq(0);
+        });
+
+    });
+
+
+    describe('#withBookChapterStartEnd', async function () {
+
+        it('with Book -1 Chapter -1 non existing', async function () {
+            let book = -1
+            let chapter = -1
+            let tags = await tagDAL.withBookChapterStartEnd(book, chapter, "0", "1", Tag.TagCase.WHATTAG)!
+            expect(tags.getTagsList().length).to.be.eq(0);
+        });
+
+    });
+
+
+    describe('#withBookChapterStartEndAll', async function () {
+
+        it('with Book -1 Chapter -1 non existing', async function () {
+            let book = -1
+            let chapter = -1
+            let tags = await tagDAL.withBookChapterStartEndAll(book, chapter, "0", "1")!
             expect(tags.getTagsList().length).to.be.eq(0);
         });
 

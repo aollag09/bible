@@ -42,18 +42,18 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.bible.Tag.oneofGroups_ = [[10,12,13,14,15]];
+proto.bible.Tag.oneofGroups_ = [[12,13,14,15,16]];
 
 /**
  * @enum {number}
  */
 proto.bible.Tag.TagCase = {
   TAG_NOT_SET: 0,
-  WHATTAG: 10,
-  WHOTAG: 12,
-  WHERETAG: 13,
-  WHENTAG: 14,
-  HOWTAG: 15
+  WHATTAG: 12,
+  WHOTAG: 13,
+  WHERETAG: 14,
+  WHENTAG: 15,
+  HOWTAG: 16
 };
 
 /**
@@ -97,6 +97,8 @@ proto.bible.Tag.toObject = function(includeInstance, msg) {
     modified: msg.getModified(),
     start: msg.getStart(),
     end: msg.getEnd(),
+    book: msg.getBook(),
+    chapter: msg.getChapter(),
     type: msg.getType(),
     subtype: msg.getSubtype(),
     whattag: (f = msg.getWhattag()) && proto.bible.WhatTag.toObject(includeInstance, f),
@@ -165,34 +167,42 @@ proto.bible.Tag.deserializeBinaryFromReader = function(msg, reader) {
       msg.setEnd(value);
       break;
     case 8:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setBook(value);
+      break;
+    case 9:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setChapter(value);
+      break;
+    case 10:
       var value = /** @type {string} */ (reader.readString());
       msg.setType(value);
       break;
-    case 9:
+    case 11:
       var value = /** @type {string} */ (reader.readString());
       msg.setSubtype(value);
       break;
-    case 10:
+    case 12:
       var value = new proto.bible.WhatTag;
       reader.readMessage(value,proto.bible.WhatTag.deserializeBinaryFromReader);
       msg.setWhattag(value);
       break;
-    case 12:
+    case 13:
       var value = new proto.bible.WhoTag;
       reader.readMessage(value,proto.bible.WhoTag.deserializeBinaryFromReader);
       msg.setWhotag(value);
       break;
-    case 13:
+    case 14:
       var value = new proto.bible.WhereTag;
       reader.readMessage(value,proto.bible.WhereTag.deserializeBinaryFromReader);
       msg.setWheretag(value);
       break;
-    case 14:
+    case 15:
       var value = new proto.bible.WhenTag;
       reader.readMessage(value,proto.bible.WhenTag.deserializeBinaryFromReader);
       msg.setWhentag(value);
       break;
-    case 15:
+    case 16:
       var value = new proto.bible.HowTag;
       reader.readMessage(value,proto.bible.HowTag.deserializeBinaryFromReader);
       msg.setHowtag(value);
@@ -277,24 +287,38 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
       f
     );
   }
+  f = this.getBook();
+  if (f !== 0) {
+    writer.writeInt32(
+      8,
+      f
+    );
+  }
+  f = this.getChapter();
+  if (f !== 0) {
+    writer.writeInt32(
+      9,
+      f
+    );
+  }
   f = this.getType();
   if (f.length > 0) {
     writer.writeString(
-      8,
+      10,
       f
     );
   }
   f = this.getSubtype();
   if (f.length > 0) {
     writer.writeString(
-      9,
+      11,
       f
     );
   }
   f = this.getWhattag();
   if (f != null) {
     writer.writeMessage(
-      10,
+      12,
       f,
       proto.bible.WhatTag.serializeBinaryToWriter
     );
@@ -302,7 +326,7 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
   f = this.getWhotag();
   if (f != null) {
     writer.writeMessage(
-      12,
+      13,
       f,
       proto.bible.WhoTag.serializeBinaryToWriter
     );
@@ -310,7 +334,7 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
   f = this.getWheretag();
   if (f != null) {
     writer.writeMessage(
-      13,
+      14,
       f,
       proto.bible.WhereTag.serializeBinaryToWriter
     );
@@ -318,7 +342,7 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
   f = this.getWhentag();
   if (f != null) {
     writer.writeMessage(
-      14,
+      15,
       f,
       proto.bible.WhenTag.serializeBinaryToWriter
     );
@@ -326,7 +350,7 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
   f = this.getHowtag();
   if (f != null) {
     writer.writeMessage(
-      15,
+      16,
       f,
       proto.bible.HowTag.serializeBinaryToWriter
     );
@@ -434,48 +458,78 @@ proto.bible.Tag.prototype.setEnd = function(value) {
 
 
 /**
- * optional string type = 8;
- * @return {string}
+ * optional int32 book = 8;
+ * @return {number}
  */
-proto.bible.Tag.prototype.getType = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 8, ""));
+proto.bible.Tag.prototype.getBook = function() {
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
 };
 
 
-/** @param {string} value  */
-proto.bible.Tag.prototype.setType = function(value) {
+/** @param {number} value  */
+proto.bible.Tag.prototype.setBook = function(value) {
   jspb.Message.setField(this, 8, value);
 };
 
 
 /**
- * optional string subType = 9;
- * @return {string}
+ * optional int32 chapter = 9;
+ * @return {number}
  */
-proto.bible.Tag.prototype.getSubtype = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+proto.bible.Tag.prototype.getChapter = function() {
+  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
 };
 
 
-/** @param {string} value  */
-proto.bible.Tag.prototype.setSubtype = function(value) {
+/** @param {number} value  */
+proto.bible.Tag.prototype.setChapter = function(value) {
   jspb.Message.setField(this, 9, value);
 };
 
 
 /**
- * optional WhatTag whatTag = 10;
+ * optional string type = 10;
+ * @return {string}
+ */
+proto.bible.Tag.prototype.getType = function() {
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 10, ""));
+};
+
+
+/** @param {string} value  */
+proto.bible.Tag.prototype.setType = function(value) {
+  jspb.Message.setField(this, 10, value);
+};
+
+
+/**
+ * optional string subType = 11;
+ * @return {string}
+ */
+proto.bible.Tag.prototype.getSubtype = function() {
+  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 11, ""));
+};
+
+
+/** @param {string} value  */
+proto.bible.Tag.prototype.setSubtype = function(value) {
+  jspb.Message.setField(this, 11, value);
+};
+
+
+/**
+ * optional WhatTag whatTag = 12;
  * @return {proto.bible.WhatTag}
  */
 proto.bible.Tag.prototype.getWhattag = function() {
   return /** @type{proto.bible.WhatTag} */ (
-    jspb.Message.getWrapperField(this, proto.bible.WhatTag, 10));
+    jspb.Message.getWrapperField(this, proto.bible.WhatTag, 12));
 };
 
 
 /** @param {proto.bible.WhatTag|undefined} value  */
 proto.bible.Tag.prototype.setWhattag = function(value) {
-  jspb.Message.setOneofWrapperField(this, 10, proto.bible.Tag.oneofGroups_[0], value);
+  jspb.Message.setOneofWrapperField(this, 12, proto.bible.Tag.oneofGroups_[0], value);
 };
 
 
@@ -489,23 +543,23 @@ proto.bible.Tag.prototype.clearWhattag = function() {
  * @return{!boolean}
  */
 proto.bible.Tag.prototype.hasWhattag = function() {
-  return jspb.Message.getField(this, 10) != null;
+  return jspb.Message.getField(this, 12) != null;
 };
 
 
 /**
- * optional WhoTag whoTag = 12;
+ * optional WhoTag whoTag = 13;
  * @return {proto.bible.WhoTag}
  */
 proto.bible.Tag.prototype.getWhotag = function() {
   return /** @type{proto.bible.WhoTag} */ (
-    jspb.Message.getWrapperField(this, proto.bible.WhoTag, 12));
+    jspb.Message.getWrapperField(this, proto.bible.WhoTag, 13));
 };
 
 
 /** @param {proto.bible.WhoTag|undefined} value  */
 proto.bible.Tag.prototype.setWhotag = function(value) {
-  jspb.Message.setOneofWrapperField(this, 12, proto.bible.Tag.oneofGroups_[0], value);
+  jspb.Message.setOneofWrapperField(this, 13, proto.bible.Tag.oneofGroups_[0], value);
 };
 
 
@@ -519,23 +573,23 @@ proto.bible.Tag.prototype.clearWhotag = function() {
  * @return{!boolean}
  */
 proto.bible.Tag.prototype.hasWhotag = function() {
-  return jspb.Message.getField(this, 12) != null;
+  return jspb.Message.getField(this, 13) != null;
 };
 
 
 /**
- * optional WhereTag whereTag = 13;
+ * optional WhereTag whereTag = 14;
  * @return {proto.bible.WhereTag}
  */
 proto.bible.Tag.prototype.getWheretag = function() {
   return /** @type{proto.bible.WhereTag} */ (
-    jspb.Message.getWrapperField(this, proto.bible.WhereTag, 13));
+    jspb.Message.getWrapperField(this, proto.bible.WhereTag, 14));
 };
 
 
 /** @param {proto.bible.WhereTag|undefined} value  */
 proto.bible.Tag.prototype.setWheretag = function(value) {
-  jspb.Message.setOneofWrapperField(this, 13, proto.bible.Tag.oneofGroups_[0], value);
+  jspb.Message.setOneofWrapperField(this, 14, proto.bible.Tag.oneofGroups_[0], value);
 };
 
 
@@ -549,23 +603,23 @@ proto.bible.Tag.prototype.clearWheretag = function() {
  * @return{!boolean}
  */
 proto.bible.Tag.prototype.hasWheretag = function() {
-  return jspb.Message.getField(this, 13) != null;
+  return jspb.Message.getField(this, 14) != null;
 };
 
 
 /**
- * optional WhenTag whenTag = 14;
+ * optional WhenTag whenTag = 15;
  * @return {proto.bible.WhenTag}
  */
 proto.bible.Tag.prototype.getWhentag = function() {
   return /** @type{proto.bible.WhenTag} */ (
-    jspb.Message.getWrapperField(this, proto.bible.WhenTag, 14));
+    jspb.Message.getWrapperField(this, proto.bible.WhenTag, 15));
 };
 
 
 /** @param {proto.bible.WhenTag|undefined} value  */
 proto.bible.Tag.prototype.setWhentag = function(value) {
-  jspb.Message.setOneofWrapperField(this, 14, proto.bible.Tag.oneofGroups_[0], value);
+  jspb.Message.setOneofWrapperField(this, 15, proto.bible.Tag.oneofGroups_[0], value);
 };
 
 
@@ -579,23 +633,23 @@ proto.bible.Tag.prototype.clearWhentag = function() {
  * @return{!boolean}
  */
 proto.bible.Tag.prototype.hasWhentag = function() {
-  return jspb.Message.getField(this, 14) != null;
+  return jspb.Message.getField(this, 15) != null;
 };
 
 
 /**
- * optional HowTag howTag = 15;
+ * optional HowTag howTag = 16;
  * @return {proto.bible.HowTag}
  */
 proto.bible.Tag.prototype.getHowtag = function() {
   return /** @type{proto.bible.HowTag} */ (
-    jspb.Message.getWrapperField(this, proto.bible.HowTag, 15));
+    jspb.Message.getWrapperField(this, proto.bible.HowTag, 16));
 };
 
 
 /** @param {proto.bible.HowTag|undefined} value  */
 proto.bible.Tag.prototype.setHowtag = function(value) {
-  jspb.Message.setOneofWrapperField(this, 15, proto.bible.Tag.oneofGroups_[0], value);
+  jspb.Message.setOneofWrapperField(this, 16, proto.bible.Tag.oneofGroups_[0], value);
 };
 
 
@@ -609,7 +663,7 @@ proto.bible.Tag.prototype.clearHowtag = function() {
  * @return{!boolean}
  */
 proto.bible.Tag.prototype.hasHowtag = function() {
-  return jspb.Message.getField(this, 15) != null;
+  return jspb.Message.getField(this, 16) != null;
 };
 
 

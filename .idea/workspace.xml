@@ -20,8 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/api/src/services/tag/tag.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/tag/tag.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/mysql/schema/tags.sql" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/mysql/schema/tags.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/services/tag/test/tagTest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/generated/js/src/services/tag/tag_pb.js" beforeDir="false" afterPath="$PROJECT_DIR$/api/generated/js/src/services/tag/tag_pb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/services/tag/TagDal.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/tag/TagDal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/services/tag/tag_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/tag/tag_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/tag/tag_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/tag/tag_pb.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/tag/tag_pb.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/tag/tag_pb.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,10 +326,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="751" y="238" key="DBNavigator.ConnectionInfoDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586854828681" />
-    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1587622607790">
+    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1587643242892">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1587622607790" />
+    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1587643242892" />
     <state x="710" y="284" width="540" height="541" key="DBNavigator.ExportDataDialog" timestamp="1586265992391">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>

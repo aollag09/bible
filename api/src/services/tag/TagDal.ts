@@ -27,13 +27,13 @@ export class TagDAL {
 
     /**
    * Retrieve all the tags within the two identifiers
-   * @param from 
-   * @param to 
+   * @param start 
+   * @param end 
    * @param tagCase
    */
-    public async withinVerses(from: string, to: string, tagCase: Tag.TagCase): Promise<Tags> {
+    public async within(start: string, end: string, tagCase: Tag.TagCase): Promise<Tags> {
         let sql = this.sqlSelectTag(tagCase) +
-            ` where tag.from >= ` + SQLUtils.quote(from) + ' and tag.to <=' + SQLUtils.quote(to)
+            ` where tag.start >= ` + SQLUtils.quote(start) + ' and tag.end <=' + SQLUtils.quote(end)
         let rows = await this.database.select(sql)
         return this.extractTags(rows, tagCase)
     }
@@ -44,27 +44,25 @@ export class TagDAL {
      * @param chapter 
      * @param tagCase 
      */
-    public async withinBookChapter(book: number, chapter: number, tagCase: Tag.TagCase) {
+    public async withBookChapter(book: number, chapter: number, tagCase: Tag.TagCase) {
         let sql = this.sqlSelectTag(tagCase) +
             ` where tag.book = ` + book + ' and tag.chapter =' + chapter
         let rows = await this.database.select(sql)
         return this.extractTags(rows, tagCase)
     }
 
-
-
     /**
      * Extract tag from book chapter & verse limit
      * @param book 
      * @param chapter 
-     * @param from
-     * @param to
+     * @param start
+     * @param end
      * @param tagCase 
      */
-    public async withinBookChapterVerses(book: number, chapter: number, from: string, to: string, tagCase: Tag.TagCase) {
+    public async withBookChapterStartEnd(book: number, chapter: number, start: string, end: string, tagCase: Tag.TagCase) {
         let sql = this.sqlSelectTag(tagCase) +
             ` where tag.book = ` + book + ' and tag.chapter =' + chapter + ` and ` +
-            ` tag.from >= ` + SQLUtils.quote(from) + ' and tag.to <=' + SQLUtils.quote(to)
+            ` tag.start >= ` + SQLUtils.quote(start) + ' and tag.end <=' + SQLUtils.quote(end)
         let rows = await this.database.select(sql)
         return this.extractTags(rows, tagCase)
     }
@@ -73,13 +71,13 @@ export class TagDAL {
      * Extract tag from book chapter & verse limit
      * @param book 
      * @param chapter 
-     * @param from
-     * @param to
+     * @param start
+     * @param end
      */
-    public async withinBookChapterVersesAll(book: number, chapter: number, from: string, to: string) {
+    public async withBookChapterStartEndAll(book: number, chapter: number, start: string, end: string) {
         let tags = new Tags()
         this.getTagCases().forEach(async tagCase => {
-            let currentTags = await this.withinBookChapterVerses(book, chapter, from, to, tagCase);
+            let currentTags = await this.withBookChapterStartEnd(book, chapter, start, end, tagCase);
             currentTags.getTagsList().forEach(tag => {
                 tags.addTags(tag)
             })
@@ -117,6 +115,9 @@ export class TagDAL {
 
         tag.setStart(row.get("start")!.toString())
         tag.setEnd(row.get("end")!.toString())
+
+        tag.setBook(parseInt(row.get("book")!))
+        tag.setChapter(parseInt(row.get("chapter")!))
 
         tag.setType(row.get("type")!.toString())
         tag.setSubtype(row.get("subType")!.toString())

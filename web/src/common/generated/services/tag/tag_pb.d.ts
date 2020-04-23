@@ -22,6 +22,12 @@ export class Tag extends jspb.Message {
   getEnd(): string;
   setEnd(value: string): void;
 
+  getBook(): number;
+  setBook(value: number): void;
+
+  getChapter(): number;
+  setChapter(value: number): void;
+
   getType(): string;
   setType(value: string): void;
 
@@ -72,6 +78,8 @@ export namespace Tag {
     modified: number,
     start: string,
     end: string,
+    book: number,
+    chapter: number,
     type: string,
     subtype: string,
     whattag?: WhatTag.AsObject,
@@ -83,11 +91,11 @@ export namespace Tag {
 
   export enum TagCase {
     TAG_NOT_SET = 0,
-    WHATTAG = 10,
-    WHOTAG = 12,
-    WHERETAG = 13,
-    WHENTAG = 14,
-    HOWTAG = 15,
+    WHATTAG = 12,
+    WHOTAG = 13,
+    WHERETAG = 14,
+    WHENTAG = 15,
+    HOWTAG = 16,
   }
 }
 
