@@ -20,17 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33305365-b933-44e6-bf30-6f0347e64729" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/deployment/logstash/pipelines/tag_what.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/deployment/mysql/schema/tags.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/services/tag/TagDal.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/services/tag/tag.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/tag/tag.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/book/book_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/book/book_pb.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/book/book_pb.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/book/book_pb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/scriptures/scriptures_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/scriptures/scriptures_pb.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/scriptures/scriptures_pb.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/scriptures/scriptures_pb.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/version/version_pb.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/version/version_pb.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/common/generated/services/version/version_pb.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/common/generated/services/version/version_pb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/services/scriptures/scriptureDAL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/services/scriptures/scriptureDAL.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,10 +322,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="751" y="238" key="DBNavigator.ConnectionInfoDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586854828681" />
-    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1587111064919">
+    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1587622607790">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1587111064919" />
+    <state x="568" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1587622607790" />
     <state x="710" y="284" width="540" height="541" key="DBNavigator.ExportDataDialog" timestamp="1586265992391">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
@@ -342,10 +334,10 @@
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="153" y="256" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1586863513829" />
-    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1587110840971">
+    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1587641886698">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
-    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1587110840971" />
+    <state x="788" y="397" width="495" height="324" key="DBNavigator.ResultSetRecordViewerDialog/51.27.1869.1053@51.27.1869.1053" timestamp="1587641886698" />
     <state x="568" y="194" width="824" height="717" key="DBNavigator.TextEditorDialog" timestamp="1587111021403">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
