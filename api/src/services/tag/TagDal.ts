@@ -29,6 +29,7 @@ export class TagDAL {
    * Retrieve all the tags within the two identifiers
    * @param from 
    * @param to 
+   * @param tagCase
    */
     public async withinVerses(from: string, to: string, tagCase: Tag.TagCase): Promise<Tags> {
         let sql = this.sqlSelectTag(tagCase) +
@@ -38,12 +39,35 @@ export class TagDAL {
     }
 
     /**
-     * withinBookChapter
-     
- book: number, chapter: number     */
-    public withinBookChapter( book: number, chapter: number) {
-        
+     * 
+     * @param book 
+     * @param chapter 
+     * @param tagCase 
+     */
+    public async withinBookChapter(book: number, chapter: number, tagCase: Tag.TagCase) {
+        let sql = this.sqlSelectTag(tagCase) +
+            ` where tag.book = ` + book + ' and tag.chapter =' + chapter
+        let rows = await this.database.select(sql)
+        return this.extractTags(rows, tagCase)
     }
+
+
+
+    /**
+     * Extract tag from book chapter & verse limit
+     * @param book 
+     * @param chapter 
+     * @param tagCase 
+     */
+    public async withinBookChapterVerses(book: number, chapter: number, from: string, to: string, tagCase: Tag.TagCase) {
+        let sql = this.sqlSelectTag(tagCase) +
+            ` where tag.book = ` + book + ' and tag.chapter =' + chapter + ` and ` +
+            ` tag.from >= ` + SQLUtils.quote(from) + ' and tag.to <=' + SQLUtils.quote(to)
+        let rows = await this.database.select(sql)
+        return this.extractTags(rows, tagCase)
+    }
+
+    
 
     private getTable(tagCase: Tag.TagCase): string {
         switch (+tagCase) {

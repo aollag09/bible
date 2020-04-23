@@ -18,6 +18,9 @@ create table `tag_what` (
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
   
+  `book` int(11) not null,
+  `chapter` int(11) not null,
+
   `type` varchar(255) comment 'Type of the who tag',
   `subType` varchar(255) comment 'Sub Type of the who tag',
   
@@ -39,6 +42,9 @@ create table `tag_who` (
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
   
+  `book` int(11) not null,
+  `chapter` int(11) not null,
+
   `type` varchar(255) comment 'Type of the who tag',
   `subType` varchar(255) comment 'Sub Type of the who tag',
   
@@ -61,6 +67,9 @@ create table `tag_where` (
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
   
+  `book` int(11) not null,
+  `chapter` int(11) not null,
+
   `type` varchar(255) comment 'Type of the who tag',
   `subType` varchar(255) comment 'Sub Type of the who tag',
   
@@ -83,6 +92,9 @@ create table `tag_when` (
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
   
+  `book` int(11) not null,
+  `chapter` int(11) not null,
+
   `type` varchar(255) comment 'Type of the who tag',
   `subType` varchar(255) comment 'Sub Type of the who tag',
   
@@ -102,6 +114,9 @@ create table `tag_how` (
   `start` int(8) unsigned zerofill not null comment 'Id of the scripture verse start',
   `end`   int(8) unsigned zerofill not null comment 'Id of the scriptoture verse end',
   
+  `book` int(11) not null,
+  `chapter` int(11) not null,
+
   `type` varchar(255) comment 'Type of the who tag',
   `subType` varchar(255) comment 'Sub Type of the who tag',
 

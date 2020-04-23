@@ -12,15 +12,18 @@ message Tag{
     string start = 6;
     string end = 7;
 
-    string type = 8;
-    string subType = 9;
+    int32 book = 8;
+    int32 chapter = 9;
+
+    string type = 10;
+    string subType = 11;
 
     oneof tag{
-        WhatTag     whatTag = 10;
-        WhoTag      whoTag = 12;
-        WhereTag    whereTag = 13;
-        WhenTag     whenTag = 14;
-        HowTag      howTag = 15;
+        WhatTag     whatTag = 12;
+        WhoTag      whoTag = 13;
+        WhereTag    whereTag = 14;
+        WhenTag     whenTag = 15;
+        HowTag      howTag = 16;
     }
 }
 
