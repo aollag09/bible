@@ -7,7 +7,8 @@ import { Message } from 'google-protobuf';
 import { RouteUtils } from '../../../utils/RouteUtils';
 import { Database } from "../../database/database";
 import { TagDAL } from '../TagDal';
-import { Tag } from '../tag_pb';
+import { Tag, WhatTag } from '../tag_pb';
+import { DateTime } from '../../../utils/dateTime';
 
 chai.use(chaiHttp);
 
@@ -68,6 +69,31 @@ describe('Tag Data Access Layer Tests', async function () {
             let chapter = -1
             let tags = await tagDAL.withBookChapterStartEndAll(book, chapter, "0", "1")!
             expect(tags.getTagsList().length).to.be.eq(0);
+        });
+
+    });
+
+
+    describe('#addTag', async function () {
+
+        it('add What Tag', async function () {
+
+            let tag = new Tag()
+
+            tag.setOwner(1)
+            tag.setCreated(DateTime.current())
+            tag.setModified(DateTime.current())
+            tag.setStart('5')
+            tag.setEnd('15')
+            tag.setBook(-4)
+            tag.setChapter(2)
+            tag.setType("test")
+            let what = new WhatTag()
+            what.setWhat("Say what !?")
+            what.setDetails("Details")
+            tag.setWhattag(what)
+
+            let tags = tagDAL.putTag(tag)
         });
 
     });

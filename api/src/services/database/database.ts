@@ -66,6 +66,18 @@ export class Database {
   }
 
   /**
+   * Run a simple sql query 
+   * @param sql 
+   */
+  public async run(sql: string) {
+    try {
+      await this.poolPromise.query(sql);
+    } catch (error) {
+      throw ("SQL query failed : " + sql + ". Error is : " + error)
+    }
+  }
+
+  /**
    * Query the input syntax to the database with input parameters if required.
    * All parameters can be placed with the following caracter : "?" 
    * ex: queryParameters( "select ? from ?", ["pasta", "plates"] )

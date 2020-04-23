@@ -85,6 +85,84 @@ export class TagDAL {
         return tags;
     }
 
+    /**
+     * Delete tag
+     * @param id 
+     * @param tagCase 
+     */
+    public deleteTag(id: number, tagCase: Tag.TagCase) {
+        let sql = `delete from ` + this.getTable(tagCase) + ` where id = ` + id
+        this.database.commit(sql)
+    }
+
+    /**
+     * Put a new tag in database
+     * @param tag 
+     */
+    public putTag(tag: Tag) {
+        let values = this.buildSQLTagValues(tag)
+        let sql = 'insert into ' + this.getTable(tag.getTagCase()) + ' ('
+        let i = 0
+        for (var key in values) {
+            if (i == values.size - 1)
+                sql += key + ") "
+            else
+                sql += key + ", "
+            i++;
+        }
+        sql += "values ("
+        i = 0
+        for (var key in values) {
+            if (i == values.size - 1)
+                sql += values.get(key) + ") "
+            else
+                sql += values.get(key) + ", "
+            i++;
+        }
+    }
+
+    private buildSQLTagValues(tag: Tag): Map<string, string> {
+        let values = new Map<string, string>()
+
+        values.set("owner", tag.getOwner().toString())
+
+        values.set("created", tag.getCreated().toString())
+        values.set("modified", tag.getModified().toString())
+
+        values.set("start", tag.getStart())
+        values.set("end", tag.getEnd())
+
+        values.set("chapter", tag.getChapter().toString())
+        values.set("book", tag.getBook().toString())
+
+        values.set("type", tag.getType())
+        values.set("subType", tag.getSubtype())
+
+        switch (+tag.getTagCase()) {
+            case Tag.TagCase.WHATTAG:
+                values.set("what", tag.getWhattag()!.getWhat())
+                values.set("details", tag.getWhattag()!.getDetails())
+                break;
+            case Tag.TagCase.WHOTAG:
+                values.set("who", tag.getWhotag()!.getWho().toString())
+                break;
+            case Tag.TagCase.WHENTAG:
+                values.set("year", tag.getWhentag()!.getYear().toString())
+                break;
+            case Tag.TagCase.WHERETAG:
+                values.set("where", tag.getWheretag()!.getWhere())
+                values.set("latitude", tag.getWheretag()!.getLatitude().toString())
+                values.set("longitude", tag.getWheretag()!.getLongitude().toString())
+                break;
+            case Tag.TagCase.HOWTAG:
+                values.set("how", tag.getHowtag()!.getHow())
+                values.set("details", tag.getHowtag()!.getDetails())
+                break;
+            case Tag.TagCase.TAG_NOT_SET:
+                break;
+        }
+        return values;
+    }
 
     private getTable(tagCase: Tag.TagCase): string {
         switch (+tagCase) {
