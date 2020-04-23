@@ -57,6 +57,8 @@ export class TagDAL {
      * Extract tag from book chapter & verse limit
      * @param book 
      * @param chapter 
+     * @param from
+     * @param to
      * @param tagCase 
      */
     public async withinBookChapterVerses(book: number, chapter: number, from: string, to: string, tagCase: Tag.TagCase) {
@@ -67,7 +69,24 @@ export class TagDAL {
         return this.extractTags(rows, tagCase)
     }
 
-    
+    /**
+     * Extract tag from book chapter & verse limit
+     * @param book 
+     * @param chapter 
+     * @param from
+     * @param to
+     */
+    public async withinBookChapterVersesAll(book: number, chapter: number, from: string, to: string) {
+        let tags = new Tags()
+        this.getTagCases().forEach(async tagCase => {
+            let currentTags = await this.withinBookChapterVerses(book, chapter, from, to, tagCase);
+            currentTags.getTagsList().forEach(tag => {
+                tags.addTags(tag)
+            })
+        })
+        return tags;
+    }
+
 
     private getTable(tagCase: Tag.TagCase): string {
         switch (+tagCase) {
