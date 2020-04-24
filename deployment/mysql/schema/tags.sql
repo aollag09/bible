@@ -54,8 +54,6 @@ create table `tag_who` (
 );
 
 
-
-
 drop table if exists `tag_where`;
 create table `tag_where` (
   `id` int not null AUTO_INCREMENT comment 'Identifier of the tag',
@@ -120,7 +118,7 @@ create table `tag_how` (
   `type` varchar(255) comment 'Type of the who tag',
   `subtype` varchar(255) comment 'Sub Type of the who tag',
 
-  `how` varchar(255) comment 'Value of the what tag',
+  `how` varchar(255) not null comment 'Value of the what tag',
   `details` text comment 'Details on the what value tag',
   primary key (`id`)
 );

@@ -1,14 +1,12 @@
 
-
-
 import chai, { expect } from 'chai';
 import chaiHttp from "chai-http";
-import { Message } from 'google-protobuf';
+import { DateTime } from '../../../utils/dateTime';
+import { ProtoUtils } from '../../../utils/ProtoUtils';
 import { RouteUtils } from '../../../utils/RouteUtils';
 import { Database } from "../../database/database";
 import { TagDAL } from '../TagDal';
 import { Tag, WhatTag } from '../tag_pb';
-import { DateTime } from '../../../utils/dateTime';
 
 chai.use(chaiHttp);
 
@@ -106,7 +104,7 @@ describe('Tag Data Access Layer Tests', async function () {
             })
 
             tags = await tagDAL.withType(testType, Tag.TagCase.WHATTAG)
-            //            expect(tags.getTagsList().length).equals(0)
+            //expect(tags.getTagsList().length).equals(0)
 
         });
 
@@ -114,5 +112,60 @@ describe('Tag Data Access Layer Tests', async function () {
 
     });
 });
+
+
+describe('Tag REST Services', function () {
+
+    let application = require('../../../server');
+    let path = RouteUtils.BASE_PATH + "tag/"
+
+
+
+    describe('#' + path + "what", function () {
+
+        it('GET tags in book 1 & chapter 1', async function () {
+            let book = -2
+            let chapter = 4
+
+            chai.request(application)
+                .get(path + "what/book/" + book + "/chapter/" + chapter)
+                .then(res => {
+                    expect(res.status).equals(200)
+                });
+        });
+
+        it('POST new what tag', async function () {
+
+            let tag = new Tag()
+            let testType = "test"
+
+            tag.setOwner(1)
+            tag.setCreated(DateTime.current())
+            tag.setModified(DateTime.current())
+            tag.setStart('5')
+            tag.setEnd('15')
+            tag.setBook(-1)
+            tag.setChapter(-1)
+            tag.setType(testType)
+            let what = new WhatTag()
+            what.setWhat("Say what !?")
+            what.setDetails("Details")
+            tag.setWhattag(what)
+
+            let serial = ProtoUtils.serialize(tag)
+            console.log(path + "what")
+
+            chai.request(application)
+                .post(path + "what")
+                .type("json")
+                .send({ tagbuff: serial })
+                .then(res => {
+                    expect(res.status).equals(200)
+                });
+        });
+    });
+
+});
+
 
 
