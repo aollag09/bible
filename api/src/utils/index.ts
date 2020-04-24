@@ -1,7 +1,7 @@
 
 import { NextFunction, Request, Response, Router } from "express";
 
-type Wrapper = ((router: Router) => void);
+export type Wrapper = ((router: Router) => void);
 
 export const applyMiddleware = (
     middlewareWrappers: Wrapper[],
@@ -12,15 +12,17 @@ export const applyMiddleware = (
     }
 };
 
-type Handler = (
+export type Handler = (
     req: Request,
     res: Response,
     next: NextFunction
 ) => Promise<void> | void;
 
-type Route = {
+export type Route = {
     path: string;
     method: string;
+    responseType: string;
+    headers: any;
     handler: Handler | Handler[];
 };
 

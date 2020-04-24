@@ -5,8 +5,7 @@ import { HTTP400Error } from "../utils/httpErrors";
 export const checkIdParams = (
     req: Request,
     res: Response,
-    next: NextFunction
-) => {
+    next: NextFunction) => {
     if (!req.params.id) {
         throw new HTTP400Error("Missing id parameter");
     } else {
@@ -17,8 +16,7 @@ export const checkIdParams = (
 export const checkVersionIdParams = (
     req: Request,
     res: Response,
-    next: NextFunction
-) => {
+    next: NextFunction) => {
     if (!req.params.versionId) {
         throw new HTTP400Error("Missing version id parameter");
     } else {
@@ -30,8 +28,7 @@ export const checkVersionIdParams = (
 export const checkVerseIdParams = (
     req: Request,
     res: Response,
-    next: NextFunction
-) => {
+    next: NextFunction) => {
     if (!req.params.versionId) {
         throw new HTTP400Error("Missing verse id parameter");
     } else {
@@ -42,8 +39,7 @@ export const checkVerseIdParams = (
 export const checkChapterIdParams = (
     req: Request,
     res: Response,
-    next: NextFunction
-) => {
+    next: NextFunction) => {
     if (!req.params.chapterId) {
         throw new HTTP400Error("Missing book id parameter");
     } else {
@@ -54,10 +50,33 @@ export const checkChapterIdParams = (
 export const checkBookIdParams = (
     req: Request,
     res: Response,
-    next: NextFunction
-) => {
+    next: NextFunction) => {
     if (!req.params.bookId) {
         throw new HTTP400Error("Missing book id parameter");
+    } else {
+        next();
+    }
+};
+
+
+export const checkStartIdParams = (
+    req: Request,
+    res: Response,
+    next: NextFunction) => {
+    if (!req.params.startId) {
+        throw new HTTP400Error("Missing start id parameter");
+    } else {
+        next();
+    }
+};
+
+
+export const checkEndIdParams = (
+    req: Request,
+    res: Response,
+    next: NextFunction) => {
+    if (!req.params.endId) {
+        throw new HTTP400Error("Missing end id parameter");
     } else {
         next();
     }
@@ -66,8 +85,7 @@ export const checkBookIdParams = (
 export const checkQueryQueryParams = (
     req: Request,
     res: Response,
-    next: NextFunction
-) => {
+    next: NextFunction) => {
     if (!req.query.q) {
         throw new HTTP400Error("Missing query parameter");
     } else {
@@ -78,8 +96,7 @@ export const checkQueryQueryParams = (
 export const checkNameQueryParams = (
     req: Request,
     res: Response,
-    next: NextFunction
-) => {
+    next: NextFunction) => {
     if (!req.query.name) {
         throw new HTTP400Error("Missing name parameter");
     } else {
@@ -90,8 +107,7 @@ export const checkNameQueryParams = (
 export const checkIdOrNameQueryParams = (
     req: Request,
     res: Response,
-    next: NextFunction
-) => {
+    next: NextFunction) => {
     if (!req.query.id && !req.query.name) {
         throw new HTTP400Error("Missing id or name parameter");
     } else {
