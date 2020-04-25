@@ -6,28 +6,26 @@ import { BibleAPI } from "../../../common/utils/bibleAPI";
 
 type ScriptureSelectVersionProp = {
     version: number,
+    book: number,
+    chapter: number,
     read: (version: number, book: number, chapter: number) => void
 }
 
-type ScriptureSelectVersionState = {
-    versions: Versions
-}
 
 export class ScriptureSelectVersion
-    extends React.Component<ScriptureSelectVersionProp, ScriptureSelectVersionState>{
+    extends React.Component<ScriptureSelectVersionProp>{
+
+    private versions: Versions;
 
     constructor(props: ScriptureSelectVersionProp) {
         super(props)
-
-        this.state = {
-            versions: this.fetchVersions()
-        }
+        this.versions = this.fetchVersions()
     }
 
     render() {
 
         let options: JSX.Element[] = []
-        this.state.versions.getVersionsList().forEach(v => {
+        this.versions.getVersionsList().forEach(v => {
             options.push(<option value={v.getId()}> {this.getOptionName(v)} </option>)
         })
 
@@ -36,7 +34,7 @@ export class ScriptureSelectVersion
                 <select
                     onChange={this.handleChange}
                     value={this.props.version} >
-
+                    {options}
                 </select>
 
             </div>
@@ -47,26 +45,15 @@ export class ScriptureSelectVersion
         return version.getLanguage() + " - " + version.getAbbreviation()
     }
 
-
-    private getVersion(id: number): Version | undefined {
-        let version: Version | undefined = undefined;
-        this.state.versions.getVersionsList().forEach(v => {
-            if (v.getId() === id)
-                version = v
-        });
-        return version;
-    }
-
     private fetchVersions(): Versions {
         const response = useFetch(BibleAPI.url + "version/");
         return Versions.deserializeBinary(Message.bytesAsU8(response.toString()))
     }
 
-    private handleChange() {
-
+    private handleChange = (selection: any) => {
+        if (selection.target.value)
+            this.props.read(selection.target.value, this.props.book, this.props.chapter)
     }
-
-
 
 
 }

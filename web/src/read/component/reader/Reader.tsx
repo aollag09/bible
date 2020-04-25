@@ -38,6 +38,8 @@ export class Reader extends Component<ReaderProp, ReaderState>{
                         />
                     </div>
 
+                    <h2> Chapter {this.props.chapter}</h2>
+
                     <div className="reader-button">
                         {this.previousChapterButton()}
                     </div>

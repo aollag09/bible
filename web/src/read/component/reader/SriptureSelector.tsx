@@ -15,13 +15,19 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
         return (
             <div className="scripture-selector" >
                 <Suspense fallback="Loading versions..." >
-                    <ScriptureSelectVersion 
+                    <ScriptureSelectVersion
                         version={this.props.version}
+                        book={this.props.book}
+                        chapter={this.props.chapter}
                         read={this.props.read}
-                        />
+                    />
                 </Suspense>
             </div>
         )
     }
 
-}
+    readVersion(version: number) {
+        this.props.read(version, this.props.book, this.props.chapter)
+    }
+
+} 
