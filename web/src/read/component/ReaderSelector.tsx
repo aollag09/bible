@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { Selector } from "./selector/Selector"
 import { Reader } from "./reader/Reader";
+import ErrorBoundary from "react-error-boundary";
+import { Loading } from "../../common/utils/component/Loading";
 
 
 type ReaderSelectorState = {
@@ -49,17 +51,22 @@ export class ReaderSelector extends Component<{}, ReaderSelectorState> {
 
     render() {
         return (
-            <div className="reader-selector">
-                <Selector
-                    read={ (version, book, chapter) => this.read(version, book, chapter)}
-                    switch={this.state.switch} />
-                <Reader
-                    read={ (version, book, chapter) => this.read(version, book, chapter)}
-                    switch={this.state.switch}
-                    book={this.state.book}
-                    chapter={this.state.chapter}
-                    version={this.state.version} />
-            </div>
+            <Suspense fallback={<Loading text="Loading ..." />}>
+                <ErrorBoundary>
+                    <div className="reader-selector">
+
+                        <Selector
+                            read={(version, book, chapter) => this.read(version, book, chapter)}
+                            switch={this.state.switch} />
+                        <Reader
+                            read={(version, book, chapter) => this.read(version, book, chapter)}
+                            switch={this.state.switch}
+                            book={this.state.book}
+                            chapter={this.state.chapter}
+                            version={this.state.version} />
+                    </div>
+                </ErrorBoundary>
+            </Suspense>
         );
     }
 }
