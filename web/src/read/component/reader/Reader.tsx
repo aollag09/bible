@@ -5,6 +5,7 @@ import "../../resources/style/read.css"
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import useFetch from 'fetch-suspense'
 import { ScriptureSelector } from "./SriptureSelector";
+import arrow from "../../resources/image/arrow.png"
 
 type ReaderProp = {
     switch: string,
@@ -29,7 +30,7 @@ export class Reader extends Component<ReaderProp, ReaderState>{
             return (
                 <div className="reader">
                     <div className="reader-top-selector" >
-                        <ScriptureSelector 
+                        <ScriptureSelector
                             version={this.props.version}
                             book={this.props.book}
                             chapter={this.props.chapter}
@@ -83,7 +84,7 @@ export class Reader extends Component<ReaderProp, ReaderState>{
                         className="reader-chapter-button reader-previous-chapter-button"
                         type="button"
                         onClick={this.previousChapter}>
-                        <span className="reader-arrow reader-arrow-previous"> &#60; </span>
+                        <img className="reader-arrow reader-arrow-previous" alt="previous" src={arrow} />
                     </button>
                 </div>
             )
@@ -101,7 +102,7 @@ export class Reader extends Component<ReaderProp, ReaderState>{
                         className="reader-chapter-button reader-next-chapter-button"
                         type="button"
                         onClick={this.nextChapter}>
-                        <span className="reader-arrow reader-arrow-next"> &#62; </span>
+                        <img className="reader-arrow reader-arrow-next" alt="next" src={arrow} />
                     </button>
                 </div>
             )

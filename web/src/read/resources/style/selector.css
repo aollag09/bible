@@ -19,7 +19,7 @@
     font-size: 4em;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    transform: rotate(-180deg);
+    transform: rotate(180deg);
     color: #505050;
     text-transform: uppercase;
 }
