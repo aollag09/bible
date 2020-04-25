@@ -50,7 +50,6 @@ export class Reader extends Component<ReaderProp, ReaderState>{
                     <div className="reader-button">
                         {this.nextChapterButton(nbChapters)}
                     </div>
-                    <button onClick={this.scrollTop}> top </button>
                 </div>
             )
         } else {

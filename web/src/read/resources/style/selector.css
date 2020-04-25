@@ -135,6 +135,12 @@
 
 
 /* CHAPTER */
+
+.chapter-list{
+    margin: 3em;
+    max-width: 850px;
+}
+
 .chapter-list ul{
     display: inherit;
     margin-bottom: 2px;
