@@ -1,10 +1,12 @@
-import React from "react";
-import { Versions, Version } from "../../../common/generated/services/version/version_pb";
+import useFetch from 'fetch-suspense';
 import { Message } from "google-protobuf";
-import useFetch from 'fetch-suspense'
+import memoize from "memoize-one";
+import React from "react";
+import { Version, Versions } from "../../../common/generated/services/version/version_pb";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 
-type ScriptureSelectVersionProp = {
+
+type ScriptureSelectChapterProp = {
     version: number,
     book: number,
     chapter: number,
@@ -12,28 +14,26 @@ type ScriptureSelectVersionProp = {
 }
 
 
-export class ScriptureSelectVersion
-    extends React.Component<ScriptureSelectVersionProp>{
+export class ScriptureSelectChapter
+    extends React.Component<ScriptureSelectChapterProp>{
 
-    private versions: Versions;
-
-    constructor(props: ScriptureSelectVersionProp) {
+    constructor(props: ScriptureSelectChapterProp) {
         super(props)
-        this.versions = this.fetchVersions()
     }
 
     render() {
 
         let options: JSX.Element[] = []
-        this.versions.getVersionsList().forEach(v => {
-            options.push(<option value={v.getId()}> {this.getOptionName(v)} </option>)
-        })
+        let nbChapters = this.nbChapters(this.props.book)
+        for (let i = 1; i <= nbChapters; i++) {
+            options.push(<option value={i}> Chapter {i} </option>)
+        }
 
         return (
             <div className="scripture-version-select" >
                 <select
                     onChange={this.handleChange}
-                    value={this.props.version} >
+                    value={this.props.chapter} >
                     {options}
                 </select>
 
@@ -41,21 +41,17 @@ export class ScriptureSelectVersion
         )
     }
 
-    private getOptionName(version: Version): string {
-        return version.getLanguage() + " - " + version.getAbbreviation()
-    }
-
-    private fetchVersions(): Versions {
-        const response = useFetch(BibleAPI.url + "version/");
-        return Versions.deserializeBinary(Message.bytesAsU8(response.toString()))
-    }
-
     private handleChange = (selection: any) => {
         if (selection.target.value) {
-            this.props.read(selection.target.value, this.props.book, this.props.chapter)
+            this.props.read(this.props.version, this.props.book, selection.target.value)
         }
     }
 
+    nbChapters = memoize(
+        (book) => {
+            return parseInt(useFetch(BibleAPI.url + "book/" + book + "/chapters/count").toString())
+        }
+    )
 
 }
 

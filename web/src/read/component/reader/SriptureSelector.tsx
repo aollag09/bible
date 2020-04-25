@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { ScriptureSelectBook } from "./ScriptureSelectBook";
 import { ScriptureSelectVersion } from "./ScriptureSelectVersion";
+import { ScriptureSelectChapter } from "./ScriptureSelectChapter";
 
 
 type ScriptureSelectorProp = {
@@ -25,6 +26,14 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                 </Suspense>
                 <Suspense fallback="Loading books..." >
                     <ScriptureSelectBook
+                        version={this.props.version}
+                        book={this.props.book}
+                        chapter={this.props.chapter}
+                        read={this.props.read}
+                    />
+                </Suspense>
+                <Suspense fallback="Loading chapters..." >
+                    <ScriptureSelectChapter
                         version={this.props.version}
                         book={this.props.book}
                         chapter={this.props.chapter}

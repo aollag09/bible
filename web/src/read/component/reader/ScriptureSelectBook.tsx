@@ -25,7 +25,7 @@ export class ScriptureSelectBook extends React.Component<ScriptureSelectBookProp
 
         let options: JSX.Element[] = []
         this.books.getBooksList().forEach(book => {
-            options.push(<option value={book.getId()} >  {book.getId()} - {this.getOptionName(book)} </option>)
+            options.push(<option value={book.getId()} >  {this.getOptionName(book)} </option>)
         })
 
         return (
