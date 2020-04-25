@@ -81,3 +81,60 @@
 }
 
 
+/* SELECTOR */
+
+.scripture-select{
+ margin: 1em;
+}
+
+.scripture-selector select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #1e1e1e;
+  background-image: none;
+  position: relative;
+  display: flex;
+  width: 12em;
+  height: 3em;
+  line-height: 3;
+  overflow: hidden;
+  border-radius: .25em;
+}
+
+.scripture-selector select:hover {
+    color: #787878;
+  }
+
+.scripture-selector select {
+  flex: 1;
+  padding: 0 .5em;
+  font-size: 2em;
+  color: #505050;
+  cursor: pointer;
+}
+
+
+
+
+  /*********************************/
+
+
+.scripture-selector ul {
+    display: inherit;
+    margin-bottom: 2px;
+    position: relative;
+    padding: 0;
+}
+
+
+.scripture-selector li {
+    display: inline-block;
+    vertical-align: top;
+    color: #787878;
+}
+

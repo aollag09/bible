@@ -16,30 +16,38 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
     render() {
         return (
             <div className="scripture-selector" >
-                <Suspense fallback="Loading versions..." >
-                    <ScriptureSelectVersion
-                        version={this.props.version}
-                        book={this.props.book}
-                        chapter={this.props.chapter}
-                        read={this.props.read}
-                    />
-                </Suspense>
-                <Suspense fallback="Loading books..." >
-                    <ScriptureSelectBook
-                        version={this.props.version}
-                        book={this.props.book}
-                        chapter={this.props.chapter}
-                        read={this.props.read}
-                    />
-                </Suspense>
-                <Suspense fallback="Loading chapters..." >
-                    <ScriptureSelectChapter
-                        version={this.props.version}
-                        book={this.props.book}
-                        chapter={this.props.chapter}
-                        read={this.props.read}
-                    />
-                </Suspense>
+                <ul>
+                    <li>
+                        <Suspense fallback="Loading versions..." >
+                            <ScriptureSelectVersion
+                                version={this.props.version}
+                                book={this.props.book}
+                                chapter={this.props.chapter}
+                                read={this.props.read}
+                            />
+                        </Suspense>
+                    </li>
+                    <li>
+                        <Suspense fallback="Loading books..." >
+                            <ScriptureSelectBook
+                                version={this.props.version}
+                                book={this.props.book}
+                                chapter={this.props.chapter}
+                                read={this.props.read}
+                            />
+                        </Suspense>
+                    </li>
+                    <li>
+                        <Suspense fallback="Loading chapters..." >
+                            <ScriptureSelectChapter
+                                version={this.props.version}
+                                book={this.props.book}
+                                chapter={this.props.chapter}
+                                read={this.props.read}
+                            />
+                        </Suspense>
+                    </li>
+                </ul>
             </div>
         )
     }

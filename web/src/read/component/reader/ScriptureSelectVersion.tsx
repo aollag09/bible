@@ -26,11 +26,14 @@ export class ScriptureSelectVersion
 
         let options: JSX.Element[] = []
         this.versions.getVersionsList().forEach(v => {
-            options.push(<option value={v.getId()}> {this.getOptionName(v)} </option>)
+            options.push(<option
+                className="scripture-select-option"
+                value={v.getId()}> {this.getOptionName(v)}
+            </option>)
         })
 
         return (
-            <div className="scripture-version-select" >
+            <div className="scripture-select scripture-version-select" >
                 <select
                     onChange={this.handleChange}
                     value={this.props.version} >
@@ -42,7 +45,7 @@ export class ScriptureSelectVersion
     }
 
     private getOptionName(version: Version): string {
-        return version.getLanguage() + " - " + version.getAbbreviation()
+        return this.capitalize(version.getLanguage()) + " - " + version.getAbbreviation()
     }
 
     private fetchVersions(): Versions {
@@ -55,6 +58,10 @@ export class ScriptureSelectVersion
             this.props.read(selection.target.value, this.props.book, this.props.chapter)
     }
 
+    private capitalize(s: string): string {
+        if (typeof s !== 'string') return ''
+        return s.charAt(0).toUpperCase() + s.slice(1)
+    }
 
 }
 

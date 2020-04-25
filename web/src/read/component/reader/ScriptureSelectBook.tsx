@@ -25,11 +25,15 @@ export class ScriptureSelectBook extends React.Component<ScriptureSelectBookProp
 
         let options: JSX.Element[] = []
         this.books.getBooksList().forEach(book => {
-            options.push(<option value={book.getId()} >  {this.getOptionName(book)} </option>)
+            options.push(
+                <option
+                    className="scripture-select-option"
+                    value={book.getId()} >  {this.getOptionName(book)}
+                </option>)
         })
 
         return (
-            <div className="scripture-book-select">
+            <div className="scripture-select scripture-book-select">
                 <select
                     onChange={this.handleChange}
                     value={this.props.book} >
@@ -48,7 +52,7 @@ export class ScriptureSelectBook extends React.Component<ScriptureSelectBookProp
     private handleChange = (selection: any) => {
         if (selection.target.value) {
             const newBook = selection.target.value;
-            if (newBook != this.props.book)
+            if (newBook !== this.props.book)
                 this.props.read(this.props.version, selection.target.value, 1 /* Start new book at chapter 1 */)
         }
     }
