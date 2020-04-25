@@ -1,11 +1,12 @@
+import useFetch from 'fetch-suspense';
+import memoize from "memoize-one";
 import React, { Component } from "react";
+import { BibleAPI } from "../../../common/utils/bibleAPI";
+import arrow from "../../resources/image/arrow.png";
+import "../../resources/style/read.css";
 import { ReaderSelector } from "../ReaderSelector";
 import { ScriptureReader } from "./ScriptureReader";
-import "../../resources/style/read.css"
-import { BibleAPI } from "../../../common/utils/bibleAPI";
-import useFetch from 'fetch-suspense'
 import { ScriptureSelector } from "./SriptureSelector";
-import arrow from "../../resources/image/arrow.png"
 
 type ReaderProp = {
     switch: string,
@@ -16,17 +17,16 @@ type ReaderProp = {
 }
 
 type ReaderState = {
-
+    nbChapters: number
 }
 
 export class Reader extends Component<ReaderProp, ReaderState>{
 
-    constructor(props: ReaderProp) {
-        super(props)
-    }
 
     render() {
         if (this.props.switch === ReaderSelector.SWITCH_READER) {
+
+            let nbChapters = this.nbChapters(this.props.book)
             return (
                 <div className="reader">
                     <div className="reader-top-selector" >
@@ -48,7 +48,7 @@ export class Reader extends Component<ReaderProp, ReaderState>{
                         chapter={this.props.chapter} />
 
                     <div className="reader-button">
-                        {this.nextChapterButton()}
+                        {this.nextChapterButton(nbChapters)}
                     </div>
                     <button onClick={this.scrollTop}> top </button>
                 </div>
@@ -66,12 +66,18 @@ export class Reader extends Component<ReaderProp, ReaderState>{
         this.scrollTop()
     }
 
+    nbChapters = memoize(
+        (book) => {
+            return parseInt(useFetch(BibleAPI.url + "book/" + book + "/chapters/count").toString())
+        }
+
+    )
+
     nextChapter = () => {
         this.props.read(this.props.version, this.props.book, this.props.chapter + 1)
     }
 
     previousChapter = () => {
-        let newChapter = this.props.chapter - 1;
         this.props.read(this.props.version, this.props.book, this.props.chapter - 1)
     }
 
@@ -92,9 +98,8 @@ export class Reader extends Component<ReaderProp, ReaderState>{
         return null;
     }
 
-    nextChapterButton = () => {
+    nextChapterButton = (nbChapters: number) => {
         let chapter = this.props.chapter;
-        let nbChapters = 20;// parseInt(useFetch(BibleAPI.url + "book/" + this.props.book + "/chapters/count").toString());
         if (chapter < nbChapters) {
             return (
                 <div className="reader-chapter-div">
