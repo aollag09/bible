@@ -34,7 +34,7 @@ export class VersionFetcher extends Component<VersionFetcherProp> {
             let column: JSX.Element[] = []
 
             column.push(
-                <td className="version-language-td">
+                <td key={this.getKey("language", language)} className="version-language-td">
                     <span className="version-language">
                         {language}
                     </span>
@@ -43,7 +43,7 @@ export class VersionFetcher extends Component<VersionFetcherProp> {
             let listVersion: JSX.Element[] = []
             versions.getVersionsList().forEach(version => {
                 if (version.getLanguage() === language) {
-                    listVersion.push(<li>
+                    listVersion.push(<li key={version.getId()}>
                         <VersionBox
                             key={version.getId()}
                             name={version.getVersion()}
@@ -52,17 +52,23 @@ export class VersionFetcher extends Component<VersionFetcherProp> {
                     </li>)
                 }
             });
-            column.push(<td className="version-list-language"><ul>{listVersion}</ul></td>)
-            tableLanguages.push(<tr>{column}</tr>)
+            column.push(<td key={this.getKey("language-list", language)} className="version-list-language"><ul>{listVersion}</ul></td>)
+            tableLanguages.push(<tr key={this.getKey("language-table", language)}>{column}</tr>)
         })
 
         return (
             <div>
                 <table className="version-table">
-                    {tableLanguages}
+                    <tbody>
+                        {tableLanguages}
+                    </tbody>
                 </table>
             </div>
         );
+    }
+
+    private getKey(prefix: string, value: string): string {
+        return "key-" + prefix + "-" + value;
     }
 
 };
