@@ -15,7 +15,7 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
 
     render() {
         return (
-            <div className="scripture-selector" >
+            <div className="reader-top-selector scripture-selector" >
                 <ul>
                     <li>
                         <Suspense fallback="Loading versions..." >

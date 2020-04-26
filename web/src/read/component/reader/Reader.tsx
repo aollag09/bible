@@ -1,70 +1,61 @@
 import useFetch from 'fetch-suspense';
 import memoize from "memoize-one";
-import React, { Component } from "react";
+import React from 'react';
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import arrow from "../../resources/image/arrow.png";
-import "../../resources/style/read.css";
-import { ReaderSelector } from "../ReaderSelector";
 import { ScriptureReader } from "./ScriptureReader";
 import { ScriptureSelector } from "./SriptureSelector";
 
+
 type ReaderProp = {
-    switch: string,
     version: number,
     book: number,
     chapter: number,
+    showTagger: boolean,
     read: (version: number, book: number, chapter: number) => void
 }
 
-type ReaderState = {
-    nbChapters: number
-}
 
-export class Reader extends Component<ReaderProp, ReaderState>{
+export class Reader extends React.Component<ReaderProp> {
 
 
     render() {
-        if (this.props.switch === ReaderSelector.SWITCH_READER) {
 
-            let nbChapters = this.nbChapters(this.props.book)
-            return (
-                <div className="reader">
-                    <div className="reader-top-selector" >
-                        <ScriptureSelector
-                            version={this.props.version}
-                            book={this.props.book}
-                            chapter={this.props.chapter}
-                            read={this.props.read}
-                        />
-                    </div>
-
-                    <h2> Chapter {this.props.chapter}</h2>
-
-                    <div className="reader-button">
-                        {this.previousChapterButton()}
-                    </div>
-
-                    <ScriptureReader
+        let nbChapters = this.nbChapters(this.props.book)
+        return (
+            <div className={this.getClassName(this.props.showTagger)}>
+                <div className="reader-top-selector" >
+                    <ScriptureSelector
                         version={this.props.version}
                         book={this.props.book}
-                        chapter={this.props.chapter} />
-
-                    <div className="reader-button">
-                        {this.nextChapterButton(nbChapters)}
-                    </div>
+                        chapter={this.props.chapter}
+                        read={this.props.read}
+                    />
                 </div>
-            )
-        } else {
-            return null;
-        }
+
+                <h2> Chapter {this.props.chapter}</h2>
+
+                <div className="reader-button">
+                    {this.previousChapterButton()}
+                </div>
+
+                <ScriptureReader
+                    version={this.props.version}
+                    book={this.props.book}
+                    chapter={this.props.chapter} />
+
+                <div className="reader-button">
+                    {this.nextChapterButton(nbChapters)}
+                </div>
+            </div>
+        );
     }
 
-    scrollTop() {
-        window.scrollTo(0, 0)
-    }
-
-    componentDidUpdate() {
-        this.scrollTop()
+    getClassName(showTagger: boolean) {
+        if (showTagger)
+            return "reader reader-with-tagger"
+        else
+            return "reader reader-without-tagger"
     }
 
     nbChapters = memoize(
@@ -116,3 +107,4 @@ export class Reader extends Component<ReaderProp, ReaderState>{
         return null;
     }
 }
+

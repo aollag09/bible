@@ -1,5 +1,13 @@
 .reader{
+    transition: margin-right .5s; /* If you want a transition effect */
+}
 
+.reader-with-tagger{
+    margin-right: 45em;
+}
+
+.reader-without-tagger{
+    margin-right: 0em;
 }
 
 .reader-arrow{
