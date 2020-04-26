@@ -3,6 +3,7 @@ import { Versions, Version } from "../../../common/generated/services/version/ve
 import { Message } from "google-protobuf";
 import useFetch from 'fetch-suspense'
 import { BibleAPI } from "../../../common/utils/bibleAPI";
+import { Key } from "../../../common/utils/key";
 
 type ScriptureSelectVersionProp = {
     version: number,
@@ -27,6 +28,7 @@ export class ScriptureSelectVersion
         let options: JSX.Element[] = []
         this.versions.getVersionsList().forEach(v => {
             options.push(<option
+                key={Key.getKey("version",v.getId())}
                 className="scripture-select-option"
                 value={v.getId()}> {this.getOptionName(v)}
             </option>)

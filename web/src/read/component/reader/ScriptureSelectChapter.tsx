@@ -2,6 +2,7 @@ import useFetch from 'fetch-suspense';
 import memoize from "memoize-one";
 import React from "react";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
+import { Key } from '../../../common/utils/key';
 
 
 type ScriptureSelectChapterProp = {
@@ -21,6 +22,7 @@ export class ScriptureSelectChapter
         let nbChapters = this.nbChapters(this.props.book)
         for (let i = 1; i <= nbChapters; i++) {
             options.push(<option 
+                key={Key.getKey("chapter",i)}
                 className="scripture-select-option"
                 value={i}> Chapter {i} </option>)
         }

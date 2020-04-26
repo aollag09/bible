@@ -5,8 +5,8 @@
 export class Key {
 
 
-    public static getKey(prefix: string, value: string): string {
-        return "key-" + prefix + "-" + value;
+    public static getKey(prefix: string, value: { toString: () => string; }): string {
+        return "key-" + prefix + "-" + value.toString();
     }
 
 }

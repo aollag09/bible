@@ -20,7 +20,7 @@ export class ChapterFecther extends Component<ChapterFetcherProp> {
             let chapters: JSX.Element[] = []
             for (let i = 1; i <= nbChapter; i++) {
                 chapters.push(
-                    <li key={Key.getKey("chapter", i.toString())} className="chapter-item">
+                    <li key={Key.getKey("chapter", i)} className="chapter-item">
                         <ChapterBox chapter={i} onClick={() => this.props.handleChapterSelect(i)} />
                     </li>)
             }

@@ -1,8 +1,9 @@
 import useFetch from 'fetch-suspense';
-import React from "react";
-import { Books, Book } from "../../../common/generated/services/book/book_pb";
-import { BibleAPI } from "../../../common/utils/bibleAPI";
 import { Message } from 'google-protobuf';
+import React from "react";
+import { Book, Books } from "../../../common/generated/services/book/book_pb";
+import { BibleAPI } from "../../../common/utils/bibleAPI";
+import { Key } from '../../../common/utils/key';
 
 type ScriptureSelectBookProp = {
     version: number,
@@ -27,6 +28,7 @@ export class ScriptureSelectBook extends React.Component<ScriptureSelectBookProp
         this.books.getBooksList().forEach(book => {
             options.push(
                 <option
+                    key={Key.getKey("version", book.getId())}
                     className="scripture-select-option"
                     value={book.getId()} >  {this.getOptionName(book)}
                 </option>)

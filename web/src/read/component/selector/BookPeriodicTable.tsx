@@ -52,7 +52,7 @@ export class BookPeriodicTable extends Component<BookPeriodicTableProp> {
                 else
                     row.push(<td key={Key.getKey("book", (i.toString()) + (j.toString()))}></td>)
             }
-            table.push(<tr key={Key.getKey("row", i.toString())}>{row}</tr>)
+            table.push(<tr key={Key.getKey("row", i)}>{row}</tr>)
         }
         return table;
     }
