@@ -3,6 +3,7 @@ import useFetch from 'fetch-suspense'
 import { BibleAPI } from '../../../common/utils/bibleAPI';
 import { Scriptures } from '../../../common/generated/services/scriptures/scriptures_pb'
 import { Message } from 'google-protobuf';
+import { Key } from '../../../common/utils/key';
 
 type ScriptureFetcherProp = {
     version: number,
@@ -27,7 +28,9 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
         let scriptureSpans: JSX.Element[] = []
         scriptures.getScripturesList().forEach(scripture => {
             scriptureSpans.push(
-                <span className="scripture-verse">
+                <span
+                    key={Key.getKey("verse", scripture.getId())}
+                    className="scripture-verse">
                     <div className="scripture-verse-id-box">
                         <span className="scripture-verse-id"> {scripture.getVerse()}</span>
                     </div>
