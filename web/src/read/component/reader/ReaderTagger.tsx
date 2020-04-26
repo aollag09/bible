@@ -38,7 +38,6 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
         else
             selected.push(id)
 
-        alert(selected)
         let showTag = selected.length > 0
 
         this.setState({
