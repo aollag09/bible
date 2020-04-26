@@ -21,6 +21,7 @@
     "react-i18next": "^11.3.4",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "react-semantic-ui": "^0.2.0",
     "redux": "^4.0.5",
     "typescript": "^3.8.3"
   },
