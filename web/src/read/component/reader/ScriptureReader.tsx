@@ -7,7 +7,8 @@ import ErrorBoundary from "react-error-boundary";
 type ScriptureReaderProp = {
     version: number,
     book: number,
-    chapter: number
+    chapter: number,
+    onSelectVerse: (id: string) => void
 }
 
 export class ScriptureReader extends Component<ScriptureReaderProp> {
@@ -20,7 +21,8 @@ export class ScriptureReader extends Component<ScriptureReaderProp> {
                         <ScriptureFetcher
                             version={this.props.version}
                             book={this.props.book}
-                            chapter={this.props.chapter} />
+                            chapter={this.props.chapter}
+                            onSelectVerse={this.props.onSelectVerse} />
                     </ErrorBoundary>
                 </Suspense>
             </div>

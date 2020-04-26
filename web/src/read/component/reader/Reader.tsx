@@ -13,6 +13,7 @@ type ReaderProp = {
     chapter: number,
     showTagger: boolean,
     read: (version: number, book: number, chapter: number) => void
+    onSelectVerse: (id: string) => void
 }
 
 
@@ -42,7 +43,8 @@ export class Reader extends React.Component<ReaderProp> {
                 <ScriptureReader
                     version={this.props.version}
                     book={this.props.book}
-                    chapter={this.props.chapter} />
+                    chapter={this.props.chapter}
+                    onSelectVerse={this.props.onSelectVerse} />
 
                 <div className="reader-button">
                     {this.nextChapterButton(nbChapters)}

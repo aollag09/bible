@@ -8,7 +8,8 @@ import { Key } from '../../../common/utils/key';
 type ScriptureFetcherProp = {
     version: number,
     book: number,
-    chapter: number
+    chapter: number,
+    onSelectVerse: (id: string) => void
 }
 
 export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
@@ -30,7 +31,8 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
             scriptureSpans.push(
                 <span
                     key={Key.getKey("verse", scripture.getId())}
-                    className="scripture-verse">
+                    className="scripture-verse"
+                    onClick={() => this.props.onSelectVerse(scripture.getId())}>
                     <div className="scripture-verse-id-box">
                         <span className="scripture-verse-id"> {scripture.getVerse()}</span>
                     </div>
@@ -43,5 +45,9 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
                 {scriptureSpans}
             </div>
         );
+    }
+
+    handleClick(verseId: string) {
+        alert(verseId)
     }
 }

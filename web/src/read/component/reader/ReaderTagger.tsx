@@ -14,7 +14,8 @@ type ReaderTaggerProp = {
 }
 
 type ReaderTaggerState = {
-    showTagger: boolean
+    showTagger: boolean,
+    selectedVerses: Array<String>
 }
 
 export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>{
@@ -23,8 +24,27 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
     constructor(props: ReaderTaggerProp) {
         super(props)
         this.state = {
-            showTagger: true
+            selectedVerses: new Array(),
+            showTagger: false
         }
+    }
+
+    onSelectVerse(id: string) {
+
+        let selected = this.state.selectedVerses.slice()
+        const index = selected.indexOf(id, 0)
+        if (index > -1)
+            selected.splice(index, 1)
+        else
+            selected.push(id)
+
+        alert(selected)
+        let showTag = selected.length > 0
+
+        this.setState({
+            selectedVerses: selected,
+            showTagger: showTag
+        })
     }
 
     setShowTagger() {
@@ -47,10 +67,10 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
                         version={this.props.version}
                         book={this.props.book}
                         chapter={this.props.chapter}
-                        read={this.props.read}>
+                        read={this.props.read}
+                        onSelectVerse={(id) => this.onSelectVerse(id)}>
                     </Reader>
 
-                    <button onClick={() => this.setShowTagger()}>Tagger</button>
                 </div >
             )
         } else {
