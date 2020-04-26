@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BookBox } from "./BookBox";
 import '../../resources/style/selector.css'
+import { Key } from "../../../common/utils/key";
 
 type BookPeriodicTableProp = {
     handleBookSelect: (bookid: number) => void,
@@ -24,7 +25,9 @@ export class BookPeriodicTable extends Component<BookPeriodicTableProp> {
                     </li>
                     <li>
                         <table>
-                            {this.createPeriodicTable()}
+                            <tbody>
+                                {this.createPeriodicTable()}
+                            </tbody>
                         </table>
                     </li>
                     <li>
@@ -45,11 +48,11 @@ export class BookPeriodicTable extends Component<BookPeriodicTableProp> {
             let row = []
             for (let j = 0; j < BookPeriodicTable.NB_COL; j++) {
                 if (books[i] && books[i][j])
-                    row.push(<td>{books[i][j]}</td>)
+                    row.push(<td key={Key.getKey("book", (i.toString()) + (j.toString()))}>{books[i][j]}</td>)
                 else
-                    row.push(<td></td>)
+                    row.push(<td key={Key.getKey("book", (i.toString()) + (j.toString()))}></td>)
             }
-            table.push(<tr>{row}</tr>)
+            table.push(<tr key={Key.getKey("row", i.toString())}>{row}</tr>)
         }
         return table;
     }

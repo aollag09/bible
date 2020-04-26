@@ -5,6 +5,7 @@ import { Versions } from "../../../common/generated/services/version/version_pb"
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import '../../resources/style/selector.css';
 import { VersionBox } from "./VersionBox";
+import { Key } from '../../../common/utils/key';
 
 
 type VersionFetcherProp = {
@@ -34,7 +35,7 @@ export class VersionFetcher extends Component<VersionFetcherProp> {
             let column: JSX.Element[] = []
 
             column.push(
-                <td key={this.getKey("language", language)} className="version-language-td">
+                <td key={Key.getKey("language", language)} className="version-language-td">
                     <span className="version-language">
                         {language}
                     </span>
@@ -52,8 +53,8 @@ export class VersionFetcher extends Component<VersionFetcherProp> {
                     </li>)
                 }
             });
-            column.push(<td key={this.getKey("language-list", language)} className="version-list-language"><ul>{listVersion}</ul></td>)
-            tableLanguages.push(<tr key={this.getKey("language-table", language)}>{column}</tr>)
+            column.push(<td key={Key.getKey("language-list", language)} className="version-list-language"><ul>{listVersion}</ul></td>)
+            tableLanguages.push(<tr key={Key.getKey("language-table", language)}>{column}</tr>)
         })
 
         return (
@@ -65,10 +66,6 @@ export class VersionFetcher extends Component<VersionFetcherProp> {
                 </table>
             </div>
         );
-    }
-
-    private getKey(prefix: string, value: string): string {
-        return "key-" + prefix + "-" + value;
     }
 
 };
