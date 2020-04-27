@@ -1,3 +1,5 @@
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Explore } from '../explore';
@@ -9,12 +11,24 @@ import { Search } from '../search';
 import './resources/style/application.css';
 
 
+export function App() {
 
-export class App extends React.Component {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-  render() {
-    return (
+  const theme = React.useMemo(
+    () =>
+      createMuiTheme({
+        palette: {
+          type: prefersDarkMode ? 'dark' : 'light',
+        },
+      }),
+    [prefersDarkMode],
+  );
 
+
+  return (
+
+    <ThemeProvider theme={theme}>
       <Router>
 
         <div className="bible-site-container">
@@ -38,8 +52,8 @@ export class App extends React.Component {
 
         </div>
       </Router>
+    </ThemeProvider>
 
-    );
-  }
+  );
 
 }

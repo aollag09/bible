@@ -25,26 +25,31 @@ export default function TagFactory() {
 
     return (
         <div className="tag-factory">
+            <h2> Create Tag</h2>
             <Grid item sm={12} md={6}>
                 <div className={classes.toggleContainer}>
                     <ToggleButtonGroup
+                        className="tag-factory-toggle-button-group"
                         value={tagType}
                         exclusive
                         onChange={handleAlignment}
                         aria-label="tag type">
-                        <ToggleButton value="what" aria-label="tag type what">
+                        <ToggleButton
+                            className="tag-factory-toggle-button"
+                            value="what"
+                            aria-label="tag type what">
                             <p>What</p>
                         </ToggleButton>
-                        <ToggleButton value="who" aria-label="tag type who">
+                        <ToggleButton className="tag-factory-toggle-button" value="who" aria-label="tag type who">
                             <p>Who</p>
                         </ToggleButton>
-                        <ToggleButton value="where" aria-label="tag type where">
+                        <ToggleButton className="tag-factory-toggle-button" value="where" aria-label="tag type where">
                             <p>Where</p>
                         </ToggleButton>
-                        <ToggleButton value="when" aria-label="tag type when" >
+                        <ToggleButton className="tag-factory-toggle-button" value="when" aria-label="tag type when" >
                             <p>When</p>
                         </ToggleButton>
-                        <ToggleButton value="how" aria-label="tag type how" >
+                        <ToggleButton className="tag-factory-toggle-button" value="how" aria-label="tag type how" >
                             <p>How</p>
                         </ToggleButton>
                     </ToggleButtonGroup>
