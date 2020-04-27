@@ -158,8 +158,8 @@
     border-radius: .25em;
 }
 
-.scripture-clear-image{
-    width: 2.5em;
+.scripture-clear-icon{
+    font-size: large;
     margin:auto;
     opacity: .4;
     -ms-filter: "alpha(Opacity=40)";
@@ -168,7 +168,7 @@
     -webkit-transform: scale(0.75,.75);
 }
 
-.scripture-remove-selection:hover .scripture-clear-image{
+.scripture-remove-selection:hover .scripture-clear-icon{
     opacity: 1;
     -ms-filter: none;
     filter: none;

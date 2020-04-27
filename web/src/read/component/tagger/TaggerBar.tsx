@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import close from "../../resources/image/close.png"
+import TagFactory from "./TagFactory";
+import CloseIcon from '@material-ui/icons/Close';
 
 type TaggerProp = {
     showTagger: boolean,
@@ -15,14 +16,13 @@ export class TaggerBar extends Component<TaggerProp>{
                 <button
                     className="tagger-close-button"
                     onClick={this.props.cleanSelection}>
-                    <img
-                        className="tagger-close-button-image"
-                        src={close}
-                        alt="close"
-                    >
-                    </img>
+                    <CloseIcon
+                        aria-label="close tagger bar"
+                        fontSize="large"
+                        className="tagger-close-button-image">
+                    </CloseIcon>
                 </button>
-                <h2> Tagger</h2>
+                <TagFactory />
             </div>
         );
     }

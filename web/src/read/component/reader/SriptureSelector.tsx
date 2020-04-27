@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { ScriptureSelectBook } from "./ScriptureSelectBook";
 import { ScriptureSelectVersion } from "./ScriptureSelectVersion";
 import { ScriptureSelectChapter } from "./ScriptureSelectChapter";
-import clear from "../../resources/image/clear.png"
+import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
 
 type ScriptureSelectorProp = {
     version: number,
@@ -22,7 +22,10 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                         <button
                             className="scripture-remove-selection"
                             onClick={this.props.showReaderSelector}>
-                            <img className="scripture-clear-image" alt="clear selection" src={clear} ></img>
+                            <SettingsBackupRestoreIcon
+                                className="scripture-clear-icon" 
+                                fontSize="large">
+                            </SettingsBackupRestoreIcon>
                         </button>
                     </li>
                     <li>
