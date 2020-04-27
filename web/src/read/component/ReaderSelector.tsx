@@ -1,73 +1,51 @@
-import React, { Component, Suspense } from "react";
-import { Selector } from "./selector/Selector"
-import { ReaderTagger } from "./reader/ReaderTagger";
+import React, { Suspense, useState } from "react";
 import ErrorBoundary from "react-error-boundary";
 import { Loading } from "../../common/utils/component/Loading";
+import { ReaderTagger } from "./reader/ReaderTagger";
+import { Selector } from "./selector/Selector";
 
-
-type ReaderSelectorState = {
-
-    /** Switch between the selector and the reader with possible values {"selector", "reader"} */
-    switch: string,
-
-    /** VBC Scripture Identifier */
-    version: number,
-    book: number,
-    chapter: number,
-
-}
-
-export class ReaderSelector extends Component<{}, ReaderSelectorState> {
+export class ReaderSelectorConst {
 
     public static SWITCH_SELECTOR = "selector"
     public static SWITCH_READER = "reader"
+}
 
-    constructor(props: Readonly<{}>) {
-        super(props)
+export function ReaderSelector() {
 
-        // Default state values
-        this.state = {
-            version: 1,
-            book: 1,
-            chapter: 1,
-            switch: ReaderSelector.SWITCH_SELECTOR
-        }
+    const [readerSelectorSwitch, setSwitch] = useState(ReaderSelectorConst.SWITCH_SELECTOR);
+    const [version, setVersion] = useState(1);
+    const [book, setBook] = useState(1);
+    const [chapter, setChapter] = useState(1);
+
+
+    const read = (version: number, book: number, chapter: number) => {
+        setSwitch(ReaderSelectorConst.SWITCH_READER)
+        setVersion(version)
+        setBook(book)
+        setChapter(chapter)
     }
 
-    read(version: number, book: number, chapter: number) {
-        this.setState({
-            switch: ReaderSelector.SWITCH_READER,
-            version: version,
-            book: book,
-            chapter: chapter
-        })
+    const showReaderSelector = () => {
+        setSwitch(ReaderSelectorConst.SWITCH_SELECTOR)
     }
 
-    showReaderSelector() {
-        this.setState({
-            switch: ReaderSelector.SWITCH_SELECTOR
-        })
-    }
+    return (
+        <Suspense fallback={<Loading text="Loading ..." />}>
+            <ErrorBoundary>
+                <div className="reader-selector">
 
-    render() {
-        return (
-            <Suspense fallback={<Loading text="Loading ..." />}>
-                <ErrorBoundary>
-                    <div className="reader-selector">
-
-                        <Selector
-                            read={(version, book, chapter) => this.read(version, book, chapter)}
-                            switch={this.state.switch} />
-                        <ReaderTagger
-                            showReaderSelector={()=>this.showReaderSelector()}
-                            read={(version, book, chapter) => this.read(version, book, chapter)}
-                            switch={this.state.switch}
-                            book={this.state.book}
-                            chapter={this.state.chapter}
-                            version={this.state.version} />
-                    </div>
-                </ErrorBoundary>
-            </Suspense>
-        );
-    }
+                    <Selector
+                        read={read}
+                        switch={readerSelectorSwitch} />
+                    <ReaderTagger
+                        showReaderSelector={showReaderSelector}
+                        read={read}
+                        switch={readerSelectorSwitch}
+                        book={book}
+                        chapter={chapter}
+                        version={version} />
+                </div>
+            </ErrorBoundary>
+        </Suspense>
+    );
 }

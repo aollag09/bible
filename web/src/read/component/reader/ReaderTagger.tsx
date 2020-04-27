@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../resources/style/read.css";
 import "../../resources/style/tagger.css";
-import { ReaderSelector } from "../ReaderSelector";
+import { ReaderSelectorConst } from "../ReaderSelector";
 import { TaggerBar } from '../tagger/TaggerBar';
 import { Reader } from "./Reader";
 
@@ -32,7 +32,7 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
 
 
     render() {
-        if (this.props.switch === ReaderSelector.SWITCH_READER) {
+        if (this.props.switch === ReaderSelectorConst.SWITCH_READER) {
 
             return (
                 <div className="reader-tagger">

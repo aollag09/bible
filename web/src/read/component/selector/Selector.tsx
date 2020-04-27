@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { VersionSelector } from "./VersionSelector";
 import { BookSelector } from "./BookSelector";
 import { ChapterSelector } from "./ChapterSelector";
-import { ReaderSelector } from "../ReaderSelector"
+import { ReaderSelectorConst } from "../ReaderSelector"
 
 type SelectorProp = {
     switch: string,
@@ -88,7 +88,7 @@ export class Selector extends Component<SelectorProp, SelectorState> {
     }
 
     render() {
-        if (this.props.switch === ReaderSelector.SWITCH_SELECTOR) {
+        if (this.props.switch === ReaderSelectorConst.SWITCH_SELECTOR) {
             return (
                 <div className="selector">
                     <VersionSelector
