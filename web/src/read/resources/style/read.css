@@ -100,7 +100,7 @@
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background: #1e1e1e;
+  background: #111111;;
   background-image: none;
   position: relative;
   display: flex;
@@ -113,6 +113,7 @@
 
 .scripture-selector select:hover {
     color: #787878;
+    background: #1e1e1e;
   }
 
 .scripture-selector select {
