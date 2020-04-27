@@ -16,11 +16,6 @@
     top: 50%;
 }
 
-
-.reader-chapter-div{
-
-}
-
 .reader-chapter-button{
     padding: 0.7em;
     height: 4em;
@@ -30,7 +25,6 @@
     bottom:5%;
     margin:1em;
 }
-
 
 .reader-previous-chapter-button{
     left:10%;
@@ -52,9 +46,6 @@
     text-align: justify;
     letter-spacing: 0.05em;
     line-height: 4.5em;
-}
-
-.scripture-fetcher{
 }
 
 .scripture-verse{

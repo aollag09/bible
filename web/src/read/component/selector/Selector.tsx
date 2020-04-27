@@ -80,6 +80,10 @@ export class Selector extends Component<SelectorProp, SelectorState> {
 
     handleSubmit = () => {
         const { version, book, chapter } = this.state
+        // Reset state
+        this.setState({
+            step: 1
+        })
         this.props.read(version, book, chapter)
     }
 

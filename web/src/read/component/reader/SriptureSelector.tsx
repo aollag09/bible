@@ -9,6 +9,7 @@ type ScriptureSelectorProp = {
     book: number,
     chapter: number,
     read: (version: number, book: number, chapter: number) => void
+    showReaderSelector: () => void
 }
 
 export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
@@ -48,7 +49,9 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                         </Suspense>
                     </li>
                     <li>
-                        <button className="scripture-remove-selection">
+                        <button
+                            className="scripture-remove-selection"
+                            onClick={this.props.showReaderSelector}>
                             <img className="scripture-clear-image" alt="clear selection" src={clear} ></img>
                         </button>
                     </li>

@@ -15,6 +15,7 @@ type ReaderProp = {
     selectedVerses: Array<string>
     read: (version: number, book: number, chapter: number) => void
     onSelectVerse: (id: string) => void
+    showReaderSelector: () => void
 }
 
 
@@ -32,6 +33,7 @@ export class Reader extends React.Component<ReaderProp> {
                         book={this.props.book}
                         chapter={this.props.chapter}
                         read={this.props.read}
+                        showReaderSelector={this.props.showReaderSelector}
                     />
                 </div>
 

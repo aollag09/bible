@@ -11,6 +11,7 @@ type ReaderTaggerProp = {
     book: number,
     chapter: number,
     read: (version: number, book: number, chapter: number) => void
+    showReaderSelector: () => void
 }
 
 type ReaderTaggerState = {
@@ -43,6 +44,7 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
                         book={this.props.book}
                         chapter={this.props.chapter}
                         selectedVerses={this.state.selectedVerses}
+                        showReaderSelector={this.props.showReaderSelector}
                         read={(version, book, chapter) => this.read(version, book, chapter)}
                         onSelectVerse={(id) => this.onSelectVerse(id)}>
                     </Reader>

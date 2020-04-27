@@ -43,7 +43,7 @@ export class ReaderSelector extends Component<{}, ReaderSelectorState> {
         })
     }
 
-    select() {
+    showReaderSelector() {
         this.setState({
             switch: ReaderSelector.SWITCH_SELECTOR
         })
@@ -59,6 +59,7 @@ export class ReaderSelector extends Component<{}, ReaderSelectorState> {
                             read={(version, book, chapter) => this.read(version, book, chapter)}
                             switch={this.state.switch} />
                         <ReaderTagger
+                            showReaderSelector={()=>this.showReaderSelector()}
                             read={(version, book, chapter) => this.read(version, book, chapter)}
                             switch={this.state.switch}
                             book={this.state.book}
