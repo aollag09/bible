@@ -19,6 +19,13 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
             <div className="reader-top-selector scripture-selector" >
                 <ul>
                     <li>
+                        <button
+                            className="scripture-remove-selection"
+                            onClick={this.props.showReaderSelector}>
+                            <img className="scripture-clear-image" alt="clear selection" src={clear} ></img>
+                        </button>
+                    </li>
+                    <li>
                         <Suspense fallback="Loading versions..." >
                             <ScriptureSelectVersion
                                 version={this.props.version}
@@ -48,13 +55,7 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                             />
                         </Suspense>
                     </li>
-                    <li>
-                        <button
-                            className="scripture-remove-selection"
-                            onClick={this.props.showReaderSelector}>
-                            <img className="scripture-clear-image" alt="clear selection" src={clear} ></img>
-                        </button>
-                    </li>
+
                 </ul>
             </div>
         )

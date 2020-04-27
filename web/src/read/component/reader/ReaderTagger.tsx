@@ -36,7 +36,11 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
 
             return (
                 <div className="reader-tagger">
-                    <TaggerBar showTagger={this.state.showTagger}></TaggerBar>
+                    <TaggerBar
+                        showTagger={this.state.showTagger}
+                        cleanSelection={() => this.cleanSelection()}
+                    >
+                    </TaggerBar>
 
                     <Reader
                         showTagger={this.state.showTagger}
