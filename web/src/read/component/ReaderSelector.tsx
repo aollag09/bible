@@ -3,6 +3,7 @@ import ErrorBoundary from "react-error-boundary";
 import { Loading } from "../../common/utils/component/Loading";
 import { ReaderTagger } from "./reader/ReaderTagger";
 import { Selector } from "./selector/Selector";
+import Cookies from 'universal-cookie';
 
 export class ReaderSelectorConst {
 
@@ -12,13 +13,27 @@ export class ReaderSelectorConst {
 
 export function ReaderSelector() {
 
-    const [readerSelectorSwitch, setSwitch] = useState(ReaderSelectorConst.SWITCH_SELECTOR);
-    const [version, setVersion] = useState(1);
-    const [book, setBook] = useState(1);
-    const [chapter, setChapter] = useState(1);
+    const cookies = new Cookies()
+
+    let defaultSwitch = ReaderSelectorConst.SWITCH_SELECTOR
+    if (cookies.get("reader-selector-switch"))
+        defaultSwitch = cookies.get("reader-selector-switch")
+
+    const [readerSelectorSwitch, setSwitch] = useState(defaultSwitch);
+    const [version, setVersion] = useState(cookies.get("version"));
+    const [book, setBook] = useState(cookies.get("book"));
+    const [chapter, setChapter] = useState(cookies.get("chapter"));
 
 
     const read = (version: number, book: number, chapter: number) => {
+
+        // update cookies
+        cookies.set("reader-selector-switch", ReaderSelectorConst.SWITCH_READER, { path: '/' })
+        cookies.set("version", version, { path: '/' })
+        cookies.set("book", book, { path: '/' })
+        cookies.set("chapter", chapter, { path: '/' })
+
+        // update state
         setSwitch(ReaderSelectorConst.SWITCH_READER)
         setVersion(version)
         setBook(book)
@@ -26,6 +41,11 @@ export function ReaderSelector() {
     }
 
     const showReaderSelector = () => {
+        cookies.set("reader-selector-switch", ReaderSelectorConst.SWITCH_SELECTOR, { path: '/' })
+        cookies.remove("version")
+        cookies.remove("book")
+        cookies.remove("chapter")
+
         setSwitch(ReaderSelectorConst.SWITCH_SELECTOR)
     }
 
