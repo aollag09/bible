@@ -25,8 +25,8 @@ export default function TagFactory() {
 
     return (
         <div className="tag-factory">
-            <h2> Create Tag</h2>
-            <Grid item sm={12} md={6}>
+            <h3> Create Tag</h3>
+            <Grid item sm={12} md={12}>
                 <div className={classes.toggleContainer}>
                     <ToggleButtonGroup
                         className="tag-factory-toggle-button-group"
@@ -40,16 +40,28 @@ export default function TagFactory() {
                             aria-label="tag type what">
                             <p>What</p>
                         </ToggleButton>
-                        <ToggleButton className="tag-factory-toggle-button" value="who" aria-label="tag type who">
+                        <ToggleButton
+                            className="tag-factory-toggle-button"
+                            value="who"
+                            aria-label="tag type who">
                             <p>Who</p>
                         </ToggleButton>
-                        <ToggleButton className="tag-factory-toggle-button" value="where" aria-label="tag type where">
+                        <ToggleButton
+                            className="tag-factory-toggle-button"
+                            value="where"
+                            aria-label="tag type where">
                             <p>Where</p>
                         </ToggleButton>
-                        <ToggleButton className="tag-factory-toggle-button" value="when" aria-label="tag type when" >
+                        <ToggleButton
+                            className="tag-factory-toggle-button"
+                            value="when"
+                            aria-label="tag type when" >
                             <p>When</p>
                         </ToggleButton>
-                        <ToggleButton className="tag-factory-toggle-button" value="how" aria-label="tag type how" >
+                        <ToggleButton
+                            className="tag-factory-toggle-button"
+                            value="how"
+                            aria-label="tag type how" >
                             <p>How</p>
                         </ToggleButton>
                     </ToggleButtonGroup>
