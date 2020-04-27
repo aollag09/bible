@@ -147,3 +147,38 @@
     color: #787878;
 }
 
+.scripture-remove-selection {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background-image: none;
+    position: relative;
+    display: flex;
+    width: 3em;
+    height: 3em;
+    margin: 0.5em;
+    padding: 0;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+.scripture-clear-image{
+    width: 2.5em;
+    margin:auto;
+    opacity: .4;
+    -ms-filter: "alpha(Opacity=40)";
+    filter: alpha(opacity=40);
+    transform: scale(0.75,.75);
+    -webkit-transform: scale(0.75,.75);
+}
+
+.scripture-remove-selection:hover .scripture-clear-image{
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+}

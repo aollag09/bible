@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { ScriptureSelectBook } from "./ScriptureSelectBook";
 import { ScriptureSelectVersion } from "./ScriptureSelectVersion";
 import { ScriptureSelectChapter } from "./ScriptureSelectChapter";
-
+import clear from "../../resources/image/clear.png"
 
 type ScriptureSelectorProp = {
     version: number,
@@ -46,6 +46,11 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                                 read={this.props.read}
                             />
                         </Suspense>
+                    </li>
+                    <li>
+                        <button className="scripture-remove-selection">
+                            <img className="scripture-clear-image" alt="clear selection" src={clear} ></img>
+                        </button>
                     </li>
                 </ul>
             </div>
