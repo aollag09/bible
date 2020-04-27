@@ -15,7 +15,7 @@ type ReaderTaggerProp = {
 
 type ReaderTaggerState = {
     showTagger: boolean,
-    selectedVerses: Array<String>
+    selectedVerses: Array<string>
 }
 
 export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>{
@@ -24,9 +24,51 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
     constructor(props: ReaderTaggerProp) {
         super(props)
         this.state = {
-            selectedVerses: new Array(),
+            selectedVerses: new Array<string>(),
             showTagger: false
         }
+    }
+
+
+    render() {
+        if (this.props.switch === ReaderSelector.SWITCH_READER) {
+
+            return (
+                <div className="reader-tagger">
+                    <TaggerBar showTagger={this.state.showTagger}></TaggerBar>
+
+                    <Reader
+                        showTagger={this.state.showTagger}
+                        version={this.props.version}
+                        book={this.props.book}
+                        chapter={this.props.chapter}
+                        selectedVerses={this.state.selectedVerses}
+                        read={(version, book, chapter) => this.read(version, book, chapter)}
+                        onSelectVerse={(id) => this.onSelectVerse(id)}>
+                    </Reader>
+
+                </div >
+            )
+        } else {
+            return null;
+        }
+    }
+
+    read(version: number, book: number, chapter: number) {
+        this.scrollTop()
+        this.cleanSelection()
+        this.props.read(version, book, chapter)
+    }
+
+    scrollTop() {
+        window.scrollTo(0, 0)
+    }
+
+    cleanSelection() {
+        this.setState({
+            selectedVerses: new Array<string>(),
+            showTagger: false
+        })
     }
 
     onSelectVerse(id: string) {
@@ -53,37 +95,6 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
         })
     }
 
-
-    render() {
-        if (this.props.switch === ReaderSelector.SWITCH_READER) {
-
-            return (
-                <div className="reader-tagger">
-                    <TaggerBar showTagger={this.state.showTagger}></TaggerBar>
-
-                    <Reader
-                        showTagger={this.state.showTagger}
-                        version={this.props.version}
-                        book={this.props.book}
-                        chapter={this.props.chapter}
-                        read={this.props.read}
-                        onSelectVerse={(id) => this.onSelectVerse(id)}>
-                    </Reader>
-
-                </div >
-            )
-        } else {
-            return null;
-        }
-    }
-
-    scrollTop() {
-        window.scrollTo(0, 0)
-    }
-
-    componentDidUpdate() {
-        this.scrollTop()
-    }
 
 
 }

@@ -1,30 +1,24 @@
-import React, { Component } from 'react'
-import useFetch from 'fetch-suspense'
-import { BibleAPI } from '../../../common/utils/bibleAPI';
-import { Scriptures } from '../../../common/generated/services/scriptures/scriptures_pb'
+import useFetch from 'fetch-suspense';
 import { Message } from 'google-protobuf';
+import memoize from "memoize-one";
+import React, { Component } from 'react';
+import { Scriptures } from '../../../common/generated/services/scriptures/scriptures_pb';
+import { BibleAPI } from '../../../common/utils/bibleAPI';
 import { Key } from '../../../common/utils/key';
+
 
 type ScriptureFetcherProp = {
     version: number,
     book: number,
     chapter: number,
+    selectedVerses: Array<string>
     onSelectVerse: (id: string) => void
 }
 
 export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
 
     render() {
-        const response = useFetch(
-            BibleAPI.url +
-            "scriptures/" +
-            this.props.version +
-            "/book/" +
-            this.props.book +
-            "/chapter/" +
-            this.props.chapter)
-
-        const scriptures = Scriptures.deserializeBinary(Message.bytesAsU8(response.toString()))
+        let scriptures = this.getScriptures(this.props.version, this.props.book, this.props.chapter)
 
         let scriptureSpans: JSX.Element[] = []
         scriptures.getScripturesList().forEach(scripture => {
@@ -36,7 +30,7 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
                     <div className="scripture-verse-id-box">
                         <span className="scripture-verse-id"> {scripture.getVerse()}</span>
                     </div>
-                    <span className="scripture-verse-text"> {scripture.getScripture()}</span>
+                    <span className={this.getClassName(scripture.getId())}> {scripture.getScripture()}</span>
                 </span>)
         })
 
@@ -47,7 +41,28 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
         );
     }
 
+    getScriptures = memoize(
+        (version: number, book: number, chapter: number) => {
+            const response = useFetch(
+                BibleAPI.url +
+                "scriptures/" +
+                version +
+                "/book/" +
+                book +
+                "/chapter/" +
+                chapter)
+            return Scriptures.deserializeBinary(Message.bytesAsU8(response.toString()))
+        })
+
     handleClick(verseId: string) {
         alert(verseId)
     }
+
+    getClassName(id: string) {
+        if (this.props.selectedVerses.includes(id))
+            return "scripture-verse-text scripture-verse-text-selected"
+        else
+            return "scripture-verse-text scripture-verse-text-not-selected"
+    }
+
 }

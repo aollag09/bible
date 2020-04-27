@@ -8,6 +8,7 @@ type ScriptureReaderProp = {
     version: number,
     book: number,
     chapter: number,
+    selectedVerses: Array<string>
     onSelectVerse: (id: string) => void
 }
 
@@ -22,6 +23,7 @@ export class ScriptureReader extends Component<ScriptureReaderProp> {
                             version={this.props.version}
                             book={this.props.book}
                             chapter={this.props.chapter}
+                            selectedVerses={this.props.selectedVerses}
                             onSelectVerse={this.props.onSelectVerse} />
                     </ErrorBoundary>
                 </Suspense>

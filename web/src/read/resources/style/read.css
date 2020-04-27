@@ -84,7 +84,13 @@
     color: #a8a8a8;
 }
 
-.scripture-verse:hover .scripture-verse-text{
+.scripture-verse:hover .scripture-verse-text-not-selected{
+    border-bottom: 0.06em solid #787878;
+    border-bottom-style: dashed;
+}
+
+
+.scripture-verse-text-selected{
     border-bottom: 0.06em solid #787878;
 }
 
