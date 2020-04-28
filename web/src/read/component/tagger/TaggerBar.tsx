@@ -1,14 +1,18 @@
 import React, { Component } from "react";
-import TagFactory from "./TagFactory";
+import { TagToggle } from "./TagToggle";
 import CloseIcon from '@material-ui/icons/Close';
 
-type TaggerProp = {
+type TaggerBarProp = {
     showTagger: boolean,
+    book: number,
+    chapter: number,
+    start: string|null,
+    end: string|null,
     cleanSelection: () => void
 }
 
 
-export class TaggerBar extends Component<TaggerProp>{
+export class TaggerBar extends Component<TaggerBarProp>{
 
     render() {
         return (
@@ -22,7 +26,11 @@ export class TaggerBar extends Component<TaggerProp>{
                         className="tagger-close-button-image">
                     </CloseIcon>
                 </button>
-                <TagFactory />
+                <TagToggle 
+                    book={this.props.book}
+                    chapter={this.props.chapter}
+                    start={this.props.start}
+                    end={this.props.end}/>
             </div>
         );
     }

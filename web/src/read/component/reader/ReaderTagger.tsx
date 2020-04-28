@@ -38,6 +38,10 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
                 <div className="reader-tagger">
                     <TaggerBar
                         showTagger={this.state.showTagger}
+                        book={this.props.book}
+                        chapter={this.props.chapter}
+                        start={this.getStart()}
+                        end={this.getEnd()}
                         cleanSelection={() => this.cleanSelection()}
                     >
                     </TaggerBar>
@@ -77,6 +81,20 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
         })
     }
 
+    getStart(): string | null {
+        let start = null;
+        if (this.state.selectedVerses.length > 0)
+            start = this.state.selectedVerses[0]
+        return start;
+    }
+
+    getEnd(): string | null {
+        let end = null;
+        if (this.state.selectedVerses.length > 0)
+            end = this.state.selectedVerses[this.state.selectedVerses.length - 1]
+        return end;
+    }
+
     onSelectVerse(id: string) {
 
         let selected = this.state.selectedVerses.slice()
@@ -85,6 +103,9 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
             selected.splice(index, 1)
         else
             selected.push(id)
+
+        // Sort selected verses to find in o(1) start & end
+        selected.sort()
 
         let showTag = selected.length > 0
 

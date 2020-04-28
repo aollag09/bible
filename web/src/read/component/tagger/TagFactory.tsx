@@ -1,72 +1,47 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-
-const useStyles = makeStyles((theme) => ({
-    toggleContainer: {
-        margin: theme.spacing(2, 0),
-    },
-}));
+import React from "react";
+import { TextField } from '@material-ui/core';
 
 
-export default function TagFactory() {
-    const [tagType, setTagType] = React.useState('tagType');
+type TagFactoryProps = {
+    tagType: string | null,
+    book: number,
+    chapter: number,
+    start: string | null,
+    end: string | null,
+}
+
+export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
+
+    const getVerseNb = (verseId: string | null) => {
+        if (verseId)
+            return parseInt(verseId.slice(-3))
+        else
+            return 0;
+    }
 
 
-    const handleAlignment = (event: React.MouseEvent<HTMLElement, MouseEvent>, newTagType: string | null) => {
-        if (newTagType !== null) {
-            setTagType(newTagType);
-        }
-    };
+    if (props.tagType) {
 
-    const classes = useStyles();
+        return (
+            <div className="tag-factory">
+                <form className="tag-factory-form">
 
-    return (
-        <div className="tag-factory">
-            <h3> Create Tag</h3>
-            <Grid item sm={12} md={12}>
-                <div className={classes.toggleContainer}>
-                    <ToggleButtonGroup
-                        className="tag-factory-toggle-button-group"
-                        value={tagType}
-                        exclusive
-                        onChange={handleAlignment}
-                        aria-label="tag type">
-                        <ToggleButton
-                            className="tag-factory-toggle-button"
-                            value="what"
-                            aria-label="tag type what">
-                            <p>What</p>
-                        </ToggleButton>
-                        <ToggleButton
-                            className="tag-factory-toggle-button"
-                            value="who"
-                            aria-label="tag type who">
-                            <p>Who</p>
-                        </ToggleButton>
-                        <ToggleButton
-                            className="tag-factory-toggle-button"
-                            value="where"
-                            aria-label="tag type where">
-                            <p>Where</p>
-                        </ToggleButton>
-                        <ToggleButton
-                            className="tag-factory-toggle-button"
-                            value="when"
-                            aria-label="tag type when" >
-                            <p>When</p>
-                        </ToggleButton>
-                        <ToggleButton
-                            className="tag-factory-toggle-button"
-                            value="how"
-                            aria-label="tag type how" >
-                            <p>How</p>
-                        </ToggleButton>
-                    </ToggleButtonGroup>
-                </div>
-            </Grid>
-        </div>
-    );
+                    <TextField disabled id="filled-disabled-number" label="Book" defaultValue={props.book} />
+                    <TextField disabled id="filled-disabled-number" label="Chapter" defaultValue={props.chapter} />
+
+                    <TextField disabled id="filled-disabled" label="Start" defaultValue={getVerseNb(props.start)} />
+                    <TextField disabled id="filled-disabled" label="End" defaultValue={getVerseNb(props.end)} />
+
+                    <TextField id="filled" label="Type" defaultValue="" />
+                    <TextField id="filled" label="Sub Type" defaultValue="" />
+
+                    <TextField required id="filled" label="Sub Type" defaultValue="" />
+
+
+
+                </form>
+
+            </div>
+        );
+    } else return null;
 }
