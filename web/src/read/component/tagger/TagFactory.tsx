@@ -17,16 +17,14 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
 
         return (
             <div className="tag-factory">
-                <form className="tag-factory-form">
+                <div className="tag-factory-form">
 
-           
+
                     <TextField id="type" label="Type" variant="filled" defaultValue="" />
                     <TextField id="subtype" label="Sub Type" variant="filled" defaultValue="" />
-
                     <TextField required id="filled" label="Sub Type" defaultValue="" />
 
-
-                </form>
+                </div>
 
             </div>
         );
