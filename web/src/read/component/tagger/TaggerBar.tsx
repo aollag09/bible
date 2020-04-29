@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import { TagToggle } from "./TagToggle";
 import CloseIcon from '@material-ui/icons/Close';
+import React, { Component } from "react";
 import { TaggerForm } from "./TaggerForm";
 import { TaggerSelection } from "./TaggerSelection";
 
