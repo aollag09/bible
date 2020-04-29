@@ -34,7 +34,6 @@ export const TagToggle: React.FunctionComponent<TagToggleProp> = props => {
 
     return (
         <div className="tag-factory">
-            <h3> Create Tag</h3>
             <Grid item sm={12} md={12}>
                 <div className={classes.toggleContainer}>
                     <ToggleButtonGroup

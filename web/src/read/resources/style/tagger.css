@@ -13,6 +13,10 @@
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
   }
 
+  .tagger-sidebar h3{
+    margin: 1em;
+  }
+
   .tagger-sidebar-opened{
     width: 45em;
   }
@@ -26,10 +30,7 @@
     width: 2em;
   }
 
-  .tag-factory-toggle-button-group{
-
-  }
-
-  .tag-factory-toggle-button{
-    
+  .tagger-selection-grid{
+    font-size: 1.5em;
+    color: #505050;
   }

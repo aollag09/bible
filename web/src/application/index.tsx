@@ -13,7 +13,7 @@ import './resources/style/application.css';
 
 export function App() {
 
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: light)');
 
   const theme = React.useMemo(
     () =>
