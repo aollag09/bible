@@ -1,9 +1,11 @@
-import { Button, TextField, makeStyles, Theme, createStyles } from '@material-ui/core';
+import { Button, createStyles, makeStyles, TextField, Theme } from '@material-ui/core';
 import axios from "axios";
+import { Formik } from 'formik';
 import React, { useState } from "react";
 import { HowTag, Tag, WhatTag, WhenTag, WhereTag, WhoTag } from "../../../common/generated/services/tag/tag_pb";
 import { ProtoUtils } from "../../../common/ProtoUtils";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
+
 
 type TagFactoryProps = {
     tagType: string | null,
@@ -13,12 +15,31 @@ type TagFactoryProps = {
     end: string | null,
 }
 
+
+interface TagValues {
+    type: string,
+    subtype: string,
+    what: string,
+    whatDetails: string,
+
+    who: number,
+
+    where: string,
+    latitude: number,
+    longitude: number,
+
+    year: number,
+
+    how: string,
+    howDetails: string
+}
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             '& .MuiTextField-root': {
                 margin: theme.spacing(1),
-                width: '30em',
+                wnameth: '30em',
             },
         },
     }),
@@ -26,79 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
 
-    const [type, setType] = useState<string>();
-    const [subtype, setSubtype] = useState<string>();
-
-    const [what, setWhat] = useState<string>();
-    const [whatDetails, setWhatDetails] = useState<string>();
-
-    const [who, setWho] = useState<number>();
-
-    const [where, setWhere] = useState<string>();
-    const [latitude, setLatitude] = useState<number>();
-    const [longitude, setLongitude] = useState<number>();
-
-    const [year, setYear] = useState<number>();
-
-    const [how, setHow] = useState<string>();
-    const [howDetails, setHowDetails] = useState<string>()
-
-    const renderTagType = (tagType: string) => {
-        switch (tagType) {
-            case 'what':
-                return (
-                    <div className="tag-factory-what">
-                        <TextField required id="what" label="What" variant="filled" defaultValue=""
-                            onChange={(event => { setWhat(event.target.value) })} />
-                        <TextField multiline id="what-details" label="Details" variant="filled" defaultValue=""
-                            onChange={(event => { setWhatDetails(event.target.value) })} />
-
-                    </div>
-                );
-
-            case 'who':
-                return (
-                    <div className="tag-factory-who">
-                        <TextField required id="who" type="number" label="Who" variant="filled" defaultValue=""
-                            onChange={(event => { setWho(parseInt(event.target.value)) })} />
-                    </div>
-                );
-
-            case 'where':
-                return (
-                    <div className="tag-factory-where">
-                        <TextField required id="where" label="Where" variant="filled" defaultValue=""
-                            onChange={(event => { setWhere(event.target.value) })} />
-                        <TextField id="latitude" type="number" variant="filled" label="Latitude" defaultValue=""
-                            onChange={(event => { setLatitude(parseInt(event.target.value)) })} />
-                        <TextField id="longitude" type="number" variant="filled" label="Longitude" defaultValue=""
-                            onChange={(event => { setLongitude(parseInt(event.target.value)) })} />
-                    </div>
-                );
-
-            case 'when':
-                return (
-                    <div className="tag-factory-when">
-                        <TextField id="year" type="number" variant="filled" label="Year" defaultValue=""
-                            onChange={(event => { setYear(parseInt(event.target.value)) })} />
-                    </div>
-                );
-
-            case 'how':
-                return (
-                    <div className="tag-factory-how">
-                        <TextField required id="how" label="How" variant="filled" defaultValue=""
-                            onChange={(event => { setHow(event.target.value) })} />
-                        <TextField multiline id="how-details" label="Details" variant="filled" defaultValue=""
-                            onChange={(event => { setHowDetails(event.target.value) })} />
-
-                    </div>
-                );
-
-            default:
-                return null
-        }
-    }
+    const [tagType, setTagType] = useState<string>();
 
     const getPath = (tagcase: Tag.TagCase): string => {
         switch (+tagcase) {
@@ -113,7 +62,7 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
             case Tag.TagCase.HOWTAG:
                 return "how"
             default:
-                return "invalid"
+                return "invalidname"
         }
     }
 
@@ -127,12 +76,12 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
             .catch(function (error) {
                 console.log(error);
             });
-        
+
     }
 
 
     /** Create the tag */
-    const create = () => {
+    const create = (values: TagValues) => {
         let tag = new Tag()
 
         tag.setBook(props.book)
@@ -140,47 +89,47 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
         tag.setStart(props.start!)
         tag.setEnd(props.end!)
 
-        if (type)
-            tag.setType(type)
-        if (subtype)
-            tag.setSubtype(subtype)
+        if (values.type)
+            tag.setType(values.type)
+        if (values.subtype)
+            tag.setSubtype(values.subtype)
 
         switch (props.tagType) {
             case "what":
                 let whattag = new WhatTag()
-                whattag.setWhat(what!)
-                if (whatDetails)
-                    whattag.setDetails(whatDetails)
+                whattag.setWhat(values.what)
+                if (values.whatDetails)
+                    whattag.setDetails(values.whatDetails)
                 tag.setWhattag(whattag)
                 break;
 
             case "who":
                 let whotag = new WhoTag()
-                whotag.setWho(who!)
+                whotag.setWho(values.who)
                 tag.setWhotag(whotag)
                 break;
 
             case "where":
                 let wheretag = new WhereTag()
-                wheretag.setWhere(where!)
-                if (longitude)
-                    wheretag.setLongitude(longitude)
-                if (latitude)
-                    wheretag.setLatitude(latitude)
+                wheretag.setWhere(values.where)
+                if (values.longitude)
+                    wheretag.setLongitude(values.longitude)
+                if (values.latitude)
+                    wheretag.setLatitude(values.latitude)
                 tag.setWheretag(wheretag)
                 break;
 
             case "when":
                 let when = new WhenTag()
-                when.setYear(year!)
+                when.setYear(values.year)
                 tag.setWhentag(when)
                 break;
 
             case "how":
                 let howtag = new HowTag()
-                howtag.setHow(how!)
-                if (howDetails)
-                    howtag.setDetails(howDetails)
+                howtag.setHow(values.how)
+                if (values.howDetails)
+                    howtag.setDetails(values.howDetails)
                 tag.setHowtag(howtag)
                 break;
         }
@@ -189,29 +138,123 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
         createTag(tag)
     }
 
+    const renderTagType = (handleChange: any) => {
+        switch (tagType) {
+            case 'what':
+                return (
+                    <div className="tag-factory-what">
+                        <TextField required name="what" label="What" variant="filled" defaultValue=""
+                            onChange={handleChange} />
+                        <TextField multiline name="what-details" label="Details" variant="filled" defaultValue=""
+                            onChange={handleChange} />
+
+                    </div>
+                );
+
+            case 'who':
+                return (
+                    <div className="tag-factory-who">
+                        <TextField required name="who" type="number" label="Who" variant="filled" defaultValue=""
+                            onChange={handleChange} />
+                    </div>
+                );
+
+            case 'where':
+                return (
+                    <div className="tag-factory-where">
+                        <TextField required name="where" label="Where" variant="filled" defaultValue=""
+                            onChange={handleChange} />
+                        <TextField name="latitude" type="number" variant="filled" label="Latitude" defaultValue=""
+                            onChange={handleChange} />
+                        <TextField name="longitude" type="number" variant="filled" label="Longitude" defaultValue=""
+                            onChange={handleChange} />
+                    </div>
+                );
+
+            case 'when':
+                return (
+                    <div className="tag-factory-when">
+                        <TextField name="year" type="number" variant="filled" label="Year" defaultValue=""
+                            onChange={handleChange} />
+                    </div>
+                );
+
+            case 'how':
+                return (
+                    <div className="tag-factory-how">
+                        <TextField required name="how" label="How" variant="filled" defaultValue=""
+                            onChange={handleChange} />
+                        <TextField multiline name="how-details" label="Details" variant="filled" defaultValue=""
+                            onChange={handleChange} />
+
+                    </div>
+                );
+
+            default:
+                return null
+        }
+    }
+
     const classes = useStyles();
 
     if (props.tagType) {
 
+        if (props.tagType !== tagType)
+            setTagType(props.tagType)
+
+        const initialValues: TagValues = {
+            type: '',
+            subtype: '',
+            what: '',
+            whatDetails: '',
+            who: 0,
+            where: '',
+            latitude: 0,
+            longitude: 0,
+            year: 0,
+            how: '',
+            howDetails: ''
+        };
+
         return (
-            <form className={classes.root} onSubmit={create}>
-                <div className="tag-factory">
-                    <div className="tag-factory-form">
+            <div className={classes.root}>
 
-                        <TextField id="type" label="Type" variant="filled" defaultValue=""
-                            onChange={(event => { setType(event.target.value) })} />
-                        <TextField id="subtype" label="Sub Type" variant="filled" defaultValue=""
-                            onChange={(event => { setSubtype(event.target.value) })} />
+                <Formik
+                    initialValues={initialValues}
+                    onSubmit={(values) => create(values)}>
+                    {(props: any) => {
+                        const {
+                            values,
+                            handleChange,
+                            handleSubmit,
+                        } = props;
+                        return (
+                            <form onSubmit={handleSubmit}>
 
-                        {renderTagType(props.tagType)}
+                                <TextField
+                                    name="type"
+                                    label="Type"
+                                    variant="filled"
+                                    defaultValue={values.type}
+                                    onChange={handleChange} />
 
-                        <Button type="submit" className="button-submit">
-                            Create
+                                <TextField
+                                    name="subtype"
+                                    label="Sub Type"
+                                    variant="filled"
+                                    defaultValue={values.subtype}
+                                    onChange={handleChange} />
+
+                                {renderTagType(handleChange)}
+
+                                <Button type="submit" variant="contained" className="button-submit">
+                                    Create
                         </Button>
-
-                    </div>
-                </div>
-            </form>
+                            </form>
+                        )
+                    }}
+                </Formik >
+            </div>
         );
     } else return null;
 }
