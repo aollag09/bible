@@ -1,7 +1,5 @@
 import { Request } from "express";
 import { Message } from "google-protobuf";
-import { clientError } from "./ErrorHandler";
-import { read } from "fs";
 
 export class ProtoUtils {
 
