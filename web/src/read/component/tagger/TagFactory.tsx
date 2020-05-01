@@ -2,18 +2,18 @@ import { Button, createStyles, makeStyles, TextField, Theme } from '@material-ui
 import axios from "axios";
 import { Formik } from 'formik';
 import React, { useState } from "react";
-import { HowTag, Tag, WhatTag, WhenTag, WhereTag, WhoTag } from "../../../common/generated/services/tag/tag_pb";
+import { HowTag, Tag, WhatTag, WhenTag, WhereTag, WhoTag, Tags } from "../../../common/generated/services/tag/tag_pb";
 import { ProtoUtils } from "../../../common/ProtoUtils";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import { DateTime } from '../../../common/utils/dateTime';
+import { VerseSelection } from '../reader/VerseSelection';
 
 
 type TagFactoryProps = {
     tagType: string | null,
     book: number,
     chapter: number,
-    start: string | null,
-    end: string | null,
+    verseSelections: Array<VerseSelection>,
     cleanSelection: () => void
 }
 
@@ -51,26 +51,9 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
 
     const [tagType, setTagType] = useState<string>();
 
-    const getPath = (tagcase: Tag.TagCase): string => {
-        switch (+tagcase) {
-            case Tag.TagCase.WHATTAG:
-                return "what"
-            case Tag.TagCase.WHOTAG:
-                return "who"
-            case Tag.TagCase.WHERETAG:
-                return "where"
-            case Tag.TagCase.WHENTAG:
-                return "when"
-            case Tag.TagCase.HOWTAG:
-                return "how"
-            default:
-                return "invalidname"
-        }
-    }
-
-    const createTag = (tag: Tag) => {
-        axios.post(BibleAPI.url + "tag/" + getPath(tag.getTagCase()), {
-            tagbuff: ProtoUtils.serialize(tag)
+    const postTags = (tags: Tags) => {
+        axios.post(BibleAPI.url + "tag", {
+            tagbuff: ProtoUtils.serialize(tags)
         })
             .then(function (response) {
                 console.log(response);
@@ -78,12 +61,20 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
             .catch(function (error) {
                 console.log(error);
             });
-
     }
 
 
+    const createTags = (values: TagValues) => {
+        let tags = new Tags()
+        props.verseSelections.forEach(selection => {
+            tags.getTagsList().push(createTag(values, selection))
+        })
+        postTags(tags)
+        props.cleanSelection()
+    }
+
     /** Create the tag */
-    const create = (values: TagValues) => {
+    const createTag = (values: TagValues, selection: VerseSelection): Tag => {
         let tag = new Tag()
 
         // FIXME when log is activated
@@ -94,8 +85,8 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
 
         tag.setBook(props.book)
         tag.setChapter(props.chapter)
-        tag.setStart(props.start!)
-        tag.setEnd(props.end!)
+        tag.setStart(selection.getStartId())
+        tag.setEnd(selection.getEndId())
 
         if (values.type)
             tag.setType(values.type)
@@ -142,10 +133,10 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
                 break;
         }
 
-        console.log(JSON.stringify(tag, null, 3))
-        createTag(tag)
-        props.cleanSelection()
+        return tag;
     }
+
+
 
     const renderTagType = (handleChange: any) => {
         switch (tagType) {
@@ -230,7 +221,7 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
 
                 <Formik
                     initialValues={initialValues}
-                    onSubmit={(values) => create(values)}>
+                    onSubmit={(values) => createTags(values)}>
                     {(props: any) => {
                         const {
                             values,

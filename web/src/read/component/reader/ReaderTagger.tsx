@@ -4,6 +4,7 @@ import "../../resources/style/tagger.css";
 import { ReaderSelectorConst } from "../ReaderSelector";
 import { TaggerBar } from '../tagger/TaggerBar';
 import { Reader } from "./Reader";
+import { VerseSelection, VerseSelectionBuilder } from "./VerseSelection";
 
 type ReaderTaggerProp = {
     switch: string,
@@ -40,8 +41,7 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
                         showTagger={this.state.showTagger}
                         book={this.props.book}
                         chapter={this.props.chapter}
-                        start={this.getStart()}
-                        end={this.getEnd()}
+                        verseSelections={this.getVerseSelection()}
                         cleanSelection={() => this.cleanSelection()}
                     >
                     </TaggerBar>
@@ -79,6 +79,12 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
             selectedVerses: new Array<string>(),
             showTagger: false
         })
+    }
+
+    getVerseSelection(): Array<VerseSelection> {
+        return VerseSelectionBuilder.build(this.props.book,
+            this.props.chapter,
+            this.state.selectedVerses)
     }
 
     getStart(): string | null {

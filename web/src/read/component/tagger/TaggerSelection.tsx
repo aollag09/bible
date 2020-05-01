@@ -1,24 +1,16 @@
 
 import React from "react"
 import { Grid } from "@material-ui/core";
+import { VerseSelection } from "../reader/VerseSelection";
 
 
 type TaggerSelectionProp = {
     book: number,
     chapter: number,
-    start: string | null,
-    end: string | null
+    verseSelections: Array<VerseSelection>,
 }
 
-
 export const TaggerSelection: React.FunctionComponent<TaggerSelectionProp> = props => {
-
-    const getVerseNb = (verseId: string | null) => {
-        if (verseId)
-            return parseInt(verseId.slice(-3))
-        else
-            return 0;
-    }
 
     return (
         <div className="tagger-selection">
@@ -49,21 +41,12 @@ export const TaggerSelection: React.FunctionComponent<TaggerSelectionProp> = pro
                     <Grid container item xs={12} spacing={1}>
                         <Grid item xs={3} />
                         <Grid item xs={3}>
-                            <span> Start Verse </span>
+                            <span> Selection </span>
                         </Grid>
                         <Grid item xs={3}>
-                            <span> {getVerseNb(props.start)}</span>
+                            <span> {props.verseSelections.forEach(selection => { selection.toString() })}</span>
                         </Grid>
                         <Grid item xs={3} />
-                    </Grid>
-                    <Grid container item xs={12} spacing={1}>
-                        <Grid item xs={3} />
-                        <Grid item xs={3}>
-                            <span> End Verse </span>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <span> {getVerseNb(props.end)}</span>
-                        </Grid>
                     </Grid>
                     <Grid item xs={3} />
                 </Grid>

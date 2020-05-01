@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import { TagFactory } from './TagFactory';
+import { VerseSelection } from '../reader/VerseSelection';
 
 const useStyles = makeStyles((theme) => ({
     toggleContainer: {
@@ -15,8 +16,7 @@ const useStyles = makeStyles((theme) => ({
 type TagToggleProp = {
     book: number,
     chapter: number,
-    start: string | null,
-    end: string | null,
+    verseSelections: Array<VerseSelection>,
     cleanSelection: () => void
 }
 
@@ -80,8 +80,7 @@ export const TagToggle: React.FunctionComponent<TagToggleProp> = props => {
                 tagType={tagType}
                 book={props.book}
                 chapter={props.chapter}
-                start={props.start}
-                end={props.end}
+                verseSelections={props.verseSelections}
                 cleanSelection={props.cleanSelection}/>
         </div>
     );
