@@ -125,6 +125,19 @@ export class TagDAL {
         })
     }
 
+    /**
+     * Create several tags in the database in one transaction !
+     * @param tags 
+     */
+    public async putTags(tags: Tags) {
+        await this.database.transaction((connection: any) => {
+            tags.getTagsList().forEach(tag => {
+                let sql = this.buildSQLCreate(tag)
+                connection.query(sql)
+            })
+        })
+    }
+
     private buildSQLCreate(tag: Tag): string {
         let values = this.buildSQLTagValues(tag)
         let sql: string = 'insert into ' + this.getTable(tag.getTagCase()) + ' ('

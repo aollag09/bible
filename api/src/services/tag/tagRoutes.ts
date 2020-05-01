@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { RouteUtils } from "../../utils/RouteUtils";
 import { checkIdParams, checkChapterIdParams, checkBookIdParams, checkStartIdParams, checkEndIdParams } from "../../middleware/check";
-import { Tag, WhatTag, WhoTag, WhereTag, WhenTag, HowTag } from "./tag_pb";
+import { Tag, WhatTag, WhoTag, WhereTag, WhenTag, HowTag, Tags } from "./tag_pb";
 import { clientError, notFoundErrorMessage } from "../../utils/ErrorHandler";
 import { Database } from "../database/database";
 import { TagDAL } from "./TagDal";
@@ -15,6 +15,37 @@ import { Message } from "google-protobuf";
 let routes: Route[] = []
 let cases = [Tag.TagCase.WHATTAG, Tag.TagCase.WHOTAG, Tag.TagCase.WHERETAG, Tag.TagCase.WHENTAG, Tag.TagCase.HOWTAG]
 let paths = ["what", "who", "where", "when", "how"]
+
+
+// Create tags buld creation route
+routes.push({
+    path: RouteUtils.BASE_PATH + "tag",
+    method: "post",
+    responseType: '',
+    headers: { 'Content-Type': 'application/protobuf' },
+    handler: [
+        async (req: Request, res: Response, next: NextFunction) => {
+
+            let database = Database.get()
+            let tagDAL = new TagDAL(database)
+
+            if (req.body.tagbuff) {
+                // Create tag from input proto
+                let tags = Tags.deserializeBinary(Message.bytesAsU8(req.body.tagbuff))
+
+                console.log(JSON.stringify(tags, null, 2))
+
+                if (tags) {
+                    await tagDAL.putTags(tags)
+                    res.status(200).send("succeeded")
+                }
+                else
+                    clientError(new Error("Invalid input tag buff " + req.body.tagbuff), res, next)
+            }
+        }
+    ]
+})
+
 
 // Generate roots for all the tag cases within this loop
 for (let i = 0; i < cases.length; i++) {
@@ -162,7 +193,7 @@ for (let i = 0; i < cases.length; i++) {
 
     routes.push({
         // POST a new Tag
-        path: RouteUtils.BASE_PATH + "tag/" + paths[i] +"/",
+        path: RouteUtils.BASE_PATH + "tag/" + paths[i] + "/",
         method: "post",
         responseType: 'arraybuffer',
         headers: { 'Content-Type': 'application/protobuf' },
