@@ -12,6 +12,15 @@ type TaggerSelectionProp = {
 
 export const TaggerSelection: React.FunctionComponent<TaggerSelectionProp> = props => {
 
+
+    const getSelectionsString = (): string => {
+        let out = ""
+        props.verseSelections.forEach(selection => {
+            out += selection.toString() + " "
+        })
+        return out
+    }
+
     return (
         <div className="tagger-selection">
             <h3>Selection </h3>
@@ -44,7 +53,7 @@ export const TaggerSelection: React.FunctionComponent<TaggerSelectionProp> = pro
                             <span> Selection </span>
                         </Grid>
                         <Grid item xs={3}>
-                            <span> {props.verseSelections.forEach(selection => { selection.toString() })}</span>
+                            <span> {getSelectionsString()}</span>
                         </Grid>
                         <Grid item xs={3} />
                     </Grid>

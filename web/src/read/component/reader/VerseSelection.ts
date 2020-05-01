@@ -32,7 +32,7 @@ export class VerseSelection {
         if (this.start === this.end) {
             return "{ " + this.start + " }"
         } else {
-            return "[ " + this.start + ", " + this.end + "]"
+            return "[ " + this.start + ", " + this.end + " ]"
         }
     }
 }
