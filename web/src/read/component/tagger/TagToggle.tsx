@@ -16,7 +16,8 @@ type TagToggleProp = {
     book: number,
     chapter: number,
     start: string | null,
-    end: string | null
+    end: string | null,
+    cleanSelection: () => void
 }
 
 
@@ -80,7 +81,8 @@ export const TagToggle: React.FunctionComponent<TagToggleProp> = props => {
                 book={props.book}
                 chapter={props.chapter}
                 start={props.start}
-                end={props.end} />
+                end={props.end}
+                cleanSelection={props.cleanSelection}/>
         </div>
     );
 }

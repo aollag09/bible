@@ -6,7 +6,8 @@ type TaggerFormProp = {
     book: number,
     chapter: number,
     start: string | null,
-    end: string | null
+    end: string | null,
+    cleanSelection: () => void
 }
 
 
@@ -19,8 +20,9 @@ export const TaggerForm: React.FunctionComponent<TaggerFormProp> = props => {
                 book={props.book}
                 chapter={props.chapter}
                 start={props.start}
-                end={props.end} />
-
+                end={props.end}
+                cleanSelection={props.cleanSelection}
+                 />
 
             <h3> Create Highlight</h3>
 

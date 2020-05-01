@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { HowTag, Tag, WhatTag, WhenTag, WhereTag, WhoTag } from "../../../common/generated/services/tag/tag_pb";
 import { ProtoUtils } from "../../../common/ProtoUtils";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
+import { DateTime } from '../../../common/utils/dateTime';
 
 
 type TagFactoryProps = {
@@ -13,6 +14,7 @@ type TagFactoryProps = {
     chapter: number,
     start: string | null,
     end: string | null,
+    cleanSelection: () => void
 }
 
 
@@ -84,6 +86,12 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
     const create = (values: TagValues) => {
         let tag = new Tag()
 
+        // FIXME when log is activated
+        tag.setOwner(1)
+
+        tag.setCreated(DateTime.current())
+        tag.setModified(DateTime.current())
+
         tag.setBook(props.book)
         tag.setChapter(props.chapter)
         tag.setStart(props.start!)
@@ -136,6 +144,7 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
 
         console.log(JSON.stringify(tag, null, 3))
         createTag(tag)
+        props.cleanSelection()
     }
 
     const renderTagType = (handleChange: any) => {

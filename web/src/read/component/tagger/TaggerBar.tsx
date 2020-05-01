@@ -39,7 +39,8 @@ export class TaggerBar extends Component<TaggerBarProp>{
                     book={this.props.book}
                     chapter={this.props.chapter}
                     start={this.props.start}
-                    end={this.props.end} />
+                    end={this.props.end} 
+                    cleanSelection={this.props.cleanSelection}/>
             </div>
         );
     }
