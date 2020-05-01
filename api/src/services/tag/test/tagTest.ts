@@ -99,7 +99,6 @@ describe('Tag Data Access Layer Tests', async function () {
             //expect(tags.getTagsList().length).equals(1)   
 
             tags.getTagsList().forEach(tag => {
-                console.log("TAG ID " + tag.getId())
                 tagDAL.deleteTag(tag.getId(), Tag.TagCase.WHATTAG)
             })
 
@@ -153,7 +152,6 @@ describe('Tag REST Services', function () {
             tag.setWhattag(what)
 
             let serial = ProtoUtils.serialize(tag)
-            console.log(path + "what")
 
             chai.request(application)
                 .post(path + "what")

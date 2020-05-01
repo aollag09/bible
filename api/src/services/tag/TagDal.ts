@@ -118,6 +118,7 @@ export class TagDAL {
      */
     public async putTag(tag: Tag) {
         let sql = this.buildSQLCreate(tag)
+        console.log("TMP LOG SQL " + sql)
         //this.database.query(sql)
         await this.database.transaction((connection: any) => {
             connection.query(sql)
@@ -131,9 +132,9 @@ export class TagDAL {
         values.forEach((value: string, key: string) => {
             if (value) {
                 if (i == values.size - 1)
-                    sql += key + ") "
+                    sql += SQLUtils.backTics(key) + ") "
                 else
-                    sql += key + ", "
+                    sql += SQLUtils.backTics(key) + ", "
             }
             i++;
         })

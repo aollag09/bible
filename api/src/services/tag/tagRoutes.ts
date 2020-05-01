@@ -125,7 +125,6 @@ for (let i = 0; i < cases.length; i++) {
                 let startId = req.params.startId
                 let endId = req.params.endId
 
-
                 let database = Database.get()
                 let tagDAL = new TagDAL(database)
                 let tags = await tagDAL.withBookChapterStartEnd(bookId, chapterId, startId, endId, cases[i])
