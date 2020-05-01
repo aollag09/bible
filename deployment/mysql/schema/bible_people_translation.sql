@@ -1,11 +1,10 @@
-
 -- Options
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- Language sql Table
+-- People sql Table
 --
 
 drop table if exists `bible_people_translation`;
@@ -17,11 +16,9 @@ create table `bible_people_translation` (
   `gender` varchar(255) comment 'Gender of the character ex : male, femal, angel, god ...',
   
   primary key (`id`, `language_id`)
-  foreign key (`language_id`) references bible_language(`id`)
+  
 );
 
-LOCK TABLES `bible_people_translation` WRITE;
-/*!40000 ALTER TABLE `language` DISABLE KEYS */;
 insert into `bible_people_translation` values (1,1,"Aaron","Biblical and Quranic character","male"),
 (2,1,"Abaddon","angel of destruction","male"),
 (3,1,"Abagtha","biblical character","male"),
@@ -783,14 +780,3 @@ insert into `bible_people_translation` values (1,1,"Aaron","Biblical and Quranic
 (760,1,"Zorah","geographic location, archaeological site, and Biblical place in Israel from Bible, Joshua, and Judges","other"),
 (761,1,"Евий","Human biblical figure","male");
 
-/*!40000 ALTER TABLE `bible_version_key` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
