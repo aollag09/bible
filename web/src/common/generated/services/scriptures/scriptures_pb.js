@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -54,14 +56,15 @@ proto.bible.Scripture.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.Scripture} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.Scripture.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    book: msg.getBook(),
-    chapter: msg.getChapter(),
-    verse: msg.getVerse(),
-    scripture: msg.getScripture()
+    id: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    book: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    chapter: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    verse: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    scripture: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -128,63 +131,54 @@ proto.bible.Scripture.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.Scripture} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.Scripture.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.Scripture.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.Scripture.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.Scripture} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Scripture.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.Scripture.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getBook();
+  f = message.getBook();
   if (f !== 0) {
     writer.writeInt32(
       2,
       f
     );
   }
-  f = this.getChapter();
+  f = message.getChapter();
   if (f !== 0) {
     writer.writeInt32(
       3,
       f
     );
   }
-  f = this.getVerse();
+  f = message.getVerse();
   if (f !== 0) {
     writer.writeInt32(
       4,
       f
     );
   }
-  f = this.getScripture();
+  f = message.getScripture();
   if (f.length > 0) {
     writer.writeString(
       5,
@@ -195,26 +189,17 @@ proto.bible.Scripture.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.Scripture} The clone.
- */
-proto.bible.Scripture.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.Scripture} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string id = 1;
  * @return {string}
  */
 proto.bible.Scripture.prototype.getId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Scripture.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -223,13 +208,13 @@ proto.bible.Scripture.prototype.setId = function(value) {
  * @return {number}
  */
 proto.bible.Scripture.prototype.getBook = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Scripture.prototype.setBook = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -238,13 +223,13 @@ proto.bible.Scripture.prototype.setBook = function(value) {
  * @return {number}
  */
 proto.bible.Scripture.prototype.getChapter = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Scripture.prototype.setChapter = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -253,13 +238,13 @@ proto.bible.Scripture.prototype.setChapter = function(value) {
  * @return {number}
  */
 proto.bible.Scripture.prototype.getVerse = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Scripture.prototype.setVerse = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -268,13 +253,13 @@ proto.bible.Scripture.prototype.setVerse = function(value) {
  * @return {string}
  */
 proto.bible.Scripture.prototype.getScripture = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Scripture.prototype.setScripture = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -328,6 +313,7 @@ proto.bible.Scriptures.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.Scriptures} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.Scriptures.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -372,8 +358,7 @@ proto.bible.Scriptures.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = new proto.bible.Scripture;
       reader.readMessage(value,proto.bible.Scripture.deserializeBinaryFromReader);
-      msg.getScripturesList().push(value);
-      msg.setScripturesList(msg.getScripturesList());
+      msg.addScriptures(value);
       break;
     default:
       reader.skipField();
@@ -385,35 +370,26 @@ proto.bible.Scriptures.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.Scriptures} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.Scriptures.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.Scriptures.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.Scriptures.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.Scriptures} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Scriptures.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.Scriptures.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getScripturesList();
+  f = message.getScripturesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -425,29 +401,28 @@ proto.bible.Scriptures.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.Scriptures} The clone.
- */
-proto.bible.Scriptures.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.Scriptures} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated Scripture scriptures = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.bible.Scripture>}
+ * @return {!Array<!proto.bible.Scripture>}
  */
 proto.bible.Scriptures.prototype.getScripturesList = function() {
-  return /** @type{!Array.<!proto.bible.Scripture>} */ (
+  return /** @type{!Array<!proto.bible.Scripture>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.bible.Scripture, 1));
 };
 
 
-/** @param {Array.<!proto.bible.Scripture>} value  */
+/** @param {!Array<!proto.bible.Scripture>} value */
 proto.bible.Scriptures.prototype.setScripturesList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.bible.Scripture=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.bible.Scripture}
+ */
+proto.bible.Scriptures.prototype.addScriptures = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.bible.Scripture, opt_index);
 };
 
 

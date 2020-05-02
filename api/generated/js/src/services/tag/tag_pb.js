@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -88,19 +90,20 @@ proto.bible.Tag.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.Tag} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.Tag.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    owner: msg.getOwner(),
-    created: msg.getCreated(),
-    modified: msg.getModified(),
-    start: msg.getStart(),
-    end: msg.getEnd(),
-    book: msg.getBook(),
-    chapter: msg.getChapter(),
-    type: msg.getType(),
-    subtype: msg.getSubtype(),
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    owner: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    created: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    modified: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    start: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    end: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    book: jspb.Message.getFieldWithDefault(msg, 8, 0),
+    chapter: jspb.Message.getFieldWithDefault(msg, 9, 0),
+    type: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    subtype: jspb.Message.getFieldWithDefault(msg, 11, ""),
     whattag: (f = msg.getWhattag()) && proto.bible.WhatTag.toObject(includeInstance, f),
     whotag: (f = msg.getWhotag()) && proto.bible.WhoTag.toObject(includeInstance, f),
     wheretag: (f = msg.getWheretag()) && proto.bible.WhereTag.toObject(includeInstance, f),
@@ -217,105 +220,96 @@ proto.bible.Tag.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.Tag} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.Tag.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.Tag.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.Tag.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.Tag} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.Tag.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt32(
       1,
       f
     );
   }
-  f = this.getOwner();
+  f = message.getOwner();
   if (f !== 0) {
     writer.writeInt32(
       2,
       f
     );
   }
-  f = this.getCreated();
+  f = message.getCreated();
   if (f !== 0) {
     writer.writeInt64(
       4,
       f
     );
   }
-  f = this.getModified();
+  f = message.getModified();
   if (f !== 0) {
     writer.writeInt64(
       5,
       f
     );
   }
-  f = this.getStart();
+  f = message.getStart();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getEnd();
+  f = message.getEnd();
   if (f.length > 0) {
     writer.writeString(
       7,
       f
     );
   }
-  f = this.getBook();
+  f = message.getBook();
   if (f !== 0) {
     writer.writeInt32(
       8,
       f
     );
   }
-  f = this.getChapter();
+  f = message.getChapter();
   if (f !== 0) {
     writer.writeInt32(
       9,
       f
     );
   }
-  f = this.getType();
+  f = message.getType();
   if (f.length > 0) {
     writer.writeString(
       10,
       f
     );
   }
-  f = this.getSubtype();
+  f = message.getSubtype();
   if (f.length > 0) {
     writer.writeString(
       11,
       f
     );
   }
-  f = this.getWhattag();
+  f = message.getWhattag();
   if (f != null) {
     writer.writeMessage(
       12,
@@ -323,7 +317,7 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
       proto.bible.WhatTag.serializeBinaryToWriter
     );
   }
-  f = this.getWhotag();
+  f = message.getWhotag();
   if (f != null) {
     writer.writeMessage(
       13,
@@ -331,7 +325,7 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
       proto.bible.WhoTag.serializeBinaryToWriter
     );
   }
-  f = this.getWheretag();
+  f = message.getWheretag();
   if (f != null) {
     writer.writeMessage(
       14,
@@ -339,7 +333,7 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
       proto.bible.WhereTag.serializeBinaryToWriter
     );
   }
-  f = this.getWhentag();
+  f = message.getWhentag();
   if (f != null) {
     writer.writeMessage(
       15,
@@ -347,7 +341,7 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
       proto.bible.WhenTag.serializeBinaryToWriter
     );
   }
-  f = this.getHowtag();
+  f = message.getHowtag();
   if (f != null) {
     writer.writeMessage(
       16,
@@ -359,26 +353,17 @@ proto.bible.Tag.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.Tag} The clone.
- */
-proto.bible.Tag.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.Tag} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int32 id = 1;
  * @return {number}
  */
 proto.bible.Tag.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Tag.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -387,13 +372,13 @@ proto.bible.Tag.prototype.setId = function(value) {
  * @return {number}
  */
 proto.bible.Tag.prototype.getOwner = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Tag.prototype.setOwner = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -402,13 +387,13 @@ proto.bible.Tag.prototype.setOwner = function(value) {
  * @return {number}
  */
 proto.bible.Tag.prototype.getCreated = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Tag.prototype.setCreated = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -417,13 +402,13 @@ proto.bible.Tag.prototype.setCreated = function(value) {
  * @return {number}
  */
 proto.bible.Tag.prototype.getModified = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 5, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Tag.prototype.setModified = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -432,13 +417,13 @@ proto.bible.Tag.prototype.setModified = function(value) {
  * @return {string}
  */
 proto.bible.Tag.prototype.getStart = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Tag.prototype.setStart = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -447,13 +432,13 @@ proto.bible.Tag.prototype.setStart = function(value) {
  * @return {string}
  */
 proto.bible.Tag.prototype.getEnd = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Tag.prototype.setEnd = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -462,13 +447,13 @@ proto.bible.Tag.prototype.setEnd = function(value) {
  * @return {number}
  */
 proto.bible.Tag.prototype.getBook = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 8, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 8, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Tag.prototype.setBook = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3IntField(this, 8, value);
 };
 
 
@@ -477,13 +462,13 @@ proto.bible.Tag.prototype.setBook = function(value) {
  * @return {number}
  */
 proto.bible.Tag.prototype.getChapter = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 9, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 9, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Tag.prototype.setChapter = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3IntField(this, 9, value);
 };
 
 
@@ -492,13 +477,13 @@ proto.bible.Tag.prototype.setChapter = function(value) {
  * @return {string}
  */
 proto.bible.Tag.prototype.getType = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 10, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Tag.prototype.setType = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -507,27 +492,27 @@ proto.bible.Tag.prototype.setType = function(value) {
  * @return {string}
  */
 proto.bible.Tag.prototype.getSubtype = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 11, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Tag.prototype.setSubtype = function(value) {
-  jspb.Message.setField(this, 11, value);
+  jspb.Message.setProto3StringField(this, 11, value);
 };
 
 
 /**
  * optional WhatTag whatTag = 12;
- * @return {proto.bible.WhatTag}
+ * @return {?proto.bible.WhatTag}
  */
 proto.bible.Tag.prototype.getWhattag = function() {
-  return /** @type{proto.bible.WhatTag} */ (
+  return /** @type{?proto.bible.WhatTag} */ (
     jspb.Message.getWrapperField(this, proto.bible.WhatTag, 12));
 };
 
 
-/** @param {proto.bible.WhatTag|undefined} value  */
+/** @param {?proto.bible.WhatTag|undefined} value */
 proto.bible.Tag.prototype.setWhattag = function(value) {
   jspb.Message.setOneofWrapperField(this, 12, proto.bible.Tag.oneofGroups_[0], value);
 };
@@ -540,7 +525,7 @@ proto.bible.Tag.prototype.clearWhattag = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.bible.Tag.prototype.hasWhattag = function() {
   return jspb.Message.getField(this, 12) != null;
@@ -549,15 +534,15 @@ proto.bible.Tag.prototype.hasWhattag = function() {
 
 /**
  * optional WhoTag whoTag = 13;
- * @return {proto.bible.WhoTag}
+ * @return {?proto.bible.WhoTag}
  */
 proto.bible.Tag.prototype.getWhotag = function() {
-  return /** @type{proto.bible.WhoTag} */ (
+  return /** @type{?proto.bible.WhoTag} */ (
     jspb.Message.getWrapperField(this, proto.bible.WhoTag, 13));
 };
 
 
-/** @param {proto.bible.WhoTag|undefined} value  */
+/** @param {?proto.bible.WhoTag|undefined} value */
 proto.bible.Tag.prototype.setWhotag = function(value) {
   jspb.Message.setOneofWrapperField(this, 13, proto.bible.Tag.oneofGroups_[0], value);
 };
@@ -570,7 +555,7 @@ proto.bible.Tag.prototype.clearWhotag = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.bible.Tag.prototype.hasWhotag = function() {
   return jspb.Message.getField(this, 13) != null;
@@ -579,15 +564,15 @@ proto.bible.Tag.prototype.hasWhotag = function() {
 
 /**
  * optional WhereTag whereTag = 14;
- * @return {proto.bible.WhereTag}
+ * @return {?proto.bible.WhereTag}
  */
 proto.bible.Tag.prototype.getWheretag = function() {
-  return /** @type{proto.bible.WhereTag} */ (
+  return /** @type{?proto.bible.WhereTag} */ (
     jspb.Message.getWrapperField(this, proto.bible.WhereTag, 14));
 };
 
 
-/** @param {proto.bible.WhereTag|undefined} value  */
+/** @param {?proto.bible.WhereTag|undefined} value */
 proto.bible.Tag.prototype.setWheretag = function(value) {
   jspb.Message.setOneofWrapperField(this, 14, proto.bible.Tag.oneofGroups_[0], value);
 };
@@ -600,7 +585,7 @@ proto.bible.Tag.prototype.clearWheretag = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.bible.Tag.prototype.hasWheretag = function() {
   return jspb.Message.getField(this, 14) != null;
@@ -609,15 +594,15 @@ proto.bible.Tag.prototype.hasWheretag = function() {
 
 /**
  * optional WhenTag whenTag = 15;
- * @return {proto.bible.WhenTag}
+ * @return {?proto.bible.WhenTag}
  */
 proto.bible.Tag.prototype.getWhentag = function() {
-  return /** @type{proto.bible.WhenTag} */ (
+  return /** @type{?proto.bible.WhenTag} */ (
     jspb.Message.getWrapperField(this, proto.bible.WhenTag, 15));
 };
 
 
-/** @param {proto.bible.WhenTag|undefined} value  */
+/** @param {?proto.bible.WhenTag|undefined} value */
 proto.bible.Tag.prototype.setWhentag = function(value) {
   jspb.Message.setOneofWrapperField(this, 15, proto.bible.Tag.oneofGroups_[0], value);
 };
@@ -630,7 +615,7 @@ proto.bible.Tag.prototype.clearWhentag = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.bible.Tag.prototype.hasWhentag = function() {
   return jspb.Message.getField(this, 15) != null;
@@ -639,15 +624,15 @@ proto.bible.Tag.prototype.hasWhentag = function() {
 
 /**
  * optional HowTag howTag = 16;
- * @return {proto.bible.HowTag}
+ * @return {?proto.bible.HowTag}
  */
 proto.bible.Tag.prototype.getHowtag = function() {
-  return /** @type{proto.bible.HowTag} */ (
+  return /** @type{?proto.bible.HowTag} */ (
     jspb.Message.getWrapperField(this, proto.bible.HowTag, 16));
 };
 
 
-/** @param {proto.bible.HowTag|undefined} value  */
+/** @param {?proto.bible.HowTag|undefined} value */
 proto.bible.Tag.prototype.setHowtag = function(value) {
   jspb.Message.setOneofWrapperField(this, 16, proto.bible.Tag.oneofGroups_[0], value);
 };
@@ -660,7 +645,7 @@ proto.bible.Tag.prototype.clearHowtag = function() {
 
 /**
  * Returns whether this field is set.
- * @return{!boolean}
+ * @return {!boolean}
  */
 proto.bible.Tag.prototype.hasHowtag = function() {
   return jspb.Message.getField(this, 16) != null;
@@ -717,6 +702,7 @@ proto.bible.Tags.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.Tags} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.Tags.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -761,8 +747,7 @@ proto.bible.Tags.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = new proto.bible.Tag;
       reader.readMessage(value,proto.bible.Tag.deserializeBinaryFromReader);
-      msg.getTagsList().push(value);
-      msg.setTagsList(msg.getTagsList());
+      msg.addTags(value);
       break;
     default:
       reader.skipField();
@@ -774,35 +759,26 @@ proto.bible.Tags.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.Tags} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.Tags.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.Tags.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.Tags.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.Tags} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Tags.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.Tags.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getTagsList();
+  f = message.getTagsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -814,29 +790,28 @@ proto.bible.Tags.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.Tags} The clone.
- */
-proto.bible.Tags.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.Tags} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated Tag tags = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.bible.Tag>}
+ * @return {!Array<!proto.bible.Tag>}
  */
 proto.bible.Tags.prototype.getTagsList = function() {
-  return /** @type{!Array.<!proto.bible.Tag>} */ (
+  return /** @type{!Array<!proto.bible.Tag>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.bible.Tag, 1));
 };
 
 
-/** @param {Array.<!proto.bible.Tag>} value  */
+/** @param {!Array<!proto.bible.Tag>} value */
 proto.bible.Tags.prototype.setTagsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.bible.Tag=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.bible.Tag}
+ */
+proto.bible.Tags.prototype.addTags = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.bible.Tag, opt_index);
 };
 
 
@@ -888,11 +863,12 @@ proto.bible.WhatTag.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.WhatTag} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.WhatTag.toObject = function(includeInstance, msg) {
   var f, obj = {
-    what: msg.getWhat(),
-    details: msg.getDetails()
+    what: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    details: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -947,42 +923,33 @@ proto.bible.WhatTag.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.WhatTag} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.WhatTag.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.WhatTag.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.WhatTag.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.WhatTag} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.WhatTag.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.WhatTag.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getWhat();
+  f = message.getWhat();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getDetails();
+  f = message.getDetails();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -993,26 +960,17 @@ proto.bible.WhatTag.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.WhatTag} The clone.
- */
-proto.bible.WhatTag.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.WhatTag} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string what = 1;
  * @return {string}
  */
 proto.bible.WhatTag.prototype.getWhat = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.WhatTag.prototype.setWhat = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1021,13 +979,13 @@ proto.bible.WhatTag.prototype.setWhat = function(value) {
  * @return {string}
  */
 proto.bible.WhatTag.prototype.getDetails = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.WhatTag.prototype.setDetails = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1074,10 +1032,11 @@ proto.bible.WhoTag.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.WhoTag} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.WhoTag.toObject = function(includeInstance, msg) {
   var f, obj = {
-    who: msg.getWho()
+    who: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1128,35 +1087,26 @@ proto.bible.WhoTag.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.WhoTag} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.WhoTag.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.WhoTag.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.WhoTag.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.WhoTag} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.WhoTag.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.WhoTag.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getWho();
+  f = message.getWho();
   if (f !== 0) {
     writer.writeInt32(
       1,
@@ -1167,26 +1117,17 @@ proto.bible.WhoTag.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.WhoTag} The clone.
- */
-proto.bible.WhoTag.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.WhoTag} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int32 who = 1;
  * @return {number}
  */
 proto.bible.WhoTag.prototype.getWho = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.WhoTag.prototype.setWho = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1233,12 +1174,13 @@ proto.bible.WhereTag.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.WhereTag} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.WhereTag.toObject = function(includeInstance, msg) {
   var f, obj = {
-    where: msg.getWhere(),
-    latitude: msg.getLatitude(),
-    longitude: msg.getLongitude()
+    where: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    latitude: +jspb.Message.getFieldWithDefault(msg, 2, 0.0),
+    longitude: +jspb.Message.getFieldWithDefault(msg, 3, 0.0)
   };
 
   if (includeInstance) {
@@ -1297,49 +1239,40 @@ proto.bible.WhereTag.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.WhereTag} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.WhereTag.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.WhereTag.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.WhereTag.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.WhereTag} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.WhereTag.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.WhereTag.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getWhere();
+  f = message.getWhere();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getLatitude();
+  f = message.getLatitude();
   if (f !== 0.0) {
     writer.writeDouble(
       2,
       f
     );
   }
-  f = this.getLongitude();
+  f = message.getLongitude();
   if (f !== 0.0) {
     writer.writeDouble(
       3,
@@ -1350,26 +1283,17 @@ proto.bible.WhereTag.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.WhereTag} The clone.
- */
-proto.bible.WhereTag.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.WhereTag} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string where = 1;
  * @return {string}
  */
 proto.bible.WhereTag.prototype.getWhere = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.WhereTag.prototype.setWhere = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1378,13 +1302,13 @@ proto.bible.WhereTag.prototype.setWhere = function(value) {
  * @return {number}
  */
 proto.bible.WhereTag.prototype.getLatitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 2, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 2, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.WhereTag.prototype.setLatitude = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3FloatField(this, 2, value);
 };
 
 
@@ -1393,13 +1317,13 @@ proto.bible.WhereTag.prototype.setLatitude = function(value) {
  * @return {number}
  */
 proto.bible.WhereTag.prototype.getLongitude = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 3, 0));
+  return /** @type {number} */ (+jspb.Message.getFieldWithDefault(this, 3, 0.0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.WhereTag.prototype.setLongitude = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3FloatField(this, 3, value);
 };
 
 
@@ -1446,10 +1370,11 @@ proto.bible.WhenTag.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.WhenTag} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.WhenTag.toObject = function(includeInstance, msg) {
   var f, obj = {
-    year: msg.getYear()
+    year: jspb.Message.getFieldWithDefault(msg, 1, 0)
   };
 
   if (includeInstance) {
@@ -1500,35 +1425,26 @@ proto.bible.WhenTag.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.WhenTag} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.WhenTag.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.WhenTag.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.WhenTag.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.WhenTag} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.WhenTag.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.WhenTag.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getYear();
+  f = message.getYear();
   if (f !== 0) {
     writer.writeInt32(
       1,
@@ -1539,26 +1455,17 @@ proto.bible.WhenTag.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.WhenTag} The clone.
- */
-proto.bible.WhenTag.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.WhenTag} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int32 year = 1;
  * @return {number}
  */
 proto.bible.WhenTag.prototype.getYear = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.WhenTag.prototype.setYear = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -1605,11 +1512,12 @@ proto.bible.HowTag.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.HowTag} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.HowTag.toObject = function(includeInstance, msg) {
   var f, obj = {
-    how: msg.getHow(),
-    details: msg.getDetails()
+    how: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    details: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -1664,42 +1572,33 @@ proto.bible.HowTag.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.HowTag} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.HowTag.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.HowTag.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.HowTag.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.HowTag} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.HowTag.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.HowTag.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getHow();
+  f = message.getHow();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
-  f = this.getDetails();
+  f = message.getDetails();
   if (f.length > 0) {
     writer.writeString(
       2,
@@ -1710,26 +1609,17 @@ proto.bible.HowTag.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.HowTag} The clone.
- */
-proto.bible.HowTag.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.HowTag} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional string how = 1;
  * @return {string}
  */
 proto.bible.HowTag.prototype.getHow = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 1, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.HowTag.prototype.setHow = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1738,13 +1628,13 @@ proto.bible.HowTag.prototype.setHow = function(value) {
  * @return {string}
  */
 proto.bible.HowTag.prototype.getDetails = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.HowTag.prototype.setDetails = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

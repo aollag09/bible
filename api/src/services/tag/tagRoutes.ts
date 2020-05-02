@@ -33,8 +33,6 @@ routes.push({
                 // Create tag from input proto
                 let tags = Tags.deserializeBinary(Message.bytesAsU8(req.body.tagbuff))
 
-                console.log(JSON.stringify(tags, null, 2))
-
                 if (tags) {
                     await tagDAL.putTags(tags)
                     res.status(200).send("succeeded")
@@ -206,8 +204,6 @@ for (let i = 0; i < cases.length; i++) {
                 if (req.body.tagbuff) {
                     // Create tag from input proto
                     let tag = Tag.deserializeBinary(Message.bytesAsU8(req.body.tagbuff))
-
-                    console.log(JSON.stringify(tag, null, 2))
 
                     if (tag) {
                         await tagDAL.putTag(tag)

@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -62,14 +64,15 @@ proto.bible.Book.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.Book} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.Book.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    name: msg.getName(),
-    isnt: msg.getIsnt(),
-    genre: msg.getGenre(),
-    abbreviationsList: jspb.Message.getField(msg, 5)
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    isnt: jspb.Message.getFieldWithDefault(msg, 3, false),
+    genre: jspb.Message.getFieldWithDefault(msg, 4, 0),
+    abbreviationsList: jspb.Message.getRepeatedField(msg, 5)
   };
 
   if (includeInstance) {
@@ -124,8 +127,7 @@ proto.bible.Book.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
-      msg.getAbbreviationsList().push(value);
-      msg.setAbbreviationsList(msg.getAbbreviationsList());
+      msg.addAbbreviations(value);
       break;
     default:
       reader.skipField();
@@ -137,63 +139,54 @@ proto.bible.Book.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.Book} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.Book.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.Book.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.Book.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.Book} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Book.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.Book.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt32(
       1,
       f
     );
   }
-  f = this.getName();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getIsnt();
+  f = message.getIsnt();
   if (f) {
     writer.writeBool(
       3,
       f
     );
   }
-  f = this.getGenre();
+  f = message.getGenre();
   if (f !== 0.0) {
     writer.writeEnum(
       4,
       f
     );
   }
-  f = this.getAbbreviationsList();
+  f = message.getAbbreviationsList();
   if (f.length > 0) {
     writer.writeRepeatedString(
       5,
@@ -204,26 +197,17 @@ proto.bible.Book.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.Book} The clone.
- */
-proto.bible.Book.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.Book} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int32 id = 1;
  * @return {number}
  */
 proto.bible.Book.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Book.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -232,13 +216,13 @@ proto.bible.Book.prototype.setId = function(value) {
  * @return {string}
  */
 proto.bible.Book.prototype.getName = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Book.prototype.setName = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -249,13 +233,13 @@ proto.bible.Book.prototype.setName = function(value) {
  * @return {boolean}
  */
 proto.bible.Book.prototype.getIsnt = function() {
-  return /** @type {boolean} */ (jspb.Message.getFieldProto3(this, 3, false));
+  return /** @type {boolean} */ (jspb.Message.getFieldWithDefault(this, 3, false));
 };
 
 
-/** @param {boolean} value  */
+/** @param {boolean} value */
 proto.bible.Book.prototype.setIsnt = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3BooleanField(this, 3, value);
 };
 
 
@@ -264,35 +248,42 @@ proto.bible.Book.prototype.setIsnt = function(value) {
  * @return {!proto.bible.Genre}
  */
 proto.bible.Book.prototype.getGenre = function() {
-  return /** @type {!proto.bible.Genre} */ (jspb.Message.getFieldProto3(this, 4, 0));
+  return /** @type {!proto.bible.Genre} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
-/** @param {!proto.bible.Genre} value  */
+/** @param {!proto.bible.Genre} value */
 proto.bible.Book.prototype.setGenre = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3EnumField(this, 4, value);
 };
 
 
 /**
  * repeated string abbreviations = 5;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<string>}
+ * @return {!Array<string>}
  */
 proto.bible.Book.prototype.getAbbreviationsList = function() {
-  return /** @type {!Array.<string>} */ (jspb.Message.getField(this, 5));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 5));
 };
 
 
-/** @param {Array.<string>} value  */
+/** @param {!Array<string>} value */
 proto.bible.Book.prototype.setAbbreviationsList = function(value) {
   jspb.Message.setField(this, 5, value || []);
 };
 
 
+/**
+ * @param {!string} value
+ * @param {number=} opt_index
+ */
+proto.bible.Book.prototype.addAbbreviations = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 5, value, opt_index);
+};
+
+
 proto.bible.Book.prototype.clearAbbreviationsList = function() {
-  jspb.Message.setField(this, 5, []);
+  this.setAbbreviationsList([]);
 };
 
 
@@ -346,6 +337,7 @@ proto.bible.Books.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.Books} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.Books.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -390,8 +382,7 @@ proto.bible.Books.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = new proto.bible.Book;
       reader.readMessage(value,proto.bible.Book.deserializeBinaryFromReader);
-      msg.getBooksList().push(value);
-      msg.setBooksList(msg.getBooksList());
+      msg.addBooks(value);
       break;
     default:
       reader.skipField();
@@ -403,35 +394,26 @@ proto.bible.Books.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.Books} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.Books.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.Books.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.Books.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.Books} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Books.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.Books.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getBooksList();
+  f = message.getBooksList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -443,29 +425,28 @@ proto.bible.Books.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.Books} The clone.
- */
-proto.bible.Books.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.Books} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated Book books = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.bible.Book>}
+ * @return {!Array<!proto.bible.Book>}
  */
 proto.bible.Books.prototype.getBooksList = function() {
-  return /** @type{!Array.<!proto.bible.Book>} */ (
+  return /** @type{!Array<!proto.bible.Book>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.bible.Book, 1));
 };
 
 
-/** @param {Array.<!proto.bible.Book>} value  */
+/** @param {!Array<!proto.bible.Book>} value */
 proto.bible.Books.prototype.setBooksList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.bible.Book=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.bible.Book}
+ */
+proto.bible.Books.prototype.addBooks = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.bible.Book, opt_index);
 };
 
 

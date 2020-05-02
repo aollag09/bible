@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package bible;
+
+message Language{
+    int32 id = 1;
+    string name = 2;
+}
+
+message Languages{
+    repeated Language languages = 1;
+}

@@ -10,12 +10,12 @@ SET time_zone = "+00:00";
 drop table if exists `bible_people_translation`;
 create table `bible_people_translation` (
   `id` int not null comment 'Identifier of the character',
-  `language_id` int comment 'Identifier of the language',
+  `language` int comment 'Identifier of the language',
   `name` varchar(255) comment 'Name of the character',
   `description` text comment 'Description of the character',
   `gender` varchar(255) comment 'Gender of the character ex : male, femal, angel, god ...',
   
-  primary key (`id`, `language_id`)
+  primary key (`id`, `language`)
   
 );
 

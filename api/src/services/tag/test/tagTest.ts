@@ -28,9 +28,9 @@ describe('Tag Data Access Layer Tests', async function () {
 
     describe('#withBookChapter', async function () {
 
-        it('with Book -1 Chapter -1 non existing', async function () {
-            let book = -1
-            let chapter = -1
+        it('with Book -1000 Chapter -1000 non existing', async function () {
+            let book = -1000
+            let chapter = -1000
             let tags = await tagDAL.withBookChapter(book, chapter, Tag.TagCase.WHATTAG)!
             expect(tags.getTagsList().length).to.be.eq(0);
         });

@@ -1,6 +1,8 @@
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {messageConventions} JS Compiler reports an error if a variable or
+ *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
@@ -54,19 +56,20 @@ proto.bible.Version.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.Version} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.Version.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId(),
-    table: msg.getTable(),
-    abbreviation: msg.getAbbreviation(),
-    language: msg.getLanguage(),
-    version: msg.getVersion(),
-    infoText: msg.getInfoText(),
-    infoUrl: msg.getInfoUrl(),
-    publisher: msg.getPublisher(),
-    copyright: msg.getCopyright(),
-    copyrightInfo: msg.getCopyrightInfo()
+    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    table: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    abbreviation: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    language: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    version: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    infoText: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    infoUrl: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    publisher: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    copyright: jspb.Message.getFieldWithDefault(msg, 9, ""),
+    copyrightInfo: jspb.Message.getFieldWithDefault(msg, 10, "")
   };
 
   if (includeInstance) {
@@ -153,98 +156,89 @@ proto.bible.Version.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.Version} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.Version.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.Version.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.Version.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.Version} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Version.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.Version.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getId();
+  f = message.getId();
   if (f !== 0) {
     writer.writeInt32(
       1,
       f
     );
   }
-  f = this.getTable();
+  f = message.getTable();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = this.getAbbreviation();
+  f = message.getAbbreviation();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = this.getLanguage();
+  f = message.getLanguage();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = this.getVersion();
+  f = message.getVersion();
   if (f.length > 0) {
     writer.writeString(
       5,
       f
     );
   }
-  f = this.getInfoText();
+  f = message.getInfoText();
   if (f.length > 0) {
     writer.writeString(
       6,
       f
     );
   }
-  f = this.getInfoUrl();
+  f = message.getInfoUrl();
   if (f.length > 0) {
     writer.writeString(
       7,
       f
     );
   }
-  f = this.getPublisher();
+  f = message.getPublisher();
   if (f.length > 0) {
     writer.writeString(
       8,
       f
     );
   }
-  f = this.getCopyright();
+  f = message.getCopyright();
   if (f.length > 0) {
     writer.writeString(
       9,
       f
     );
   }
-  f = this.getCopyrightInfo();
+  f = message.getCopyrightInfo();
   if (f.length > 0) {
     writer.writeString(
       10,
@@ -255,26 +249,17 @@ proto.bible.Version.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.Version} The clone.
- */
-proto.bible.Version.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.Version} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * optional int32 id = 1;
  * @return {number}
  */
 proto.bible.Version.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldProto3(this, 1, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
-/** @param {number} value  */
+/** @param {number} value */
 proto.bible.Version.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+  jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -283,13 +268,13 @@ proto.bible.Version.prototype.setId = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getTable = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 2, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setTable = function(value) {
-  jspb.Message.setField(this, 2, value);
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -298,13 +283,13 @@ proto.bible.Version.prototype.setTable = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getAbbreviation = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 3, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setAbbreviation = function(value) {
-  jspb.Message.setField(this, 3, value);
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -313,13 +298,13 @@ proto.bible.Version.prototype.setAbbreviation = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getLanguage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setLanguage = function(value) {
-  jspb.Message.setField(this, 4, value);
+  jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -328,13 +313,13 @@ proto.bible.Version.prototype.setLanguage = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getVersion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 5, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setVersion = function(value) {
-  jspb.Message.setField(this, 5, value);
+  jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -343,13 +328,13 @@ proto.bible.Version.prototype.setVersion = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getInfoText = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 6, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setInfoText = function(value) {
-  jspb.Message.setField(this, 6, value);
+  jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -358,13 +343,13 @@ proto.bible.Version.prototype.setInfoText = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getInfoUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 7, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setInfoUrl = function(value) {
-  jspb.Message.setField(this, 7, value);
+  jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -373,13 +358,13 @@ proto.bible.Version.prototype.setInfoUrl = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getPublisher = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 8, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setPublisher = function(value) {
-  jspb.Message.setField(this, 8, value);
+  jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -388,13 +373,13 @@ proto.bible.Version.prototype.setPublisher = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getCopyright = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 9, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setCopyright = function(value) {
-  jspb.Message.setField(this, 9, value);
+  jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -403,13 +388,13 @@ proto.bible.Version.prototype.setCopyright = function(value) {
  * @return {string}
  */
 proto.bible.Version.prototype.getCopyrightInfo = function() {
-  return /** @type {string} */ (jspb.Message.getFieldProto3(this, 10, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
-/** @param {string} value  */
+/** @param {string} value */
 proto.bible.Version.prototype.setCopyrightInfo = function(value) {
-  jspb.Message.setField(this, 10, value);
+  jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
@@ -463,6 +448,7 @@ proto.bible.Versions.prototype.toObject = function(opt_includeInstance) {
  *     http://goto/soy-param-migration
  * @param {!proto.bible.Versions} msg The msg instance to transform.
  * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
 proto.bible.Versions.toObject = function(includeInstance, msg) {
   var f, obj = {
@@ -507,8 +493,7 @@ proto.bible.Versions.deserializeBinaryFromReader = function(msg, reader) {
     case 1:
       var value = new proto.bible.Version;
       reader.readMessage(value,proto.bible.Version.deserializeBinaryFromReader);
-      msg.getVersionsList().push(value);
-      msg.setVersionsList(msg.getVersionsList());
+      msg.addVersions(value);
       break;
     default:
       reader.skipField();
@@ -520,35 +505,26 @@ proto.bible.Versions.deserializeBinaryFromReader = function(msg, reader) {
 
 
 /**
- * Class method variant: serializes the given message to binary data
- * (in protobuf wire format), writing to the given BinaryWriter.
- * @param {!proto.bible.Versions} message
- * @param {!jspb.BinaryWriter} writer
- */
-proto.bible.Versions.serializeBinaryToWriter = function(message, writer) {
-  message.serializeBinaryToWriter(writer);
-};
-
-
-/**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
 proto.bible.Versions.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  this.serializeBinaryToWriter(writer);
+  proto.bible.Versions.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
 
 /**
- * Serializes the message to binary data (in protobuf wire format),
- * writing to the given BinaryWriter.
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.bible.Versions} message
  * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Versions.prototype.serializeBinaryToWriter = function (writer) {
+proto.bible.Versions.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = this.getVersionsList();
+  f = message.getVersionsList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
       1,
@@ -560,29 +536,28 @@ proto.bible.Versions.prototype.serializeBinaryToWriter = function (writer) {
 
 
 /**
- * Creates a deep clone of this proto. No data is shared with the original.
- * @return {!proto.bible.Versions} The clone.
- */
-proto.bible.Versions.prototype.cloneMessage = function() {
-  return /** @type {!proto.bible.Versions} */ (jspb.Message.cloneMessage(this));
-};
-
-
-/**
  * repeated Version versions = 1;
- * If you change this array by adding, removing or replacing elements, or if you
- * replace the array itself, then you must call the setter to update it.
- * @return {!Array.<!proto.bible.Version>}
+ * @return {!Array<!proto.bible.Version>}
  */
 proto.bible.Versions.prototype.getVersionsList = function() {
-  return /** @type{!Array.<!proto.bible.Version>} */ (
+  return /** @type{!Array<!proto.bible.Version>} */ (
     jspb.Message.getRepeatedWrapperField(this, proto.bible.Version, 1));
 };
 
 
-/** @param {Array.<!proto.bible.Version>} value  */
+/** @param {!Array<!proto.bible.Version>} value */
 proto.bible.Versions.prototype.setVersionsList = function(value) {
   jspb.Message.setRepeatedWrapperField(this, 1, value);
+};
+
+
+/**
+ * @param {!proto.bible.Version=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.bible.Version}
+ */
+proto.bible.Versions.prototype.addVersions = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.bible.Version, opt_index);
 };
 
 
