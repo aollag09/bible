@@ -2,15 +2,25 @@ import React, { useState } from "react"
 import SearchBar from "material-ui-search-bar"
 import Axios from "axios";
 import { BibleAPI } from "../../common/utils/bibleAPI";
+import { Scriptures } from "../../common/generated/services/scriptures/scriptures_pb";
+import { Message } from "google-protobuf";
 
 export const BibleSearchBar: React.FunctionComponent = (props) => {
 
     const [query, setQuery] = useState<string>("");
-    const [response, setResponse] = useState<string>("")
+    const [scriptures, setScriptures] = useState<Scriptures>()
+    const [elements, setElements] = useState<Array<JSX.Element>>()
 
     const search = async () => {
-        let res = await Axios.get(BibleAPI.url + "_search/?q=" + query)
-        setResponse(res.data)
+        let res = await Axios.get(BibleAPI.url + "_search/?q=\"" + query + "\"")
+        const script = Scriptures.deserializeBinary(Message.bytesAsU8(res.data))
+        setScriptures(script)
+
+        const elts = new Array<JSX.Element>()
+        script.getScripturesList().forEach(scripture => {
+            elts.push(<li key={scripture.getScripture()}> {scripture.getScripture()} </li>)
+        })
+        setElements(elts)
     }
 
     return (
@@ -24,9 +34,7 @@ export const BibleSearchBar: React.FunctionComponent = (props) => {
             </div>
 
             <div className="bible-search-response">
-                <p>
-                    {response}
-                </p>
+                <ul> {elements} </ul>
             </div>
         </div>
     )
