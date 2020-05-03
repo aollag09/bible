@@ -5,12 +5,18 @@ import splashMap from './resources/image/splash-map.png';
 import splashPeople from './resources/image/splash-people.png';
 import splashRead from './resources/image/splash-read.png';
 import splashSearch from './resources/image/splash-search.png';
+import pieta from "./resources/image/michel-ange-pieta.png";
 
 export class Home extends React.Component {
 
   render() {
     return (
       <div className="home">
+
+        <div className="home-center">
+          <img className="home-center-image" alt="Michel Ange Pieta" src={pieta} />
+        </div>
+
         <div className="bottom">
           <ul>
 

@@ -15,9 +15,9 @@
 }
 
 .bottom ul {
-    width: 750px;
+    width: 100em;
     left: 50%;
-    margin-left: -375px;
+    margin-left: -50em;
     margin-bottom: 2px;
     position: relative;
     text-align: center;
@@ -30,10 +30,10 @@
 
 .bottom ul li {
     display: inline-block;
-    margin: 0 15px;
+    margin: 0 20px;
     text-align: center;
     color: #787878;
-    width: 120px;
+    width: 100px;
 }
 
 .bottom ul li p {
@@ -63,3 +63,7 @@
     filter: none;
 }
 
+.home-center-image{
+    width: 80em;
+    min-width: 500px;
+}
