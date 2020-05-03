@@ -87,7 +87,6 @@ describe('People REST Services', function () {
                     let book = peoples.getPeoplesList()[0]
                     assert.equal(1, book.getId())
                 });
-
         });
     });
 });
