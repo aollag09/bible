@@ -13,6 +13,18 @@ export const checkIdParams = (
     }
 };
 
+export const checkLanguageIdParams = (
+    req: Request,
+    res: Response,
+    next: NextFunction) => {
+    if (!req.params.lid) {
+        throw new HTTP400Error("Missing language parameter");
+    } else {
+        next();
+    }
+};
+
+
 export const checkVersionIdParams = (
     req: Request,
     res: Response,
