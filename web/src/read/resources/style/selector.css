@@ -1,5 +1,23 @@
 /* BOOK */
 
+.periodic-table{
+    display: block;
+}
+
+.book-list-selector{
+    display: none;
+}
+
+
+@media screen and (max-width: 1300px) {
+    .periodic-table{
+        display: none;
+    }
+    .book-list-selector{
+        display: block;
+    }
+}
+
 .periodic-table ul{
     margin-bottom: 2px;
     position: relative;
