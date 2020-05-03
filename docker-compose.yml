@@ -77,6 +77,9 @@ services:
       - ./deployment/mysql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
       - ./deployment/mysql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
 
+      # Tag Data
+      - ./deployment/mysql/data/tag_who.sql:/docker-entrypoint-initdb.d/z_tag_who.sql
+
       # Database volume
       - database-data:/var/lib/mysql
       
