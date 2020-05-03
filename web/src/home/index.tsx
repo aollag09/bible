@@ -5,7 +5,7 @@ import splashMap from './resources/image/splash-map.png';
 import splashPeople from './resources/image/splash-people.png';
 import splashRead from './resources/image/splash-read.png';
 import splashSearch from './resources/image/splash-search.png';
-import pieta from "./resources/image/michel-ange-pieta.png";
+import pieta from "./resources/image/michel-ange-pieta-black.png";
 
 export class Home extends React.Component {
 
@@ -13,7 +13,9 @@ export class Home extends React.Component {
     return (
       <div className="home">
 
-        <div className="home-center">
+        <div className="home-center" >
+          <h1 > Bible Exploration</h1>
+          <h2> Online Bible Explorator</h2>
           <img className="home-center-image" alt="Michel Ange Pieta" src={pieta} />
         </div>
 

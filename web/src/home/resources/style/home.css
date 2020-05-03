@@ -35,6 +35,9 @@
     color: #787878;
     width: 100px;
 }
+.splash-title{
+    font-size:calc(8px + 1em);;
+}
 
 .bottom ul li p {
     font-size: 1em;
@@ -65,5 +68,21 @@
 
 .home-center-image{
     width: 80em;
-    min-width: 500px;
+    min-width: 300px;
+    padding: 3em;
+    background-size: cover;
+}
+
+
+.home h1{
+    font-size: 8em;
+    font-weight: 400;
+    margin-bottom: 0.3em;
+}
+
+.home h2{
+    text-transform: uppercase;
+    font-size: 2.5em;
+    font-weight: 300;
+    color: #818289;
 }
