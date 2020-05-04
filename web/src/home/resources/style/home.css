@@ -86,3 +86,12 @@
     font-weight: 300;
     color: #818289;
 }
+
+
+@media screen and (max-width: 800px){
+    .splash-subtitle{
+        display: none;
+    }
+}
+
+

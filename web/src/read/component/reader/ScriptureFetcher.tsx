@@ -22,8 +22,6 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
         const scriptures = this.getScriptures(this.props.version, this.props.book, this.props.chapter)
         const tags = this.getTags(this.props.book, this.props.chapter)
 
-        console.log(JSON.stringify(tags, null, 3))
-
         const scriptureSpans: JSX.Element[] = []
         scriptures.getScripturesList().forEach(scripture => {
 
