@@ -12,10 +12,8 @@ type TagsDialogProps = {
 
 export const TagsDialog: React.FunctionComponent<TagsDialogProps> = (props) => {
 
-
     const tagsElts: JSX.Element[] = []
     props.tags.forEach(tag => {
-
 
         const tagSpecifics: JSX.Element[] = []
 

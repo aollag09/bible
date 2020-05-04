@@ -13,8 +13,6 @@ type TagIconProp = {
 
 export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
 
-    const wrapper = React.createRef();
-
     const [open, setOpen] = useState<boolean>(false);
 
     const getToolTip = () => {
