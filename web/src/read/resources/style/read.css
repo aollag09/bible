@@ -80,6 +80,7 @@
     
     padding: 0.2em 0.5em 0.2em 0.5em;
     margin-left: 2em;
+    margin-right: 0.8em;
 
     color:#787878;
     font-size: 1.8em;
@@ -188,4 +189,13 @@
     opacity: 1;
     -ms-filter: none;
     filter: none;
+}
+
+.tag-label-icon{
+    transform: rotate(35deg);
+    color: #505050;
+}
+
+.tag-label-icon:hover{
+    color: #787878;
 }

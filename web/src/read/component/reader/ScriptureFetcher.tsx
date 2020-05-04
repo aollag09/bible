@@ -5,7 +5,8 @@ import React, { Component } from 'react';
 import { Scriptures } from '../../../common/generated/services/scriptures/scriptures_pb';
 import { BibleAPI } from '../../../common/utils/bibleAPI';
 import { Key } from '../../../common/utils/key';
-
+import { Tags, Tag } from '../../../common/generated/services/tag/tag_pb';
+import { TagIcon } from './TagIcon';
 
 type ScriptureFetcherProp = {
     version: number,
@@ -18,10 +19,24 @@ type ScriptureFetcherProp = {
 export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
 
     render() {
-        let scriptures = this.getScriptures(this.props.version, this.props.book, this.props.chapter)
+        const scriptures = this.getScriptures(this.props.version, this.props.book, this.props.chapter)
+        const tags = this.getTags(this.props.book, this.props.chapter)
 
-        let scriptureSpans: JSX.Element[] = []
+        console.log(JSON.stringify(tags, null, 3))
+
+        const scriptureSpans: JSX.Element[] = []
         scriptures.getScripturesList().forEach(scripture => {
+
+            const currentTags = new Array<Tag>()
+            tags.getTagsList().forEach(tag => {
+                if (tag.getStart() === scripture.getId())
+                    currentTags.push(tag)
+            })
+            let tagSpan: JSX.Element | null = null;
+            if (currentTags.length > 0) {
+                tagSpan = <TagIcon tags={currentTags} />
+            }
+
             scriptureSpans.push(
                 <span
                     key={Key.getKey("verse", scripture.getId())}
@@ -30,6 +45,7 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
                     <div className="scripture-verse-id-box">
                         <span className="scripture-verse-id"> {scripture.getVerse()}</span>
                     </div>
+                    {tagSpan}
                     <span className={this.getClassName(scripture.getId())}> {scripture.getScripture()}</span>
                 </span>)
         })
@@ -53,6 +69,27 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
                 chapter)
             return Scriptures.deserializeBinary(Message.bytesAsU8(response.toString()))
         })
+
+    getTags = memoize(
+        (book: number, chapter: number) => {
+            const tags = new Tags();
+            ["what", "who", "where", "when", "how"].forEach(tagcase => {
+                const response = useFetch(
+                    BibleAPI.url +
+                    "tag/" +
+                    tagcase +
+                    "/book/" +
+                    book +
+                    "/chapter/" +
+                    chapter)
+                const current = Tags.deserializeBinary(Message.bytesAsU8(response.toString()))
+                current.getTagsList().forEach(newtag => {
+                    tags.getTagsList().push(newtag)
+                })
+            })
+            return tags
+        }
+    )
 
     handleClick(verseId: string) {
         alert(verseId)

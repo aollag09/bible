@@ -36,14 +36,9 @@
     margin: 1em;
   }
 
-  .tagger-sidebar-opened{
-    
-  }
-
   .tagger-sidebar-closed{
     width: 0em;
   }
-
   
   .tagger-close-button-image{
     width: 2em;
