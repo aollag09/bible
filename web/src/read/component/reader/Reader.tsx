@@ -72,11 +72,11 @@ export class Reader extends React.Component<ReaderProp> {
     )
 
     nextChapter = () => {
-        this.props.read(this.props.version, this.props.book, this.props.chapter + 1)
+        this.props.read(this.props.version, this.props.book, +(this.props.chapter.valueOf()) + 1)
     }
 
     previousChapter = () => {
-        this.props.read(this.props.version, this.props.book, this.props.chapter - 1)
+        this.props.read(this.props.version, this.props.book, +(this.props.chapter.valueOf() - 1))
     }
 
     previousChapterButton() {
