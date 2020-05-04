@@ -7,6 +7,7 @@ export class Map extends React.Component {
         return (
             <div className="bible-content map">
                 <Navbar />
+                <h1> Work in Progress</h1>
             </div>
         );
     }

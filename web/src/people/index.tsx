@@ -7,8 +7,9 @@ export class People extends React.Component {
   render() {
     return (
       <div className="bible-content people">
-            <Navbar />
-            <PeopleList handlePeopleSelect={(id) => console.log(id)} />
+        <Navbar />
+        <h1> Characters in the Bible </h1>
+        <PeopleList handlePeopleSelect={(id) => console.log(id)} />
       </div>
     );
   }

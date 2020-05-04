@@ -7,6 +7,7 @@ export class Explore extends React.Component {
     return (
       <div className="bible-content explore">
         <Navbar />
+        <h1> Work in Progress</h1>
       </div>
     );
   }

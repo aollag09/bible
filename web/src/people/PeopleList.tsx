@@ -35,7 +35,9 @@ export const PeopleList: React.FunctionComponent<PeopleListProp> = (props) => {
     if (peoples) {
         peoples.getPeoplesList().forEach(people => {
             peopleList.push(
-                <ListItem button key={"list-item-people" + people.getId()} onClick={() => props.handlePeopleSelect(people.getId())}>
+                <ListItem button
+                    key={"list-item-people" + people.getId()} onClick={() => props.handlePeopleSelect(people.getId())}
+                    style={{ maxWidth:600 }}>
                     <ListItemText key={"list-item-text-people-" + people.getId()} primary={people.getId() + " - " + people.getName() + " - " + people.getDescription()} />
                 </ListItem>
             )
