@@ -13,6 +13,8 @@ type TagIconProp = {
 
 export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
 
+    const wrapper = React.createRef();
+
     const [open, setOpen] = useState<boolean>(false);
 
     const getToolTip = () => {
@@ -43,12 +45,10 @@ export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
     }
 
     return (
-        <div className="tag-label-icon-container" >
-            <span onClick={onOpen}>
-                <Tooltip title={getToolTip()} aria-label="nb-tags" placement="top">
-                    <LabelIcon className="tag-label-icon" />
-                </Tooltip>
-            </span>
+        <div className="tag-label-icon-container">
+            <Tooltip title={getToolTip()} onClick={onOpen} aria-label="nb-tags" placement="top">
+                <LabelIcon className="tag-label-icon" />
+            </Tooltip>
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <TagsDialog tags={props.tags} />

@@ -22,37 +22,37 @@ export const TagsDialog: React.FunctionComponent<TagsDialogProps> = (props) => {
         switch (+tag.getTagCase()) {
 
             case Tag.TagCase.WHATTAG:
-                tagSpecifics.push(<TagDialogField field="what" value={tag.getWhattag()?.getWhat()} />)
-                tagSpecifics.push(<TagDialogField field="details" value={tag.getWhattag()?.getDetails()} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "what"} field="what" value={tag.getWhattag()?.getWhat()} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "details"} field="details" value={tag.getWhattag()?.getDetails()} />)
                 break;
             case Tag.TagCase.WHOTAG:
-                tagSpecifics.push(<TagDialogField field="who" value={tag.getWhotag()?.getWho().toString()!} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "who"} field="who" value={tag.getWhotag()?.getWho().toString()!} />)
                 break;
             case Tag.TagCase.WHERETAG:
-                tagSpecifics.push(<TagDialogField field="where" value={tag.getWheretag()?.getWhere()!} />)
-                tagSpecifics.push(<TagDialogField field="latitude" value={tag.getWheretag()?.getLatitude().toString()!} />)
-                tagSpecifics.push(<TagDialogField field="longitude" value={tag.getWheretag()?.getLongitude().toString()} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "where"} field="where" value={tag.getWheretag()?.getWhere()!} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "latitude"} field="latitude" value={tag.getWheretag()?.getLatitude().toString()!} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "longitude"} field="longitude" value={tag.getWheretag()?.getLongitude().toString()} />)
                 break;
             case Tag.TagCase.WHENTAG:
-                tagSpecifics.push(<TagDialogField field="year" value={tag.getWhentag()?.getYear().toString()} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "year"} field="year" value={tag.getWhentag()?.getYear().toString()} />)
                 break;
             case Tag.TagCase.HOWTAG:
-                tagSpecifics.push(<TagDialogField field="how" value={tag.getHowtag()?.getHow()} />)
-                tagSpecifics.push(<TagDialogField field="details" value={tag.getHowtag()?.getDetails()} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "how"} field="how" value={tag.getHowtag()?.getHow()} />)
+                tagSpecifics.push(<TagDialogField key={tag.getId() + "howdetails"} field="details" value={tag.getHowtag()?.getDetails()} />)
                 break;
         }
 
 
         tagsElts.push(
-            <div>
+            <div key={tag.getId()}>
                 <DialogTitle> {StringUtils.capitalize(TagCaseUtils.getStringName(tag.getTagCase()))} Tag</DialogTitle>
 
-                <TagDialogField field="type" value={tag.getType()} />
-                <TagDialogField field="subtype" value={tag.getSubtype()} />
-                <TagDialogField field="start" value={tag.getStart()} />
-                <TagDialogField field="end" value={tag.getEnd()} />
-                <TagDialogField field="created" value={new Date(tag.getCreated()).toUTCString()} />
-                <TagDialogField field="modified" value={new Date(tag.getModified()).toUTCString()} />
+                <TagDialogField key={tag.getId() + "type"} field="type" value={tag.getType()} />
+                <TagDialogField key={tag.getId() + "subtype"} field="subtype" value={tag.getSubtype()} />
+                <TagDialogField key={tag.getId() + "start"} field="start" value={tag.getStart()} />
+                <TagDialogField key={tag.getId() + "end"} field="end" value={tag.getEnd()} />
+                <TagDialogField key={tag.getId() + "created"} field="created" value={new Date(tag.getCreated()).toUTCString()} />
+                <TagDialogField key={tag.getId() + "modified"} field="modified" value={new Date(tag.getModified()).toUTCString()} />
                 {tagSpecifics}
             </div>
         )
