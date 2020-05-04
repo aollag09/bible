@@ -184,6 +184,8 @@
     display: flex;
     width: 3em;
     height: 3em;
+    min-width: 34px;
+    min-height: 34px;
     margin: 0.5em;
     padding: 0;
     line-height: 3;
@@ -200,6 +202,7 @@
     transform: scale(0.75,.75);
     -webkit-transform: scale(0.75,.75);
 }
+
 
 .scripture-remove-selection:hover .scripture-clear-icon{
     opacity: 1;

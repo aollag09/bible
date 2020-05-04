@@ -21,9 +21,7 @@ type ReaderProp = {
 
 export class Reader extends React.Component<ReaderProp> {
 
-
     render() {
-
         let nbChapters = this.nbChapters(this.props.book)
         return (
             <div className={this.getClassName(this.props.showTagger)}>

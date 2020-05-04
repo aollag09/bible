@@ -20,6 +20,9 @@ export const BibleSearchBar: React.FunctionComponent = (props) => {
         script.getScripturesList().forEach(scripture => {
             elts.push(<li key={scripture.getScripture()}> {scripture.getScripture()} </li>)
         })
+
+        // to remove
+        scriptures?.getScripturesList()
         setElements(elts)
     }
 
