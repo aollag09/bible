@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import { ScriptureSelectBook } from "./ScriptureSelectBook";
 import { ScriptureSelectVersion } from "./ScriptureSelectVersion";
 import { ScriptureSelectChapter } from "./ScriptureSelectChapter";
-import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
-
+import ClearAllIcon from '@material-ui/icons/ClearAll';
+import { Tooltip } from "@material-ui/core";
 type ScriptureSelectorProp = {
     version: number,
     book: number,
@@ -19,14 +19,17 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
             <div className="reader-top-selector scripture-selector" >
                 <ul>
                     <li>
-                        <button
-                            className="scripture-remove-selection"
-                            onClick={this.props.showReaderSelector}>
-                            <SettingsBackupRestoreIcon
-                                className="scripture-clear-icon" 
-                                fontSize="large">
-                            </SettingsBackupRestoreIcon>
-                        </button>
+                        <Tooltip title="Clear Selection" aria-label="clear selection" placement="bottom">
+                            <button
+                                className="scripture-remove-selection"
+                                onClick={this.props.showReaderSelector}>
+
+                                <ClearAllIcon
+                                    className="scripture-clear-icon"
+                                    fontSize="large">
+                                </ClearAllIcon>
+                            </button>
+                        </Tooltip>
                     </li>
                     <li>
                         <Suspense fallback="Loading versions..." >
