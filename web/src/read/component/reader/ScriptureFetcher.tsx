@@ -21,7 +21,6 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
     render() {
         const scriptures = this.getScriptures(this.props.version, this.props.book, this.props.chapter)
         const tags = this.getTags(this.props.book, this.props.chapter)
-
         const scriptureSpans: JSX.Element[] = []
         scriptures.getScripturesList().forEach(scripture => {
 
@@ -38,13 +37,16 @@ export class ScriptureFetcher extends Component<ScriptureFetcherProp>{
             scriptureSpans.push(
                 <span
                     key={Key.getKey("verse", scripture.getId())}
-                    className="scripture-verse"
-                    onClick={() => this.props.onSelectVerse(scripture.getId())}>
+                    className="scripture-verse">
                     <div className="scripture-verse-id-box">
                         <span className="scripture-verse-id"> {scripture.getVerse()}</span>
                     </div>
                     {tagSpan}
-                    <span className={this.getClassName(scripture.getId())}> {scripture.getScripture()}</span>
+                    <span
+                        className={this.getClassName(scripture.getId())}
+                        onClick={() => this.props.onSelectVerse(scripture.getId())}>
+                        {scripture.getScripture()}
+                    </span>
                 </span>)
         })
 

@@ -215,3 +215,9 @@
 .tag-label-icon:hover{
     color: #787878;
 }
+
+.tag-label-icon-container{
+    display: inline-block;
+    margin-right: 2em;
+    margin-left: 2em;
+}

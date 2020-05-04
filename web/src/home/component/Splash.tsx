@@ -14,13 +14,13 @@ export class Splash extends Component<SplashProps>{
 
     render() {
         return (
-            <div className="splash">
+            <span className="splash">
                 <Link to={this.props.link} >
                     <img className="splash-image" alt={this.props.title} src={this.props.image} />
                     <h3 className="splash-title"> {this.props.title}</h3>
                     <p className="splash-subtitle">{this.props.subtitle}</p>
                 </Link>
-            </div>
+            </span>
         );
     }
 }
