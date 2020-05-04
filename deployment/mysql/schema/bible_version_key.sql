@@ -34,7 +34,7 @@ create TABLE `bible_version_key` (
   `copyright` text NOT NULL COMMENT 'Copyright ',
   `copyright_info` text NOT NULL COMMENT 'Extended Copyright info',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COMMENT='This is the general translation information and db links';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='This is the general translation information and db links';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

@@ -33,7 +33,7 @@ CREATE TABLE `key_english` (
   `t` varchar(2) NOT NULL COMMENT 'Which Testament this book is in',
   `g` tinyint(3) unsigned NOT NULL COMMENT 'A genre ID to identify the type of book this is',
   PRIMARY KEY (`b`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `key_english`

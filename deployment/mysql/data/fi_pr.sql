@@ -25,7 +25,7 @@ CREATE TABLE `fi_pr` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_3` (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */
 ;
 

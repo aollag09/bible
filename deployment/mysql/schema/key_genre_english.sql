@@ -31,7 +31,7 @@ CREATE TABLE `key_genre_english` (
   `g` tinyint(3) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Genre ID',
   `n` varchar(255) NOT NULL COMMENT 'Name of genre',
   PRIMARY KEY (`g`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='Table mapping genre IDs to genre names for book table lookup' AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='Table mapping genre IDs to genre names for book table lookup' AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `key_genre_english`

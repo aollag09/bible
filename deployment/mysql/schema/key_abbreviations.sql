@@ -32,7 +32,7 @@ CREATE TABLE `key_abbreviations` (
   `b` smallint(5) unsigned NOT NULL COMMENT 'ID of book that is abbreviated',
   `p` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Whether an abbreviation is the primary one for the book',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='A table mapping book abbreviations to the book they refer to' AUTO_INCREMENT=410 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COMMENT='A table mapping book abbreviations to the book they refer to' AUTO_INCREMENT=410 ;
 
 --
 -- Dumping data for table `key_abbreviations`
