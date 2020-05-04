@@ -6,10 +6,12 @@
 
     .reader-with-tagger{
         margin-bottom: 45em;
+        margin-right: 0em;
     }
 
     .reader-without-tagger{
         margin-bottom: 0em;
+        margin-right: 0em;
     }
 
   }
@@ -17,10 +19,12 @@
 @media screen and (min-width: 1000px) {
     .reader-with-tagger{
         margin-right: 45em;
+        margin-bottom: 0em;
     }
     
     .reader-without-tagger{
         margin-right: 0em;
+        margin-bottom: 0em;
     }
   }
 
@@ -57,11 +61,23 @@
 
 .scripture-reader{
     margin: 3em;
-    max-width: 850px;
     text-align: justify;
     letter-spacing: 0.05em;
-    line-height: 6em;
 }
+
+@media screen and (max-width: 850px) {
+    .scripture-reader{
+        line-height: 8em;
+    }
+  }
+
+@media screen and (min-width: 850px) {
+    .scripture-reader{
+        max-width: 850px;
+        line-height: 5em;
+    }
+  }
+
 
 .scripture-verse{
     cursor: pointer;
