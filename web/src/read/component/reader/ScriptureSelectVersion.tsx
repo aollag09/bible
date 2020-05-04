@@ -4,6 +4,7 @@ import { Message } from "google-protobuf";
 import useFetch from 'fetch-suspense'
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import { Key } from "../../../common/utils/key";
+import { StringUtils } from "../../../common/utils/stringUtils";
 
 type ScriptureSelectVersionProp = {
     version: number,
@@ -47,7 +48,7 @@ export class ScriptureSelectVersion
     }
 
     private getOptionName(version: Version): string {
-        return this.capitalize(version.getLanguage()) + " - " + version.getAbbreviation()
+        return StringUtils.capitalize(version.getLanguage()) + " - " + version.getAbbreviation()
     }
 
     private fetchVersions(): Versions {
@@ -58,11 +59,6 @@ export class ScriptureSelectVersion
     private handleChange = (selection: any) => {
         if (selection.target.value)
             this.props.read(selection.target.value, this.props.book, this.props.chapter)
-    }
-
-    private capitalize(s: string): string {
-        if (typeof s !== 'string') return ''
-        return s.charAt(0).toUpperCase() + s.slice(1)
     }
 
 }

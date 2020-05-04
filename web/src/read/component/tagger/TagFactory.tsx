@@ -3,7 +3,7 @@ import axios from "axios";
 import { Formik } from 'formik';
 import React, { useState } from "react";
 import { HowTag, Tag, WhatTag, WhenTag, WhereTag, WhoTag, Tags } from "../../../common/generated/services/tag/tag_pb";
-import { ProtoUtils } from "../../../common/ProtoUtils";
+import { ProtoUtils } from "../../../common/utils/protoUtils";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import { DateTime } from '../../../common/utils/dateTime';
 import { VerseSelection } from '../reader/VerseSelection';

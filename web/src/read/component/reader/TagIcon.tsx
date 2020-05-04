@@ -1,9 +1,11 @@
 
-import { Tooltip } from "@material-ui/core";
+import { Button, Dialog, DialogActions, Tooltip } from "@material-ui/core";
 import LabelIcon from '@material-ui/icons/Label';
-import React from "react";
+import React, { useState } from "react";
 import { Tag } from "../../../common/generated/services/tag/tag_pb";
+import { StringUtils } from "../../../common/utils/stringUtils";
 import { TagCaseUtils } from "../../../common/utils/tagCaseUtils";
+import { TagsDialog } from "./TagsDialog";
 
 type TagIconProp = {
     tags: Array<Tag>
@@ -11,10 +13,7 @@ type TagIconProp = {
 
 export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
 
-    const capitalize = (s: string) => {
-        if (typeof s !== 'string') return ''
-        return s.charAt(0).toUpperCase() + s.slice(1)
-    }
+    const [open, setOpen] = useState<boolean>(false);
 
     const getToolTip = () => {
         const map = new Map<Tag.TagCase, number>();
@@ -30,17 +29,35 @@ export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
 
         let tooltip = "";
         map.forEach((val, key) => {
-            tooltip += capitalize(TagCaseUtils.getStringName(key)) + ": " + val.toString() + " "
+            tooltip += StringUtils.capitalize(TagCaseUtils.getStringName(key)) + ": " + val.toString() + " "
         })
         return tooltip;
     }
 
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+    const onOpen = () => {
+        setOpen(true)
+    }
 
     return (
-        <div className="tag-label-icon-container">
-            <Tooltip title={getToolTip()} aria-label="nb-tags" placement="top">
-                <LabelIcon className="tag-label-icon" />
-            </Tooltip>
+        <div className="tag-label-icon-container" >
+            <span onClick={onOpen}>
+                <Tooltip title={getToolTip()} aria-label="nb-tags" placement="top">
+                    <LabelIcon className="tag-label-icon" />
+                </Tooltip>
+            </span>
+
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                <TagsDialog tags={props.tags} />
+
+                <DialogActions>
+                    <Button onClick={handleClose}> Close </Button>
+                </DialogActions>
+            </Dialog>
+
         </div>
 
     )

@@ -23,7 +23,6 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                             <button
                                 className="scripture-remove-selection"
                                 onClick={this.props.showReaderSelector}>
-
                                 <ClearAllIcon
                                     className="scripture-clear-icon"
                                     fontSize="large">
