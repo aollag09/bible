@@ -6,6 +6,7 @@ import splashPeople from './resources/image/splash-people.png';
 import splashRead from './resources/image/splash-read.png';
 import splashSearch from './resources/image/splash-search.png';
 import pieta from "./resources/image/michel-ange-pieta-black.png";
+import { Login } from './component/Login';
 
 export class Home extends React.Component {
 
@@ -13,10 +14,18 @@ export class Home extends React.Component {
     return (
       <div className="home">
 
+
+        <img className="home-center-image" alt="Michel Ange Pieta" src={pieta} />
+
         <div className="home-center" >
+
+          <div className="top" >
+            <Login />
+          </div>
+
           <h1 > Bible Exploration</h1>
           <h2> Online Bible Explorator</h2>
-          <img className="home-center-image" alt="Michel Ange Pieta" src={pieta} />
+
         </div>
 
         <div className="bottom">

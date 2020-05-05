@@ -38,13 +38,13 @@ export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
         setOpen(false);
     }
 
-    const onOpen = () => {
+    const handleOpen = () => {
         setOpen(true)
     }
 
     return (
         <div className="tag-label-icon-container">
-            <Tooltip title={getToolTip()} onClick={onOpen} aria-label="nb-tags" placement="top">
+            <Tooltip title={getToolTip()} onClick={handleOpen} aria-label="nb-tags" placement="top">
                 <LabelIcon className="tag-label-icon" />
             </Tooltip>
 
