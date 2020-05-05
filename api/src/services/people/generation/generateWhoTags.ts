@@ -22,7 +22,17 @@ export class Generator {
                 let scriptures = await new ScriptureDAL(Database.get(), await new VersionDAL(Database.get()).getDefault()).withBook(book)
                 scriptures.getScripturesList().forEach(scripture => {
                     peoples.getPeoplesList().forEach(people => {
-                        if (scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + " "))) {
+                        if (scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + " ")) ||
+                        scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + ".")) ||
+                        scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + ":")) || 
+                        scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + ",")) || 
+                        scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + ";")) || 
+                        scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + "?")) ||
+                        scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + "!")) ||
+                        scripture.getScripture().toLowerCase().includes(("\'" + people.getName().toLowerCase() + "\'")) || 
+                        scripture.getScripture().toLowerCase().includes(("\"" + people.getName().toLowerCase() + "\"")) || 
+                        scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + "\"")) || 
+                        scripture.getScripture().toLowerCase().includes((" " + people.getName().toLowerCase() + "\'"))) {
                             console.log("MATCH : " + scripture.getScripture() + " WITH " + people.getName())
                             let tag = new Tag()
 
@@ -48,7 +58,7 @@ export class Generator {
                 })
             }
 
-            console.log("FINNISHHH")
+            console.log("JOB DONE")
         }
     }
 }
