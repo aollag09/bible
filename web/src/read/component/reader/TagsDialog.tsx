@@ -1,5 +1,5 @@
 
-import { DialogContent, DialogTitle } from "@material-ui/core"
+import { DialogContent, DialogTitle, Divider } from "@material-ui/core"
 import React from "react"
 import { Tag } from "../../../common/generated/services/tag/tag_pb"
 import { StringUtils } from "../../../common/utils/stringUtils"
