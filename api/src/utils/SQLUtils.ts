@@ -1,16 +1,23 @@
 
 export class SQLUtils {
 
+
+    public static sanetize(word: string): string {
+        word.replace("\'", "\'\'")
+        return word
+    }
+
+
     public static quote(word: string) {
-        return "\'" + word + "\'"
+        return "\'" + SQLUtils.sanetize(word) + "\'"
     }
 
     public static doubleQuote(word: string) {
-        return "\"" + word + "\""
+        return "\"" + SQLUtils.sanetize(word) + "\""
     }
 
     public static backTics(word: string) {
-        return "\`" + word + "\`"
+        return "\`" + SQLUtils.sanetize(word) + "\`"
     }
 
     public static buildSQLCreate(table: string, values: Map<string, string>): string {
