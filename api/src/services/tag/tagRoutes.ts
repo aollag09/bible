@@ -12,9 +12,9 @@ import { DateTime } from "../../utils/dateTime";
 import { Message } from "google-protobuf";
 
 
-let routes: Route[] = []
-let cases = [Tag.TagCase.WHATTAG, Tag.TagCase.WHOTAG, Tag.TagCase.WHERETAG, Tag.TagCase.WHENTAG, Tag.TagCase.HOWTAG]
-let paths = ["what", "who", "where", "when", "how"]
+const routes: Route[] = []
+const cases = [Tag.TagCase.WHATTAG, Tag.TagCase.WHOTAG, Tag.TagCase.WHERETAG, Tag.TagCase.WHENTAG, Tag.TagCase.HOWTAG]
+const paths = ["what", "who", "where", "when", "how"]
 
 
 // Create tags buld creation route
@@ -26,12 +26,12 @@ routes.push({
     handler: [
         async (req: Request, res: Response, next: NextFunction) => {
 
-            let database = Database.get()
-            let tagDAL = new TagDAL(database)
+            const database = Database.get()
+            const tagDAL = new TagDAL(database)
 
             if (req.body.tagbuff) {
                 // Create tag from input proto
-                let tags = Tags.deserializeBinary(Message.bytesAsU8(req.body.tagbuff))
+                const tags = Tags.deserializeBinary(Message.bytesAsU8(req.body.tagbuff))
 
                 if (tags) {
                     await tagDAL.putTags(tags)
@@ -58,13 +58,13 @@ for (let i = 0; i < cases.length; i++) {
             checkIdParams,
             async (req: Request, res: Response, next: NextFunction) => {
 
-                let tagId: number = parseInt(req.params.id);
+                const tagId: number = parseInt(req.params.id);
                 if (isNaN(tagId))
                     clientError(new Error("Input tag identifier is not a number : " + tagId), res, next);
 
-                let database = Database.get()
-                let tagDAL = new TagDAL(database)
-                let tag = await tagDAL.withId(tagId, cases[i])
+                const database = Database.get()
+                const tagDAL = new TagDAL(database)
+                const tag = await tagDAL.withId(tagId, cases[i])
 
                 if (tag) {
                     res.status(200)
@@ -87,18 +87,18 @@ for (let i = 0; i < cases.length; i++) {
             checkChapterIdParams,
             async (req: Request, res: Response, next: NextFunction) => {
 
-                let bookId = parseInt(req.params.bookId)
+                const bookId = parseInt(req.params.bookId)
                 if (isNaN(bookId))
                     clientError(new Error("Input book identifier is not a number : " + bookId), res, next)
 
-                let chapterId = parseInt(req.params.chapterId)
+                const chapterId = parseInt(req.params.chapterId)
                 if (isNaN(chapterId))
                     clientError(new Error("Input chapter identifier is not a number : " + chapterId), res, next)
 
 
-                let database = Database.get()
-                let tagDAL = new TagDAL(database)
-                let tags = await tagDAL.withBookChapter(bookId, chapterId, cases[i])
+                const database = Database.get()
+                const tagDAL = new TagDAL(database)
+                const tags = await tagDAL.withBookChapter(bookId, chapterId, cases[i])
 
                 res.status(200)
                     .send(ProtoUtils.serialize(tags, req))
@@ -117,12 +117,12 @@ for (let i = 0; i < cases.length; i++) {
             checkEndIdParams,
             async (req: Request, res: Response, next: NextFunction) => {
 
-                let startId = req.params.startId
-                let endId = req.params.endId
+                const startId = req.params.startId
+                const endId = req.params.endId
 
-                let database = Database.get()
-                let tagDAL = new TagDAL(database)
-                let tags = await tagDAL.within(startId, endId, cases[i])
+                const database = Database.get()
+                const tagDAL = new TagDAL(database)
+                const tags = await tagDAL.within(startId, endId, cases[i])
 
                 res.status(200)
                     .send(ProtoUtils.serialize(tags, req))
@@ -143,20 +143,20 @@ for (let i = 0; i < cases.length; i++) {
             checkEndIdParams,
             async (req: Request, res: Response, next: NextFunction) => {
 
-                let bookId = parseInt(req.params.bookId)
+                const bookId = parseInt(req.params.bookId)
                 if (isNaN(bookId))
                     clientError(new Error("Input book identifier is not a number : " + bookId), res, next)
 
-                let chapterId = parseInt(req.params.chapterId)
+                const chapterId = parseInt(req.params.chapterId)
                 if (isNaN(chapterId))
                     clientError(new Error("Input chapter identifier is not a number : " + chapterId), res, next)
 
-                let startId = req.params.startId
-                let endId = req.params.endId
+                const startId = req.params.startId
+                const endId = req.params.endId
 
-                let database = Database.get()
-                let tagDAL = new TagDAL(database)
-                let tags = await tagDAL.withBookChapterStartEnd(bookId, chapterId, startId, endId, cases[i])
+                const database = Database.get()
+                const tagDAL = new TagDAL(database)
+                const tags = await tagDAL.withBookChapterStartEnd(bookId, chapterId, startId, endId, cases[i])
 
                 res.status(200)
                     .send(ProtoUtils.serialize(tags, req))
@@ -175,12 +175,12 @@ for (let i = 0; i < cases.length; i++) {
             checkIdParams,
             async (req: Request, res: Response, next: NextFunction) => {
 
-                let tagId: number = parseInt(req.params.id);
+                const tagId: number = parseInt(req.params.id);
                 if (isNaN(tagId))
                     clientError(new Error("Input tag identifier is not a number : " + tagId), res, next);
 
-                let database = Database.get()
-                let tagDAL = new TagDAL(database)
+                const database = Database.get()
+                const tagDAL = new TagDAL(database)
                 await tagDAL.deleteTag(tagId, cases[i])
 
                 res.status(200).send("succeeded")
@@ -198,12 +198,12 @@ for (let i = 0; i < cases.length; i++) {
         handler: [
             async (req: Request, res: Response, next: NextFunction) => {
 
-                let database = Database.get()
-                let tagDAL = new TagDAL(database)
+                const database = Database.get()
+                const tagDAL = new TagDAL(database)
 
                 if (req.body.tagbuff) {
                     // Create tag from input proto
-                    let tag = Tag.deserializeBinary(Message.bytesAsU8(req.body.tagbuff))
+                    const tag = Tag.deserializeBinary(Message.bytesAsU8(req.body.tagbuff))
 
                     if (tag) {
                         await tagDAL.putTag(tag)
@@ -214,12 +214,12 @@ for (let i = 0; i < cases.length; i++) {
                 } else {
 
                     // Create tag from seperated fields
-                    let error = TagChecks.checkCreateInputs(req, res, next, cases[i])
+                    const error = TagChecks.checkCreateInputs(req, res, next, cases[i])
                     if (error.length > 1) {
                         clientError(new Error(error), res, next)
                     }
                     else {
-                        let tag = new Tag()
+                        const tag = new Tag()
 
                         if (req.body.id)
                             tag.setId(req.body.id)
@@ -242,7 +242,7 @@ for (let i = 0; i < cases.length; i++) {
                         switch (+cases[i]) {
 
                             case Tag.TagCase.WHATTAG:
-                                let what = new WhatTag()
+                                const what = new WhatTag()
                                 what.setWhat(req.body.what)
                                 if (req.body.details)
                                     what.setDetails(req.body.details)
@@ -250,13 +250,13 @@ for (let i = 0; i < cases.length; i++) {
                                 break;
 
                             case Tag.TagCase.WHOTAG:
-                                let who = new WhoTag()
+                                const who = new WhoTag()
                                 who.setWho(parseInt(req.body.who))
                                 tag.setWhotag(who)
                                 break;
 
                             case Tag.TagCase.WHERETAG:
-                                let where = new WhereTag()
+                                const where = new WhereTag()
                                 where.setWhere(req.body.where)
                                 if (req.body.longitude)
                                     where.setLongitude(parseInt(req.body.longitude))
@@ -266,13 +266,13 @@ for (let i = 0; i < cases.length; i++) {
                                 break;
 
                             case Tag.TagCase.WHENTAG:
-                                let when = new WhenTag()
+                                const when = new WhenTag()
                                 when.setYear(parseInt(req.body.year))
                                 tag.setWhentag(when)
                                 break;
 
                             case Tag.TagCase.HOWTAG:
-                                let how = new HowTag()
+                                const how = new HowTag()
                                 how.setHow(req.body.how)
                                 if (req.body.details)
                                     how.setDetails(req.body.details)
