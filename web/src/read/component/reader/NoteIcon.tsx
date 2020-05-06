@@ -6,6 +6,7 @@ import HelpIcon from '@material-ui/icons/Help';
 import React, { useState } from "react";
 import { Note } from "../../../common/generated/services/note/note_pb";
 import { StringUtils } from "../../../common/utils/stringUtils";
+import { NoteDialog } from "./NoteDialog";
 
 export type NoteIconProps = {
     notes: Note[]
@@ -39,7 +40,6 @@ export const NoteIcon: React.FunctionComponent<NoteIconProps> = (props) => {
             return <ChatIcon className="note-label-icon" />
     }
 
-
     return (
         <div className="note-icon">
             <Tooltip title={getToolTip()} onClick={handleOpen} aria-label="nb-notes" placement="top">
@@ -49,6 +49,7 @@ export const NoteIcon: React.FunctionComponent<NoteIconProps> = (props) => {
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="scroll-dialog-title">{StringUtils.capitalize(props.type)}</DialogTitle>
                 <DialogContent dividers={true}>
+                    <NoteDialog notes={props.notes} handleClose={handleClose} />
                 </DialogContent>
 
                 <DialogActions>
@@ -56,9 +57,6 @@ export const NoteIcon: React.FunctionComponent<NoteIconProps> = (props) => {
                 </DialogActions>
             </Dialog>
         </div>
-
-
-
     )
 
 }
