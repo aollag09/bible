@@ -19,6 +19,7 @@ export const DialogField: React.FunctionComponent<DialogFieldProps> = (props) =>
             label={StringUtils.capitalize(props.field)}
             value={props.value}
             fullWidth
+            multiline
         />
     )
 }
