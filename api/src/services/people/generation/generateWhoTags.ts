@@ -4,7 +4,7 @@ import { LanguageDAL } from "../../language/languageDAL";
 import { TagDAL } from "../../tag/tagDAL";
 import { ScriptureDAL } from "../../scriptures/scriptureDAL";
 import { VersionDAL } from "../../version/versionDAL";
-import { DateTime } from "../../../utils/dateTime";
+import { DateTimeUtils } from "../../../utils/dateTimeUtils";
 import { WhoTag, Tag } from "../../tag/tag_pb";
 
 export class Generator {
@@ -37,8 +37,8 @@ export class Generator {
                             let tag = new Tag()
 
                             tag.setOwner(1)
-                            tag.setCreated(DateTime.current())
-                            tag.setModified(DateTime.current())
+                            tag.setCreated(DateTimeUtils.current())
+                            tag.setModified(DateTimeUtils.current())
 
                             tag.setType("hit")
                             tag.setSubtype("generated")

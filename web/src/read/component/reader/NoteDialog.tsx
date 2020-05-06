@@ -4,6 +4,7 @@ import React from "react";
 import { Note } from "../../../common/generated/services/note/note_pb";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import { DialogField } from "./DialogField";
+import { DateTimeUtils } from "../../../common/utils/dateTimeUtils";
 
 type NoteDialogProps = {
     notes: Array<Note>
@@ -26,8 +27,8 @@ export const NoteDialog: React.FunctionComponent<NoteDialogProps> = (props) => {
 
                 <DialogField key={tag.getId() + "start"} field="start" value={tag.getStart()} />
                 <DialogField key={tag.getId() + "end"} field="end" value={tag.getEnd()} />
-                <DialogField key={tag.getId() + "created"} field="created" value={new Date(tag.getCreated()).toUTCString()} />
-                <DialogField key={tag.getId() + "modified"} field="modified" value={new Date(tag.getModified()).toUTCString()} />
+                <DialogField key={tag.getId() + "created"} field="created" value={DateTimeUtils.toDateTime(tag.getCreated()).toUTCString()} />
+                <DialogField key={tag.getId() + "modified"} field="modified" value={DateTimeUtils.toDateTime(tag.getModified()).toUTCString()} />
                 <DialogField key={tag.getId() + "type"} field="type" value={tag.getType()} />
                 <DialogField key={tag.getId() + "note"} field="note" value={tag.getNote()} />
 
@@ -35,8 +36,6 @@ export const NoteDialog: React.FunctionComponent<NoteDialogProps> = (props) => {
             </div>
         )
     })
-
-
 
     return (
         <div className="dialog-container">

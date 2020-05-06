@@ -7,6 +7,7 @@ import { BibleAPI } from "../../../common/utils/bibleAPI"
 import { StringUtils } from "../../../common/utils/stringUtils"
 import { TagCaseUtils } from "../../../common/utils/tagCaseUtils"
 import { DialogField } from "./DialogField"
+import { DateTimeUtils } from "../../../common/utils/dateTimeUtils"
 
 type TagsDialogProps = {
     tags: Array<Tag>,
@@ -57,8 +58,8 @@ export const TagsDialog: React.FunctionComponent<TagsDialogProps> = (props) => {
                 <DialogField key={tag.getId() + "subtype"} field="subtype" value={tag.getSubtype()} />
                 <DialogField key={tag.getId() + "start"} field="start" value={tag.getStart()} />
                 <DialogField key={tag.getId() + "end"} field="end" value={tag.getEnd()} />
-                <DialogField key={tag.getId() + "created"} field="created" value={new Date(tag.getCreated()).toUTCString()} />
-                <DialogField key={tag.getId() + "modified"} field="modified" value={new Date(tag.getModified()).toUTCString()} />
+                <DialogField key={tag.getId() + "created"} field="created" value={DateTimeUtils.toDateTime(tag.getCreated()).toUTCString()} />
+                <DialogField key={tag.getId() + "modified"} field="modified" value={DateTimeUtils.toDateTime(tag.getModified()).toUTCString()} />
                 {tagSpecifics}
 
                 <Button onClick={() => deleteTag(tag.getTagCase(), tag.getId())} > Delete </Button>

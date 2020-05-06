@@ -1,7 +1,7 @@
 
 import chai, { expect } from 'chai';
 import chaiHttp from "chai-http";
-import { DateTime } from '../../../utils/dateTime';
+import { DateTimeUtils } from '../../../utils/dateTimeUtils';
 import { ProtoUtils } from '../../../utils/ProtoUtils';
 import { RouteUtils } from '../../../utils/RouteUtils';
 import { Database } from "../../database/database";
@@ -80,8 +80,8 @@ describe('Tag Data Access Layer Tests', async function () {
             let testType = "test"
 
             tag.setOwner(1)
-            tag.setCreated(DateTime.current())
-            tag.setModified(DateTime.current())
+            tag.setCreated(DateTimeUtils.current())
+            tag.setModified(DateTimeUtils.current())
             tag.setStart('5')
             tag.setEnd('15')
             tag.setBook(-4)
@@ -139,8 +139,8 @@ describe('Tag REST Services', function () {
             let testType = "test"
 
             tag.setOwner(1)
-            tag.setCreated(DateTime.current())
-            tag.setModified(DateTime.current())
+            tag.setCreated(DateTimeUtils.current())
+            tag.setModified(DateTimeUtils.current())
             tag.setStart('5')
             tag.setEnd('15')
             tag.setBook(-1)

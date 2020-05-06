@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import { HowTag, Tag, WhatTag, WhenTag, WhereTag, WhoTag, Tags } from "../../../common/generated/services/tag/tag_pb";
 import { ProtoUtils } from "../../../common/utils/protoUtils";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
-import { DateTime } from '../../../common/utils/dateTime';
 import { VerseSelection } from '../reader/VerseSelection';
+import { DateTimeUtils } from '../../../common/utils/dateTimeUtils';
 
 
 type TagFactoryProps = {
@@ -81,8 +81,8 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
         // FIXME when log is activated
         tag.setOwner(1)
 
-        tag.setCreated(DateTime.current())
-        tag.setModified(DateTime.current())
+        tag.setCreated(DateTimeUtils.current())
+        tag.setModified(DateTimeUtils.current())
 
         tag.setBook(props.book)
         tag.setChapter(props.chapter)

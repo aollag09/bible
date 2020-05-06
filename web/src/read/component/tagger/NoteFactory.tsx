@@ -1,12 +1,12 @@
 import { Button, createStyles, makeStyles, TextField, Theme } from "@material-ui/core";
+import Axios from "axios";
 import { Formik } from "formik";
 import React from "react";
 import { Note, Notes } from "../../../common/generated/services/note/note_pb";
-import { DateTime } from "../../../common/utils/dateTime";
-import { VerseSelection } from "../reader/VerseSelection";
-import Axios from "axios";
 import { BibleAPI } from "../../../common/utils/bibleAPI";
 import { ProtoUtils } from "../../../common/utils/protoUtils";
+import { VerseSelection } from "../reader/VerseSelection";
+import { DateTimeUtils } from "../../../common/utils/dateTimeUtils";
 
 export type NoteFactoryProps = {
     noteType: string | undefined,
@@ -62,8 +62,8 @@ export const NoteFactory: React.FunctionComponent<NoteFactoryProps> = (props) =>
         // FIXME when log is activated
         note.setOwner(1)
 
-        note.setCreated(DateTime.current())
-        note.setModified(DateTime.current())
+        note.setCreated(DateTimeUtils.current())
+        note.setModified(DateTimeUtils.current())
 
         note.setBook(props.book)
         note.setChapter(props.chapter)

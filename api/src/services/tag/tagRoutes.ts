@@ -8,7 +8,7 @@ import { TagDAL } from "./tagDAL";
 import { ProtoUtils } from "../../utils/ProtoUtils";
 import { Route } from "../../utils";
 import { TagChecks } from "./tagCheck";
-import { DateTime } from "../../utils/dateTime";
+import { DateTimeUtils } from "../../utils/dateTimeUtils";
 import { Message } from "google-protobuf";
 
 
@@ -225,8 +225,8 @@ for (let i = 0; i < cases.length; i++) {
                             tag.setId(req.body.id)
                         tag.setOwner(parseInt(req.body.owner))
 
-                        tag.setCreated(DateTime.current())
-                        tag.setModified(DateTime.current())
+                        tag.setCreated(DateTimeUtils.current())
+                        tag.setModified(DateTimeUtils.current())
 
                         tag.setStart(req.body.start)
                         tag.setEnd(req.body.end)
