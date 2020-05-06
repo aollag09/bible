@@ -16,7 +16,11 @@ export const TaggerForm: React.FunctionComponent<TaggerFormProp> = props => {
     return (
         <div className="tagger-form" >
             <h3> Create Note</h3>
-            <NoteToggle />
+            <NoteToggle
+                book={props.book}
+                chapter={props.chapter}
+                verseSelections={props.verseSelections}
+                cleanSelection={props.cleanSelection} />
 
             <h3> Create Tag</h3>
             <TagToggle

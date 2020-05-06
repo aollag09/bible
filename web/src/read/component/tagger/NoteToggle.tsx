@@ -2,6 +2,8 @@ import React from "react"
 import { Grid, makeStyles } from "@material-ui/core";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import ToggleButton from "@material-ui/lab/ToggleButton";
+import { NoteFactory } from "./NoteFactory";
+import { VerseSelection } from "../reader/VerseSelection";
 
 const useStyles = makeStyles((theme) => ({
     toggleContainer: {
@@ -10,7 +12,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type NoteToggleProp = {
-
+    book: number,
+    chapter: number,
+    verseSelections: Array<VerseSelection>,
+    cleanSelection: () => void
 }
 
 export const NoteToggle: React.FunctionComponent<NoteToggleProp> = (props) => {
@@ -59,6 +64,12 @@ export const NoteToggle: React.FunctionComponent<NoteToggleProp> = (props) => {
                     </ToggleButtonGroup>
                 </div>
             </Grid>
+            <NoteFactory
+                noteType={noteType}
+                book={props.book}
+                chapter={props.chapter}
+                verseSelections={props.verseSelections}
+                cleanSelection={props.cleanSelection} />
         </div>
     )
 }
