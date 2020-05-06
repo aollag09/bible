@@ -251,7 +251,8 @@ export class TagDAL {
             case Tag.TagCase.WHATTAG:
                 let what = new WhatTag()
                 what.setWhat(row.get("what")!.toString())
-                what.setDetails(row.get("details")!.toString())
+                if (row.get("details"))
+                    what.setDetails(row.get("details")!.toString())
                 tag.setWhattag(what)
                 break;
             case Tag.TagCase.WHOTAG:
@@ -267,14 +268,17 @@ export class TagDAL {
             case Tag.TagCase.WHERETAG:
                 let where = new WhereTag()
                 where.setWhere(row.get("where")!.toString())
-                where.setLatitude(parseFloat(row.get("latitude")!))
-                where.setLongitude(parseFloat(row.get("longitude")!))
+                if (row.get("latitue"))
+                    where.setLatitude(parseFloat(row.get("latitude")!))
+                if (row.get("longitude"))
+                    where.setLongitude(parseFloat(row.get("longitude")!))
                 tag.setWheretag(where)
                 break;
             case Tag.TagCase.HOWTAG:
                 let how = new HowTag()
                 how.setHow(row.get("how")!.toString())
-                how.setDetails(row.get("details")!.toString())
+                if (row.get("details"))
+                    how.setDetails(row.get("details")!.toString())
                 tag.setHowtag(how)
                 break;
             case Tag.TagCase.TAG_NOT_SET:
