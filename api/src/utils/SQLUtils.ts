@@ -3,8 +3,7 @@ export class SQLUtils {
 
 
     public static sanetize(word: string): string {
-        word.replace("\'", "\'\'")
-        return word
+        return word.replace(/'/g, "''")
     }
 
 
