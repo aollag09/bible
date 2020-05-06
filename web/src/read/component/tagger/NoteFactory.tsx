@@ -4,6 +4,9 @@ import React from "react";
 import { Note, Notes } from "../../../common/generated/services/note/note_pb";
 import { DateTime } from "../../../common/utils/dateTime";
 import { VerseSelection } from "../reader/VerseSelection";
+import Axios from "axios";
+import { BibleAPI } from "../../../common/utils/bibleAPI";
+import { ProtoUtils } from "../../../common/utils/protoUtils";
 
 export type NoteFactoryProps = {
     noteType: string | undefined,
@@ -30,13 +33,18 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
-
 export const NoteFactory: React.FunctionComponent<NoteFactoryProps> = (props) => {
 
-
-
     const postNotes = (notes: Notes) => {
-
+        Axios.post(BibleAPI.url + "notes", {
+            notebuff: ProtoUtils.serialize(notes)
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
     const createNotes = (values: NoteValues) => {
@@ -59,8 +67,12 @@ export const NoteFactory: React.FunctionComponent<NoteFactoryProps> = (props) =>
 
         note.setBook(props.book)
         note.setChapter(props.chapter)
+
         note.setStart(selection.getStartId())
         note.setEnd(selection.getEndId())
+
+        note.setType(props.noteType!)
+        note.setNote(values.note)
 
         return note
     }
@@ -90,9 +102,9 @@ export const NoteFactory: React.FunctionComponent<NoteFactoryProps> = (props) =>
                                     name="note"
                                     label="Note"
                                     variant="filled"
-                                    defaultValue={values.type}
+                                    defaultValue={values.note}
                                     onChange={handleChange} />
-                                <br/>
+                                <br />
                                 <Button type="submit" variant="contained" className="button-submit">
                                     Create
                                 </Button>

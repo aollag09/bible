@@ -9,8 +9,6 @@ import { ProtoUtils } from "../../utils/ProtoUtils";
 import { Message } from "google-protobuf";
 
 
-
-
 export default [
 
     {
@@ -43,7 +41,7 @@ export default [
 
     {
         // Get all the notes of a chapter in a book
-        path: RouteUtils.BASE_PATH + "tag/book/:bookId/chapter/:chapterId",
+        path: RouteUtils.BASE_PATH + "note/book/:bookId/chapter/:chapterId",
         method: "get",
         responseType: "arrayBuffer",
         headers: { 'Content-Type': 'application/protobuf' },

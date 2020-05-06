@@ -1,9 +1,9 @@
-import React from "react"
 import { Grid, makeStyles } from "@material-ui/core";
-import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import ToggleButton from "@material-ui/lab/ToggleButton";
-import { NoteFactory } from "./NoteFactory";
+import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import React from "react";
 import { VerseSelection } from "../reader/VerseSelection";
+import { NoteFactory } from "./NoteFactory";
 
 const useStyles = makeStyles((theme) => ({
     toggleContainer: {
@@ -45,20 +45,20 @@ export const NoteToggle: React.FunctionComponent<NoteToggleProp> = (props) => {
                         aria-label="tag type">
                         <ToggleButton
                             className="tag-factory-toggle-button"
-                            value="what"
-                            aria-label="tag type what">
+                            value="comment"
+                            aria-label="note type comment">
                             <p>Comment</p>
                         </ToggleButton>
                         <ToggleButton
                             className="tag-factory-toggle-button"
-                            value="who"
-                            aria-label="tag type who">
+                            value="question"
+                            aria-label="note type question">
                             <p>Question</p>
                         </ToggleButton>
                         <ToggleButton
                             className="tag-factory-toggle-button"
-                            value="where"
-                            aria-label="tag type where">
+                            value="prayer"
+                            aria-label="note type prayer">
                             <p>Prayer</p>
                         </ToggleButton>
                     </ToggleButtonGroup>
