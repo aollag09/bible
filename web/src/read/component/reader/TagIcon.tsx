@@ -49,7 +49,7 @@ export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
             </Tooltip>
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="scroll-dialog-title">Tags</DialogTitle>
+                <DialogTitle id="scroll-dialog-title"> Tags </DialogTitle>
                 <DialogContent dividers={true}>
                     <TagsDialog tags={props.tags} handleClose={handleClose} />
                 </DialogContent>

@@ -219,11 +219,31 @@
     color: #787878;
 }
 
+.note-label-icon{
+    color: #505050;
+}
+
+.note-label-icon:hover{
+    color: #787878;
+}
+
 .tag-label-icon-container{
     display: inline-block;
     margin-right: 2em;
     margin-left: 2em;
 }
+
+.note-icon{
+    display: inline-block;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+
+.note-icons{
+    display: inline-block;
+}
+
 
 .tag-dialog-container{
     max-width: 30em;
