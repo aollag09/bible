@@ -146,7 +146,7 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
                     <div className="tag-factory-what">
                         <TextField required name="what" label="What" variant="filled" defaultValue=""
                             onChange={handleChange} />
-                        <TextField multiline name="what-details" label="Details" variant="filled" defaultValue=""
+                        <TextField multiline name="whatDetails" label="Details" variant="filled" defaultValue=""
                             onChange={handleChange} />
 
                     </div>
@@ -185,7 +185,7 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
                     <div className="tag-factory-how">
                         <TextField required name="how" label="How" variant="filled" defaultValue=""
                             onChange={handleChange} />
-                        <TextField multiline name="how-details" label="Details" variant="filled" defaultValue=""
+                        <TextField multiline name="howDetails" label="Details" variant="filled" defaultValue=""
                             onChange={handleChange} />
 
                     </div>
