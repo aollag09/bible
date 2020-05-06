@@ -141,23 +141,19 @@ export class TagDAL {
         let sql: string = 'insert into ' + this.getTable(tag.getTagCase()) + ' ('
         let i = 0
         values.forEach((value: string, key: string) => {
-            if (value) {
-                if (i == values.size - 1)
-                    sql += SQLUtils.backTics(key) + ") "
-                else
-                    sql += SQLUtils.backTics(key) + ", "
-            }
+            if (i == values.size - 1)
+                sql += SQLUtils.backTics(key) + ") "
+            else
+                sql += SQLUtils.backTics(key) + ", "
             i++;
         })
         sql += "values ("
         i = 0
         values.forEach((value: string, key: string) => {
-            if (value) {
-                if (i == values.size - 1)
-                    sql += SQLUtils.quote(value) + ") "
-                else
-                    sql += SQLUtils.quote(value) + ", "
-            }
+            if (i == values.size - 1)
+                sql += SQLUtils.quote(value) + ") "
+            else
+                sql += SQLUtils.quote(value) + ", "
             i++;
         })
         return sql;
@@ -203,7 +199,14 @@ export class TagDAL {
             case Tag.TagCase.TAG_NOT_SET:
                 break;
         }
-        return values;
+
+        // Filter empty values
+        const filtered = new Map<string, string>()
+        values.forEach((val, key) => {
+            if (val && key)
+                filtered.set(key, val)
+        })
+        return filtered;
     }
 
     private getTable(tagCase: Tag.TagCase): string {

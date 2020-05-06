@@ -23,7 +23,7 @@ export class Home extends React.Component {
             <Login />
           </div>
 
-          <h1 > Bible Exploration</h1>
+          <h1 >Your Bible Exploration</h1>
           <h2> Online Bible Explorator</h2>
 
         </div>
