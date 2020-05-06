@@ -1,5 +1,5 @@
 
-import { Button, Dialog, DialogActions, Tooltip, DialogTitle, DialogContent } from "@material-ui/core";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip } from "@material-ui/core";
 import LabelIcon from '@material-ui/icons/Label';
 import React, { useState } from "react";
 import { Tag } from "../../../common/generated/services/tag/tag_pb";
@@ -51,7 +51,7 @@ export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="scroll-dialog-title">Tags</DialogTitle>
                 <DialogContent dividers={true}>
-                    <TagsDialog tags={props.tags} />
+                    <TagsDialog tags={props.tags} handleClose={handleClose} />
                 </DialogContent>
 
                 <DialogActions>

@@ -1,16 +1,24 @@
 
-import { DialogContent, DialogTitle } from "@material-ui/core"
+import { Button, DialogContent, DialogTitle } from "@material-ui/core"
+import Axios from "axios"
 import React from "react"
 import { Tag } from "../../../common/generated/services/tag/tag_pb"
+import { BibleAPI } from "../../../common/utils/bibleAPI"
 import { StringUtils } from "../../../common/utils/stringUtils"
 import { TagCaseUtils } from "../../../common/utils/tagCaseUtils"
 import { TagDialogField } from "./TagDialogField"
 
 type TagsDialogProps = {
-    tags: Array<Tag>
+    tags: Array<Tag>,
+    handleClose: () => void
 }
 
 export const TagsDialog: React.FunctionComponent<TagsDialogProps> = (props) => {
+
+    const deleteTag = (tagcase: Tag.TagCase, id: number) => {
+        Axios.delete(BibleAPI.url + "tag/" + TagCaseUtils.getStringName(tagcase) + "/" + id)
+        props.handleClose()
+    }
 
     const tagsElts: JSX.Element[] = []
     props.tags.forEach(tag => {
@@ -52,6 +60,8 @@ export const TagsDialog: React.FunctionComponent<TagsDialogProps> = (props) => {
                 <TagDialogField key={tag.getId() + "created"} field="created" value={new Date(tag.getCreated()).toUTCString()} />
                 <TagDialogField key={tag.getId() + "modified"} field="modified" value={new Date(tag.getModified()).toUTCString()} />
                 {tagSpecifics}
+
+                <Button onClick={() => deleteTag(tag.getTagCase(), tag.getId())} > Delete </Button>
             </div>
         )
     })
@@ -60,11 +70,8 @@ export const TagsDialog: React.FunctionComponent<TagsDialogProps> = (props) => {
     return (
         <div className="tag-dialog-container">
             <DialogContent>
-
                 {tagsElts}
             </DialogContent>
-
-
         </div>
     )
 
