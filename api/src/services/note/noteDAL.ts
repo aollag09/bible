@@ -60,6 +60,20 @@ export class NoteDAL {
         })
     }
 
+    /**
+     * Put notes in database
+     * @param notes 
+     */
+    public async putNotes(notes: Notes) {
+        await this.database.transaction((connection: any) => {
+            notes.getNotesList().forEach(note => {
+                const sql = this.buildSQLCreate(note)
+                connection.query(sql)
+            })
+        })
+    }
+
+
     private buildSQLCreate(note: Note) {
         const values = this.buildSQLNoteValues(note)
         return SQLUtils.buildSQLCreate("note", values)

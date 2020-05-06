@@ -3,7 +3,7 @@ import { RouteUtils } from "../../utils/RouteUtils";
 import { checkIdParams, checkBookIdParams, checkChapterIdParams } from "../../middleware/check";
 import { clientError, notFoundErrorMessage } from "../../utils/ErrorHandler";
 import { Database } from "../database/database";
-import { Note } from "./note_pb";
+import { Note, Notes } from "./note_pb";
 import { NoteDAL } from "./noteDAL";
 import { ProtoUtils } from "../../utils/ProtoUtils";
 import { Message } from "google-protobuf";
@@ -90,6 +90,35 @@ export default [
 
                     if (note) {
                         await noteDAL.putNote(note)
+                        res.status(200).send("succeeded")
+                    }
+                    else
+                        clientError(new Error("Invalid input notebuff " + req.body.notebuff), res, next)
+                } else {
+                    clientError(new Error("notebuff parameter is missing on request body"), res, next)
+                }
+            }
+        ]
+    },
+
+    {
+        // Create notes 
+        path: RouteUtils.BASE_PATH + "notes",
+        method: "post",
+        responseType: '',
+        headers: { 'Content-Type': 'application/protobuf' },
+        handler: [
+            async (req: Request, res: Response, next: NextFunction) => {
+
+                const database = Database.get()
+                const noteDAL = new NoteDAL(database)
+
+                if (req.body.notebuff) {
+                    // Create tag from input proto
+                    const notes = Notes.deserializeBinary(Message.bytesAsU8(req.body.notebuff))
+
+                    if (notes) {
+                        await noteDAL.putNotes(notes)
                         res.status(200).send("succeeded")
                     }
                     else
