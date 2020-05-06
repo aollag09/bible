@@ -10,7 +10,7 @@ import { VerseSelection } from '../reader/VerseSelection';
 
 
 type TagFactoryProps = {
-    tagType: string | null,
+    tagType: string | undefined,
     book: number,
     chapter: number,
     verseSelections: Array<VerseSelection>,
@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
                 margin: theme.spacing(1),
                 wnameth: '30em',
             },
+
         },
     }),
 );
@@ -197,7 +198,7 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
 
     const classes = useStyles();
 
-    if (props.tagType) {
+    if (props.tagType !== undefined) {
 
         if (props.tagType !== tagType)
             setTagType(props.tagType)

@@ -23,10 +23,13 @@ type TagToggleProp = {
 
 export const TagToggle: React.FunctionComponent<TagToggleProp> = props => {
 
-    const [tagType, setTagType] = React.useState<string | null>(null);
+    const [tagType, setTagType] = React.useState<string | undefined>(undefined);
 
     const handleTagType = (event: React.MouseEvent<HTMLElement, MouseEvent>, newTagType: string | null) => {
-        if (newTagType !== null) {
+        if (newTagType === tagType || newTagType === null) {
+            setTagType(undefined)
+        }
+        else if (newTagType !== null) {
             setTagType(newTagType);
         }
     };
@@ -81,7 +84,7 @@ export const TagToggle: React.FunctionComponent<TagToggleProp> = props => {
                 book={props.book}
                 chapter={props.chapter}
                 verseSelections={props.verseSelections}
-                cleanSelection={props.cleanSelection}/>
+                cleanSelection={props.cleanSelection} />
         </div>
     );
 }
