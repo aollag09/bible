@@ -5,7 +5,7 @@ import { DateTime } from '../../../utils/dateTime';
 import { ProtoUtils } from '../../../utils/ProtoUtils';
 import { RouteUtils } from '../../../utils/RouteUtils';
 import { Database } from "../../database/database";
-import { TagDAL } from '../TagDal';
+import { TagDAL } from '../TagDAL';
 import { Tag, WhatTag } from '../tag_pb';
 
 chai.use(chaiHttp);

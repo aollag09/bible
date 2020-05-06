@@ -4,7 +4,7 @@ import { checkIdParams, checkChapterIdParams, checkBookIdParams, checkStartIdPar
 import { Tag, WhatTag, WhoTag, WhereTag, WhenTag, HowTag, Tags } from "./tag_pb";
 import { clientError, notFoundErrorMessage } from "../../utils/ErrorHandler";
 import { Database } from "../database/database";
-import { TagDAL } from "./TagDal";
+import { TagDAL } from "./TagDAL";
 import { ProtoUtils } from "../../utils/ProtoUtils";
 import { Route } from "../../utils";
 import { TagChecks } from "./tagCheck";

@@ -17,9 +17,9 @@ export class TagDAL {
      * @param id 
      */
     public async withId(id: number, tagCase: Tag.TagCase): Promise<Tag | undefined> {
-        let sql = this.sqlSelectTag(tagCase) +
+        const sql = this.sqlSelectTag(tagCase) +
             ` where tag.id = ` + id;
-        let rows = await this.database.select(sql)
+        const rows = await this.database.select(sql)
         if (rows.length == 1) {
             return this.extractTag(rows[0], tagCase)
         }
@@ -34,9 +34,9 @@ export class TagDAL {
    * @param tagCase
    */
     public async within(start: string, end: string, tagCase: Tag.TagCase): Promise<Tags> {
-        let sql = this.sqlSelectTag(tagCase) +
+        const sql = this.sqlSelectTag(tagCase) +
             ` where tag.start >= ` + SQLUtils.quote(start) + ' and tag.end <=' + SQLUtils.quote(end)
-        let rows = await this.database.select(sql)
+        const rows = await this.database.select(sql)
         return this.extractTags(rows, tagCase)
     }
 
@@ -47,9 +47,9 @@ export class TagDAL {
      * @param tagCase 
      */
     public async withBookChapter(book: number, chapter: number, tagCase: Tag.TagCase) {
-        let sql = this.sqlSelectTag(tagCase) +
+        const sql = this.sqlSelectTag(tagCase) +
             ` where tag.book=` + book + ' and tag.chapter=' + chapter
-        let rows = await this.database.select(sql)
+        const rows = await this.database.select(sql)
         return this.extractTags(rows, tagCase)
     }
 
@@ -59,9 +59,9 @@ export class TagDAL {
      * @param tagCase 
      */
     public async withType(type: string, tagCase: Tag.TagCase) {
-        let sql = this.sqlSelectTag(tagCase) +
+        const sql = this.sqlSelectTag(tagCase) +
             ` where tag.type=` + SQLUtils.quote(type)
-        let rows = await this.database.select(sql)
+        const rows = await this.database.select(sql)
         return this.extractTags(rows, tagCase)
     }
 
@@ -74,10 +74,10 @@ export class TagDAL {
      * @param tagCase 
      */
     public async withBookChapterStartEnd(book: number, chapter: number, start: string, end: string, tagCase: Tag.TagCase) {
-        let sql = this.sqlSelectTag(tagCase) +
+        const sql = this.sqlSelectTag(tagCase) +
             ` where tag.book = ` + book + ' and tag.chapter =' + chapter + ` and ` +
             ` tag.start >= ` + SQLUtils.quote(start) + ' and tag.end <=' + SQLUtils.quote(end)
-        let rows = await this.database.select(sql)
+        const rows = await this.database.select(sql)
         return this.extractTags(rows, tagCase)
     }
 
@@ -89,9 +89,9 @@ export class TagDAL {
      * @param end
      */
     public async withBookChapterStartEndAll(book: number, chapter: number, start: string, end: string) {
-        let tags = new Tags()
+        const tags = new Tags()
         this.getTagCases().forEach(async tagCase => {
-            let currentTags = await this.withBookChapterStartEnd(book, chapter, start, end, tagCase);
+            const currentTags = await this.withBookChapterStartEnd(book, chapter, start, end, tagCase);
             currentTags.getTagsList().forEach(tag => {
                 tags.getTagsList().push(tag)
             })
@@ -100,12 +100,12 @@ export class TagDAL {
     }
 
     /**
-     * Delete tag
+     * Deconste tag
      * @param id 
      * @param tagCase 
      */
     public async deleteTag(id: number, tagCase: Tag.TagCase) {
-        let sql = `delete from ` + this.getTable(tagCase) + ` where id = ` + id
+        const sql = `delete from ` + this.getTable(tagCase) + ` where id = ` + id
         await this.database.transaction((connection: any) => {
             connection.query(sql)
         })
@@ -116,8 +116,7 @@ export class TagDAL {
      * @param tag 
      */
     public async putTag(tag: Tag) {
-        let sql = this.buildSQLCreate(tag)
-        //this.database.query(sql)
+        const sql = this.buildSQLCreate(tag)
         await this.database.transaction((connection: any) => {
             connection.query(sql)
         })
@@ -130,37 +129,19 @@ export class TagDAL {
     public async putTags(tags: Tags) {
         await this.database.transaction((connection: any) => {
             tags.getTagsList().forEach(tag => {
-                let sql = this.buildSQLCreate(tag)
+                const sql = this.buildSQLCreate(tag)
                 connection.query(sql)
             })
         })
     }
 
     private buildSQLCreate(tag: Tag): string {
-        let values = this.buildSQLTagValues(tag)
-        let sql: string = 'insert into ' + this.getTable(tag.getTagCase()) + ' ('
-        let i = 0
-        values.forEach((value: string, key: string) => {
-            if (i == values.size - 1)
-                sql += SQLUtils.backTics(key) + ") "
-            else
-                sql += SQLUtils.backTics(key) + ", "
-            i++;
-        })
-        sql += "values ("
-        i = 0
-        values.forEach((value: string, key: string) => {
-            if (i == values.size - 1)
-                sql += SQLUtils.quote(value) + ") "
-            else
-                sql += SQLUtils.quote(value) + ", "
-            i++;
-        })
-        return sql;
+        const values = this.buildSQLTagValues(tag)
+        return SQLUtils.buildSQLCreate(this.getTable(tag.getTagCase()), values)
     }
 
     private buildSQLTagValues(tag: Tag): Map<string, string> {
-        let values = new Map<string, string>()
+        const values = new Map<string, string>()
 
         values.set("owner", tag.getOwner().toString())
 
@@ -228,7 +209,7 @@ export class TagDAL {
     }
 
     private extractTag(row: Map<string, string>, tagCase: Tag.TagCase): Tag {
-        let tag = new Tag()
+        const tag = new Tag()
 
         tag.setId(parseInt(row.get("id")!))
         tag.setOwner(parseInt(row.get("owner")!))
@@ -249,24 +230,24 @@ export class TagDAL {
 
         switch (+tagCase) {
             case Tag.TagCase.WHATTAG:
-                let what = new WhatTag()
+                const what = new WhatTag()
                 what.setWhat(row.get("what")!.toString())
                 if (row.get("details"))
                     what.setDetails(row.get("details")!.toString())
                 tag.setWhattag(what)
                 break;
             case Tag.TagCase.WHOTAG:
-                let who = new WhoTag()
+                const who = new WhoTag()
                 who.setWho(parseInt(row.get("who")!))
                 tag.setWhotag(who)
                 break;
             case Tag.TagCase.WHENTAG:
-                let when = new WhenTag()
+                const when = new WhenTag()
                 when.setYear(parseInt(row.get("year")!))
                 tag.setWhentag(when)
                 break;
             case Tag.TagCase.WHERETAG:
-                let where = new WhereTag()
+                const where = new WhereTag()
                 where.setWhere(row.get("where")!.toString())
                 if (row.get("latitue"))
                     where.setLatitude(parseFloat(row.get("latitude")!))
@@ -275,7 +256,7 @@ export class TagDAL {
                 tag.setWheretag(where)
                 break;
             case Tag.TagCase.HOWTAG:
-                let how = new HowTag()
+                const how = new HowTag()
                 how.setHow(row.get("how")!.toString())
                 if (row.get("details"))
                     how.setDetails(row.get("details")!.toString())
@@ -288,9 +269,9 @@ export class TagDAL {
     }
 
     private extractTags(rows: Map<string, string>[], tagCase: Tag.TagCase): Tags {
-        let tags = new Tags()
+        const tags = new Tags()
         rows.forEach(row => {
-            let tag = this.extractTag(row, tagCase)
+            const tag = this.extractTag(row, tagCase)
             tags.getTagsList().push(tag)
         })
         return tags;

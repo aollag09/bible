@@ -1,7 +1,7 @@
 import { PeopleDAL } from "../peopleDAL";
 import { Database } from "../../database/database";
 import { LanguageDAL } from "../../language/languageDAL";
-import { TagDAL } from "../../tag/TagDal";
+import { TagDAL } from "../../tag/TagDAL";
 import { ScriptureDAL } from "../../scriptures/scriptureDAL";
 import { VersionDAL } from "../../version/versionDAL";
 import { DateTime } from "../../../utils/dateTime";
