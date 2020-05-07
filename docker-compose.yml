@@ -51,6 +51,7 @@ services:
       - ./deployment/mysql/schema/bible_language.sql:/docker-entrypoint-initdb.d/bible_language.sql
       - ./deployment/mysql/schema/bible_people_translation.sql:/docker-entrypoint-initdb.d/bible_people_translation.sql
       - ./deployment/mysql/schema/note.sql:/docker-entrypoint-initdb.d/note.sql
+      - ./deployment/mysql/schema/bible_read.sql:/docker-entrypoint-initdb.d/bible_read.sql
 
       # Db Data (prefix with z to ensure this import is done after the schema
       - ./deployment/mysql/data/ar_svd.sql:/docker-entrypoint-initdb.d/z_ar_svd.sql

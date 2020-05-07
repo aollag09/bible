@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package bible;
+
+message Read {
+    int32 id = 1;
+    int32 owner = 2;
+    int32 version = 3;
+    int32 book = 4;
+    int32 chapter = 5;
+    int64 time = 6;
+}
+
+message Reads {
+    repeated Read reads = 1;
+}
+
