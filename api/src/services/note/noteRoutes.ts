@@ -22,7 +22,7 @@ export default [
             async (req: Request, res: Response, next: NextFunction) => {
                 const id: number = parseInt(req.params.id)
                 if (isNaN(id))
-                    clientError(new Error("Input book identifier is not a number : " + id), res, next);
+                    clientError(new Error("Input note identifier is not a number : " + id), res, next);
 
                 const database = Database.get()
                 const noteDAL = new NoteDAL(database)
