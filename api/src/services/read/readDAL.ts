@@ -61,7 +61,7 @@ export class ReadDAL {
 
     private buildSQLCreate(read: Read) {
         const values = this.buildSQLNoteValues(read)
-        return SQLUtils.buildSQLCreate("note", values)
+        return SQLUtils.buildSQLCreate("bible_read", values)
     }
 
     private buildSQLNoteValues(read: Read): Map<string, string> {
@@ -69,11 +69,11 @@ export class ReadDAL {
 
         values.set("owner", read.getOwner().toString())
 
-        values.set("time", read.getTime().toString())
-
         values.set("version", read.getVersion().toString())
         values.set("chapter", read.getChapter().toString())
         values.set("book", read.getBook().toString())
+
+        values.set("created", read.getCreated().toString())
 
         return values
     }
@@ -97,7 +97,7 @@ export class ReadDAL {
         read.setBook(parseInt(row.get("book")!))
         read.setChapter(parseInt(row.get("chapter")!))
 
-        read.setTime(parseInt(row.get("time")!))
+        read.setCreated(parseInt(row.get("created")!))
 
         return read;
     }

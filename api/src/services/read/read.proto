@@ -8,7 +8,7 @@ message Read {
     int32 version = 3;
     int32 book = 4;
     int32 chapter = 5;
-    int64 time = 6;
+    int64 created = 6;
 }
 
 message Reads {

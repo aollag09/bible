@@ -19,8 +19,8 @@ export class Read extends jspb.Message {
   getChapter(): number;
   setChapter(value: number): void;
 
-  getTime(): number;
-  setTime(value: number): void;
+  getCreated(): number;
+  setCreated(value: number): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Read.AsObject;
@@ -39,7 +39,7 @@ export namespace Read {
     version: number,
     book: number,
     chapter: number,
-    time: number,
+    created: number,
   }
 }
 

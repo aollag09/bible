@@ -65,7 +65,7 @@ proto.bible.Read.toObject = function(includeInstance, msg) {
     version: jspb.Message.getFieldWithDefault(msg, 3, 0),
     book: jspb.Message.getFieldWithDefault(msg, 4, 0),
     chapter: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    time: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    created: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -124,7 +124,7 @@ proto.bible.Read.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 6:
       var value = /** @type {number} */ (reader.readInt64());
-      msg.setTime(value);
+      msg.setCreated(value);
       break;
     default:
       reader.skipField();
@@ -190,7 +190,7 @@ proto.bible.Read.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getTime();
+  f = message.getCreated();
   if (f !== 0) {
     writer.writeInt64(
       6,
@@ -276,16 +276,16 @@ proto.bible.Read.prototype.setChapter = function(value) {
 
 
 /**
- * optional int64 time = 6;
+ * optional int64 created = 6;
  * @return {number}
  */
-proto.bible.Read.prototype.getTime = function() {
+proto.bible.Read.prototype.getCreated = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /** @param {number} value */
-proto.bible.Read.prototype.setTime = function(value) {
+proto.bible.Read.prototype.setCreated = function(value) {
   jspb.Message.setProto3IntField(this, 6, value);
 };
 

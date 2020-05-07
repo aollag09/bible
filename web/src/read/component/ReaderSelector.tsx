@@ -4,6 +4,12 @@ import { Loading } from "../../common/utils/component/Loading";
 import { ReaderTagger } from "./reader/ReaderTagger";
 import { Selector } from "./selector/Selector";
 import Cookies from 'universal-cookie';
+import Axios from "axios";
+import { Read } from "../../common/generated/services/read/read_pb";
+import { DateTimeUtils } from "../../common/utils/dateTimeUtils";
+import { LoginUtils } from "../../common/utils/loginUtils";
+import { BibleAPI } from "../../common/utils/bibleAPI";
+import { ProtoUtils } from "../../common/utils/protoUtils";
 
 export class ReaderSelectorConst {
 
@@ -38,6 +44,17 @@ export function ReaderSelector() {
         setVersion(version)
         setBook(book)
         setChapter(chapter)
+
+        // Log read in db
+        const read = new Read()
+        read.setVersion(version)
+        read.setBook(book)
+        read.setChapter(chapter)
+        read.setCreated(DateTimeUtils.current())
+        read.setOwner(LoginUtils.getOwner())
+        Axios.post(BibleAPI.url + "read", {
+            readbuff: ProtoUtils.serialize(read)
+        })
     }
 
     const showReaderSelector = () => {

@@ -12,10 +12,10 @@ create table `bible_read` (
   `id` int not null AUTO_INCREMENT comment 'Identifier of the read',
   `owner` int not null comment 'Identifier of the read owner',
   
-  `version`   int(8) unsigned zerofill not null,
+  `version`   int(8) not null,
   `book` int(11) not null,
   `chapter` int(11) not null,
 
-  `time` int(8) not null comment 'Time of the read',
+  `created` int(8) not null comment 'Time of the read',
   primary key (`id`)
 );
