@@ -2,12 +2,12 @@
 version: '3.3'
 services:
 
-  # NODE, BIBLE WEB APP
-  node:
+  # NODE, BIBLE BACK END APP 
+  api:
     build:
       context: ./api/
-      dockerfile: ../deployment/node/Dockerfile
-    container_name: node
+      container_name: api
+      dockerfile: ../deployment/api/Dockerfile
     environment:
       # Update evironment variable for docker env
       PORT: 3301
@@ -15,6 +15,20 @@ services:
       ES_HOST: elasticsearch
     ports: 
       - '3301:3301'
+    networks:
+      - network
+
+  # WEB, BIBLE FRONT END WEB APP 
+  web:
+    build:
+      context: ./web/
+      dockerfile: ../deployment/web/Dockerfile
+    container_name: web
+    environment:
+      # Update evironment variable for docker env
+      BIBLE_API_HOST: api
+    ports: 
+      - '3001:3001'
     networks:
       - network
 

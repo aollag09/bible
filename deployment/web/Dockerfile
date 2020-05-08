@@ -10,7 +10,7 @@ COPY ./package*.json ./
 
 RUN npm install
 # If you are building your code for production
-RUN npm ci --only=production
+#RUN npm ci --only=production
 
 # Type script compilation file
 COPY ./tsconfig.json ./
@@ -20,6 +20,7 @@ COPY ./.env ./
 
 # Copy source code
 COPY ./src ./src
+COPY ./public ./public
 
 # Build application
 RUN npm run build
