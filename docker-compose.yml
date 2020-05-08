@@ -6,8 +6,8 @@ services:
   api:
     build:
       context: ./api/
-      container_name: api
       dockerfile: ../deployment/api/Dockerfile
+    container_name: api
     environment:
       # Update evironment variable for docker env
       PORT: 3301
