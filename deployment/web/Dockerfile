@@ -1,3 +1,6 @@
+################################
+### Buildtime environement
+
 FROM node:latest as react-build
 
 # Create bible app directory
@@ -25,9 +28,31 @@ COPY ./public ./public
 # Build application
 RUN npm run build
 
-# Build server
-RUN npm install -g serve
 
-# Start application
-EXPOSE 3001
-CMD ["serve", "-s", "build", "-l", "3001"]
+
+################################
+### Runtime environement
+
+
+# Server environment based on nginx
+FROM nginx:alpine
+
+# Copy configuration file
+COPY ./nginx.conf /etc/nginx/conf.d/configfile.template
+
+# Port & host
+ENV PORT 8080
+ENV HOST 0.0.0.0
+
+# Replace env variable in configuration file
+RUN sh -c "envsubst '\$PORT'  < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf"
+
+# Copy build result from react build
+COPY --from=react-build /usr/src/bible/build /usr/share/nginx/html
+
+# Export required port
+EXPOSE 8080
+
+# Server start command
+CMD ["nginx", "-g", "daemon off;"]
+
