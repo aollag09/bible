@@ -4,9 +4,7 @@ services:
 
   # NODE, BIBLE BACK END APP 
   api:
-    build:
-      context: ./api/
-      dockerfile: ../deployment/api/Dockerfile
+    build: api/
     container_name: api
     environment:
       # Update evironment variable for docker env
@@ -20,9 +18,7 @@ services:
 
   # WEB, BIBLE FRONT END WEB APP 
   web:
-    build:
-      context: ./web/
-      dockerfile: ../deployment/web/Dockerfile
+    build: web/
     container_name: web
     environment:
       # Update evironment variable for docker env
