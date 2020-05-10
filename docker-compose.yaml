@@ -31,7 +31,7 @@ services:
   # DATABASE 
   database:
     # Use latest oicial mysql version
-    build: deployment/mysql/
+    build: database/
     container_name: database
 
     environment:
@@ -98,7 +98,7 @@ services:
   
   # LOGSTASH, DATA INTEGRATION
   logstash:
-    build: deployment/logstash/
+    build: logstash/
     container_name: logstash
     ports:
       - '5001:5001'

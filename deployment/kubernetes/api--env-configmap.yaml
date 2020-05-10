@@ -1,0 +1,17 @@
+apiVersion: v1
+data:
+  DB_DATABASE: bible
+  DB_HOST: localhost
+  DB_PASSWORD: docker
+  DB_PORT: "3306"
+  DB_USERNAME: bible_user
+  ES_HOST: localhost
+  ES_PORT: "9200"
+  NODE_ENV: production
+  PORT: "3300"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: logstash-api--env
+  name: api--env
