@@ -35,7 +35,7 @@ services:
   # DATABASE 
   database:
     # Use latest oicial mysql version
-    image: "mysql:8.0.19"
+    build: deployment/mysql/
     container_name: database
 
     environment:
@@ -55,47 +55,6 @@ services:
       # Opens port 3306 on the container
       - '3306'
     volumes:
-      # Initialization db schema scripts
-      - ./deployment/mysql/schema/bible_init.sql:/docker-entrypoint-initdb.d/bible_init.sql
-      - ./deployment/mysql/schema/bible_version_key.sql:/docker-entrypoint-initdb.d/bible_version_key.sql
-      - ./deployment/mysql/schema/key_abbreviations.sql:/docker-entrypoint-initdb.d/key_abbreviations.sql
-      - ./deployment/mysql/schema/key_english.sql:/docker-entrypoint-initdb.d/key_english.sql
-      - ./deployment/mysql/schema/key_genre_english.sql:/docker-entrypoint-initdb.d/key_genre_english.sql
-      - ./deployment/mysql/schema/tags.sql:/docker-entrypoint-initdb.d/tags.sql
-      - ./deployment/mysql/schema/bible_language.sql:/docker-entrypoint-initdb.d/bible_language.sql
-      - ./deployment/mysql/schema/bible_people_translation.sql:/docker-entrypoint-initdb.d/bible_people_translation.sql
-      - ./deployment/mysql/schema/note.sql:/docker-entrypoint-initdb.d/note.sql
-      - ./deployment/mysql/schema/bible_read.sql:/docker-entrypoint-initdb.d/bible_read.sql
-
-      # Db Data (prefix with z to ensure this import is done after the schema
-      - ./deployment/mysql/data/ar_svd.sql:/docker-entrypoint-initdb.d/z_ar_svd.sql
-      - ./deployment/mysql/data/de_schlachter.sql:/docker-entrypoint-initdb.d/z_de_schlachter.sql
-      - ./deployment/mysql/data/el_greek.sql:/docker-entrypoint-initdb.d/z_el_greek.sql
-      - ./deployment/mysql/data/en_asv.sql:/docker-entrypoint-initdb.d/z_en_asv.sql
-      - ./deployment/mysql/data/en_bbe.sql:/docker-entrypoint-initdb.d/z_en_bbe.sql
-      - ./deployment/mysql/data/en_dby.sql:/docker-entrypoint-initdb.d/z_en_dby.sql
-      - ./deployment/mysql/data/en_kjv.sql:/docker-entrypoint-initdb.d/z_en_kjv.sql
-      - ./deployment/mysql/data/en_wbt.sql:/docker-entrypoint-initdb.d/z_en_wbt.sql
-      - ./deployment/mysql/data/en_web.sql:/docker-entrypoint-initdb.d/z_en_web.sql
-      - ./deployment/mysql/data/en_ylt.sql:/docker-entrypoint-initdb.d/z_en_ylt.sql
-      - ./deployment/mysql/data/eo_esperanto.sql:/docker-entrypoint-initdb.d/z_eo_esperanto.sql
-      - ./deployment/mysql/data/es_rvr.sql:/docker-entrypoint-initdb.d/z_es_rvr.sql
-      - ./deployment/mysql/data/fi_finnish.sql:/docker-entrypoint-initdb.d/z_fi_finnish.sql
-      - ./deployment/mysql/data/fi_pr.sql:/docker-entrypoint-initdb.d/z_fi_pr.sql
-      - ./deployment/mysql/data/fr_apee.sql:/docker-entrypoint-initdb.d/z_fr_apee.sql
-      - ./deployment/mysql/data/ko_ko.sql:/docker-entrypoint-initdb.d/z_ko_ko.sql
-      - ./deployment/mysql/data/pt_aa.sql:/docker-entrypoint-initdb.d/z_pt_aa.sql
-      - ./deployment/mysql/data/pt_acf.sql:/docker-entrypoint-initdb.d/z_pt_acf.sql
-      - ./deployment/mysql/data/pt_nvi.sql:/docker-entrypoint-initdb.d/z_pt_nvi.sql
-      - ./deployment/mysql/data/ro_cornilescu.sql:/docker-entrypoint-initdb.d/z_ro_cornilescu.sql
-      - ./deployment/mysql/data/ru_synodal.sql:/docker-entrypoint-initdb.d/z_ru_synodal.sql
-      - ./deployment/mysql/data/vi_vietnamese.sql:/docker-entrypoint-initdb.d/z_vi_vietnamese.sql
-      - ./deployment/mysql/data/zh_cuv.sql:/docker-entrypoint-initdb.d/z_zh_cuv.sql
-      - ./deployment/mysql/data/zh_ncv.sql:/docker-entrypoint-initdb.d/z_zh_ncv.sql
-
-      # Tag Data
-      - ./deployment/mysql/data/tag_who.sql:/docker-entrypoint-initdb.d/z_tag_who.sql
-
       # Database volume
       - database-data:/var/lib/mysql
       
@@ -167,7 +126,6 @@ volumes:
 
   # index volumes
   elasticsearch-data:
-    driver: local
 
 networks:
   network:
