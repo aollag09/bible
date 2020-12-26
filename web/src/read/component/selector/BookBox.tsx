@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import '../../resources/style/selector.css'
 
 type BookBoxProp = {
@@ -10,27 +10,27 @@ type BookBoxProp = {
     onClick: () => void
 }
 
-export class BookBox extends Component<BookBoxProp>{
+export class BookBox extends Component<BookBoxProp> {
 
     render() {
         return (
-            <div className="periodic-book" >
+            <div className="periodic-book">
                 <div className="periodic-book-box" onClick={this.props.onClick}>
                     <div className="periodic-book-wrapper">
 
                         <span className="periodic-book-chapter">
                             {this.props.nbChapter} chp
                         </span>
-                        <br />
+                        <br/>
                         <span className="periodic-book-bigramme">
                             {this.props.bigramme}
                         </span>
 
-                        <br />
+                        <br/>
                         <span className="periodic-book-author">
                             {this.props.author}
                         </span>
-                        <br />
+                        <br/>
                         <span className="periodic-book-author">
                             {this.props.author2}
                         </span>
@@ -38,7 +38,7 @@ export class BookBox extends Component<BookBoxProp>{
                     </div>
                 </div>
 
-            </div >
+            </div>
         );
     }
 

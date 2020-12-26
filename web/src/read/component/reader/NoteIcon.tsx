@@ -1,12 +1,11 @@
-
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip } from "@material-ui/core";
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip} from "@material-ui/core";
 import ChatIcon from '@material-ui/icons/Chat';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import HelpIcon from '@material-ui/icons/Help';
-import React, { useState } from "react";
-import { Note } from "../../../common/generated/services/note/note_pb";
-import { StringUtils } from "../../../common/utils/stringUtils";
-import { NoteDialog } from "./NoteDialog";
+import React, {useState} from "react";
+import {Note} from "../../../common/generated/services/note/note_pb";
+import {StringUtils} from "../../../common/utils/stringUtils";
+import {NoteDialog} from "./NoteDialog";
 
 export type NoteIconProps = {
     notes: Note[]
@@ -31,13 +30,13 @@ export const NoteIcon: React.FunctionComponent<NoteIconProps> = (props) => {
 
     const buildIcon = (): JSX.Element => {
         if (props.type === "question")
-            return <HelpIcon className="note-label-icon" />
+            return <HelpIcon className="note-label-icon"/>
         else if (props.type === "comment")
-            return <ChatIcon className="note-label-icon" />
+            return <ChatIcon className="note-label-icon"/>
         else if (props.type === "prayer")
-            return <FavoriteIcon className="note-label-icon" />
+            return <FavoriteIcon className="note-label-icon"/>
         else
-            return <ChatIcon className="note-label-icon" />
+            return <ChatIcon className="note-label-icon"/>
     }
 
     return (
@@ -49,7 +48,7 @@ export const NoteIcon: React.FunctionComponent<NoteIconProps> = (props) => {
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="scroll-dialog-title">{StringUtils.capitalize(props.type)}</DialogTitle>
                 <DialogContent dividers={true}>
-                    <NoteDialog notes={props.notes} handleClose={handleClose} />
+                    <NoteDialog notes={props.notes} handleClose={handleClose}/>
                 </DialogContent>
 
                 <DialogActions>

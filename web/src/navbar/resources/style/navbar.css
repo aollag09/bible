@@ -1,6 +1,5 @@
 
-
-.navbar{
+.navbar {
     height: 100%; /* 100% Full-height */
     width: 10em;
     position: fixed; /* Stay in place */
@@ -12,8 +11,8 @@
     overflow-x: hidden; /* Disable horizontal scroll */
 }
 
-.navbar ul{
-    padding: 2em; 
+.navbar ul {
+    padding: 2em;
 }
 
 .navbar ul li {
@@ -23,18 +22,18 @@
     color: #787878;
 }
 
-.nav-bar-item{
+.nav-bar-item {
     width: 5.8em;
     padding-top: 20px;
     opacity: .4;
     -ms-filter: "alpha(Opacity=40)";
     filter: alpha(opacity=40);
-    -webkit-transform: scale(0.75,.75);
-    -moz-transform: scale(0.75,.75);
-    -o-transform: scale(0.75,.75);
-    -ms-transform: scale(0.75,.75);
-    transform: scale(0.75,.75);
-    -webkit-transform: scale(0.75,.75);
+    -webkit-transform: scale(0.75, .75);
+    -moz-transform: scale(0.75, .75);
+    -o-transform: scale(0.75, .75);
+    -ms-transform: scale(0.75, .75);
+    transform: scale(0.75, .75);
+    -webkit-transform: scale(0.75, .75);
 }
 
 .navbar ul li:hover .nav-bar-item {

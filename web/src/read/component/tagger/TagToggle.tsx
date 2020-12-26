@@ -1,10 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import { TagFactory } from './TagFactory';
-import { VerseSelection } from '../reader/VerseSelection';
+import {TagFactory} from './TagFactory';
+import {VerseSelection} from '../reader/VerseSelection';
 
 const useStyles = makeStyles((theme) => ({
     toggleContainer: {
@@ -28,8 +28,7 @@ export const TagToggle: React.FunctionComponent<TagToggleProp> = props => {
     const handleTagType = (event: React.MouseEvent<HTMLElement, MouseEvent>, newTagType: string | null) => {
         if (newTagType === tagType || newTagType === null) {
             setTagType(undefined)
-        }
-        else if (newTagType !== null) {
+        } else if (newTagType !== null) {
             setTagType(newTagType);
         }
     };
@@ -67,13 +66,13 @@ export const TagToggle: React.FunctionComponent<TagToggleProp> = props => {
                         <ToggleButton
                             className="tag-factory-toggle-button"
                             value="when"
-                            aria-label="tag type when" >
+                            aria-label="tag type when">
                             <p>When</p>
                         </ToggleButton>
                         <ToggleButton
                             className="tag-factory-toggle-button"
                             value="how"
-                            aria-label="tag type how" >
+                            aria-label="tag type how">
                             <p>How</p>
                         </ToggleButton>
                     </ToggleButtonGroup>
@@ -84,7 +83,7 @@ export const TagToggle: React.FunctionComponent<TagToggleProp> = props => {
                 book={props.book}
                 chapter={props.chapter}
                 verseSelections={props.verseSelections}
-                cleanSelection={props.cleanSelection} />
+                cleanSelection={props.cleanSelection}/>
         </div>
     );
 }

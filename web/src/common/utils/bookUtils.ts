@@ -1,8 +1,7 @@
 import Axios from "axios";
-import { BibleAPI } from "./bibleAPI";
-import { Book } from "../generated/services/book/book_pb";
-import { Message } from "google-protobuf";
-
+import {BibleAPI} from "./bibleAPI";
+import {Book} from "../generated/services/book/book_pb";
+import {Message} from "google-protobuf";
 
 
 export class BookUtils {

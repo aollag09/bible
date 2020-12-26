@@ -1,7 +1,6 @@
-
 import React from "react"
-import { TextField } from "@material-ui/core"
-import { StringUtils } from "../../../common/utils/stringUtils"
+import {TextField} from "@material-ui/core"
+import {StringUtils} from "../../../common/utils/stringUtils"
 
 type DialogFieldProps = {
     field: string,

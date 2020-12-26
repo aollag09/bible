@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { VersionSelector } from "./VersionSelector";
-import { BookSelector } from "./BookSelector";
-import { ChapterSelector } from "./ChapterSelector";
-import { ReaderSelectorConst } from "../ReaderSelector"
+import React, {Component} from "react";
+import {VersionSelector} from "./VersionSelector";
+import {BookSelector} from "./BookSelector";
+import {ChapterSelector} from "./ChapterSelector";
+import {ReaderSelectorConst} from "../ReaderSelector"
 
 type SelectorProp = {
     switch: string,
@@ -43,7 +43,7 @@ export class Selector extends Component<SelectorProp, SelectorState> {
     }
 
     handleChapterSelect(newChapter: number) {
-        this.setState({ chapter: newChapter }, this.handleSubmit)
+        this.setState({chapter: newChapter}, this.handleSubmit)
     }
 
     next = () => {
@@ -79,7 +79,7 @@ export class Selector extends Component<SelectorProp, SelectorState> {
     }
 
     handleSubmit = () => {
-        const { version, book, chapter } = this.state
+        const {version, book, chapter} = this.state
         // Reset state
         this.setState({
             step: 1
@@ -93,16 +93,16 @@ export class Selector extends Component<SelectorProp, SelectorState> {
                 <div className="selector">
                     <VersionSelector
                         step={this.state.step}
-                        handleVersionSelect={(id) => this.handleVersionSelect(id)} />
+                        handleVersionSelect={(id) => this.handleVersionSelect(id)}/>
 
                     <BookSelector
                         step={this.state.step}
-                        handleBookSelect={(id) => this.handleBookSelect(id)} />
+                        handleBookSelect={(id) => this.handleBookSelect(id)}/>
 
                     <ChapterSelector
                         step={this.state.step}
                         book={this.state.book}
-                        handleChapterSelect={(id) => this.handleChapterSelect(id)} />
+                        handleChapterSelect={(id) => this.handleChapterSelect(id)}/>
 
                     {this.prevButton()}
                 </div>

@@ -1,15 +1,15 @@
-import React, { Suspense, useState } from "react";
+import React, {Suspense, useState} from "react";
 import ErrorBoundary from "react-error-boundary";
-import { Loading } from "../../common/utils/component/Loading";
-import { ReaderTagger } from "./reader/ReaderTagger";
-import { Selector } from "./selector/Selector";
+import {Loading} from "../../common/utils/component/Loading";
+import {ReaderTagger} from "./reader/ReaderTagger";
+import {Selector} from "./selector/Selector";
 import Cookies from 'universal-cookie';
 import Axios from "axios";
-import { Read } from "../../common/generated/services/read/read_pb";
-import { DateTimeUtils } from "../../common/utils/dateTimeUtils";
-import { LoginUtils } from "../../common/utils/loginUtils";
-import { BibleAPI } from "../../common/utils/bibleAPI";
-import { ProtoUtils } from "../../common/utils/protoUtils";
+import {Read} from "../../common/generated/services/read/read_pb";
+import {DateTimeUtils} from "../../common/utils/dateTimeUtils";
+import {LoginUtils} from "../../common/utils/loginUtils";
+import {BibleAPI} from "../../common/utils/bibleAPI";
+import {ProtoUtils} from "../../common/utils/protoUtils";
 
 export class ReaderSelectorConst {
 
@@ -34,10 +34,10 @@ export function ReaderSelector() {
     const read = (version: number, book: number, chapter: number) => {
 
         // update cookies
-        cookies.set("reader-selector-switch", ReaderSelectorConst.SWITCH_READER, { path: '/' })
-        cookies.set("version", version, { path: '/' })
-        cookies.set("book", book, { path: '/' })
-        cookies.set("chapter", chapter, { path: '/' })
+        cookies.set("reader-selector-switch", ReaderSelectorConst.SWITCH_READER, {path: '/'})
+        cookies.set("version", version, {path: '/'})
+        cookies.set("book", book, {path: '/'})
+        cookies.set("chapter", chapter, {path: '/'})
 
         // update state
         setSwitch(ReaderSelectorConst.SWITCH_READER)
@@ -58,7 +58,7 @@ export function ReaderSelector() {
     }
 
     const showReaderSelector = () => {
-        cookies.set("reader-selector-switch", ReaderSelectorConst.SWITCH_SELECTOR, { path: '/' })
+        cookies.set("reader-selector-switch", ReaderSelectorConst.SWITCH_SELECTOR, {path: '/'})
         cookies.remove("version")
         cookies.remove("book")
         cookies.remove("chapter")
@@ -67,20 +67,20 @@ export function ReaderSelector() {
     }
 
     return (
-        <Suspense fallback={<Loading text="Loading ..." />}>
+        <Suspense fallback={<Loading text="Loading ..."/>}>
             <ErrorBoundary>
                 <div className="reader-selector">
 
                     <Selector
                         read={read}
-                        switch={readerSelectorSwitch} />
+                        switch={readerSelectorSwitch}/>
                     <ReaderTagger
                         showReaderSelector={showReaderSelector}
                         read={read}
                         switch={readerSelectorSwitch}
                         book={book}
                         chapter={chapter}
-                        version={version} />
+                        version={version}/>
                 </div>
             </ErrorBoundary>
         </Suspense>

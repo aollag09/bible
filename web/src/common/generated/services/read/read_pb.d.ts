@@ -4,64 +4,85 @@
 import * as jspb from "google-protobuf";
 
 export class Read extends jspb.Message {
-  getId(): number;
-  setId(value: number): void;
+    static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
+    static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
 
-  getOwner(): number;
-  setOwner(value: number): void;
+    static toObject(includeInstance: boolean, msg: Read): Read.AsObject;
 
-  getVersion(): number;
-  setVersion(value: number): void;
+    static serializeBinaryToWriter(message: Read, writer: jspb.BinaryWriter): void;
 
-  getBook(): number;
-  setBook(value: number): void;
+    static deserializeBinary(bytes: Uint8Array): Read;
 
-  getChapter(): number;
-  setChapter(value: number): void;
+    static deserializeBinaryFromReader(message: Read, reader: jspb.BinaryReader): Read;
 
-  getCreated(): number;
-  setCreated(value: number): void;
+    getId(): number;
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Read.AsObject;
-  static toObject(includeInstance: boolean, msg: Read): Read.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Read, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Read;
-  static deserializeBinaryFromReader(message: Read, reader: jspb.BinaryReader): Read;
+    setId(value: number): void;
+
+    getOwner(): number;
+
+    setOwner(value: number): void;
+
+    getVersion(): number;
+
+    setVersion(value: number): void;
+
+    getBook(): number;
+
+    setBook(value: number): void;
+
+    getChapter(): number;
+
+    setChapter(value: number): void;
+
+    getCreated(): number;
+
+    setCreated(value: number): void;
+
+    serializeBinary(): Uint8Array;
+
+    toObject(includeInstance?: boolean): Read.AsObject;
 }
 
 export namespace Read {
-  export type AsObject = {
-    id: number,
-    owner: number,
-    version: number,
-    book: number,
-    chapter: number,
-    created: number,
-  }
+    export type AsObject = {
+        id: number,
+        owner: number,
+        version: number,
+        book: number,
+        chapter: number,
+        created: number,
+    }
 }
 
 export class Reads extends jspb.Message {
-  clearReadsList(): void;
-  getReadsList(): Array<Read>;
-  setReadsList(value: Array<Read>): void;
-  addReads(value?: Read, index?: number): Read;
+    static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
+    static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Reads.AsObject;
-  static toObject(includeInstance: boolean, msg: Reads): Reads.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Reads, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Reads;
-  static deserializeBinaryFromReader(message: Reads, reader: jspb.BinaryReader): Reads;
+    static toObject(includeInstance: boolean, msg: Reads): Reads.AsObject;
+
+    static serializeBinaryToWriter(message: Reads, writer: jspb.BinaryWriter): void;
+
+    static deserializeBinary(bytes: Uint8Array): Reads;
+
+    static deserializeBinaryFromReader(message: Reads, reader: jspb.BinaryReader): Reads;
+
+    clearReadsList(): void;
+
+    getReadsList(): Array<Read>;
+
+    setReadsList(value: Array<Read>): void;
+
+    addReads(value?: Read, index?: number): Read;
+
+    serializeBinary(): Uint8Array;
+
+    toObject(includeInstance?: boolean): Reads.AsObject;
 }
 
 export namespace Reads {
-  export type AsObject = {
-    readsList: Array<Read.AsObject>,
-  }
+    export type AsObject = {
+        readsList: Array<Read.AsObject>,
+    }
 }
 

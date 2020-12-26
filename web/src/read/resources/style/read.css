@@ -1,159 +1,158 @@
-.reader{
+.reader {
     transition: margin-right .5s; /* If you want a transition effect */
 }
 
 @media screen and (max-width: 1000px) {
 
-    .reader-with-tagger{
+    .reader-with-tagger {
         margin-bottom: 45em;
         margin-right: 0em;
     }
 
-    .reader-without-tagger{
+    .reader-without-tagger {
         margin-bottom: 0em;
         margin-right: 0em;
     }
 
-  }
+}
 
 @media screen and (min-width: 1000px) {
-    .reader-with-tagger{
+    .reader-with-tagger {
         margin-right: 45em;
         margin-bottom: 0em;
     }
-    
-    .reader-without-tagger{
+
+    .reader-without-tagger {
         margin-right: 0em;
         margin-bottom: 0em;
     }
-  }
+}
 
 
-.reader-arrow{
+.reader-arrow {
     width: 1.6em;
     left: 50%;
     top: 50%;
 }
 
-.reader-chapter-button{
+.reader-chapter-button {
     padding: 0.7em;
     height: 4em;
     width: 4em;
     border-radius: 100%;
     position: fixed;
-    bottom:5%;
-    margin:1em;
+    bottom: 5%;
+    margin: 1em;
 }
 
-.reader-previous-chapter-button{
-    left:10%;
+.reader-previous-chapter-button {
+    left: 10%;
 }
 
-.reader-next-chapter-button{
-    left:90%;
+.reader-next-chapter-button {
+    left: 90%;
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
 }
 
 
-
 /* SCRIPTURES */
 
-.scripture-reader{
+.scripture-reader {
     margin: 3em;
     text-align: justify;
     letter-spacing: 0.05em;
 }
 
 @media screen and (max-width: 850px) {
-    .scripture-reader{
+    .scripture-reader {
         line-height: 8em;
     }
-  }
+}
 
 @media screen and (min-width: 850px) {
-    .scripture-reader{
+    .scripture-reader {
         max-width: 850px;
         line-height: 5em;
     }
-  }
+}
 
 
-.scripture-verse{
+.scripture-verse {
     cursor: pointer;
 }
 
-.scripture-verse-id-box{
+.scripture-verse-id-box {
     text-justify: none;
     display: inline-block;
 }
 
-.scripture-verse-id{
+.scripture-verse-id {
     border: solid;
     border-width: 0.05em;
     border-radius: 25%;
-    border-color:#787878;
-    
+    border-color: #787878;
+
     padding: 0.2em 0.5em 0.2em 0.5em;
     margin-left: 2em;
     margin-right: 0.8em;
 
-    color:#787878;
+    color: #787878;
     font-size: 1.8em;
 }
 
-.scripture-verse-text{
+.scripture-verse-text {
     font-size: calc(13px + 1.6em);
     color: #a8a8a8;
 }
 
-.scripture-verse:hover .scripture-verse-text-not-selected{
+.scripture-verse:hover .scripture-verse-text-not-selected {
     border-bottom: 0.06em solid #787878;
     border-bottom-style: dashed;
 }
 
 
-.scripture-verse-text-selected{
+.scripture-verse-text-selected {
     border-bottom: 0.06em solid #787878;
 }
 
 
 /* SELECTOR */
 
-.scripture-select{
- margin: 1em;
+.scripture-select {
+    margin: 1em;
 }
 
 .scripture-selector select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  border: 0 !important;
-  background: #111111;;
-  background-image: none;
-  position: relative;
-  display: flex;
-  width: 12em;
-  height: 3em;
-  line-height: 3;
-  overflow: hidden;
-  border-radius: .25em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #111111;;
+    background-image: none;
+    position: relative;
+    display: flex;
+    width: 12em;
+    height: 3em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
 }
 
 .scripture-selector select:hover {
     color: #787878;
     background: #1e1e1e;
-  }
+}
 
 .scripture-selector select {
-  flex: 1;
-  padding: 0 .5em;
-  font-size: calc(8px + 1em);
-  color: #505050;
-  cursor: pointer;
+    flex: 1;
+    padding: 0 .5em;
+    font-size: calc(8px + 1em);
+    color: #505050;
+    cursor: pointer;
 }
 
 
@@ -193,59 +192,59 @@
     border-radius: .25em;
 }
 
-.scripture-clear-icon{
+.scripture-clear-icon {
     font-size: large;
-    margin:auto;
+    margin: auto;
     opacity: .4;
     -ms-filter: "alpha(Opacity=40)";
     filter: alpha(opacity=40);
-    transform: scale(0.75,.75);
-    -webkit-transform: scale(0.75,.75);
+    transform: scale(0.75, .75);
+    -webkit-transform: scale(0.75, .75);
 }
 
 
-.scripture-remove-selection:hover .scripture-clear-icon{
+.scripture-remove-selection:hover .scripture-clear-icon {
     opacity: 1;
     -ms-filter: none;
     filter: none;
 }
 
-.tag-label-icon{
+.tag-label-icon {
     transform: rotate(35deg);
     color: #505050;
 }
 
-.tag-label-icon:hover{
+.tag-label-icon:hover {
     color: #787878;
 }
 
-.note-label-icon{
+.note-label-icon {
     color: #505050;
 }
 
-.note-label-icon:hover{
+.note-label-icon:hover {
     color: #787878;
 }
 
-.tag-label-icon-container{
+.tag-label-icon-container {
     display: inline-block;
     margin-right: 2em;
     margin-left: 2em;
 }
 
-.note-icon{
+.note-icon {
     display: inline-block;
     margin-right: 1em;
     margin-left: 1em;
 }
 
 
-.note-icons{
+.note-icons {
     display: inline-block;
 }
 
 
-.dialog-container{
+.dialog-container {
     max-width: 30em;
     overflow-x: hidden;
 }

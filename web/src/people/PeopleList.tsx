@@ -1,10 +1,9 @@
-
-import { List, ListItem, ListItemText } from "@material-ui/core";
+import {List, ListItem, ListItemText} from "@material-ui/core";
 import Axios from "axios";
-import { Message } from "google-protobuf";
-import React, { useEffect, useState } from "react";
-import { Peoples } from "../common/generated/services/people/people_pb";
-import { BibleAPI } from "../common/utils/bibleAPI";
+import {Message} from "google-protobuf";
+import React, {useEffect, useState} from "react";
+import {Peoples} from "../common/generated/services/people/people_pb";
+import {BibleAPI} from "../common/utils/bibleAPI";
 
 type PeopleListProp = {
     handlePeopleSelect: (peopleid: number) => void,
@@ -12,7 +11,7 @@ type PeopleListProp = {
 
 /**
  * Simple list selector for mobile
- * @param props 
+ * @param props
  */
 export const PeopleList: React.FunctionComponent<PeopleListProp> = (props) => {
 
@@ -36,9 +35,11 @@ export const PeopleList: React.FunctionComponent<PeopleListProp> = (props) => {
         peoples.getPeoplesList().forEach(people => {
             peopleList.push(
                 <ListItem button
-                    key={"list-item-people" + people.getId()} onClick={() => props.handlePeopleSelect(people.getId())}
-                    style={{ maxWidth:600 }}>
-                    <ListItemText key={"list-item-text-people-" + people.getId()} primary={people.getId() + " - " + people.getName() + " - " + people.getDescription()} />
+                          key={"list-item-people" + people.getId()}
+                          onClick={() => props.handlePeopleSelect(people.getId())}
+                          style={{maxWidth: 600}}>
+                    <ListItemText key={"list-item-text-people-" + people.getId()}
+                                  primary={people.getId() + " - " + people.getName() + " - " + people.getDescription()}/>
                 </ListItem>
             )
         })

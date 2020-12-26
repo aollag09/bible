@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import loadingGif from '../resources/image/loading.gif'
 import '../resources/style/loading.css'
 
@@ -6,7 +6,7 @@ type LoadingProp = {
     text: string
 }
 
-export class Loading extends Component<LoadingProp>{
+export class Loading extends Component<LoadingProp> {
 
     render() {
         return (

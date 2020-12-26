@@ -1,9 +1,9 @@
-import { Grid, makeStyles } from "@material-ui/core";
+import {Grid, makeStyles} from "@material-ui/core";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import React from "react";
-import { VerseSelection } from "../reader/VerseSelection";
-import { NoteFactory } from "./NoteFactory";
+import {VerseSelection} from "../reader/VerseSelection";
+import {NoteFactory} from "./NoteFactory";
 
 const useStyles = makeStyles((theme) => ({
     toggleContainer: {
@@ -69,7 +69,7 @@ export const NoteToggle: React.FunctionComponent<NoteToggleProp> = (props) => {
                 book={props.book}
                 chapter={props.chapter}
                 verseSelections={props.verseSelections}
-                cleanSelection={props.cleanSelection} />
+                cleanSelection={props.cleanSelection}/>
         </div>
     )
 }

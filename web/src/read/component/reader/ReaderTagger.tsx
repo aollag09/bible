@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import "../../resources/style/read.css";
 import "../../resources/style/tagger.css";
-import { ReaderSelectorConst } from "../ReaderSelector";
-import { TaggerBar } from '../tagger/TaggerBar';
-import { Reader } from "./Reader";
-import { VerseSelection, VerseSelectionBuilder } from "./VerseSelection";
+import {ReaderSelectorConst} from "../ReaderSelector";
+import {TaggerBar} from '../tagger/TaggerBar';
+import {Reader} from "./Reader";
+import {VerseSelection, VerseSelectionBuilder} from "./VerseSelection";
 
 type ReaderTaggerProp = {
     switch: string,
@@ -20,7 +20,7 @@ type ReaderTaggerState = {
     selectedVerses: Array<string>
 }
 
-export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>{
+export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState> {
 
 
     constructor(props: ReaderTaggerProp) {
@@ -57,7 +57,7 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
                         onSelectVerse={(id) => this.onSelectVerse(id)}>
                     </Reader>
 
-                </div >
+                </div>
             )
         } else {
             return null;
@@ -127,7 +127,6 @@ export class ReaderTagger extends Component<ReaderTaggerProp, ReaderTaggerState>
             showTagger: !show
         })
     }
-
 
 
 }

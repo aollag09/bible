@@ -1,11 +1,11 @@
 import useFetch from 'fetch-suspense';
-import { Message } from "google-protobuf";
-import React, { Component } from "react";
-import { Versions } from "../../../common/generated/services/version/version_pb";
-import { BibleAPI } from "../../../common/utils/bibleAPI";
+import {Message} from "google-protobuf";
+import React, {Component} from "react";
+import {Versions} from "../../../common/generated/services/version/version_pb";
+import {BibleAPI} from "../../../common/utils/bibleAPI";
 import '../../resources/style/selector.css';
-import { VersionBox } from "./VersionBox";
-import { Key } from '../../../common/utils/key';
+import {VersionBox} from "./VersionBox";
+import {Key} from '../../../common/utils/key';
 
 
 type VersionFetcherProp = {
@@ -49,11 +49,13 @@ export class VersionFetcher extends Component<VersionFetcherProp> {
                             key={version.getId()}
                             name={version.getVersion()}
                             abbreviation={version.getAbbreviation()}
-                            onClick={() => this.props.handleVersionSelect(version.getId())} />
+                            onClick={() => this.props.handleVersionSelect(version.getId())}/>
                     </li>)
                 }
             });
-            column.push(<td key={Key.getKey("language-list", language)} className="version-list-language"><ul>{listVersion}</ul></td>)
+            column.push(<td key={Key.getKey("language-list", language)} className="version-list-language">
+                <ul>{listVersion}</ul>
+            </td>)
             tableLanguages.push(<tr key={Key.getKey("language-table", language)}>{column}</tr>)
         })
 
@@ -61,11 +63,11 @@ export class VersionFetcher extends Component<VersionFetcherProp> {
             <div>
                 <table className="version-table">
                     <tbody>
-                        {tableLanguages}
+                    {tableLanguages}
                     </tbody>
                 </table>
             </div>
         );
     }
 
-};
+}

@@ -1,10 +1,10 @@
 import useFetch from 'fetch-suspense';
 import memoize from "memoize-one";
 import React from 'react';
-import { BibleAPI } from "../../../common/utils/bibleAPI";
+import {BibleAPI} from "../../../common/utils/bibleAPI";
 import arrow from "../../resources/image/arrow.png";
-import { ScriptureReader } from "./ScriptureReader";
-import { ScriptureSelector } from "./SriptureSelector";
+import {ScriptureReader} from "./ScriptureReader";
+import {ScriptureSelector} from "./SriptureSelector";
 
 
 type ReaderProp = {
@@ -21,11 +21,17 @@ type ReaderProp = {
 
 export class Reader extends React.Component<ReaderProp> {
 
+    nbChapters = memoize(
+        (book) => {
+            return parseInt(useFetch(BibleAPI.url + "book/" + book + "/chapters/count").toString())
+        }
+    )
+
     render() {
         let nbChapters = this.nbChapters(this.props.book)
         return (
             <div className={this.getClassName(this.props.showTagger)}>
-                <div className="reader-top-selector" >
+                <div className="reader-top-selector">
                     <ScriptureSelector
                         version={this.props.version}
                         book={this.props.book}
@@ -46,7 +52,7 @@ export class Reader extends React.Component<ReaderProp> {
                     book={this.props.book}
                     chapter={this.props.chapter}
                     selectedVerses={this.props.selectedVerses}
-                    onSelectVerse={this.props.onSelectVerse} />
+                    onSelectVerse={this.props.onSelectVerse}/>
 
                 <div className="reader-button">
                     {this.nextChapterButton(nbChapters)}
@@ -61,13 +67,6 @@ export class Reader extends React.Component<ReaderProp> {
         else
             return "reader reader-without-tagger"
     }
-
-    nbChapters = memoize(
-        (book) => {
-            return parseInt(useFetch(BibleAPI.url + "book/" + book + "/chapters/count").toString())
-        }
-
-    )
 
     nextChapter = () => {
         this.props.read(this.props.version, this.props.book, +(this.props.chapter.valueOf()) + 1)
@@ -86,7 +85,7 @@ export class Reader extends React.Component<ReaderProp> {
                         className="reader-chapter-button reader-previous-chapter-button"
                         type="button"
                         onClick={this.previousChapter}>
-                        <img className="reader-arrow reader-arrow-previous" alt="previous" src={arrow} />
+                        <img className="reader-arrow reader-arrow-previous" alt="previous" src={arrow}/>
                     </button>
                 </div>
             )
@@ -103,7 +102,7 @@ export class Reader extends React.Component<ReaderProp> {
                         className="reader-chapter-button reader-next-chapter-button"
                         type="button"
                         onClick={this.nextChapter}>
-                        <img className="reader-arrow reader-arrow-next" alt="next" src={arrow} />
+                        <img className="reader-arrow reader-arrow-next" alt="next" src={arrow}/>
                     </button>
                 </div>
             )

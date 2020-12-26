@@ -1,5 +1,4 @@
-
-import { Tag } from "../generated/services/tag/tag_pb";
+import {Tag} from "../generated/services/tag/tag_pb";
 
 
 export class TagCaseUtils {

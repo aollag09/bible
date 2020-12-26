@@ -24,59 +24,59 @@ goog.exportSymbol('proto.bible.Versions', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.bible.Version = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+proto.bible.Version = function (opt_data) {
+    jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.bible.Version, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.bible.Version.displayName = 'proto.bible.Version';
+    proto.bible.Version.displayName = 'proto.bible.Version';
 }
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.bible.Version.prototype.toObject = function(opt_includeInstance) {
-  return proto.bible.Version.toObject(opt_includeInstance, this);
-};
+    /**
+     * Creates an object representation of this proto suitable for use in Soy templates.
+     * Field names that are reserved in JavaScript and will be renamed to pb_name.
+     * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+     * For the list of reserved names please see:
+     *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+     * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+     *     for transitional soy proto support: http://goto/soy-param-migration
+     * @return {!Object}
+     */
+    proto.bible.Version.prototype.toObject = function (opt_includeInstance) {
+        return proto.bible.Version.toObject(opt_includeInstance, this);
+    };
 
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.bible.Version} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.bible.Version.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    table: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    abbreviation: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    language: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    version: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    infoText: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    infoUrl: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    publisher: jspb.Message.getFieldWithDefault(msg, 8, ""),
-    copyright: jspb.Message.getFieldWithDefault(msg, 9, ""),
-    copyrightInfo: jspb.Message.getFieldWithDefault(msg, 10, "")
-  };
+    /**
+     * Static version of the {@see toObject} method.
+     * @param {boolean|undefined} includeInstance Whether to include the JSPB
+     *     instance for transitional soy proto support:
+     *     http://goto/soy-param-migration
+     * @param {!proto.bible.Version} msg The msg instance to transform.
+     * @return {!Object}
+     * @suppress {unusedLocalVariables} f is only used for nested messages
+     */
+    proto.bible.Version.toObject = function (includeInstance, msg) {
+        var f, obj = {
+            id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+            table: jspb.Message.getFieldWithDefault(msg, 2, ""),
+            abbreviation: jspb.Message.getFieldWithDefault(msg, 3, ""),
+            language: jspb.Message.getFieldWithDefault(msg, 4, ""),
+            version: jspb.Message.getFieldWithDefault(msg, 5, ""),
+            infoText: jspb.Message.getFieldWithDefault(msg, 6, ""),
+            infoUrl: jspb.Message.getFieldWithDefault(msg, 7, ""),
+            publisher: jspb.Message.getFieldWithDefault(msg, 8, ""),
+            copyright: jspb.Message.getFieldWithDefault(msg, 9, ""),
+            copyrightInfo: jspb.Message.getFieldWithDefault(msg, 10, "")
+        };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+        if (includeInstance) {
+            obj.$jspbMessageInstance = msg;
+        }
+        return obj;
+    };
 }
 
 
@@ -85,10 +85,10 @@ proto.bible.Version.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.bible.Version}
  */
-proto.bible.Version.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.bible.Version;
-  return proto.bible.Version.deserializeBinaryFromReader(msg, reader);
+proto.bible.Version.deserializeBinary = function (bytes) {
+    var reader = new jspb.BinaryReader(bytes);
+    var msg = new proto.bible.Version;
+    return proto.bible.Version.deserializeBinaryFromReader(msg, reader);
 };
 
 
@@ -99,59 +99,59 @@ proto.bible.Version.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.bible.Version}
  */
-proto.bible.Version.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.bible.Version.deserializeBinaryFromReader = function (msg, reader) {
+    while (reader.nextField()) {
+        if (reader.isEndGroup()) {
+            break;
+        }
+        var field = reader.getFieldNumber();
+        switch (field) {
+            case 1:
+                var value = /** @type {number} */ (reader.readInt32());
+                msg.setId(value);
+                break;
+            case 2:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setTable(value);
+                break;
+            case 3:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setAbbreviation(value);
+                break;
+            case 4:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setLanguage(value);
+                break;
+            case 5:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setVersion(value);
+                break;
+            case 6:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setInfoText(value);
+                break;
+            case 7:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setInfoUrl(value);
+                break;
+            case 8:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setPublisher(value);
+                break;
+            case 9:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setCopyright(value);
+                break;
+            case 10:
+                var value = /** @type {string} */ (reader.readString());
+                msg.setCopyrightInfo(value);
+                break;
+            default:
+                reader.skipField();
+                break;
+        }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setId(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTable(value);
-      break;
-    case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setAbbreviation(value);
-      break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setLanguage(value);
-      break;
-    case 5:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setVersion(value);
-      break;
-    case 6:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setInfoText(value);
-      break;
-    case 7:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setInfoUrl(value);
-      break;
-    case 8:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPublisher(value);
-      break;
-    case 9:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCopyright(value);
-      break;
-    case 10:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setCopyrightInfo(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
+    return msg;
 };
 
 
@@ -159,10 +159,10 @@ proto.bible.Version.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.bible.Version.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.bible.Version.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
+proto.bible.Version.prototype.serializeBinary = function () {
+    var writer = new jspb.BinaryWriter();
+    proto.bible.Version.serializeBinaryToWriter(this, writer);
+    return writer.getResultBuffer();
 };
 
 
@@ -173,78 +173,78 @@ proto.bible.Version.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Version.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(
-      1,
-      f
-    );
-  }
-  f = message.getTable();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
-  f = message.getAbbreviation();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
-      f
-    );
-  }
-  f = message.getLanguage();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
-      f
-    );
-  }
-  f = message.getVersion();
-  if (f.length > 0) {
-    writer.writeString(
-      5,
-      f
-    );
-  }
-  f = message.getInfoText();
-  if (f.length > 0) {
-    writer.writeString(
-      6,
-      f
-    );
-  }
-  f = message.getInfoUrl();
-  if (f.length > 0) {
-    writer.writeString(
-      7,
-      f
-    );
-  }
-  f = message.getPublisher();
-  if (f.length > 0) {
-    writer.writeString(
-      8,
-      f
-    );
-  }
-  f = message.getCopyright();
-  if (f.length > 0) {
-    writer.writeString(
-      9,
-      f
-    );
-  }
-  f = message.getCopyrightInfo();
-  if (f.length > 0) {
-    writer.writeString(
-      10,
-      f
-    );
-  }
+proto.bible.Version.serializeBinaryToWriter = function (message, writer) {
+    var f = undefined;
+    f = message.getId();
+    if (f !== 0) {
+        writer.writeInt32(
+            1,
+            f
+        );
+    }
+    f = message.getTable();
+    if (f.length > 0) {
+        writer.writeString(
+            2,
+            f
+        );
+    }
+    f = message.getAbbreviation();
+    if (f.length > 0) {
+        writer.writeString(
+            3,
+            f
+        );
+    }
+    f = message.getLanguage();
+    if (f.length > 0) {
+        writer.writeString(
+            4,
+            f
+        );
+    }
+    f = message.getVersion();
+    if (f.length > 0) {
+        writer.writeString(
+            5,
+            f
+        );
+    }
+    f = message.getInfoText();
+    if (f.length > 0) {
+        writer.writeString(
+            6,
+            f
+        );
+    }
+    f = message.getInfoUrl();
+    if (f.length > 0) {
+        writer.writeString(
+            7,
+            f
+        );
+    }
+    f = message.getPublisher();
+    if (f.length > 0) {
+        writer.writeString(
+            8,
+            f
+        );
+    }
+    f = message.getCopyright();
+    if (f.length > 0) {
+        writer.writeString(
+            9,
+            f
+        );
+    }
+    f = message.getCopyrightInfo();
+    if (f.length > 0) {
+        writer.writeString(
+            10,
+            f
+        );
+    }
 };
 
 
@@ -252,14 +252,14 @@ proto.bible.Version.serializeBinaryToWriter = function(message, writer) {
  * optional int32 id = 1;
  * @return {number}
  */
-proto.bible.Version.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+proto.bible.Version.prototype.getId = function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.bible.Version.prototype.setId = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+proto.bible.Version.prototype.setId = function (value) {
+    jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -267,14 +267,14 @@ proto.bible.Version.prototype.setId = function(value) {
  * optional string table = 2;
  * @return {string}
  */
-proto.bible.Version.prototype.getTable = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.bible.Version.prototype.getTable = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setTable = function(value) {
-  jspb.Message.setProto3StringField(this, 2, value);
+proto.bible.Version.prototype.setTable = function (value) {
+    jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -282,14 +282,14 @@ proto.bible.Version.prototype.setTable = function(value) {
  * optional string abbreviation = 3;
  * @return {string}
  */
-proto.bible.Version.prototype.getAbbreviation = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+proto.bible.Version.prototype.getAbbreviation = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setAbbreviation = function(value) {
-  jspb.Message.setProto3StringField(this, 3, value);
+proto.bible.Version.prototype.setAbbreviation = function (value) {
+    jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
@@ -297,14 +297,14 @@ proto.bible.Version.prototype.setAbbreviation = function(value) {
  * optional string language = 4;
  * @return {string}
  */
-proto.bible.Version.prototype.getLanguage = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+proto.bible.Version.prototype.getLanguage = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setLanguage = function(value) {
-  jspb.Message.setProto3StringField(this, 4, value);
+proto.bible.Version.prototype.setLanguage = function (value) {
+    jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
@@ -312,14 +312,14 @@ proto.bible.Version.prototype.setLanguage = function(value) {
  * optional string version = 5;
  * @return {string}
  */
-proto.bible.Version.prototype.getVersion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+proto.bible.Version.prototype.getVersion = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setVersion = function(value) {
-  jspb.Message.setProto3StringField(this, 5, value);
+proto.bible.Version.prototype.setVersion = function (value) {
+    jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
@@ -327,14 +327,14 @@ proto.bible.Version.prototype.setVersion = function(value) {
  * optional string info_text = 6;
  * @return {string}
  */
-proto.bible.Version.prototype.getInfoText = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+proto.bible.Version.prototype.getInfoText = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setInfoText = function(value) {
-  jspb.Message.setProto3StringField(this, 6, value);
+proto.bible.Version.prototype.setInfoText = function (value) {
+    jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -342,14 +342,14 @@ proto.bible.Version.prototype.setInfoText = function(value) {
  * optional string info_url = 7;
  * @return {string}
  */
-proto.bible.Version.prototype.getInfoUrl = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+proto.bible.Version.prototype.getInfoUrl = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setInfoUrl = function(value) {
-  jspb.Message.setProto3StringField(this, 7, value);
+proto.bible.Version.prototype.setInfoUrl = function (value) {
+    jspb.Message.setProto3StringField(this, 7, value);
 };
 
 
@@ -357,14 +357,14 @@ proto.bible.Version.prototype.setInfoUrl = function(value) {
  * optional string publisher = 8;
  * @return {string}
  */
-proto.bible.Version.prototype.getPublisher = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+proto.bible.Version.prototype.getPublisher = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setPublisher = function(value) {
-  jspb.Message.setProto3StringField(this, 8, value);
+proto.bible.Version.prototype.setPublisher = function (value) {
+    jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
@@ -372,14 +372,14 @@ proto.bible.Version.prototype.setPublisher = function(value) {
  * optional string copyright = 9;
  * @return {string}
  */
-proto.bible.Version.prototype.getCopyright = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+proto.bible.Version.prototype.getCopyright = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setCopyright = function(value) {
-  jspb.Message.setProto3StringField(this, 9, value);
+proto.bible.Version.prototype.setCopyright = function (value) {
+    jspb.Message.setProto3StringField(this, 9, value);
 };
 
 
@@ -387,16 +387,15 @@ proto.bible.Version.prototype.setCopyright = function(value) {
  * optional string copyright_info = 10;
  * @return {string}
  */
-proto.bible.Version.prototype.getCopyrightInfo = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+proto.bible.Version.prototype.getCopyrightInfo = function () {
+    return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
 };
 
 
 /** @param {string} value */
-proto.bible.Version.prototype.setCopyrightInfo = function(value) {
-  jspb.Message.setProto3StringField(this, 10, value);
+proto.bible.Version.prototype.setCopyrightInfo = function (value) {
+    jspb.Message.setProto3StringField(this, 10, value);
 };
-
 
 
 /**
@@ -409,12 +408,12 @@ proto.bible.Version.prototype.setCopyrightInfo = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.bible.Versions = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.bible.Versions.repeatedFields_, null);
+proto.bible.Versions = function (opt_data) {
+    jspb.Message.initialize(this, opt_data, 0, -1, proto.bible.Versions.repeatedFields_, null);
 };
 goog.inherits(proto.bible.Versions, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.bible.Versions.displayName = 'proto.bible.Versions';
+    proto.bible.Versions.displayName = 'proto.bible.Versions';
 }
 /**
  * List of repeated fields within this message type.
@@ -424,43 +423,42 @@ if (goog.DEBUG && !COMPILED) {
 proto.bible.Versions.repeatedFields_ = [1];
 
 
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.bible.Versions.prototype.toObject = function(opt_includeInstance) {
-  return proto.bible.Versions.toObject(opt_includeInstance, this);
-};
+    /**
+     * Creates an object representation of this proto suitable for use in Soy templates.
+     * Field names that are reserved in JavaScript and will be renamed to pb_name.
+     * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+     * For the list of reserved names please see:
+     *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+     * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+     *     for transitional soy proto support: http://goto/soy-param-migration
+     * @return {!Object}
+     */
+    proto.bible.Versions.prototype.toObject = function (opt_includeInstance) {
+        return proto.bible.Versions.toObject(opt_includeInstance, this);
+    };
 
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.bible.Versions} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.bible.Versions.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    versionsList: jspb.Message.toObjectList(msg.getVersionsList(),
-    proto.bible.Version.toObject, includeInstance)
-  };
+    /**
+     * Static version of the {@see toObject} method.
+     * @param {boolean|undefined} includeInstance Whether to include the JSPB
+     *     instance for transitional soy proto support:
+     *     http://goto/soy-param-migration
+     * @param {!proto.bible.Versions} msg The msg instance to transform.
+     * @return {!Object}
+     * @suppress {unusedLocalVariables} f is only used for nested messages
+     */
+    proto.bible.Versions.toObject = function (includeInstance, msg) {
+        var f, obj = {
+            versionsList: jspb.Message.toObjectList(msg.getVersionsList(),
+                proto.bible.Version.toObject, includeInstance)
+        };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+        if (includeInstance) {
+            obj.$jspbMessageInstance = msg;
+        }
+        return obj;
+    };
 }
 
 
@@ -469,10 +467,10 @@ proto.bible.Versions.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.bible.Versions}
  */
-proto.bible.Versions.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.bible.Versions;
-  return proto.bible.Versions.deserializeBinaryFromReader(msg, reader);
+proto.bible.Versions.deserializeBinary = function (bytes) {
+    var reader = new jspb.BinaryReader(bytes);
+    var msg = new proto.bible.Versions;
+    return proto.bible.Versions.deserializeBinaryFromReader(msg, reader);
 };
 
 
@@ -483,24 +481,24 @@ proto.bible.Versions.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.bible.Versions}
  */
-proto.bible.Versions.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.bible.Versions.deserializeBinaryFromReader = function (msg, reader) {
+    while (reader.nextField()) {
+        if (reader.isEndGroup()) {
+            break;
+        }
+        var field = reader.getFieldNumber();
+        switch (field) {
+            case 1:
+                var value = new proto.bible.Version;
+                reader.readMessage(value, proto.bible.Version.deserializeBinaryFromReader);
+                msg.addVersions(value);
+                break;
+            default:
+                reader.skipField();
+                break;
+        }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = new proto.bible.Version;
-      reader.readMessage(value,proto.bible.Version.deserializeBinaryFromReader);
-      msg.addVersions(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
+    return msg;
 };
 
 
@@ -508,10 +506,10 @@ proto.bible.Versions.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.bible.Versions.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.bible.Versions.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
+proto.bible.Versions.prototype.serializeBinary = function () {
+    var writer = new jspb.BinaryWriter();
+    proto.bible.Versions.serializeBinaryToWriter(this, writer);
+    return writer.getResultBuffer();
 };
 
 
@@ -522,16 +520,16 @@ proto.bible.Versions.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Versions.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getVersionsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      1,
-      f,
-      proto.bible.Version.serializeBinaryToWriter
-    );
-  }
+proto.bible.Versions.serializeBinaryToWriter = function (message, writer) {
+    var f = undefined;
+    f = message.getVersionsList();
+    if (f.length > 0) {
+        writer.writeRepeatedMessage(
+            1,
+            f,
+            proto.bible.Version.serializeBinaryToWriter
+        );
+    }
 };
 
 
@@ -539,15 +537,15 @@ proto.bible.Versions.serializeBinaryToWriter = function(message, writer) {
  * repeated Version versions = 1;
  * @return {!Array<!proto.bible.Version>}
  */
-proto.bible.Versions.prototype.getVersionsList = function() {
-  return /** @type{!Array<!proto.bible.Version>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.bible.Version, 1));
+proto.bible.Versions.prototype.getVersionsList = function () {
+    return /** @type{!Array<!proto.bible.Version>} */ (
+        jspb.Message.getRepeatedWrapperField(this, proto.bible.Version, 1));
 };
 
 
 /** @param {!Array<!proto.bible.Version>} value */
-proto.bible.Versions.prototype.setVersionsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+proto.bible.Versions.prototype.setVersionsList = function (value) {
+    jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -556,13 +554,13 @@ proto.bible.Versions.prototype.setVersionsList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.bible.Version}
  */
-proto.bible.Versions.prototype.addVersions = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.bible.Version, opt_index);
+proto.bible.Versions.prototype.addVersions = function (opt_value, opt_index) {
+    return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.bible.Version, opt_index);
 };
 
 
-proto.bible.Versions.prototype.clearVersionsList = function() {
-  this.setVersionsList([]);
+proto.bible.Versions.prototype.clearVersionsList = function () {
+    this.setVersionsList([]);
 };
 
 

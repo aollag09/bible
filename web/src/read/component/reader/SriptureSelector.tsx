@@ -1,9 +1,10 @@
-import React, { Suspense } from "react";
-import { ScriptureSelectBook } from "./ScriptureSelectBook";
-import { ScriptureSelectVersion } from "./ScriptureSelectVersion";
-import { ScriptureSelectChapter } from "./ScriptureSelectChapter";
+import React, {Suspense} from "react";
+import {ScriptureSelectBook} from "./ScriptureSelectBook";
+import {ScriptureSelectVersion} from "./ScriptureSelectVersion";
+import {ScriptureSelectChapter} from "./ScriptureSelectChapter";
 import ClearAllIcon from '@material-ui/icons/ClearAll';
-import { Tooltip } from "@material-ui/core";
+import {Tooltip} from "@material-ui/core";
+
 type ScriptureSelectorProp = {
     version: number,
     book: number,
@@ -12,11 +13,11 @@ type ScriptureSelectorProp = {
     showReaderSelector: () => void
 }
 
-export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
+export class ScriptureSelector extends React.Component<ScriptureSelectorProp> {
 
     render() {
         return (
-            <div className="reader-top-selector scripture-selector" >
+            <div className="reader-top-selector scripture-selector">
                 <ul>
                     <li>
                         <Tooltip title="Clear Selection" aria-label="clear selection" placement="bottom">
@@ -31,7 +32,7 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                         </Tooltip>
                     </li>
                     <li>
-                        <Suspense fallback="Loading versions..." >
+                        <Suspense fallback="Loading versions...">
                             <ScriptureSelectVersion
                                 version={this.props.version}
                                 book={this.props.book}
@@ -41,7 +42,7 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                         </Suspense>
                     </li>
                     <li>
-                        <Suspense fallback="Loading books..." >
+                        <Suspense fallback="Loading books...">
                             <ScriptureSelectBook
                                 version={this.props.version}
                                 book={this.props.book}
@@ -51,7 +52,7 @@ export class ScriptureSelector extends React.Component<ScriptureSelectorProp>{
                         </Suspense>
                     </li>
                     <li>
-                        <Suspense fallback="Loading chapters..." >
+                        <Suspense fallback="Loading chapters...">
                             <ScriptureSelectChapter
                                 version={this.props.version}
                                 book={this.props.book}

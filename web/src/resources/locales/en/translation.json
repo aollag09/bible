@@ -1,9 +1,7 @@
 {
-    "home.splash.read"      :"read",
-    "home.splash.search"    :"search",
-    "home.splash.explore"   :"explore",
-    "home.splash.people"    :"people",
-    "home.splash.map"       :"map"
-
-
+  "home.splash.read": "read",
+  "home.splash.search": "search",
+  "home.splash.explore": "explore",
+  "home.splash.people": "people",
+  "home.splash.map": "map"
 }

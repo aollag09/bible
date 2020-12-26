@@ -1,25 +1,26 @@
-
 @media screen and (max-width: 1000px) {
-  .tagger-sidebar {
-    height: 0;
-    width: 100%;
-    bottom: 0;
-  }
-  .tagger-sidebar-opened{
-    height: 45em;
-  }
+    .tagger-sidebar {
+        height: 0;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .tagger-sidebar-opened {
+        height: 45em;
+    }
 }
 
 @media screen and (min-width: 1000px) {
-  .tagger-sidebar {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    top: 0;
-    right: 0;
-  }
-  .tagger-sidebar-opened{
-    width: 45em;
-  }
+    .tagger-sidebar {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        top: 0;
+        right: 0;
+    }
+
+    .tagger-sidebar-opened {
+        width: 45em;
+    }
 }
 
 
@@ -30,21 +31,21 @@
     background-color: #111; /* Black*/
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-  }
+}
 
-  .tagger-sidebar h3{
+.tagger-sidebar h3 {
     margin: 1em;
-  }
+}
 
-  .tagger-sidebar-closed{
+.tagger-sidebar-closed {
     width: 0em;
-  }
-  
-  .tagger-close-button-image{
-    width: 2em;
-  }
+}
 
-  .tagger-selection-grid{
+.tagger-close-button-image {
+    width: 2em;
+}
+
+.tagger-selection-grid {
     font-size: 1.5em;
     color: #505050;
-  }
+}

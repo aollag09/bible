@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import useFetch from 'fetch-suspense'
-import { BibleAPI } from "../../../common/utils/bibleAPI";
-import { ChapterBox } from "./ChapterBox";
-import { Key } from "../../../common/utils/key";
+import {BibleAPI} from "../../../common/utils/bibleAPI";
+import {ChapterBox} from "./ChapterBox";
+import {Key} from "../../../common/utils/key";
 
 type ChapterFetcherProp = {
     book: number,
@@ -21,13 +21,13 @@ export class ChapterFecther extends Component<ChapterFetcherProp> {
             for (let i = 1; i <= nbChapter; i++) {
                 chapters.push(
                     <li key={Key.getKey("chapter", i)} className="chapter-item">
-                        <ChapterBox chapter={i} onClick={() => this.props.handleChapterSelect(i)} />
+                        <ChapterBox chapter={i} onClick={() => this.props.handleChapterSelect(i)}/>
                     </li>)
             }
 
             return (
                 <div className="chapter-list">
-                    <ul >
+                    <ul>
                         {chapters}
                     </ul>
                 </div>

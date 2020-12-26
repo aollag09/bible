@@ -1,6 +1,3 @@
-
-
-
 export class VerseSelection {
 
     private book: number;
@@ -42,7 +39,7 @@ export class VerseSelectionBuilder {
 
     /**
      * Split continuous selections
-     * @param selectedVerses 
+     * @param selectedVerses
      */
     public static build(book: number, chapter: number, selectedVerses: Array<string>): Array<VerseSelection> {
         let selections = new Array<VerseSelection>()
@@ -62,8 +59,7 @@ export class VerseSelectionBuilder {
                 start = selectedVerse
                 end = selectedVerse
                 currentSelection = currentId
-            }
-            else {
+            } else {
                 if (currentId === currentSelection + 1) {
                     // continous selection
                     currentSelection = currentId

@@ -1,9 +1,7 @@
-
-
-import React, { useState } from "react"
+import React, {useState} from "react"
 import FacebookLogin from 'react-facebook-login';
-import GoogleLogin, { GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
-import { Dialog, DialogContent, DialogTitle } from "@material-ui/core";
+import GoogleLogin, {GoogleLoginResponse, GoogleLoginResponseOffline} from 'react-google-login';
+import {Dialog, DialogContent, DialogTitle} from "@material-ui/core";
 
 export const Login: React.FunctionComponent = (props) => {
 
@@ -31,7 +29,7 @@ export const Login: React.FunctionComponent = (props) => {
     return (
         <div className="login">
 
-            <button onClick={handleOpen}> LOGIN </button>
+            <button onClick={handleOpen}> LOGIN</button>
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="login-dialog-title">LOGIN</DialogTitle>
@@ -41,14 +39,14 @@ export const Login: React.FunctionComponent = (props) => {
                         appId="547498469302524"
                         fields="name,email,picture"
                         callback={responseFacebook}
-                        buttonStyle={{ margin: "0em", padding: "1em 1.2em", fontSize: "14px" }}
+                        buttonStyle={{margin: "0em", padding: "1em 1.2em", fontSize: "14px"}}
                     />
 
                     <GoogleLogin
                         clientId="142235214246-nkdqsmnk3o8pc0189g6je675d914du4j.apps.googleusercontent.com"
                         buttonText="LOGIN WITH GOOGLE"
                         className="login-google-button"
-                        style={{ margin: "0em", width: "25em", padding: "1em" }}
+                        style={{margin: "0em", width: "25em", padding: "1em"}}
                         onSuccess={responseGoogle}
                         onFailure={responseGoogle}
                     />

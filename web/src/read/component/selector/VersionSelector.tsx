@@ -1,5 +1,5 @@
 import React from "react";
-import { VersionTable } from "./VersionTable";
+import {VersionTable} from "./VersionTable";
 
 type VersionSelectorProp = {
     step: number,
@@ -13,7 +13,7 @@ export class VersionSelector extends React.Component<VersionSelectorProp> {
             return (
                 <div className="version-selector">
                     <h2>Versions</h2>
-                    <VersionTable handleVersionSelect={this.props.handleVersionSelect} />
+                    <VersionTable handleVersionSelect={this.props.handleVersionSelect}/>
                 </div>
             );
         } else {

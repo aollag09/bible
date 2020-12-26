@@ -1,12 +1,12 @@
-import { Button, createStyles, makeStyles, TextField, Theme } from '@material-ui/core';
+import {Button, createStyles, makeStyles, TextField, Theme} from '@material-ui/core';
 import axios from "axios";
-import { Formik } from 'formik';
-import React, { useState } from "react";
-import { HowTag, Tag, WhatTag, WhenTag, WhereTag, WhoTag, Tags } from "../../../common/generated/services/tag/tag_pb";
-import { ProtoUtils } from "../../../common/utils/protoUtils";
-import { BibleAPI } from "../../../common/utils/bibleAPI";
-import { VerseSelection } from '../reader/VerseSelection';
-import { DateTimeUtils } from '../../../common/utils/dateTimeUtils';
+import {Formik} from 'formik';
+import React, {useState} from "react";
+import {HowTag, Tag, Tags, WhatTag, WhenTag, WhereTag, WhoTag} from "../../../common/generated/services/tag/tag_pb";
+import {ProtoUtils} from "../../../common/utils/protoUtils";
+import {BibleAPI} from "../../../common/utils/bibleAPI";
+import {VerseSelection} from '../reader/VerseSelection';
+import {DateTimeUtils} from '../../../common/utils/dateTimeUtils';
 
 
 type TagFactoryProps = {
@@ -138,16 +138,15 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
     }
 
 
-
     const renderTagType = (handleChange: any) => {
         switch (tagType) {
             case 'what':
                 return (
                     <div className="tag-factory-what">
                         <TextField required name="what" label="What" variant="filled" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
                         <TextField multiline name="whatDetails" label="Details" variant="filled" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
 
                     </div>
                 );
@@ -156,7 +155,7 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
                 return (
                     <div className="tag-factory-who">
                         <TextField required name="who" type="number" label="Who" variant="filled" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
                     </div>
                 );
 
@@ -164,11 +163,11 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
                 return (
                     <div className="tag-factory-where">
                         <TextField required name="where" label="Where" variant="filled" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
                         <TextField name="latitude" type="number" variant="filled" label="Latitude" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
                         <TextField name="longitude" type="number" variant="filled" label="Longitude" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
                     </div>
                 );
 
@@ -176,7 +175,7 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
                 return (
                     <div className="tag-factory-when">
                         <TextField name="year" type="number" variant="filled" label="Year" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
                     </div>
                 );
 
@@ -184,9 +183,9 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
                 return (
                     <div className="tag-factory-how">
                         <TextField required name="how" label="How" variant="filled" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
                         <TextField multiline name="howDetails" label="Details" variant="filled" defaultValue=""
-                            onChange={handleChange} />
+                                   onChange={handleChange}/>
 
                     </div>
                 );
@@ -237,24 +236,24 @@ export const TagFactory: React.FunctionComponent<TagFactoryProps> = props => {
                                     label="Type"
                                     variant="filled"
                                     defaultValue={values.type}
-                                    onChange={handleChange} />
+                                    onChange={handleChange}/>
 
                                 <TextField
                                     name="subtype"
                                     label="Sub Type"
                                     variant="filled"
                                     defaultValue={values.subtype}
-                                    onChange={handleChange} />
+                                    onChange={handleChange}/>
 
                                 {renderTagType(handleChange)}
 
                                 <Button type="submit" variant="contained" className="button-submit">
                                     Create
-                        </Button>
+                                </Button>
                             </form>
                         )
                     }}
-                </Formik >
+                </Formik>
             </div>
         );
     } else return null;

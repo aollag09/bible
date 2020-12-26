@@ -1,12 +1,12 @@
-import { Button, createStyles, makeStyles, TextField, Theme } from "@material-ui/core";
+import {Button, createStyles, makeStyles, TextField, Theme} from "@material-ui/core";
 import Axios from "axios";
-import { Formik } from "formik";
+import {Formik} from "formik";
 import React from "react";
-import { Note, Notes } from "../../../common/generated/services/note/note_pb";
-import { BibleAPI } from "../../../common/utils/bibleAPI";
-import { ProtoUtils } from "../../../common/utils/protoUtils";
-import { VerseSelection } from "../reader/VerseSelection";
-import { DateTimeUtils } from "../../../common/utils/dateTimeUtils";
+import {Note, Notes} from "../../../common/generated/services/note/note_pb";
+import {BibleAPI} from "../../../common/utils/bibleAPI";
+import {ProtoUtils} from "../../../common/utils/protoUtils";
+import {VerseSelection} from "../reader/VerseSelection";
+import {DateTimeUtils} from "../../../common/utils/dateTimeUtils";
 
 export type NoteFactoryProps = {
     noteType: string | undefined,
@@ -103,15 +103,15 @@ export const NoteFactory: React.FunctionComponent<NoteFactoryProps> = (props) =>
                                     label="Note"
                                     variant="filled"
                                     defaultValue={values.note}
-                                    onChange={handleChange} />
-                                <br />
+                                    onChange={handleChange}/>
+                                <br/>
                                 <Button type="submit" variant="contained" className="button-submit">
                                     Create
                                 </Button>
                             </form>
                         )
                     }}
-                </Formik >
+                </Formik>
             </div>
         )
     } else {

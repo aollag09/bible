@@ -1,19 +1,18 @@
 
-
-.bible-search-bar{
+.bible-search-bar {
     margin: 4em;
 }
 
-.bible-search-response{
+.bible-search-response {
     font-size: 2em;
 }
 
 
-.bible-search-response ul{
+.bible-search-response ul {
     list-style-type: none;
 }
 
-.bible-search-response li{
+.bible-search-response li {
     text-align: left;
     margin: 1em;
 }

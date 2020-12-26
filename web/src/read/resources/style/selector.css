@@ -1,24 +1,25 @@
 /* BOOK */
 
-.periodic-table{
+.periodic-table {
     display: block;
 }
 
-.book-list-selector{
+.book-list-selector {
     display: none;
 }
 
 
 @media screen and (max-width: 1300px) {
-    .periodic-table{
+    .periodic-table {
         display: none;
     }
-    .book-list-selector{
+
+    .book-list-selector {
         display: block;
     }
 }
 
-.periodic-table ul{
+.periodic-table ul {
     margin-bottom: 2px;
     position: relative;
     text-align: center;
@@ -33,7 +34,7 @@
     color: #787878;
 }
 
-.periodic-table-old-testament{
+.periodic-table-old-testament {
     font-size: 4em;
     writing-mode: vertical-rl;
     text-orientation: mixed;
@@ -42,7 +43,7 @@
     text-transform: uppercase;
 }
 
-.periodic-table-new-testament{
+.periodic-table-new-testament {
     font-size: 4em;
     writing-mode: vertical-rl;
     text-orientation: mixed;
@@ -50,7 +51,7 @@
     text-transform: uppercase;
 }
 
-.periodic-book-box{
+.periodic-book-box {
     border: solid;
     border-width: 1px;
     border-radius: 7%;
@@ -62,33 +63,32 @@
     background-color: #1e1e1e;
 }
 
-.periodic-book-wrapper{
+.periodic-book-wrapper {
     padding-top: 0.5em;
 }
 
-.periodic-book-box:hover{
+.periodic-book-box:hover {
     border-color: #5f6063;
     box-shadow: 0 1px 2px 0 #5f6063, 0 1px 2px 0 #5f6063;
 }
 
 .periodic-book-box:hover .periodic-book-bigramme,
- .periodic-book-box:hover .periodic-book-author,
- .periodic-book-box:hover .periodic-book-chapter
- {
+.periodic-book-box:hover .periodic-book-author,
+.periodic-book-box:hover .periodic-book-chapter {
     color: #818289;
 }
 
-.periodic-book-bigramme{
+.periodic-book-bigramme {
     color: #505050;
     font-size: 3.3em;
 }
 
-.periodic-book-author{
+.periodic-book-author {
     color: #505050;
     font-size: 1em;
 }
 
-.periodic-book-chapter{
+.periodic-book-chapter {
     color: #505050;
     font-size: 1em;
 }
@@ -96,7 +96,7 @@
 
 /* VERSION */
 
-.version-list-language ul{
+.version-list-language ul {
     display: inherit;
     margin-bottom: 2px;
     position: relative;
@@ -110,17 +110,17 @@
     color: #787878;
 }
 
-.version-language{
+.version-language {
     font-size: 2.5em;
     color: #787878;
     text-transform: capitalize;
 }
 
-.version-language-td{
+.version-language-td {
     text-align: right;
 }
 
-.version-box-box{
+.version-box-box {
     border: solid;
     border-width: 1px;
     border-radius: 5%;
@@ -130,36 +130,35 @@
     background-color: #1e1e1e;
 }
 
-.version-box-box:hover{
+.version-box-box:hover {
     border-color: #5f6063;
     box-shadow: 0 1px 2px 0 #5f6063, 0 1px 2px 0 #5f6063;
 }
 
-.version-box-abbreviation{
+.version-box-abbreviation {
     color: #505050;
     font-size: 3em;
 }
 
-.version-box-name{
+.version-box-name {
     color: #505050;
     font-size: 0.9em;
 }
 
 .version-box-box:hover .version-box-abbreviation,
-.version-box-box:hover .version-box-name
- {
+.version-box-box:hover .version-box-name {
     color: #818289;
 }
 
 
 /* CHAPTER */
 
-.chapter-list{
+.chapter-list {
     margin: 3em;
     max-width: 850px;
 }
 
-.chapter-list ul{
+.chapter-list ul {
     display: inherit;
     margin-bottom: 2px;
     position: relative;
@@ -173,7 +172,7 @@
     color: #787878;
 }
 
-.chapter-button{
+.chapter-button {
     border: solid;
     border-width: 1px;
     border-radius: 5%;
@@ -183,17 +182,17 @@
     background-color: #1e1e1e;
 }
 
-.chapter-id{
+.chapter-id {
     color: #505050;
     font-size: 3em;
 }
 
-.chapter-button:hover{
+.chapter-button:hover {
     border-color: #5f6063;
     box-shadow: 0 1px 2px 0 #5f6063, 0 1px 2px 0 #5f6063;
 }
 
-.chapter-button:hover .chapter-id{
+.chapter-button:hover .chapter-id {
     color: #818289;
 }
 

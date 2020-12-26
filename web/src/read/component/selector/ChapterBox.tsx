@@ -5,7 +5,7 @@ type ChapterBoxProp = {
     onClick: () => void
 }
 
-export class ChapterBox extends React.Component<ChapterBoxProp>{
+export class ChapterBox extends React.Component<ChapterBoxProp> {
 
     render() {
         return (

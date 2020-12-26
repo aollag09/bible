@@ -1,6 +1,6 @@
 import React from "react"
-import { Note } from "../../../common/generated/services/note/note_pb"
-import { NoteIcon } from "./NoteIcon"
+import {Note} from "../../../common/generated/services/note/note_pb"
+import {NoteIcon} from "./NoteIcon"
 
 type NoteIconsProps = {
     notes: Array<Note>
@@ -26,7 +26,7 @@ export const NoteIcons: React.FunctionComponent<NoteIconsProps> = (props) => {
         const elements = new Array<JSX.Element>();
         const notebytype = groupByType()
         notebytype.forEach((notes, type) => {
-            elements.push(<NoteIcon notes={notes} type={type} />)
+            elements.push(<NoteIcon notes={notes} type={type}/>)
         })
         return elements;
     }

@@ -1,8 +1,8 @@
 import CloseIcon from '@material-ui/icons/Close';
-import React, { Component } from "react";
-import { TaggerForm } from "./TaggerForm";
-import { TaggerSelection } from "./TaggerSelection";
-import { VerseSelection } from '../reader/VerseSelection';
+import React, {Component} from "react";
+import {TaggerForm} from "./TaggerForm";
+import {TaggerSelection} from "./TaggerSelection";
+import {VerseSelection} from '../reader/VerseSelection';
 
 type TaggerBarProp = {
     showTagger: boolean,
@@ -13,7 +13,7 @@ type TaggerBarProp = {
 }
 
 
-export class TaggerBar extends Component<TaggerBarProp>{
+export class TaggerBar extends Component<TaggerBarProp> {
 
     render() {
         return (
@@ -31,13 +31,13 @@ export class TaggerBar extends Component<TaggerBarProp>{
                 <TaggerSelection
                     book={this.props.book}
                     chapter={this.props.chapter}
-                    verseSelections= {this.props.verseSelections}
+                    verseSelections={this.props.verseSelections}
                 />
 
                 <TaggerForm
                     book={this.props.book}
                     chapter={this.props.chapter}
-                    verseSelections= {this.props.verseSelections}
+                    verseSelections={this.props.verseSelections}
                     cleanSelection={this.props.cleanSelection}/>
             </div>
         );

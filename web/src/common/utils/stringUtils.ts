@@ -1,6 +1,4 @@
-
-
-export class StringUtils{
+export class StringUtils {
 
     public static capitalize(s: string): string {
         if (typeof s !== 'string') return ''

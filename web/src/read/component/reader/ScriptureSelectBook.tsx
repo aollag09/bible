@@ -1,9 +1,9 @@
 import useFetch from 'fetch-suspense';
-import { Message } from 'google-protobuf';
+import {Message} from 'google-protobuf';
 import React from "react";
-import { Book, Books } from "../../../common/generated/services/book/book_pb";
-import { BibleAPI } from "../../../common/utils/bibleAPI";
-import { Key } from '../../../common/utils/key';
+import {Book, Books} from "../../../common/generated/services/book/book_pb";
+import {BibleAPI} from "../../../common/utils/bibleAPI";
+import {Key} from '../../../common/utils/key';
 
 type ScriptureSelectBookProp = {
     version: number,
@@ -13,7 +13,7 @@ type ScriptureSelectBookProp = {
 }
 
 
-export class ScriptureSelectBook extends React.Component<ScriptureSelectBookProp>{
+export class ScriptureSelectBook extends React.Component<ScriptureSelectBookProp> {
 
     private books: Books;
 
@@ -30,7 +30,7 @@ export class ScriptureSelectBook extends React.Component<ScriptureSelectBookProp
                 <option
                     key={Key.getKey("version", book.getId())}
                     className="scripture-select-option"
-                    value={book.getId()} >  {this.getOptionName(book)}
+                    value={book.getId()}>  {this.getOptionName(book)}
                 </option>)
         })
 
@@ -38,7 +38,7 @@ export class ScriptureSelectBook extends React.Component<ScriptureSelectBookProp
             <div className="scripture-select scripture-book-select">
                 <select
                     onChange={this.handleChange}
-                    value={this.props.book} >
+                    value={this.props.book}>
                     {options}
                 </select>
 

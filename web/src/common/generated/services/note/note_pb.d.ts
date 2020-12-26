@@ -4,80 +4,105 @@
 import * as jspb from "google-protobuf";
 
 export class Note extends jspb.Message {
-  getId(): number;
-  setId(value: number): void;
+    static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
+    static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
 
-  getOwner(): number;
-  setOwner(value: number): void;
+    static toObject(includeInstance: boolean, msg: Note): Note.AsObject;
 
-  getCreated(): number;
-  setCreated(value: number): void;
+    static serializeBinaryToWriter(message: Note, writer: jspb.BinaryWriter): void;
 
-  getModified(): number;
-  setModified(value: number): void;
+    static deserializeBinary(bytes: Uint8Array): Note;
 
-  getStart(): string;
-  setStart(value: string): void;
+    static deserializeBinaryFromReader(message: Note, reader: jspb.BinaryReader): Note;
 
-  getEnd(): string;
-  setEnd(value: string): void;
+    getId(): number;
 
-  getBook(): number;
-  setBook(value: number): void;
+    setId(value: number): void;
 
-  getChapter(): number;
-  setChapter(value: number): void;
+    getOwner(): number;
 
-  getType(): string;
-  setType(value: string): void;
+    setOwner(value: number): void;
 
-  getNote(): string;
-  setNote(value: string): void;
+    getCreated(): number;
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Note.AsObject;
-  static toObject(includeInstance: boolean, msg: Note): Note.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Note, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Note;
-  static deserializeBinaryFromReader(message: Note, reader: jspb.BinaryReader): Note;
+    setCreated(value: number): void;
+
+    getModified(): number;
+
+    setModified(value: number): void;
+
+    getStart(): string;
+
+    setStart(value: string): void;
+
+    getEnd(): string;
+
+    setEnd(value: string): void;
+
+    getBook(): number;
+
+    setBook(value: number): void;
+
+    getChapter(): number;
+
+    setChapter(value: number): void;
+
+    getType(): string;
+
+    setType(value: string): void;
+
+    getNote(): string;
+
+    setNote(value: string): void;
+
+    serializeBinary(): Uint8Array;
+
+    toObject(includeInstance?: boolean): Note.AsObject;
 }
 
 export namespace Note {
-  export type AsObject = {
-    id: number,
-    owner: number,
-    created: number,
-    modified: number,
-    start: string,
-    end: string,
-    book: number,
-    chapter: number,
-    type: string,
-    note: string,
-  }
+    export type AsObject = {
+        id: number,
+        owner: number,
+        created: number,
+        modified: number,
+        start: string,
+        end: string,
+        book: number,
+        chapter: number,
+        type: string,
+        note: string,
+    }
 }
 
 export class Notes extends jspb.Message {
-  clearNotesList(): void;
-  getNotesList(): Array<Note>;
-  setNotesList(value: Array<Note>): void;
-  addNotes(value?: Note, index?: number): Note;
+    static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
+    static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Notes.AsObject;
-  static toObject(includeInstance: boolean, msg: Notes): Notes.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Notes, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Notes;
-  static deserializeBinaryFromReader(message: Notes, reader: jspb.BinaryReader): Notes;
+    static toObject(includeInstance: boolean, msg: Notes): Notes.AsObject;
+
+    static serializeBinaryToWriter(message: Notes, writer: jspb.BinaryWriter): void;
+
+    static deserializeBinary(bytes: Uint8Array): Notes;
+
+    static deserializeBinaryFromReader(message: Notes, reader: jspb.BinaryReader): Notes;
+
+    clearNotesList(): void;
+
+    getNotesList(): Array<Note>;
+
+    setNotesList(value: Array<Note>): void;
+
+    addNotes(value?: Note, index?: number): Note;
+
+    serializeBinary(): Uint8Array;
+
+    toObject(includeInstance?: boolean): Notes.AsObject;
 }
 
 export namespace Notes {
-  export type AsObject = {
-    notesList: Array<Note.AsObject>,
-  }
+    export type AsObject = {
+        notesList: Array<Note.AsObject>,
+    }
 }
 

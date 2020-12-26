@@ -4,80 +4,105 @@
 import * as jspb from "google-protobuf";
 
 export class Version extends jspb.Message {
-  getId(): number;
-  setId(value: number): void;
+    static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
+    static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
 
-  getTable(): string;
-  setTable(value: string): void;
+    static toObject(includeInstance: boolean, msg: Version): Version.AsObject;
 
-  getAbbreviation(): string;
-  setAbbreviation(value: string): void;
+    static serializeBinaryToWriter(message: Version, writer: jspb.BinaryWriter): void;
 
-  getLanguage(): string;
-  setLanguage(value: string): void;
+    static deserializeBinary(bytes: Uint8Array): Version;
 
-  getVersion(): string;
-  setVersion(value: string): void;
+    static deserializeBinaryFromReader(message: Version, reader: jspb.BinaryReader): Version;
 
-  getInfoText(): string;
-  setInfoText(value: string): void;
+    getId(): number;
 
-  getInfoUrl(): string;
-  setInfoUrl(value: string): void;
+    setId(value: number): void;
 
-  getPublisher(): string;
-  setPublisher(value: string): void;
+    getTable(): string;
 
-  getCopyright(): string;
-  setCopyright(value: string): void;
+    setTable(value: string): void;
 
-  getCopyrightInfo(): string;
-  setCopyrightInfo(value: string): void;
+    getAbbreviation(): string;
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Version.AsObject;
-  static toObject(includeInstance: boolean, msg: Version): Version.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Version, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Version;
-  static deserializeBinaryFromReader(message: Version, reader: jspb.BinaryReader): Version;
+    setAbbreviation(value: string): void;
+
+    getLanguage(): string;
+
+    setLanguage(value: string): void;
+
+    getVersion(): string;
+
+    setVersion(value: string): void;
+
+    getInfoText(): string;
+
+    setInfoText(value: string): void;
+
+    getInfoUrl(): string;
+
+    setInfoUrl(value: string): void;
+
+    getPublisher(): string;
+
+    setPublisher(value: string): void;
+
+    getCopyright(): string;
+
+    setCopyright(value: string): void;
+
+    getCopyrightInfo(): string;
+
+    setCopyrightInfo(value: string): void;
+
+    serializeBinary(): Uint8Array;
+
+    toObject(includeInstance?: boolean): Version.AsObject;
 }
 
 export namespace Version {
-  export type AsObject = {
-    id: number,
-    table: string,
-    abbreviation: string,
-    language: string,
-    version: string,
-    infoText: string,
-    infoUrl: string,
-    publisher: string,
-    copyright: string,
-    copyrightInfo: string,
-  }
+    export type AsObject = {
+        id: number,
+        table: string,
+        abbreviation: string,
+        language: string,
+        version: string,
+        infoText: string,
+        infoUrl: string,
+        publisher: string,
+        copyright: string,
+        copyrightInfo: string,
+    }
 }
 
 export class Versions extends jspb.Message {
-  clearVersionsList(): void;
-  getVersionsList(): Array<Version>;
-  setVersionsList(value: Array<Version>): void;
-  addVersions(value?: Version, index?: number): Version;
+    static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
+    static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Versions.AsObject;
-  static toObject(includeInstance: boolean, msg: Versions): Versions.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Versions, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Versions;
-  static deserializeBinaryFromReader(message: Versions, reader: jspb.BinaryReader): Versions;
+    static toObject(includeInstance: boolean, msg: Versions): Versions.AsObject;
+
+    static serializeBinaryToWriter(message: Versions, writer: jspb.BinaryWriter): void;
+
+    static deserializeBinary(bytes: Uint8Array): Versions;
+
+    static deserializeBinaryFromReader(message: Versions, reader: jspb.BinaryReader): Versions;
+
+    clearVersionsList(): void;
+
+    getVersionsList(): Array<Version>;
+
+    setVersionsList(value: Array<Version>): void;
+
+    addVersions(value?: Version, index?: number): Version;
+
+    serializeBinary(): Uint8Array;
+
+    toObject(includeInstance?: boolean): Versions.AsObject;
 }
 
 export namespace Versions {
-  export type AsObject = {
-    versionsList: Array<Version.AsObject>,
-  }
+    export type AsObject = {
+        versionsList: Array<Version.AsObject>,
+    }
 }
 

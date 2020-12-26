@@ -1,4 +1,4 @@
-import { Message } from "google-protobuf";
+import {Message} from "google-protobuf";
 
 export class ProtoUtils {
 

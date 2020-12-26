@@ -1,11 +1,10 @@
-
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip } from "@material-ui/core";
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle, Tooltip} from "@material-ui/core";
 import LabelIcon from '@material-ui/icons/Label';
-import React, { useState } from "react";
-import { Tag } from "../../../common/generated/services/tag/tag_pb";
-import { StringUtils } from "../../../common/utils/stringUtils";
-import { TagCaseUtils } from "../../../common/utils/tagCaseUtils";
-import { TagsDialog } from "./TagsDialog";
+import React, {useState} from "react";
+import {Tag} from "../../../common/generated/services/tag/tag_pb";
+import {StringUtils} from "../../../common/utils/stringUtils";
+import {TagCaseUtils} from "../../../common/utils/tagCaseUtils";
+import {TagsDialog} from "./TagsDialog";
 
 type TagIconProp = {
     tags: Array<Tag>
@@ -45,13 +44,13 @@ export const TagIcon: React.FunctionComponent<TagIconProp> = (props) => {
     return (
         <div className="tag-label-icon-container">
             <Tooltip title={getToolTip()} onClick={handleOpen} aria-label="nb-tags" placement="top">
-                <LabelIcon className="tag-label-icon" />
+                <LabelIcon className="tag-label-icon"/>
             </Tooltip>
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
                 <DialogTitle id="scroll-dialog-title"> Tags </DialogTitle>
                 <DialogContent dividers={true}>
-                    <TagsDialog tags={props.tags} handleClose={handleClose} />
+                    <TagsDialog tags={props.tags} handleClose={handleClose}/>
                 </DialogContent>
 
                 <DialogActions>

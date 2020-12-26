@@ -1,10 +1,9 @@
-
-import { List, ListItem, ListItemText } from "@material-ui/core";
+import {List, ListItem, ListItemText} from "@material-ui/core";
 import Axios from "axios";
-import { Message } from "google-protobuf";
-import React, { useEffect, useState } from "react";
-import { Books } from "../../../common/generated/services/book/book_pb";
-import { BibleAPI } from "../../../common/utils/bibleAPI";
+import {Message} from "google-protobuf";
+import React, {useEffect, useState} from "react";
+import {Books} from "../../../common/generated/services/book/book_pb";
+import {BibleAPI} from "../../../common/utils/bibleAPI";
 
 type BookListSelectorProp = {
     handleBookSelect: (bookid: number) => void,
@@ -12,7 +11,7 @@ type BookListSelectorProp = {
 
 /**
  * Simple list selector for mobile
- * @param props 
+ * @param props
  */
 export const BookListSelector: React.FunctionComponent<BookListSelectorProp> = (props) => {
 
@@ -35,8 +34,9 @@ export const BookListSelector: React.FunctionComponent<BookListSelectorProp> = (
     if (books) {
         books.getBooksList().forEach(book => {
             bookList.push(
-                <ListItem button key={"list-item-book" + book.getId()} onClick={() => props.handleBookSelect(book.getId())}>
-                    <ListItemText key={"list-item-text-book-" + book.getId()} primary={book.getName()} />
+                <ListItem button key={"list-item-book" + book.getId()}
+                          onClick={() => props.handleBookSelect(book.getId())}>
+                    <ListItemText key={"list-item-text-book-" + book.getId()} primary={book.getName()}/>
                 </ListItem>
             )
         })

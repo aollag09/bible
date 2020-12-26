@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 
 type VersionBoxProps = {
@@ -17,7 +17,7 @@ export class VersionBox extends Component<VersionBoxProps> {
                 className="version-box-box"
                 onClick={this.props.onClick}>
                 <span className="version-box-abbreviation">{this.props.abbreviation}</span>
-                <br />
+                <br/>
                 <span className="version-box-name">{this.props.name}</span>
             </div>
         );

@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React, {useState} from "react"
 import SearchBar from "material-ui-search-bar"
 import Axios from "axios";
-import { BibleAPI } from "../../common/utils/bibleAPI";
-import { Scriptures } from "../../common/generated/services/scriptures/scriptures_pb";
-import { Message } from "google-protobuf";
+import {BibleAPI} from "../../common/utils/bibleAPI";
+import {Scriptures} from "../../common/generated/services/scriptures/scriptures_pb";
+import {Message} from "google-protobuf";
 
 export const BibleSearchBar: React.FunctionComponent = (props) => {
 

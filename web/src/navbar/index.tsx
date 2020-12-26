@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './resources/style/navbar.css'
 import home from './resources/image/logo-home.png'
 import read from './resources/image/logo-read.png'
@@ -17,32 +17,32 @@ export class Navbar extends React.Component {
                 <ul>
                     <li>
                         <Link to={'/'} className="nav-link">
-                            <img className="nav-bar-item" alt="home" src={home} />
+                            <img className="nav-bar-item" alt="home" src={home}/>
                         </Link>
                     </li>
                     <li>
                         <Link to={'/read'} className="nav-link">
-                            <img className="nav-bar-item" alt="read" src={read} />
+                            <img className="nav-bar-item" alt="read" src={read}/>
                         </Link>
                     </li>
                     <li>
                         <Link to={'/search'} className="nav-link">
-                            <img className="nav-bar-item" alt="search" src={search} />
+                            <img className="nav-bar-item" alt="search" src={search}/>
                         </Link>
                     </li>
                     <li>
                         <Link to={'/explore'} className="nav-link">
-                            <img className="nav-bar-item" alt="explore" src={explore} />
+                            <img className="nav-bar-item" alt="explore" src={explore}/>
                         </Link>
                     </li>
                     <li>
                         <Link to={'/people'} className="nav-link">
-                            <img className="nav-bar-item" alt="people" src={people} />
+                            <img className="nav-bar-item" alt="people" src={people}/>
                         </Link>
                     </li>
                     <li>
                         <Link to={'/map'} className="nav-link">
-                            <img className="nav-bar-item" alt="map" src={map} />
+                            <img className="nav-bar-item" alt="map" src={map}/>
                         </Link>
                     </li>
                 </ul>

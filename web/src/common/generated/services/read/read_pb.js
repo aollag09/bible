@@ -24,55 +24,55 @@ goog.exportSymbol('proto.bible.Reads', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.bible.Read = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+proto.bible.Read = function (opt_data) {
+    jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.bible.Read, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.bible.Read.displayName = 'proto.bible.Read';
+    proto.bible.Read.displayName = 'proto.bible.Read';
 }
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.bible.Read.prototype.toObject = function(opt_includeInstance) {
-  return proto.bible.Read.toObject(opt_includeInstance, this);
-};
+    /**
+     * Creates an object representation of this proto suitable for use in Soy templates.
+     * Field names that are reserved in JavaScript and will be renamed to pb_name.
+     * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+     * For the list of reserved names please see:
+     *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+     * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+     *     for transitional soy proto support: http://goto/soy-param-migration
+     * @return {!Object}
+     */
+    proto.bible.Read.prototype.toObject = function (opt_includeInstance) {
+        return proto.bible.Read.toObject(opt_includeInstance, this);
+    };
 
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.bible.Read} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.bible.Read.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    id: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    owner: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    version: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    book: jspb.Message.getFieldWithDefault(msg, 4, 0),
-    chapter: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    created: jspb.Message.getFieldWithDefault(msg, 6, 0)
-  };
+    /**
+     * Static version of the {@see toObject} method.
+     * @param {boolean|undefined} includeInstance Whether to include the JSPB
+     *     instance for transitional soy proto support:
+     *     http://goto/soy-param-migration
+     * @param {!proto.bible.Read} msg The msg instance to transform.
+     * @return {!Object}
+     * @suppress {unusedLocalVariables} f is only used for nested messages
+     */
+    proto.bible.Read.toObject = function (includeInstance, msg) {
+        var f, obj = {
+            id: jspb.Message.getFieldWithDefault(msg, 1, 0),
+            owner: jspb.Message.getFieldWithDefault(msg, 2, 0),
+            version: jspb.Message.getFieldWithDefault(msg, 3, 0),
+            book: jspb.Message.getFieldWithDefault(msg, 4, 0),
+            chapter: jspb.Message.getFieldWithDefault(msg, 5, 0),
+            created: jspb.Message.getFieldWithDefault(msg, 6, 0)
+        };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+        if (includeInstance) {
+            obj.$jspbMessageInstance = msg;
+        }
+        return obj;
+    };
 }
 
 
@@ -81,10 +81,10 @@ proto.bible.Read.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.bible.Read}
  */
-proto.bible.Read.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.bible.Read;
-  return proto.bible.Read.deserializeBinaryFromReader(msg, reader);
+proto.bible.Read.deserializeBinary = function (bytes) {
+    var reader = new jspb.BinaryReader(bytes);
+    var msg = new proto.bible.Read;
+    return proto.bible.Read.deserializeBinaryFromReader(msg, reader);
 };
 
 
@@ -95,43 +95,43 @@ proto.bible.Read.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.bible.Read}
  */
-proto.bible.Read.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.bible.Read.deserializeBinaryFromReader = function (msg, reader) {
+    while (reader.nextField()) {
+        if (reader.isEndGroup()) {
+            break;
+        }
+        var field = reader.getFieldNumber();
+        switch (field) {
+            case 1:
+                var value = /** @type {number} */ (reader.readInt32());
+                msg.setId(value);
+                break;
+            case 2:
+                var value = /** @type {number} */ (reader.readInt32());
+                msg.setOwner(value);
+                break;
+            case 3:
+                var value = /** @type {number} */ (reader.readInt32());
+                msg.setVersion(value);
+                break;
+            case 4:
+                var value = /** @type {number} */ (reader.readInt32());
+                msg.setBook(value);
+                break;
+            case 5:
+                var value = /** @type {number} */ (reader.readInt32());
+                msg.setChapter(value);
+                break;
+            case 6:
+                var value = /** @type {number} */ (reader.readInt64());
+                msg.setCreated(value);
+                break;
+            default:
+                reader.skipField();
+                break;
+        }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setId(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setOwner(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setVersion(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setBook(value);
-      break;
-    case 5:
-      var value = /** @type {number} */ (reader.readInt32());
-      msg.setChapter(value);
-      break;
-    case 6:
-      var value = /** @type {number} */ (reader.readInt64());
-      msg.setCreated(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
+    return msg;
 };
 
 
@@ -139,10 +139,10 @@ proto.bible.Read.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.bible.Read.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.bible.Read.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
+proto.bible.Read.prototype.serializeBinary = function () {
+    var writer = new jspb.BinaryWriter();
+    proto.bible.Read.serializeBinaryToWriter(this, writer);
+    return writer.getResultBuffer();
 };
 
 
@@ -153,50 +153,50 @@ proto.bible.Read.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Read.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getId();
-  if (f !== 0) {
-    writer.writeInt32(
-      1,
-      f
-    );
-  }
-  f = message.getOwner();
-  if (f !== 0) {
-    writer.writeInt32(
-      2,
-      f
-    );
-  }
-  f = message.getVersion();
-  if (f !== 0) {
-    writer.writeInt32(
-      3,
-      f
-    );
-  }
-  f = message.getBook();
-  if (f !== 0) {
-    writer.writeInt32(
-      4,
-      f
-    );
-  }
-  f = message.getChapter();
-  if (f !== 0) {
-    writer.writeInt32(
-      5,
-      f
-    );
-  }
-  f = message.getCreated();
-  if (f !== 0) {
-    writer.writeInt64(
-      6,
-      f
-    );
-  }
+proto.bible.Read.serializeBinaryToWriter = function (message, writer) {
+    var f = undefined;
+    f = message.getId();
+    if (f !== 0) {
+        writer.writeInt32(
+            1,
+            f
+        );
+    }
+    f = message.getOwner();
+    if (f !== 0) {
+        writer.writeInt32(
+            2,
+            f
+        );
+    }
+    f = message.getVersion();
+    if (f !== 0) {
+        writer.writeInt32(
+            3,
+            f
+        );
+    }
+    f = message.getBook();
+    if (f !== 0) {
+        writer.writeInt32(
+            4,
+            f
+        );
+    }
+    f = message.getChapter();
+    if (f !== 0) {
+        writer.writeInt32(
+            5,
+            f
+        );
+    }
+    f = message.getCreated();
+    if (f !== 0) {
+        writer.writeInt64(
+            6,
+            f
+        );
+    }
 };
 
 
@@ -204,14 +204,14 @@ proto.bible.Read.serializeBinaryToWriter = function(message, writer) {
  * optional int32 id = 1;
  * @return {number}
  */
-proto.bible.Read.prototype.getId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+proto.bible.Read.prototype.getId = function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
 
 /** @param {number} value */
-proto.bible.Read.prototype.setId = function(value) {
-  jspb.Message.setProto3IntField(this, 1, value);
+proto.bible.Read.prototype.setId = function (value) {
+    jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
@@ -219,14 +219,14 @@ proto.bible.Read.prototype.setId = function(value) {
  * optional int32 owner = 2;
  * @return {number}
  */
-proto.bible.Read.prototype.getOwner = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+proto.bible.Read.prototype.getOwner = function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
 /** @param {number} value */
-proto.bible.Read.prototype.setOwner = function(value) {
-  jspb.Message.setProto3IntField(this, 2, value);
+proto.bible.Read.prototype.setOwner = function (value) {
+    jspb.Message.setProto3IntField(this, 2, value);
 };
 
 
@@ -234,14 +234,14 @@ proto.bible.Read.prototype.setOwner = function(value) {
  * optional int32 version = 3;
  * @return {number}
  */
-proto.bible.Read.prototype.getVersion = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+proto.bible.Read.prototype.getVersion = function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
 };
 
 
 /** @param {number} value */
-proto.bible.Read.prototype.setVersion = function(value) {
-  jspb.Message.setProto3IntField(this, 3, value);
+proto.bible.Read.prototype.setVersion = function (value) {
+    jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
@@ -249,14 +249,14 @@ proto.bible.Read.prototype.setVersion = function(value) {
  * optional int32 book = 4;
  * @return {number}
  */
-proto.bible.Read.prototype.getBook = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+proto.bible.Read.prototype.getBook = function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
 };
 
 
 /** @param {number} value */
-proto.bible.Read.prototype.setBook = function(value) {
-  jspb.Message.setProto3IntField(this, 4, value);
+proto.bible.Read.prototype.setBook = function (value) {
+    jspb.Message.setProto3IntField(this, 4, value);
 };
 
 
@@ -264,14 +264,14 @@ proto.bible.Read.prototype.setBook = function(value) {
  * optional int32 chapter = 5;
  * @return {number}
  */
-proto.bible.Read.prototype.getChapter = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+proto.bible.Read.prototype.getChapter = function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
 /** @param {number} value */
-proto.bible.Read.prototype.setChapter = function(value) {
-  jspb.Message.setProto3IntField(this, 5, value);
+proto.bible.Read.prototype.setChapter = function (value) {
+    jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
@@ -279,16 +279,15 @@ proto.bible.Read.prototype.setChapter = function(value) {
  * optional int64 created = 6;
  * @return {number}
  */
-proto.bible.Read.prototype.getCreated = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+proto.bible.Read.prototype.getCreated = function () {
+    return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /** @param {number} value */
-proto.bible.Read.prototype.setCreated = function(value) {
-  jspb.Message.setProto3IntField(this, 6, value);
+proto.bible.Read.prototype.setCreated = function (value) {
+    jspb.Message.setProto3IntField(this, 6, value);
 };
-
 
 
 /**
@@ -301,12 +300,12 @@ proto.bible.Read.prototype.setCreated = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.bible.Reads = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.bible.Reads.repeatedFields_, null);
+proto.bible.Reads = function (opt_data) {
+    jspb.Message.initialize(this, opt_data, 0, -1, proto.bible.Reads.repeatedFields_, null);
 };
 goog.inherits(proto.bible.Reads, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.bible.Reads.displayName = 'proto.bible.Reads';
+    proto.bible.Reads.displayName = 'proto.bible.Reads';
 }
 /**
  * List of repeated fields within this message type.
@@ -316,43 +315,42 @@ if (goog.DEBUG && !COMPILED) {
 proto.bible.Reads.repeatedFields_ = [1];
 
 
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.bible.Reads.prototype.toObject = function(opt_includeInstance) {
-  return proto.bible.Reads.toObject(opt_includeInstance, this);
-};
+    /**
+     * Creates an object representation of this proto suitable for use in Soy templates.
+     * Field names that are reserved in JavaScript and will be renamed to pb_name.
+     * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+     * For the list of reserved names please see:
+     *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+     * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+     *     for transitional soy proto support: http://goto/soy-param-migration
+     * @return {!Object}
+     */
+    proto.bible.Reads.prototype.toObject = function (opt_includeInstance) {
+        return proto.bible.Reads.toObject(opt_includeInstance, this);
+    };
 
 
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.bible.Reads} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.bible.Reads.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    readsList: jspb.Message.toObjectList(msg.getReadsList(),
-    proto.bible.Read.toObject, includeInstance)
-  };
+    /**
+     * Static version of the {@see toObject} method.
+     * @param {boolean|undefined} includeInstance Whether to include the JSPB
+     *     instance for transitional soy proto support:
+     *     http://goto/soy-param-migration
+     * @param {!proto.bible.Reads} msg The msg instance to transform.
+     * @return {!Object}
+     * @suppress {unusedLocalVariables} f is only used for nested messages
+     */
+    proto.bible.Reads.toObject = function (includeInstance, msg) {
+        var f, obj = {
+            readsList: jspb.Message.toObjectList(msg.getReadsList(),
+                proto.bible.Read.toObject, includeInstance)
+        };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
+        if (includeInstance) {
+            obj.$jspbMessageInstance = msg;
+        }
+        return obj;
+    };
 }
 
 
@@ -361,10 +359,10 @@ proto.bible.Reads.toObject = function(includeInstance, msg) {
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.bible.Reads}
  */
-proto.bible.Reads.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.bible.Reads;
-  return proto.bible.Reads.deserializeBinaryFromReader(msg, reader);
+proto.bible.Reads.deserializeBinary = function (bytes) {
+    var reader = new jspb.BinaryReader(bytes);
+    var msg = new proto.bible.Reads;
+    return proto.bible.Reads.deserializeBinaryFromReader(msg, reader);
 };
 
 
@@ -375,24 +373,24 @@ proto.bible.Reads.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.bible.Reads}
  */
-proto.bible.Reads.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
+proto.bible.Reads.deserializeBinaryFromReader = function (msg, reader) {
+    while (reader.nextField()) {
+        if (reader.isEndGroup()) {
+            break;
+        }
+        var field = reader.getFieldNumber();
+        switch (field) {
+            case 1:
+                var value = new proto.bible.Read;
+                reader.readMessage(value, proto.bible.Read.deserializeBinaryFromReader);
+                msg.addReads(value);
+                break;
+            default:
+                reader.skipField();
+                break;
+        }
     }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = new proto.bible.Read;
-      reader.readMessage(value,proto.bible.Read.deserializeBinaryFromReader);
-      msg.addReads(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
+    return msg;
 };
 
 
@@ -400,10 +398,10 @@ proto.bible.Reads.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.bible.Reads.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.bible.Reads.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
+proto.bible.Reads.prototype.serializeBinary = function () {
+    var writer = new jspb.BinaryWriter();
+    proto.bible.Reads.serializeBinaryToWriter(this, writer);
+    return writer.getResultBuffer();
 };
 
 
@@ -414,16 +412,16 @@ proto.bible.Reads.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.bible.Reads.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getReadsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      1,
-      f,
-      proto.bible.Read.serializeBinaryToWriter
-    );
-  }
+proto.bible.Reads.serializeBinaryToWriter = function (message, writer) {
+    var f = undefined;
+    f = message.getReadsList();
+    if (f.length > 0) {
+        writer.writeRepeatedMessage(
+            1,
+            f,
+            proto.bible.Read.serializeBinaryToWriter
+        );
+    }
 };
 
 
@@ -431,15 +429,15 @@ proto.bible.Reads.serializeBinaryToWriter = function(message, writer) {
  * repeated Read reads = 1;
  * @return {!Array<!proto.bible.Read>}
  */
-proto.bible.Reads.prototype.getReadsList = function() {
-  return /** @type{!Array<!proto.bible.Read>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.bible.Read, 1));
+proto.bible.Reads.prototype.getReadsList = function () {
+    return /** @type{!Array<!proto.bible.Read>} */ (
+        jspb.Message.getRepeatedWrapperField(this, proto.bible.Read, 1));
 };
 
 
 /** @param {!Array<!proto.bible.Read>} value */
-proto.bible.Reads.prototype.setReadsList = function(value) {
-  jspb.Message.setRepeatedWrapperField(this, 1, value);
+proto.bible.Reads.prototype.setReadsList = function (value) {
+    jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
 
 
@@ -448,13 +446,13 @@ proto.bible.Reads.prototype.setReadsList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.bible.Read}
  */
-proto.bible.Reads.prototype.addReads = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.bible.Read, opt_index);
+proto.bible.Reads.prototype.addReads = function (opt_value, opt_index) {
+    return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.bible.Read, opt_index);
 };
 
 
-proto.bible.Reads.prototype.clearReadsList = function() {
-  this.setReadsList([]);
+proto.bible.Reads.prototype.clearReadsList = function () {
+    this.setReadsList([]);
 };
 
 

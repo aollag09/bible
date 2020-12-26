@@ -1,7 +1,4 @@
-
-
 export class BibleAPI {
-
 
 
     private static protocol = "http"

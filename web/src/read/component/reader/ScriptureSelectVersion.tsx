@@ -1,10 +1,10 @@
 import React from "react";
-import { Versions, Version } from "../../../common/generated/services/version/version_pb";
-import { Message } from "google-protobuf";
+import {Version, Versions} from "../../../common/generated/services/version/version_pb";
+import {Message} from "google-protobuf";
 import useFetch from 'fetch-suspense'
-import { BibleAPI } from "../../../common/utils/bibleAPI";
-import { Key } from "../../../common/utils/key";
-import { StringUtils } from "../../../common/utils/stringUtils";
+import {BibleAPI} from "../../../common/utils/bibleAPI";
+import {Key} from "../../../common/utils/key";
+import {StringUtils} from "../../../common/utils/stringUtils";
 
 type ScriptureSelectVersionProp = {
     version: number,
@@ -15,7 +15,7 @@ type ScriptureSelectVersionProp = {
 
 
 export class ScriptureSelectVersion
-    extends React.Component<ScriptureSelectVersionProp>{
+    extends React.Component<ScriptureSelectVersionProp> {
 
     private versions: Versions;
 
@@ -29,17 +29,17 @@ export class ScriptureSelectVersion
         let options: JSX.Element[] = []
         this.versions.getVersionsList().forEach(v => {
             options.push(<option
-                key={Key.getKey("version",v.getId())}
+                key={Key.getKey("version", v.getId())}
                 className="scripture-select-option"
                 value={v.getId()}> {this.getOptionName(v)}
             </option>)
         })
 
         return (
-            <div className="scripture-select scripture-version-select" >
+            <div className="scripture-select scripture-version-select">
                 <select
                     onChange={this.handleChange}
-                    value={this.props.version} >
+                    value={this.props.version}>
                     {options}
                 </select>
 

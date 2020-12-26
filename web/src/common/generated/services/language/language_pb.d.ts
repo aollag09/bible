@@ -4,48 +4,65 @@
 import * as jspb from "google-protobuf";
 
 export class Language extends jspb.Message {
-  getId(): number;
-  setId(value: number): void;
+    static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
+    static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
 
-  getName(): string;
-  setName(value: string): void;
+    static toObject(includeInstance: boolean, msg: Language): Language.AsObject;
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Language.AsObject;
-  static toObject(includeInstance: boolean, msg: Language): Language.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Language, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Language;
-  static deserializeBinaryFromReader(message: Language, reader: jspb.BinaryReader): Language;
+    static serializeBinaryToWriter(message: Language, writer: jspb.BinaryWriter): void;
+
+    static deserializeBinary(bytes: Uint8Array): Language;
+
+    static deserializeBinaryFromReader(message: Language, reader: jspb.BinaryReader): Language;
+
+    getId(): number;
+
+    setId(value: number): void;
+
+    getName(): string;
+
+    setName(value: string): void;
+
+    serializeBinary(): Uint8Array;
+
+    toObject(includeInstance?: boolean): Language.AsObject;
 }
 
 export namespace Language {
-  export type AsObject = {
-    id: number,
-    name: string,
-  }
+    export type AsObject = {
+        id: number,
+        name: string,
+    }
 }
 
 export class Languages extends jspb.Message {
-  clearLanguagesList(): void;
-  getLanguagesList(): Array<Language>;
-  setLanguagesList(value: Array<Language>): void;
-  addLanguages(value?: Language, index?: number): Language;
+    static extensions: { [key: number]: jspb.ExtensionFieldInfo<jspb.Message> };
+    static extensionsBinary: { [key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message> };
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Languages.AsObject;
-  static toObject(includeInstance: boolean, msg: Languages): Languages.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Languages, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Languages;
-  static deserializeBinaryFromReader(message: Languages, reader: jspb.BinaryReader): Languages;
+    static toObject(includeInstance: boolean, msg: Languages): Languages.AsObject;
+
+    static serializeBinaryToWriter(message: Languages, writer: jspb.BinaryWriter): void;
+
+    static deserializeBinary(bytes: Uint8Array): Languages;
+
+    static deserializeBinaryFromReader(message: Languages, reader: jspb.BinaryReader): Languages;
+
+    clearLanguagesList(): void;
+
+    getLanguagesList(): Array<Language>;
+
+    setLanguagesList(value: Array<Language>): void;
+
+    addLanguages(value?: Language, index?: number): Language;
+
+    serializeBinary(): Uint8Array;
+
+    toObject(includeInstance?: boolean): Languages.AsObject;
 }
 
 export namespace Languages {
-  export type AsObject = {
-    languagesList: Array<Language.AsObject>,
-  }
+    export type AsObject = {
+        languagesList: Array<Language.AsObject>,
+    }
 }
 

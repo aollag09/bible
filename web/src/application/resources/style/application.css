@@ -1,27 +1,27 @@
 .bible-site-container {
-  text-align: center;
+    text-align: center;
 }
 
 .header {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 .content {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  font-size: calc(1vmin);
-  color: #787878;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    font-size: calc(1vmin);
+    color: #787878;
 }
 
-.footer{
-  background-color: transparent
+.footer {
+    background-color: transparent
 }
 
 html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-  min-height: 100%;
-  min-width: 320px;
+    max-width: 100%;
+    overflow-x: hidden;
+    min-height: 100%;
+    min-width: 320px;
 }

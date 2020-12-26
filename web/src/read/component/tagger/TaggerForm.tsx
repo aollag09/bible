@@ -1,8 +1,7 @@
-
 import React from "react"
-import { TagToggle } from "./TagToggle"
-import { VerseSelection } from "../reader/VerseSelection"
-import { NoteToggle } from "./NoteToggle"
+import {TagToggle} from "./TagToggle"
+import {VerseSelection} from "../reader/VerseSelection"
+import {NoteToggle} from "./NoteToggle"
 
 type TaggerFormProp = {
     book: number,
@@ -14,13 +13,13 @@ type TaggerFormProp = {
 export const TaggerForm: React.FunctionComponent<TaggerFormProp> = props => {
 
     return (
-        <div className="tagger-form" >
+        <div className="tagger-form">
             <h3> Create Note</h3>
             <NoteToggle
                 book={props.book}
                 chapter={props.chapter}
                 verseSelections={props.verseSelections}
-                cleanSelection={props.cleanSelection} />
+                cleanSelection={props.cleanSelection}/>
 
             <h3> Create Tag</h3>
             <TagToggle
